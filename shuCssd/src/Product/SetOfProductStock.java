@@ -27,8 +27,8 @@ public class SetOfProductStock extends Vector<ProductStockImp> implements Serial
           
             this.elementAt(this.indexOf(aProduct)).setDate(date);
             this.elementAt(this.indexOf(aProduct)).setProductID(id);
-            this.elementAt(this.indexOf(aProduct)).setPrice(price);
-            this.elementAt(this.indexOf(aProduct)).setQuantity(qty);
+//            this.elementAt(this.indexOf(aProduct)).setPrice(price);
+//            this.elementAt(this.indexOf(aProduct)).setQuantity(qty);
 
             status = "success";
         } catch (Exception ex) {

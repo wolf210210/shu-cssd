@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class ProductsImp implements Products,Serializable {
+public class ProductsImp implements Serializable {
 
     private static final long serialVersionUID = -47594027994670654L;
     private static int productCount = 0;
@@ -40,52 +40,30 @@ public class ProductsImp implements Products,Serializable {
 
     
 
-    @Override
-    public void registerObserver(productObserver observer) {
-        observerList.add(observer);
-    }
+ 
 
-    @Override
-    public void removeObserver(productObserver observer) {
-        observerList.remove(observer);
-    }
-
-    @Override
-    public void setStatus(String status) {
- if(status.equals("Yes"))
-        {
-        this.state = status;
-            notifyObservers();
-        }
-        else
-        {
-            notifyObserversRemove();
-            System.out.print("edgeg");
-    
-        }
-    }
+//    @Override
+//    public void setStatus(String status) {
+// if(status.equals("Yes"))
+//        {
+//        this.state = status;
+//            notifyObservers();
+//        }
+//        else
+//        {
+//            notifyObserversRemove();
+//            System.out.print("edgeg");
+//    
+//        }
+//    }
 
     
-    @Override
+//    @Override
     public String getStatus() {
         return this.state;
     }
 
-    public void notifyObservers() {
-        Iterator<productObserver> iterator = observerList.iterator();
-        while (iterator.hasNext()) {
-            productObserver observer = (productObserver) iterator.next();
-            observer.update(this);
-        }
-    }
-    
-    public void notifyObserversRemove() {
-        Iterator<productObserver> iterator = observerList.iterator();
-        while (iterator.hasNext()) {
-            productObserver observer = (productObserver) iterator.next();
-            observer.reduceQuntity(this);
-        }
-    }
+  
 
     
     public String getName() {
@@ -94,12 +72,10 @@ public class ProductsImp implements Products,Serializable {
     }
 
  
-    @Override
    public double getPrice() {
         return uprice;
     }
 
-    @Override
     public double getQuantity() {
         return totqty;
     }
@@ -134,12 +110,12 @@ public class ProductsImp implements Products,Serializable {
 
     }
 
-    @Override
+//    @Override
     public void setPrice(double price) {
         this.uprice = price;
     }
 
-    @Override
+//    @Override
     public void setQuantity(double qty) {
         this.totqty = qty;
     }
@@ -157,7 +133,7 @@ public class ProductsImp implements Products,Serializable {
         this.productNumber = productNumber;
     }
     
-    @Override
+//    @Override
     public void print() {
     System.out.println(productNumber+" "+name+"File deserilized");
     }

@@ -29,7 +29,7 @@ public class NewJFrame extends javax.swing.JFrame {
      public static ProductsImp products = new ProductsImp();
     public static final String FILE_NAME_Products = "DataFiles/Products.txt";
     private SetOfProducts productSet = new SetOfProducts();
-    private Serialization serialize = new Serialization();
+//    private Serialization serialize = new Serialization();
     JFileChooser chooser;
     FileNameExtensionFilter filter;
     FileInputStream fis;

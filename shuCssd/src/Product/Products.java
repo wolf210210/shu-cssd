@@ -17,7 +17,7 @@ public interface Products {
      public void setQuantity(double quantity);
 
     public double getQuantity();
-    
+   
     public void print();
 
 }

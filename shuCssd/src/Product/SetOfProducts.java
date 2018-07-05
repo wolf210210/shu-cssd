@@ -1,17 +1,19 @@
 package Product;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Vector;
 
 /**
  *
  * @author Lakmi
  */
-public class SetOfProducts extends Vector<ProductsImp> implements Serializable {
+public class SetOfProducts extends Vector<ProductsImp> implements Products , Serializable {
     
     private static final long serialVersionUID = 2428035439452881234L;
     SetOfProducts productSet;
-    
+     List<productObserver> observerList = new ArrayList<productObserver>();
     public SetOfProducts() {
         super();
     }
@@ -59,7 +61,50 @@ public class SetOfProducts extends Vector<ProductsImp> implements Serializable {
         return productSet;
     }
     
-    public boolean removeProduct(ProductsImp pro) {
-        return super.remove(pro);
+    
+    @Override
+    public void registerObserver(productObserver observer) {
+           observerList.remove(observer);
     }
+
+    @Override
+    public void removeObserver(productObserver observer) {
+       observerList.remove(observer);
+    }
+
+    @Override
+    public void setStatus(String status) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String getStatus() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setPrice(double price) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public double getPrice() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setQuantity(double quantity) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public double getQuantity() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void print() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
 }

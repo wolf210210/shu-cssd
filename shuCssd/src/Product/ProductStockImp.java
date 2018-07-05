@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author Lakmi
  */
-public class ProductStockImp implements Products,Serializable {
+public class ProductStockImp implements Serializable {
 
     private static final long serialVersionUID = -47594027994670654L;
 
@@ -37,84 +37,84 @@ public class ProductStockImp implements Products,Serializable {
         this.stockNo = ++stockCount;
     }
 
-    @Override
-    public void registerObserver(productObserver observer) {
-        observerList.add(observer);
-    }
+//    @Override
+//    public void registerObserver(productObserver observer) {
+//        observerList.add(observer);
+//    }
+//
+//    @Override
+//    public void removeObserver(productObserver observer) {
+//        observerList.remove(observer);
+//    }
+//
+//    @Override
+//    public void setStatus(String status) {
+//        if(status.equals("Yes"))
+//        {
+//        this.state = status;
+//            notifyObservers();
+//        }
+//        else
+//        {
+//            notifyObserversRemove();
+//            System.out.print("edgeg");
+//    
+//        }
+//    }
+//
+//    @Override
+//    public void print() {
+//        System.out.println();
+//    }
+//
+//    @Override
+//    public String toString() {
+//        return Integer.toString(stockNo) + " " + productID;
+//    }
 
-    @Override
-    public void removeObserver(productObserver observer) {
-        observerList.remove(observer);
-    }
-
-    @Override
-    public void setStatus(String status) {
-        if(status.equals("Yes"))
-        {
-        this.state = status;
-            notifyObservers();
-        }
-        else
-        {
-            notifyObserversRemove();
-            System.out.print("edgeg");
-    
-        }
-    }
-
-    @Override
-    public void print() {
-        System.out.println();
-    }
-
-    @Override
-    public String toString() {
-        return Integer.toString(stockNo) + " " + productID;
-    }
-
-    public String getStatus() {
-        return this.state;
-    }
-
-    public void notifyObservers() {
-        Iterator<productObserver> iterator = observerList.iterator();
-        while (iterator.hasNext()) {
-            productObserver observer = (productObserver) iterator.next();
-            observer.update(this);
-        }
-    }
-
-     public void notifyObserversRemove() {
-        Iterator<productObserver> iterator = observerList.iterator();
-        while (iterator.hasNext()) {
-            productObserver observer = (productObserver) iterator.next();
-            observer.reduceQuntity(this);
-        }
-    }
-     
-    @Override
-    public double getPrice() {
-        return price;
-    }
-
-    @Override
-    public double getQuantity() {
-        return qty;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    @Override
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    @Override
-    public void setQuantity(double qty) {
-        this.qty = qty;
-    }
+//    public String getStatus() {
+//        return this.state;
+//    }
+//
+//    public void notifyObservers() {
+//        Iterator<productObserver> iterator = observerList.iterator();
+//        while (iterator.hasNext()) {
+//            productObserver observer = (productObserver) iterator.next();
+//            observer.update(this);
+//        }
+//    }
+//
+//     public void notifyObserversRemove() {
+//        Iterator<productObserver> iterator = observerList.iterator();
+//        while (iterator.hasNext()) {
+//            productObserver observer = (productObserver) iterator.next();
+//            observer.reduceQuntity(this);
+//        }
+//    }
+//     
+//    @Override
+//    public double getPrice() {
+//        return price;
+//    }
+//
+//    @Override
+//    public double getQuantity() {
+//        return qty;
+//    }
+//
+//    public String getDate() {
+//        return date;
+//    }
+//
+//    @Override
+//    public void setPrice(double price) {
+//        this.price = price;
+//    }
+//
+//    @Override
+//    public void setQuantity(double qty) {
+//        this.qty = qty;
+//    }
 
     public void setDate(String date) {
         this.date = date;

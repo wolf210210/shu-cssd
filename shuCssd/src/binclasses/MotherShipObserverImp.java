@@ -1,0 +1,75 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package binclasses;
+
+
+
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import serialization.Serialization;
+
+/**
+ *
+ * @author wolf
+ */
+public class MotherShipObserverImp implements Mothership{
+
+     private int productID;
+    private String state;
+    private double quantity, price;
+
+    private static final String FILE_NAME_Products = "DataFiles/Products.txt";
+    private SensorMonitor productSet = new SensorMonitor();
+
+    public MotherShipObserverImp(int productID) {
+        this.productID = productID;
+    }
+
+    
+    @Override
+    public void update(SensorStation sensorStation) {
+          this.state = sensorStation.getStatus();
+        this.quantity = sensorStation.getQuantity();
+        this.price = sensorStation.getPrice();
+
+        try {
+            for (Sensor sensor : Serialization.deserializeProducts()) {
+
+                productSet.add(sensor);
+
+            }
+
+        } catch (IOException | ClassNotFoundException ex) {
+            Logger.getLogger(MotherShipObserverImp.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        for (Sensor sensor : productSet) {
+            if (sensor.getProductNo() == productID) {
+                sensor.setAvalability("Yes");
+                sensor.setPrice(price);
+                double oldQuantity = sensor.getQuantity();
+                sensor.setQuantity((oldQuantity + quantity));
+
+                try {
+                    Serialization.Serialize(productSet, FILE_NAME_Products);
+                    for (Sensor SensorUp : Serialization.deserializeProducts()) {
+                        System.out
+                                .println("Observer recieved state change of subject ID is = "
+                                        + SensorUp.getProductNo() + " Availability = " + SensorUp.getStatus() + " Price = " + SensorUp.getPrice() + " Quantity = " + SensorUp.getQuantity());
+
+                    }
+                } catch (IOException | ClassNotFoundException ex) {
+                    Logger.getLogger(SensorMonitor.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+                break;
+            }
+
+        }
+    }
+    
+}

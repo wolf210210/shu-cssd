@@ -6,7 +6,8 @@
 package serialization;
 
 import Product.SetOfProductStock;
-import Product.SetOfProducts;
+import binclasses.SensorMonitor;
+
 
 //import farm.SetOfFarm;
 //import Classes.fertilizer.SetOfFertilizer;
@@ -51,12 +52,12 @@ public class Serialization {
      * @throws java.io.IOException
      * @throws java.lang.ClassNotFoundException
      */
-    public static SetOfProducts deserializeProducts() throws IOException, ClassNotFoundException {
+    public static SensorMonitor deserializeProducts() throws IOException, ClassNotFoundException {
 
-        SetOfProducts products;
+        SensorMonitor products;
         try (FileInputStream in = new FileInputStream("DataFiles/Products.txt")) {
             ObjectInputStream ois = new ObjectInputStream(in);
-            products = (SetOfProducts) ois
+            products = (SensorMonitor) ois
                     .readObject();
         }
 
