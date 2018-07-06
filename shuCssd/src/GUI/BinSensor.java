@@ -5,6 +5,8 @@
  */
 package GUI;
 
+import javax.swing.JLabel;
+
 /**
  *
  * @author Piyu
@@ -16,6 +18,7 @@ public class BinSensor extends javax.swing.JFrame {
      */
     public BinSensor() {
         initComponents();
+       
     }
 
     /**
@@ -27,19 +30,108 @@ public class BinSensor extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        add = new javax.swing.JButton();
+        reset = new javax.swing.JButton();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1366, 830));
         getContentPane().setLayout(null);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Back.png"))); // NOI18N
-        jLabel1.setPreferredSize(new java.awt.Dimension(1366, 830));
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(-4, 0, 1370, 820);
+        add.setBackground(new java.awt.Color(0, 102, 153));
+        add.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
+        add.setForeground(new java.awt.Color(255, 255, 255));
+        add.setText("Sensor Station");
+        add.setContentAreaFilled(false);
+        add.setOpaque(true);
+        add.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addMouseClicked(evt);
+            }
+        });
+        getContentPane().add(add);
+        add.setBounds(510, 420, 310, 40);
+
+        reset.setBackground(new java.awt.Color(0, 102, 153));
+        reset.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
+        reset.setForeground(new java.awt.Color(255, 255, 255));
+        reset.setText("Data Analysis");
+        reset.setContentAreaFilled(false);
+        reset.setOpaque(true);
+        reset.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                resetMouseClicked(evt);
+            }
+        });
+        reset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resetActionPerformed(evt);
+            }
+        });
+        getContentPane().add(reset);
+        reset.setBounds(510, 490, 310, 40);
+
+        jLabel13.setFont(new java.awt.Font("Segoe UI Light", 0, 17)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(0, 102, 0));
+        jLabel13.setText("www.Elegantro.com/BinSensor.html");
+        jLabel13.setToolTipText("");
+        getContentPane().add(jLabel13);
+        jLabel13.setBounds(170, 20, 270, 40);
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/kk.png"))); // NOI18N
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(470, 110, 400, 150);
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel2.setText("BIN SENSOR");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(510, 330, 310, 70);
+
+        jPanel1.setPreferredSize(new java.awt.Dimension(1366, 830));
+        jPanel1.setLayout(null);
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Back.png"))); // NOI18N
+        jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel9MouseClicked(evt);
+            }
+        });
+        jPanel1.add(jLabel9);
+        jLabel9.setBounds(0, 0, 1370, 810);
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(0, 30, 30, 30);
+
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(0, 0, 1366, 830);
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMouseClicked
+         SensorStation a = new SensorStation();
+         a.setVisible(true);
+   
+    
+    }//GEN-LAST:event_addMouseClicked
+
+    private void resetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resetMouseClicked
+
+    }//GEN-LAST:event_resetMouseClicked
+
+    private void resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_resetActionPerformed
+
+    private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
+        
+    }//GEN-LAST:event_jLabel9MouseClicked
 
     /**
      * @param args the command line arguments
@@ -77,6 +169,13 @@ public class BinSensor extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton add;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton reset;
     // End of variables declaration//GEN-END:variables
 }

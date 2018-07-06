@@ -30,14 +30,14 @@ public class ForgotPassword extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         txtsenderEmail = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         txtVerificationCode1 = new javax.swing.JTextField();
+        add1 = new javax.swing.JButton();
+        add3 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -53,28 +53,9 @@ public class ForgotPassword extends javax.swing.JFrame {
         jPanel1.add(jLabel4);
         jLabel4.setBounds(470, 290, 430, 60);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logo.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/kk.png"))); // NOI18N
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(590, 80, 180, 190);
-
-        jButton1.setBackground(new java.awt.Color(0, 102, 102));
-        jButton1.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Send");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton1);
-        jButton1.setBounds(880, 410, 120, 40);
-
-        jButton2.setBackground(new java.awt.Color(0, 102, 102));
-        jButton2.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Ok");
-        jPanel1.add(jButton2);
-        jButton2.setBounds(880, 490, 120, 40);
+        jLabel2.setBounds(510, 100, 370, 180);
 
         jLabel8.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(153, 0, 0));
@@ -82,15 +63,15 @@ public class ForgotPassword extends javax.swing.JFrame {
         jPanel1.add(jLabel8);
         jLabel8.setBounds(400, 360, 570, 32);
 
-        jLabel10.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
         jLabel10.setText("Enter email address  :");
         jPanel1.add(jLabel10);
-        jLabel10.setBounds(320, 420, 230, 28);
+        jLabel10.setBounds(290, 420, 260, 32);
 
-        jLabel11.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
         jLabel11.setText("Verification code       :");
         jPanel1.add(jLabel11);
-        jLabel11.setBounds(320, 500, 230, 28);
+        jLabel11.setBounds(290, 500, 260, 32);
 
         txtsenderEmail.setFont(new java.awt.Font("Segoe UI Light", 0, 16)); // NOI18N
         txtsenderEmail.setForeground(new java.awt.Color(102, 102, 102));
@@ -120,6 +101,39 @@ public class ForgotPassword extends javax.swing.JFrame {
         jPanel1.add(txtVerificationCode1);
         txtVerificationCode1.setBounds(550, 420, 290, 30);
 
+        add1.setBackground(new java.awt.Color(0, 102, 102));
+        add1.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
+        add1.setForeground(new java.awt.Color(255, 255, 255));
+        add1.setText("Ok");
+        add1.setContentAreaFilled(false);
+        add1.setOpaque(true);
+        add1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                add1MouseClicked(evt);
+            }
+        });
+        jPanel1.add(add1);
+        add1.setBounds(890, 490, 110, 40);
+
+        add3.setBackground(new java.awt.Color(0, 102, 102));
+        add3.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
+        add3.setForeground(new java.awt.Color(255, 255, 255));
+        add3.setText("Send");
+        add3.setContentAreaFilled(false);
+        add3.setOpaque(true);
+        add3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                add3MouseClicked(evt);
+            }
+        });
+        add3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add3ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(add3);
+        add3.setBounds(890, 410, 110, 40);
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Back.png"))); // NOI18N
         jLabel1.setText("jLabel1");
         jPanel1.add(jLabel1);
@@ -143,9 +157,17 @@ public class ForgotPassword extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtVerificationCode1ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void add1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_add1MouseClicked
+
+    }//GEN-LAST:event_add1MouseClicked
+
+    private void add3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_add3MouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_add3MouseClicked
+
+    private void add3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_add3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -183,8 +205,8 @@ public class ForgotPassword extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton add1;
+    private javax.swing.JButton add3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

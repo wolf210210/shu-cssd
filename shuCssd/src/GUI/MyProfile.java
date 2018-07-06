@@ -29,15 +29,17 @@ public class MyProfile extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         reset = new javax.swing.JButton();
-        mobile = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        password = new javax.swing.JTextField();
-        email = new javax.swing.JTextField();
-        city = new javax.swing.JTextField();
-        address = new javax.swing.JTextField();
-        lastName = new javax.swing.JTextField();
-        firstName = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
@@ -45,7 +47,6 @@ public class MyProfile extends javax.swing.JFrame {
         jLabel29 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        Update1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -54,10 +55,10 @@ public class MyProfile extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(0, 102, 102));
         jPanel1.setLayout(null);
 
-        reset.setBackground(new java.awt.Color(0, 102, 102));
-        reset.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
+        reset.setBackground(new java.awt.Color(0, 102, 153));
+        reset.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
         reset.setForeground(new java.awt.Color(255, 255, 255));
-        reset.setText("Reset");
+        reset.setText("Save Changes");
         reset.setContentAreaFilled(false);
         reset.setOpaque(true);
         reset.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -66,116 +67,95 @@ public class MyProfile extends javax.swing.JFrame {
             }
         });
         jPanel1.add(reset);
-        reset.setBounds(780, 620, 110, 40);
+        reset.setBounds(640, 630, 250, 40);
 
-        mobile.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        mobile.setForeground(new java.awt.Color(102, 102, 102));
-        mobile.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                mobileKeyTyped(evt);
+        jLabel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(640, 580, 250, 30);
+
+        jLabel13.setFont(new java.awt.Font("Segoe UI Light", 0, 17)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(0, 102, 0));
+        jLabel13.setText("www.Elegantro.com/MyProfile.html");
+        jLabel13.setToolTipText("");
+        jPanel1.add(jLabel13);
+        jLabel13.setBounds(170, 20, 270, 40);
+
+        jLabel14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel14MouseClicked(evt);
             }
         });
-        jPanel1.add(mobile);
-        mobile.setBounds(650, 570, 240, 31);
+        jPanel1.add(jLabel14);
+        jLabel14.setBounds(0, 30, 30, 30);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logo.png"))); // NOI18N
+        jLabel12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.add(jLabel12);
+        jLabel12.setBounds(640, 530, 250, 30);
+
+        jLabel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.add(jLabel5);
+        jLabel5.setBounds(640, 280, 250, 30);
+
+        jLabel11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.add(jLabel11);
+        jLabel11.setBounds(640, 480, 250, 30);
+
+        jLabel9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.add(jLabel9);
+        jLabel9.setBounds(640, 380, 250, 30);
+
+        jLabel10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.add(jLabel10);
+        jLabel10.setBounds(640, 430, 250, 30);
+
+        jLabel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.add(jLabel7);
+        jLabel7.setBounds(640, 330, 250, 30);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/kk.png"))); // NOI18N
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(590, 70, 180, 180);
+        jLabel3.setBounds(500, 40, 370, 180);
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel2.setText("Add User");
+        jLabel2.setText("My Profile");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(610, 280, 150, 30);
+        jLabel2.setBounds(600, 230, 170, 40);
 
-        password.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        password.setForeground(new java.awt.Color(102, 102, 102));
-        jPanel1.add(password);
-        password.setBounds(650, 530, 240, 31);
-
-        email.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        email.setForeground(new java.awt.Color(102, 102, 102));
-        email.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                emailActionPerformed(evt);
-            }
-        });
-        jPanel1.add(email);
-        email.setBounds(650, 490, 240, 31);
-
-        city.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        city.setForeground(new java.awt.Color(102, 102, 102));
-        jPanel1.add(city);
-        city.setBounds(650, 450, 240, 31);
-
-        address.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        address.setForeground(new java.awt.Color(102, 102, 102));
-        jPanel1.add(address);
-        address.setBounds(650, 410, 240, 31);
-
-        lastName.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        lastName.setForeground(new java.awt.Color(102, 102, 102));
-        jPanel1.add(lastName);
-        lastName.setBounds(650, 360, 240, 31);
-
-        firstName.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        firstName.setForeground(new java.awt.Color(102, 102, 102));
-        jPanel1.add(firstName);
-        firstName.setBounds(650, 320, 240, 31);
-
-        jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
         jLabel8.setText("First Name          ");
         jPanel1.add(jLabel8);
-        jLabel8.setBounds(490, 320, 140, 30);
+        jLabel8.setBounds(460, 280, 170, 30);
 
-        jLabel19.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel19.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
         jLabel19.setText("Last Name          ");
         jPanel1.add(jLabel19);
-        jLabel19.setBounds(490, 360, 140, 30);
+        jLabel19.setBounds(460, 330, 170, 30);
 
-        jLabel23.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel23.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
         jLabel23.setText("Address              ");
         jPanel1.add(jLabel23);
-        jLabel23.setBounds(490, 410, 150, 30);
+        jLabel23.setBounds(460, 380, 180, 30);
 
-        jLabel28.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel28.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
         jLabel28.setText("City                    ");
         jPanel1.add(jLabel28);
-        jLabel28.setBounds(490, 450, 150, 30);
+        jLabel28.setBounds(460, 430, 180, 30);
 
-        jLabel29.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel29.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
         jLabel29.setText("Email                 ");
         jPanel1.add(jLabel29);
-        jLabel29.setBounds(490, 490, 140, 30);
+        jLabel29.setBounds(460, 480, 170, 30);
 
-        jLabel30.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel30.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
         jLabel30.setText("Password            ");
         jPanel1.add(jLabel30);
-        jLabel30.setBounds(490, 530, 140, 30);
+        jLabel30.setBounds(460, 530, 170, 30);
 
-        jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
         jLabel6.setText("Mobile Number  ");
         jPanel1.add(jLabel6);
-        jLabel6.setBounds(490, 570, 140, 30);
-
-        Update1.setBackground(new java.awt.Color(0, 102, 102));
-        Update1.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
-        Update1.setForeground(new java.awt.Color(255, 255, 255));
-        Update1.setText("Back");
-        Update1.setContentAreaFilled(false);
-        Update1.setOpaque(true);
-        Update1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Update1MouseClicked(evt);
-            }
-        });
-        Update1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Update1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(Update1);
-        Update1.setBounds(650, 620, 110, 40);
+        jLabel6.setBounds(460, 580, 170, 30);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Back.png"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -201,23 +181,10 @@ public class MyProfile extends javax.swing.JFrame {
         
     }//GEN-LAST:event_resetMouseClicked
 
-    private void mobileKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_mobileKeyTyped
-        
-    }//GEN-LAST:event_mobileKeyTyped
-
-    private void Update1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Update1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Update1MouseClicked
-
-    private void Update1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Update1ActionPerformed
-         UserHome m = new UserHome();
-         m.setVisible(true);
-         dispose();
-    }//GEN-LAST:event_Update1ActionPerformed
-
-    private void emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_emailActionPerformed
+    private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
+         UserHome h = new UserHome();
+         h.setVisible(true);
+    }//GEN-LAST:event_jLabel14MouseClicked
 
    
     
@@ -257,12 +224,12 @@ public class MyProfile extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Update1;
-    private javax.swing.JTextField address;
-    private javax.swing.JTextField city;
-    private javax.swing.JTextField email;
-    private javax.swing.JTextField firstName;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel23;
@@ -270,12 +237,13 @@ public class MyProfile extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField lastName;
-    private javax.swing.JTextField mobile;
-    private javax.swing.JTextField password;
     private javax.swing.JButton reset;
     // End of variables declaration//GEN-END:variables
 }

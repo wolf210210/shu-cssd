@@ -39,6 +39,9 @@ public class Registration extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         city = new javax.swing.JTextField();
         jLabel28 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
@@ -61,7 +64,7 @@ public class Registration extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(0, 102, 102));
         jPanel1.setLayout(null);
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
         jLabel8.setText("First Name         ");
         jPanel1.add(jLabel8);
         jLabel8.setBounds(490, 280, 170, 30);
@@ -83,12 +86,12 @@ public class Registration extends javax.swing.JFrame {
         jPanel1.add(lastName);
         lastName.setBounds(690, 320, 240, 29);
 
-        jLabel19.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
+        jLabel19.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
         jLabel19.setText("Last Name           ");
         jPanel1.add(jLabel19);
         jLabel19.setBounds(490, 320, 170, 30);
 
-        jLabel23.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
+        jLabel23.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
         jLabel23.setText("Address            ");
         jPanel1.add(jLabel23);
         jLabel23.setBounds(490, 360, 170, 30);
@@ -104,7 +107,7 @@ public class Registration extends javax.swing.JFrame {
         jPanel1.add(address);
         address.setBounds(690, 360, 240, 29);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
         jLabel1.setText("Sensor Type");
         jPanel1.add(jLabel1);
         jLabel1.setBounds(490, 600, 160, 30);
@@ -113,9 +116,9 @@ public class Registration extends javax.swing.JFrame {
         jPanel1.add(jComboBox1);
         jComboBox1.setBounds(690, 600, 240, 30);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logo.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/kk.png"))); // NOI18N
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(600, 70, 190, 180);
+        jLabel3.setBounds(510, 40, 380, 180);
 
         city.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
         city.setForeground(new java.awt.Color(102, 102, 102));
@@ -128,27 +131,49 @@ public class Registration extends javax.swing.JFrame {
         jPanel1.add(city);
         city.setBounds(690, 400, 240, 29);
 
-        jLabel28.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
+        jLabel28.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
         jLabel28.setText("City                     ");
         jPanel1.add(jLabel28);
         jLabel28.setBounds(490, 400, 170, 30);
 
-        jLabel29.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel4MouseClicked(evt);
+            }
+        });
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(10, 20, 30, 30);
+
+        jLabel13.setFont(new java.awt.Font("Segoe UI Light", 0, 17)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(0, 102, 0));
+        jLabel13.setText("www.Elegantro.com/Registration.html");
+        jLabel13.setToolTipText("");
+        jPanel1.add(jLabel13);
+        jLabel13.setBounds(170, 20, 280, 30);
+
+        jLabel7.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel7.setText("Registration");
+        jPanel1.add(jLabel7);
+        jLabel7.setBounds(640, 220, 190, 60);
+
+        jLabel29.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
         jLabel29.setText("Email                    ");
         jPanel1.add(jLabel29);
         jLabel29.setBounds(490, 440, 170, 30);
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
         jLabel6.setText("Mobile Number        ");
         jPanel1.add(jLabel6);
         jLabel6.setBounds(490, 480, 200, 30);
 
-        jLabel30.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
+        jLabel30.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
         jLabel30.setText("Password             ");
         jPanel1.add(jLabel30);
         jLabel30.setBounds(490, 520, 170, 30);
 
-        jLabel31.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
+        jLabel31.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
         jLabel31.setText("Confirm Password     ");
         jPanel1.add(jLabel31);
         jLabel31.setBounds(490, 560, 200, 30);
@@ -187,7 +212,7 @@ public class Registration extends javax.swing.JFrame {
         jPanel1.add(email);
         email.setBounds(690, 440, 240, 29);
 
-        add.setBackground(new java.awt.Color(0, 102, 102));
+        add.setBackground(new java.awt.Color(0, 102, 153));
         add.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
         add.setForeground(new java.awt.Color(255, 255, 255));
         add.setText("Sign Up");
@@ -201,7 +226,7 @@ public class Registration extends javax.swing.JFrame {
         jPanel1.add(add);
         add.setBounds(690, 650, 110, 40);
 
-        reset.setBackground(new java.awt.Color(0, 102, 102));
+        reset.setBackground(new java.awt.Color(0, 102, 153));
         reset.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
         reset.setForeground(new java.awt.Color(255, 255, 255));
         reset.setText("Reset");
@@ -226,7 +251,7 @@ public class Registration extends javax.swing.JFrame {
         jLabel2.setMinimumSize(new java.awt.Dimension(1411, 815));
         jLabel2.setPreferredSize(new java.awt.Dimension(1411, 815));
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(0, -20, 1360, 850);
+        jLabel2.setBounds(0, 0, 1360, 800);
 
         jLabel9.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
         jLabel9.setText("First Name         ");
@@ -258,12 +283,11 @@ public class Registration extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 30, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void mobileKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_mobileKeyTyped
@@ -297,6 +321,11 @@ public class Registration extends javax.swing.JFrame {
     private void resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_resetActionPerformed
+
+    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+        Home h = new Home();
+        h.setVisible(true);
+    }//GEN-LAST:event_jLabel4MouseClicked
 
     /**
      * @param args the command line arguments
@@ -344,6 +373,7 @@ public class Registration extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel23;
@@ -352,7 +382,9 @@ public class Registration extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
