@@ -5,6 +5,24 @@
  */
 package GUI;
 
+//import static binclasses.NewJFrame.FILE_NAME_Products;
+
+//import java.io.IOException;
+//import javax.swing.table.DefaultTableModel;
+//import javax.swing.table.TableModel;
+//import javax.swing.table.TableRowSorter;
+//import serialization.Serialization;
+import java.io.IOException;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
+import serialization.Serialization;
+import binclasses.Sensor;
+import binclasses.SensorMonitor;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Piyu
@@ -14,8 +32,14 @@ public class AddSensor extends javax.swing.JFrame {
     /**
      * Creates new form AddSensor
      */
+    
+     public static Sensor sensors = new Sensor();
+    public static final String FILE_NAME_Products = "DataFiles/BinSensors.txt";
+    private  SensorMonitor sensorSet = new SensorMonitor();
     public AddSensor() {
         initComponents();
+
+                load();
     }
 
     /**
@@ -27,35 +51,50 @@ public class AddSensor extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        frequencyText = new javax.swing.JTextField();
+        textStatus = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        reset1 = new javax.swing.JButton();
-        jLabel7 = new javax.swing.JLabel();
-        add = new javax.swing.JButton();
-        reset = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel15 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        txtanpName = new javax.swing.JTextField();
+        txtanpId = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        txtanpDes = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblanpSensor = new javax.swing.JTable();
         jLabel9 = new javax.swing.JLabel();
         jTextField4 = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1366, 830));
         setResizable(false);
         getContentPane().setLayout(null);
+        getContentPane().add(frequencyText);
+        frequencyText.setBounds(190, 480, 250, 40);
+        getContentPane().add(textStatus);
+        textStatus.setBounds(190, 432, 250, 30);
+
+        jLabel12.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel12.setText("sENSER ID");
+        getContentPane().add(jLabel12);
+        jLabel12.setBounds(30, 210, 140, 30);
+
+        jLabel11.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel11.setText("Name");
+        getContentPane().add(jLabel11);
+        jLabel11.setBounds(40, 320, 120, 30);
 
         jPanel1.setLayout(null);
 
@@ -66,106 +105,91 @@ public class AddSensor extends javax.swing.JFrame {
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 0, 0);
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel4.setText("Description");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(40, 380, 140, 30);
+        jLabel4.setBounds(40, 370, 140, 30);
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel5.setText("Status");
         getContentPane().add(jLabel5);
         jLabel5.setBounds(40, 430, 120, 30);
 
-        reset1.setBackground(new java.awt.Color(0, 102, 153));
-        reset1.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
-        reset1.setForeground(new java.awt.Color(255, 255, 255));
-        reset1.setText("Remove");
-        reset1.setContentAreaFilled(false);
-        reset1.setOpaque(true);
-        reset1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                reset1MouseClicked(evt);
-            }
-        });
-        reset1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                reset1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(reset1);
-        reset1.setBounds(320, 530, 120, 40);
-
-        jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel7MouseClicked(evt);
-            }
-        });
-        getContentPane().add(jLabel7);
-        jLabel7.setBounds(0, 30, 30, 30);
-
-        add.setBackground(new java.awt.Color(0, 102, 153));
-        add.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
-        add.setForeground(new java.awt.Color(255, 255, 255));
-        add.setText("Add");
-        add.setContentAreaFilled(false);
-        add.setOpaque(true);
-        add.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                addMouseClicked(evt);
-            }
-        });
-        getContentPane().add(add);
-        add.setBounds(40, 530, 110, 40);
-
-        reset.setBackground(new java.awt.Color(0, 102, 153));
-        reset.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
-        reset.setForeground(new java.awt.Color(255, 255, 255));
-        reset.setText("Update");
-        reset.setContentAreaFilled(false);
-        reset.setOpaque(true);
-        reset.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                resetMouseClicked(evt);
-            }
-        });
-        reset.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                resetActionPerformed(evt);
-            }
-        });
-        getContentPane().add(reset);
-        reset.setBounds(180, 530, 110, 40);
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel2.setText("Frequency");
         getContentPane().add(jLabel2);
         jLabel2.setBounds(40, 480, 130, 30);
-        getContentPane().add(jTextField2);
-        jTextField2.setBounds(190, 430, 250, 30);
+        getContentPane().add(txtanpName);
+        txtanpName.setBounds(190, 320, 250, 30);
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        txtanpId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                txtanpIdActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField1);
-        jTextField1.setBounds(190, 380, 250, 30);
+        getContentPane().add(txtanpId);
+        txtanpId.setBounds(190, 210, 250, 30);
 
-        jLabel15.setFont(new java.awt.Font("Segoe UI Light", 0, 17)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(0, 102, 0));
-        jLabel15.setText("www.Elegantro.com/AddSensor.html");
-        jLabel15.setToolTipText("");
-        getContentPane().add(jLabel15);
-        jLabel15.setBounds(170, 20, 280, 40);
-        getContentPane().add(jTextField3);
-        jTextField3.setBounds(190, 480, 250, 30);
+        jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel7.setText("Add Sensor");
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(170, 270, 200, 40);
+        getContentPane().add(txtanpDes);
+        txtanpDes.setBounds(190, 370, 250, 30);
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/kk.png"))); // NOI18N
+        jButton1.setBackground(new java.awt.Color(0, 102, 102));
+        jButton1.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("Add");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(40, 540, 120, 40);
+
+        jButton2.setBackground(new java.awt.Color(0, 102, 102));
+        jButton2.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setText("Update");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2);
+        jButton2.setBounds(190, 540, 120, 40);
+
+        jButton3.setBackground(new java.awt.Color(0, 102, 102));
+        jButton3.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
+        jButton3.setText("Remove");
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton3MouseClicked(evt);
+            }
+        });
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton3);
+        jButton3.setBounds(340, 540, 110, 40);
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logo.png"))); // NOI18N
         jLabel6.setText("jLabel6");
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(480, 80, 380, 110);
+        jLabel6.setBounds(590, 70, 160, 190);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblanpSensor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -176,85 +200,206 @@ public class AddSensor extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        tblanpSensor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblanpSensorMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tblanpSensor);
 
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(530, 370, 760, 230);
 
-        jLabel9.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel9.setText("Search");
         getContentPane().add(jLabel9);
-        jLabel9.setBounds(660, 320, 120, 30);
+        jLabel9.setBounds(530, 320, 120, 30);
         getContentPane().add(jTextField4);
-        jTextField4.setBounds(780, 320, 270, 30);
+        jTextField4.setBounds(650, 320, 270, 30);
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon.png"))); // NOI18N
         getContentPane().add(jLabel10);
-        jLabel10.setBounds(1100, 310, 45, 50);
-
-        jLabel8.setBackground(new java.awt.Color(204, 204, 204));
-        jLabel8.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        getContentPane().add(jLabel8);
-        jLabel8.setBounds(410, 210, 540, 40);
-
-        jLabel12.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
-        jLabel12.setText("    Bin Sensor");
-        getContentPane().add(jLabel12);
-        jLabel12.setBounds(390, 200, 180, 50);
-
-        jLabel14.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel14.setText("Flood Sensor");
-        getContentPane().add(jLabel14);
-        jLabel14.setBounds(780, 200, 190, 50);
-
-        jLabel13.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel13.setText("Emergency Sensor");
-        getContentPane().add(jLabel13);
-        jLabel13.setBounds(560, 200, 220, 50);
+        jLabel10.setBounds(970, 310, 45, 50);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Back.png"))); // NOI18N
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
+        });
         getContentPane().add(jLabel3);
         jLabel3.setBounds(0, 0, 1360, 810);
+
+        jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel8.setText("Status");
+        getContentPane().add(jLabel8);
+        jLabel8.setBounds(40, 430, 120, 30);
+
+        jTextField1.setText("jTextField1");
+        getContentPane().add(jTextField1);
+        jTextField1.setBounds(190, 372, 250, 40);
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+
+
+
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMouseClicked
-
-    }//GEN-LAST:event_addMouseClicked
-
-    private void resetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resetMouseClicked
-
-    }//GEN-LAST:event_resetMouseClicked
-
-    private void resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetActionPerformed
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_resetActionPerformed
+    }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void reset1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reset1MouseClicked
+    private void txtanpIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtanpIdActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_reset1MouseClicked
+    }//GEN-LAST:event_txtanpIdActionPerformed
 
-    private void reset1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reset1ActionPerformed
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+
+   String name, description , frequency;
+        if (txtanpName.getText().isEmpty()) {
+            //            JOptionPane.showMessageDialog(this, "Please provide the name...", "Error", JOptionPane.ERROR_MESSAGE);
+            System.out.println("Please provide the name...");
+        } else {
+            name = txtanpName.getText();
+            description = txtanpDes.getText();
+            frequency =  frequencyText.getText();
+            //            Icon icon = imageIcon.getIcon();
+
+            sensorSet.registerObserver(new Sensor(name, description, Double.parseDouble(frequency),textStatus.getText()));
+
+            try {
+                Serialization.Serialize(sensorSet, FILE_NAME_Products);
+
+                System.out.println("Add Sucsessfully");
+
+            } catch (IOException ex) {
+                //                Logger.getLogger(AddNewProduct.class.getName()).log(Level.SEVERE, null, ex);
+                //                JOptionPane.showMessageDialog(this, "Unsuccessful...", "Error", JOptionPane.ERROR_MESSAGE);
+                System.out.println("Add Sucsessfully");
+            }
+
+            loadAddSensor(sensorSet);
+
+        }
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+              String name, description;
+              
+              name = txtanpName.getText();
+              description = txtanpDes.getText();
+        
+        
+           Sensor sensor = sensorSet.getProductFromID(Integer.parseInt(txtanpId.getText())).firstElement();
+
+            String status = sensorSet.updateProducts(sensor, name, description);
+            System.out.println(status);
+               if (status.equals("success")) {
+                    try {
+                        Serialization.Serialize(sensorSet, FILE_NAME_Products);
+                    } catch (IOException ex) {
+                        Logger.getLogger(AddSensor.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    JOptionPane.showMessageDialog(this, "You have updated successful", "Congradulations", JOptionPane.INFORMATION_MESSAGE);
+                  //  clear();
+                    loadAddSensor(sensorSet);
+
+                } else {
+                    JOptionPane.showMessageDialog(this, "Update unsuccessful...", "Error", JOptionPane.ERROR_MESSAGE);
+                }
         // TODO add your handling code here:
-    }//GEN-LAST:event_reset1ActionPerformed
+    }//GEN-LAST:event_jButton2MouseClicked
 
-    private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
-        SensorStation s = new SensorStation();
-        s.setVisible(true);
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+           
+        
+        Sensor sensor = sensorSet.getProductFromID(Integer.parseInt(txtanpId.getText())).firstElement();
+                System.out.println("delete product" + sensor);
                 
-    }//GEN-LAST:event_jLabel7MouseClicked
+                  if (sensorSet.removeProduct(sensor)) {
+                    try {
+                        Serialization.Serialize(sensorSet, FILE_NAME_Products);
+                    } catch (IOException ex) {
+                        Logger.getLogger(AddSensor.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    loadAddSensor(sensorSet);
+                    JOptionPane.showMessageDialog(this, "Delete Sucsessfully", "Message", JOptionPane.PLAIN_MESSAGE);
+                
 
+                } else {
+                    JOptionPane.showMessageDialog(this, "Delete unsuccessful...", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3MouseClicked
+
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel3MouseClicked
+
+    private void tblanpSensorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblanpSensorMouseClicked
+     
+          DefaultTableModel dtModel= (DefaultTableModel) tblanpSensor.getModel();
+           int row = tblanpSensor.getSelectedRow();
+        txtanpId.setText(tblanpSensor.getValueAt(row, 0).toString());
+        txtanpName.setText(tblanpSensor.getValueAt(row, 1).toString());
+        txtanpDes.setText(tblanpSensor.getValueAt(row, 3).toString());
+          frequencyText.setText(tblanpSensor.getValueAt(row, 4).toString());
+
+
+    }//GEN-LAST:event_tblanpSensorMouseClicked
+
+       private void loadAddSensor(SensorMonitor sensorMoni) {
+
+        String[] colName = {"SensorID", "Name", "Status", "Description",  "Frequency"};
+        Object[][] object = new Object[sensorMoni.size()][6];
+        int i = 0;
+        if (sensorMoni.size() != 0) {
+            for (Sensor sensors : sensorMoni) {
+                object[i][0] = sensors.getSensorNo();
+                object[i][1] = sensors.getName();
+                object[i][2] = sensors.getStatus();
+                object[i][3] = sensors.getdescription();
+                object[i][4] = sensors.getfrequency();
+                i++;
+
+            }
+        }
+
+        DefaultTableModel model = new DefaultTableModel(object, colName) {
+            public boolean isCellEditable(int row, int column) {
+                return false;//This causes all cells to be not editable
+            }
+        };
+        tblanpSensor.setModel(model);
+        tblanpSensor.setRowSorter(new TableRowSorter<TableModel>(model));
+        tblanpSensor.setAutoscrolls(true);
+        tblanpSensor.getTableHeader().setReorderingAllowed(false);
+
+    }
+    
+       
+        public void load(){
+        try { 
+             for (Sensor products : Serialization.deserializeBinSensors()) {
+                         sensorSet.registerObserver(products);
+//                          products.print();
+            }
+        } catch (IOException | ClassNotFoundException  ex) {
+            JOptionPane.showMessageDialog(this, ex);
+        
+        }
+         
+          loadAddSensor(sensorSet);
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -291,13 +436,14 @@ public class AddSensor extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton add;
+    private javax.swing.JTextField frequencyText;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -308,12 +454,12 @@ public class AddSensor extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
-    private javax.swing.JButton reset;
-    private javax.swing.JButton reset1;
+    private javax.swing.JTable tblanpSensor;
+    private javax.swing.JTextField textStatus;
+    private javax.swing.JTextField txtanpDes;
+    private javax.swing.JTextField txtanpId;
+    private javax.swing.JTextField txtanpName;
     // End of variables declaration//GEN-END:variables
 }

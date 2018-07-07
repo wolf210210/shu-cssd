@@ -213,7 +213,7 @@ public class NewJFrame extends javax.swing.JFrame {
             description = txtanpDes.getText();
             //            Icon icon = imageIcon.getIcon();
 
-            sensorSet.addProducts(new Sensor(name, description, 6, 5.00, "No"));
+            sensorSet.registerObserver(new Sensor(name, description, 6, 5.00, "No"));
 
             try {
                 Serialization.Serialize(sensorSet, FILE_NAME_Products);
@@ -240,17 +240,16 @@ public class NewJFrame extends javax.swing.JFrame {
     
         private void loadAddProduct(SensorMonitor products) {
 
-        String[] colName = {"SensorID", "Name", "Description", "Unit Price", "Total Quantity", "Avalability"};
+        String[] colName = {"SensorID", "Name", "Status", "Description",  "Frequency"};
         Object[][] object = new Object[products.size()][6];
         int i = 0;
         if (products.size() != 0) {
             for (Sensor product : products) {
                 object[i][0] = product.getProductNo();
                 object[i][1] = product.getName();
-                object[i][2] = product.getdescription();
-                object[i][3] = product.getPrice();
-                object[i][4] = product.getQuantity();
-                object[i][5] = product.getAvalability();
+                object[i][2] = product.getStatus();
+                object[i][3] = product.getdescription();
+                object[i][4] = product.getAvalability();
                 i++;
 
             }

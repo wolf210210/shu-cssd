@@ -26,10 +26,10 @@ public class SensorMonitor extends Vector<Sensor>implements  SensorStation , Ser
     public SensorMonitor() {
         super();
     }
-    
-    public void addProducts(Sensor aSensor) {
-        super.add(aSensor);
-    }
+//    
+//    public void addProducts(Sensor aSensor) {
+//        super.add(aSensor);
+//    }
     
     public String updateProducts(Sensor aSensor, String Name, String description) {
         String status = "";
@@ -50,8 +50,8 @@ public class SensorMonitor extends Vector<Sensor>implements  SensorStation , Ser
         
         productSet = new SensorMonitor();
         for (Sensor sensor : this) {
-            if (sensor.getProductNo() == number) {
-                productSet.addProducts(sensor);
+            if (sensor.getSensorNo() == number) {
+                productSet.registerObserver(sensor);
                 
             }
         }
@@ -63,13 +63,16 @@ public class SensorMonitor extends Vector<Sensor>implements  SensorStation , Ser
         productSet = new SensorMonitor();
         for (Sensor sensor : this) {
             if (sensor.getName().toLowerCase().contains(name.toLowerCase())) {
-                productSet.addProducts(sensor);
+                productSet.registerObserver(sensor);
                 
             }
         }
         return productSet;
     }
     
+    public boolean removeProduct(Sensor sen) {
+        return super.remove(sen);
+    }
     
     
 
@@ -110,7 +113,7 @@ public class SensorMonitor extends Vector<Sensor>implements  SensorStation , Ser
 
     @Override
     public void registerObserver(Mothership sensorStation) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     @Override
@@ -121,6 +124,11 @@ public class SensorMonitor extends Vector<Sensor>implements  SensorStation , Ser
     @Override
     public void notifyObservers() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+      
+    public void registerObserver(Sensor aSensor) {
+        super.add(aSensor);
     }
     
 }

@@ -37,7 +37,7 @@ public class MotherShipObserverImp implements Mothership{
         this.price = sensorStation.getPrice();
 
         try {
-            for (Sensor sensor : Serialization.deserializeProducts()) {
+            for (Sensor sensor : Serialization.deserializeBinSensors()) {
 
                 productSet.add(sensor);
 
@@ -48,19 +48,19 @@ public class MotherShipObserverImp implements Mothership{
         }
 
         for (Sensor sensor : productSet) {
-            if (sensor.getProductNo() == productID) {
-                sensor.setAvalability("Yes");
-                sensor.setPrice(price);
-                double oldQuantity = sensor.getQuantity();
-                sensor.setQuantity((oldQuantity + quantity));
+            if (sensor.getSensorNo() == productID) {
+//                sensor.setAvalability("Yes");
+//                sensor.setPrice(price);
+                double oldQuantity = sensor.getfrequency();
+                sensor.setfrequency((oldQuantity + quantity));
 
                 try {
                     Serialization.Serialize(productSet, FILE_NAME_Products);
-                    for (Sensor SensorUp : Serialization.deserializeProducts()) {
+                    for (Sensor SensorUp : Serialization.deserializeBinSensors()) {
                         System.out
                                 .println("Observer recieved state change of subject ID is = "
-                                        + SensorUp.getProductNo() + " Availability = " + SensorUp.getStatus() + " Price = " + SensorUp.getPrice() + " Quantity = " + SensorUp.getQuantity());
-
+                                        + SensorUp.getSensorNo() + " Availability = " + SensorUp.getStatus() + " Price = "  + " frequency = " + SensorUp.getfrequency());
+//+ SensorUp.getPrice()
                     }
                 } catch (IOException | ClassNotFoundException ex) {
                     Logger.getLogger(SensorMonitor.class.getName()).log(Level.SEVERE, null, ex);

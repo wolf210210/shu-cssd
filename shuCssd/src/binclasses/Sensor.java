@@ -16,27 +16,27 @@ import java.io.Serializable;
  */
 public class Sensor  implements Serializable{
     
-       private static final long serialVersionUID = -47594027994670654L;
-    private static int productCount = 0;
-    private int productNumber, stockNo;
+    private static final long serialVersionUID = -47594027994670654L;
+    private static int sensor = 0;
+    private int sensorNumber, stockNo;
     private String name, description;
-    private String state,aval;
-    private int productID;
-    private double uprice,totqty;
+    private String state;
+//    private int productID;
+    private double frequency;
     
     
     public Sensor() {
     }
     
-      public Sensor(String name, String des,double totqty, double uprice,String avalability) {
+      public Sensor(String name, String des,double frequency, String pState) {
         super();
         this.name = name;
-        this.totqty= totqty;
-        this.aval= avalability;
-        this.uprice= uprice;
+        this.frequency= frequency;
+  
         this.description = des;
+        this.state = pState; 
 //        this.image=image;
-        productNumber = ++productCount;
+        sensorNumber = ++sensor;
 
     }
       
@@ -50,8 +50,8 @@ public class Sensor  implements Serializable{
     }
        
          
-    public int getProductNo() {
-        return productNumber;
+    public int getSensorNo() {
+        return sensorNumber;
     }
     
       public String getName() {
@@ -59,16 +59,16 @@ public class Sensor  implements Serializable{
         return name;
     }
       
-       public void setAvalability(String avl) {
-        this.aval = avl;
-    }
+//       public void setAvalability(String avl) {
+//        this.aval = avl;
+//    }
        
-         public void setPrice(double price) {
-        this.uprice = price;
-    }
+//         public void setPrice(double price) {
+//        this.uprice = price;
+//    }
          
-            public void setQuantity(double qty) {
-        this.totqty = qty;
+            public void setfrequency(double frq) {
+        this.frequency = frq;
     }
 
             
@@ -76,7 +76,7 @@ public class Sensor  implements Serializable{
     private void writeObject(ObjectOutputStream oos)
             throws IOException {
         oos.defaultWriteObject();
-        oos.writeObject(productCount);
+        oos.writeObject(sensor);
        
 
     }
@@ -84,30 +84,30 @@ public class Sensor  implements Serializable{
     private void readObject(ObjectInputStream ois)
             throws ClassNotFoundException, IOException {
         ois.defaultReadObject();
-        productCount = (Integer) ois.readObject();
+        sensor = (Integer) ois.readObject();
     
     }
     
     
-    public double getQuantity() {
-        return totqty;
+    public double getfrequency() {
+        return frequency;
     }
     
     public String getStatus() {
         return this.state;
     }
     
-    public double getPrice() {
-        return uprice;
-    }
+//    public double getPrice() {
+//        return uprice;
+//    }
 
        public String getdescription() {
         return description;
     }
        
-        public String getAvalability() {
-        return aval;
-    }
+//        public String getAvalability() {
+//        return aval;
+//    }
 
    
   

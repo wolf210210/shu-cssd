@@ -52,10 +52,10 @@ public class Serialization {
      * @throws java.io.IOException
      * @throws java.lang.ClassNotFoundException
      */
-    public static SensorMonitor deserializeProducts() throws IOException, ClassNotFoundException {
+    public static SensorMonitor deserializeBinSensors() throws IOException, ClassNotFoundException {
 
         SensorMonitor products;
-        try (FileInputStream in = new FileInputStream("DataFiles/Products.txt")) {
+        try (FileInputStream in = new FileInputStream("DataFiles/BinSensors.txt")) {
             ObjectInputStream ois = new ObjectInputStream(in);
             products = (SensorMonitor) ois
                     .readObject();
