@@ -33,8 +33,7 @@ public class MotherShipObserverImp implements Mothership{
     @Override
     public void update(SensorStation sensorStation) {
           this.state = sensorStation.getStatus();
-        this.quantity = sensorStation.getQuantity();
-        this.price = sensorStation.getPrice();
+
 
         try {
             for (Sensor sensor : Serialization.deserializeBinSensors()) {

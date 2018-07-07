@@ -297,9 +297,9 @@ public class AddSensor extends javax.swing.JFrame {
               description = txtanpDes.getText();
         
         
-           Sensor sensor = sensorSet.getProductFromID(Integer.parseInt(txtanpId.getText())).firstElement();
+           Sensor sensor = sensorSet.getSensorFromID(Integer.parseInt(txtanpId.getText())).firstElement();
 
-            String status = sensorSet.updateProducts(sensor, name, description);
+            String status = sensorSet.updateSensors(sensor, name, description);
             System.out.println(status);
                if (status.equals("success")) {
                     try {
@@ -320,10 +320,10 @@ public class AddSensor extends javax.swing.JFrame {
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
            
         
-        Sensor sensor = sensorSet.getProductFromID(Integer.parseInt(txtanpId.getText())).firstElement();
+        Sensor sensor = sensorSet.getSensorFromID(Integer.parseInt(txtanpId.getText())).firstElement();
                 System.out.println("delete product" + sensor);
                 
-                  if (sensorSet.removeProduct(sensor)) {
+                  if (sensorSet.unregisterObserver(sensor)) {
                     try {
                         Serialization.Serialize(sensorSet, FILE_NAME_Products);
                     } catch (IOException ex) {

@@ -12,19 +12,8 @@ package binclasses;
 public interface SensorStation {
     public void registerObserver(Mothership sensorStation );
     public  void unregisterObserver(Mothership sensorStation );
-    public  void notifyObservers();
-    
-     public void setStatus(String status);
-
+    public  void notifyObservers();  
+    public void setStatus(String status);
     public String getStatus();
-    
-    public void setPrice(double price);
 
-    public double getPrice();
-    
-     public void setQuantity(double quantity);
-
-    public double getQuantity();
-   
-    public void print();
 }

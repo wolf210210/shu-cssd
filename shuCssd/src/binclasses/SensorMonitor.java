@@ -20,18 +20,17 @@ import java.util.Vector;
  */
 public class SensorMonitor extends Vector<Sensor>implements  SensorStation , Serializable {
 
-     private static final long serialVersionUID = 2428035439452881234L;
-    SensorMonitor productSet;
-     List<Mothership> observerList = new ArrayList<Mothership>();
+            private static final long serialVersionUID = 2428035439452881234L;
+            SensorMonitor monitorSet;
+            List<Mothership> observerList = new ArrayList<Mothership>();
+     
+     
     public SensorMonitor() {
         super();
     }
 //    
-//    public void addProducts(Sensor aSensor) {
-//        super.add(aSensor);
-//    }
-    
-    public String updateProducts(Sensor aSensor, String Name, String description) {
+
+    public String updateSensors(Sensor aSensor, String Name, String description) {
         String status = "";
         try {
             
@@ -46,34 +45,31 @@ public class SensorMonitor extends Vector<Sensor>implements  SensorStation , Ser
         return status;
     }
     
-    public SensorMonitor getProductFromID(int number) {
+    public SensorMonitor getSensorFromID(int number) {
         
-        productSet = new SensorMonitor();
+        monitorSet = new SensorMonitor();
         for (Sensor sensor : this) {
             if (sensor.getSensorNo() == number) {
-                productSet.registerObserver(sensor);
+                monitorSet.registerObserver(sensor);
                 
             }
         }
-        return productSet;
+        return monitorSet;
     }
     
-    public SensorMonitor getProductFromName(String name) {
+    public SensorMonitor getSensorFromName(String name) {
         
-        productSet = new SensorMonitor();
+        monitorSet = new SensorMonitor();
         for (Sensor sensor : this) {
             if (sensor.getName().toLowerCase().contains(name.toLowerCase())) {
-                productSet.registerObserver(sensor);
+                monitorSet.registerObserver(sensor);
                 
             }
         }
-        return productSet;
+        return monitorSet;
     }
     
-    public boolean removeProduct(Sensor sen) {
-        return super.remove(sen);
-    }
-    
+ 
     
 
     @Override
@@ -86,30 +82,7 @@ public class SensorMonitor extends Vector<Sensor>implements  SensorStation , Ser
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
-    public void setPrice(double price) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
-    @Override
-    public double getPrice() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void setQuantity(double quantity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public double getQuantity() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void print() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
     @Override
     public void registerObserver(Mothership sensorStation) {
@@ -129,6 +102,10 @@ public class SensorMonitor extends Vector<Sensor>implements  SensorStation , Ser
       
     public void registerObserver(Sensor aSensor) {
         super.add(aSensor);
+    }
+    
+      public boolean unregisterObserver(Sensor sen) {
+         return super.remove(sen);
     }
     
 }
