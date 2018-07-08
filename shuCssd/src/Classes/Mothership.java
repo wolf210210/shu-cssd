@@ -17,11 +17,10 @@ public class Mothership implements Serializable {
     
     private String ID;
     private static List<SensorStation> SensorStations = null;
-    EmbellishedData embelishedData = new  EmbellishedData();
+    
 
     public Mothership(String ID) {
         this.ID = ID;
-        this.SensorStations = SensorStations;
     }
 
     public String getID() {
@@ -40,20 +39,20 @@ public class Mothership implements Serializable {
         Mothership.SensorStations = SensorStations;
     }
     
-    public void addNewSensorStation(){
-        
+    public SensorStation addNewSensorStation(SensorStation stationID){
+        return stationID;
     }
     
-    public void removeNewSensorStation(){
-        
+    public SensorStation removeNewSensorStation(SensorStation stationID){
+        return stationID;
     }
     
-    public void getSensorStation(){
-        
+    public List<SensorStation> getSensorStation(List<SensorStation> SensorStations){
+        return SensorStations;
     }
     
-    public void receiveStationData(){
-        
+    public EmbellishedData receiveStationData(EmbellishedData embelishedData){
+        return embelishedData ;
     }
    
 }
