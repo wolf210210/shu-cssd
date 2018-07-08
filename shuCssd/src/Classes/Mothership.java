@@ -14,12 +14,15 @@ import java.util.List;
  * @author wolf
  */
 public class Mothership implements Serializable {
+    
+    private String ID;
+    private static List<SensorStation> SensorStations = null;
+    EmbellishedData embelishedData = new  EmbellishedData();
 
     public Mothership(String ID) {
         this.ID = ID;
+        this.SensorStations = SensorStations;
     }
-     private String ID;
-    private static List<SensorStation> SensorStations = null;
 
     public String getID() {
         return ID;
@@ -36,8 +39,21 @@ public class Mothership implements Serializable {
     public static void setSensorStations(List<SensorStation> SensorStations) {
         Mothership.SensorStations = SensorStations;
     }
-
-   
-
+    
+    public void addNewSensorStation(){
+        
+    }
+    
+    public void removeNewSensorStation(){
+        
+    }
+    
+    public void getSensorStation(){
+        
+    }
+    
+    public void receiveStationData(){
+        
+    }
    
 }

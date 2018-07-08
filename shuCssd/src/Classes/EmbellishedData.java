@@ -25,6 +25,10 @@ public class EmbellishedData implements Serializable {
     public ArrayList<Double> Location;
     public String sensorID;
 
+    EmbellishedData() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public Data getData() {
         return data;
     }
@@ -55,6 +59,10 @@ public class EmbellishedData implements Serializable {
 
     public void setSensorID(String sensorID) {
         this.sensorID = sensorID;
+    }
+    
+    public void EmbellishedData(){
+        
     }
     
 }
