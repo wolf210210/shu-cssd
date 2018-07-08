@@ -147,6 +147,11 @@ public class AddSensor extends javax.swing.JFrame {
                 jButton1MouseClicked(evt);
             }
         });
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1);
         jButton1.setBounds(40, 540, 120, 40);
 
@@ -271,10 +276,10 @@ public class AddSensor extends javax.swing.JFrame {
             description = txtanpDes.getText();
             frequency =  frequencyText.getText();
             //            Icon icon = imageIcon.getIcon();
-
+  try {
             sensorSet.registerObserver(new Sensor(name, description, Double.parseDouble(frequency),textStatus.getText()));
 
-            try {
+          
                 Serialization.Serialize(sensorSet, FILE_NAME_Products);
 
                 System.out.println("Add Sucsessfully");
@@ -282,7 +287,7 @@ public class AddSensor extends javax.swing.JFrame {
             } catch (IOException ex) {
                 //                Logger.getLogger(AddNewProduct.class.getName()).log(Level.SEVERE, null, ex);
                 //                JOptionPane.showMessageDialog(this, "Unsuccessful...", "Error", JOptionPane.ERROR_MESSAGE);
-                System.out.println("Add Sucsessfully");
+                System.out.println("Add fail");
             }
 
             loadAddSensor(sensorSet);
@@ -355,6 +360,10 @@ public class AddSensor extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_tblanpSensorMouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
        private void loadAddSensor(SensorMonitor sensorMoni) {
 
