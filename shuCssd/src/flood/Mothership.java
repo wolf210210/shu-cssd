@@ -3,15 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package GUI;
+package flood;
 
 /**
  *
  * @author Piyu
  */
-public class jLabel4 {
-
-    public jLabel4() {
-    }
-    
+public interface Mothership {
+    public void update(String availability);
 }

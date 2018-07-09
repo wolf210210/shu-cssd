@@ -7,6 +7,7 @@ package serialization;
 
 import Product.SetOfProductStock;
 import binclasses.SensorMonitor;
+import binclasses.SetOfLocation;
 
 
 //import farm.SetOfFarm;
@@ -45,146 +46,32 @@ public class Serialization {
         System.out.println(filename + " Serialized !");
     }
 
-    /**
-     * deserializeProducts
-     *
-     * @return SetOfProducts
-     * @throws java.io.IOException
-     * @throws java.lang.ClassNotFoundException
-     */
+ 
     public static SensorMonitor deserializeBinSensors() throws IOException, ClassNotFoundException {
 
-        SensorMonitor products;
+        SensorMonitor sensorMonitor;
         try (FileInputStream in = new FileInputStream("DataFiles/BinSensors.txt")) {
             ObjectInputStream ois = new ObjectInputStream(in);
-            products = (SensorMonitor) ois
+            sensorMonitor = (SensorMonitor) ois
                     .readObject();
         }
 
-        return products;
+        return sensorMonitor;
+    }
+    
+        public static SetOfLocation deserializeBinSensorsLocation() throws IOException, ClassNotFoundException {
+
+        SetOfLocation sensorLocation;
+        try (FileInputStream in = new FileInputStream("DataFiles/BinSensorsLocation.txt")) {
+            ObjectInputStream ois = new ObjectInputStream(in);
+            sensorLocation = (SetOfLocation) ois
+                    .readObject();
+        }
+
+        return sensorLocation;
     }
 
-    /**
-     * deserializeFarm
-     *
-     * @return SetOfFarm
-     * @throws java.io.IOException
-     * @throws java.lang.ClassNotFoundException
-     */
-//    public static SetOfFarm deserializeFarm() throws IOException, ClassNotFoundException {
-//
-//        SetOfFarm farm;
-//        try (FileInputStream in = new FileInputStream("DataFiles/farms.txt")) {
-//            ObjectInputStream ois = new ObjectInputStream(in);
-//            farm = (SetOfFarm) ois
-//                    .readObject();
-//        }
-//
-//        return farm;
-//    }
 
-    /**
-     * deserializeFertilizer
-     *
-     * @return SetOfFertilizer
-     * @throws java.io.IOException
-     * @throws java.lang.ClassNotFoundException
-     */
-//    public static SetOfFertilizer deserializeFertilizer() throws IOException, ClassNotFoundException {
-//
-//        SetOfFertilizer fertilizer;
-//        try (FileInputStream in = new FileInputStream("DataFiles/fertilizer.txt")) {
-//            ObjectInputStream ois = new ObjectInputStream(in);
-//            fertilizer = (SetOfFertilizer) ois
-//                    .readObject();
-//        }
-//
-//        return fertilizer;
-//    }
-
-    /**
-     * deserializeHarvest
-     *
-     * @return SetOfHarvest
-     * @throws java.io.IOException
-     * @throws java.lang.ClassNotFoundException
-     */
-//    public static SetOfHarvest deserializeHarvest() throws IOException, ClassNotFoundException {
-//
-//        SetOfHarvest harvest;
-//        try (FileInputStream in = new FileInputStream("DataFiles/harvest.txt")) {
-//            ObjectInputStream ois = new ObjectInputStream(in);
-//            harvest = (SetOfHarvest) ois
-//                    .readObject();
-//        }
-//
-//        return harvest;
-//    }
-
-    /**
-     * deserializeSensors
-     *
-     * @return SetOfSensors
-     * @throws java.io.IOException
-     * @throws java.lang.ClassNotFoundException
-     */
-//    public static SetOfSensors deserializeSensors() throws IOException, ClassNotFoundException {
-//
-//        SetOfSensors sensors;
-//        try (FileInputStream in = new FileInputStream("DataFiles/Sensors.txt")) {
-//            ObjectInputStream ois = new ObjectInputStream(in);
-//            sensors = (SetOfSensors) ois
-//                    .readObject();
-//        }
-//
-//        return sensors;
-//    }
-
-    /**
-     * deserializeUsers
-     *
-     * @return SetOfUsers
-     * @throws java.io.IOException
-     * @throws java.lang.ClassNotFoundException
-     */
-//    public static SetOfUsers deserializeUsers() throws IOException, ClassNotFoundException {
-//
-//        SetOfUsers users;
-//        try (FileInputStream in = new FileInputStream("DataFiles/Users.txt")) {
-//            ObjectInputStream ois = new ObjectInputStream(in);
-//            users = (SetOfUsers) ois
-//                    .readObject();
-//        }
-//
-//        return users;
-//    }
-
-    /**
-     * deserializeRandomCode
-     *
-     * @return SetOfRandomCode
-     * @throws java.io.IOException
-     * @throws java.lang.ClassNotFoundException
-//     */
-//    public static SetOfRandomCode deserializeRandomCode() throws IOException, ClassNotFoundException {
-//
-//        SetOfRandomCode codes;
-//        try (FileInputStream in = new FileInputStream("DataFiles/RandomCodes.txt")) {
-//            ObjectInputStream ois = new ObjectInputStream(in);
-//            codes = (SetOfRandomCode) ois
-//                    .readObject();
-//        }
-//
-//        return codes;
-//    }
-
-    /**
-     * deserializeProductsStock
-     *
-     * @return SetOfProductStock
-     * @throws java.io.IOException
-     * @throws java.lang.ClassNotFoundException
-     */
     public static SetOfProductStock deserializeProductsStock() throws IOException, ClassNotFoundException {
 
         SetOfProductStock products;
@@ -197,21 +84,5 @@ public class Serialization {
         return products;
     }
 
-    /**
-     *
-     * @return SetOfCart
-     * @throws IOException
-     * @throws ClassNotFoundException
-     */
-//    public static SetOfCart deserializeCart() throws IOException, ClassNotFoundException {
-//
-//        SetOfCart cart;
-//        try (FileInputStream in = new FileInputStream("DataFiles/Cart.txt")) {
-//            ObjectInputStream ois = new ObjectInputStream(in);
-//            cart = (SetOfCart) ois
-//                    .readObject();
-//        }
-//
-//        return cart;
-//    }
+
 }

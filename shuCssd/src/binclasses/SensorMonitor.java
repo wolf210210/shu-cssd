@@ -18,10 +18,11 @@ import java.util.Vector;
  *
  * @author wolf
  */
-public class SensorMonitor extends Vector<Sensor>implements  SensorStation , Serializable {
+public class SensorMonitor extends Vector<Sensor> implements  SensorStation , Serializable {
 
             private static final long serialVersionUID = 2428035439452881234L;
             SensorMonitor monitorSet;
+            Location sensorLocation;
             List<Mothership> observerList = new ArrayList<Mothership>();
      
      
@@ -50,7 +51,7 @@ public class SensorMonitor extends Vector<Sensor>implements  SensorStation , Ser
         monitorSet = new SensorMonitor();
         for (Sensor sensor : this) {
             if (sensor.getSensorNo() == number) {
-                monitorSet.registerObserver(sensor);
+                monitorSet.addNewSensor(sensor);
                 
             }
         }
@@ -62,13 +63,22 @@ public class SensorMonitor extends Vector<Sensor>implements  SensorStation , Ser
         monitorSet = new SensorMonitor();
         for (Sensor sensor : this) {
             if (sensor.getName().toLowerCase().contains(name.toLowerCase())) {
-                monitorSet.registerObserver(sensor);
+                monitorSet.addNewSensor(sensor);
                 
             }
         }
         return monitorSet;
     }
     
+    public void addNewSensor(Sensor aSensor){
+          super.add(aSensor);
+    }
+    
+//    public void addNewSensorLocation (int sensorID, Double latitudes, Double longitudes ) {
+//         
+//          sensorLocation = new Location(latitudes ,longitudes,sensorID);
+//          
+//    }
  
     
 
@@ -100,11 +110,11 @@ public class SensorMonitor extends Vector<Sensor>implements  SensorStation , Ser
     }
     
       
-    public void registerObserver(Sensor aSensor) {
-        super.add(aSensor);
-    }
-    
-      public boolean unregisterObserver(Sensor sen) {
+//    public void registerObserver(Sensor aSensor ) {
+//        super.add(aSensor);
+//    }
+//    
+    public boolean unregisterObserver(Sensor sen) {
          return super.remove(sen);
     }
     
