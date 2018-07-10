@@ -7,6 +7,7 @@ package serialization;
 
 import Product.SetOfProductStock;
 import binclasses.SensorMonitor;
+
 import binclasses.SetOfLocation;
 
 
@@ -71,6 +72,19 @@ public class Serialization {
         return sensorLocation;
     }
 
+        
+        
+    public static floodclasses.SensorMonitor deserializeFloodSensors() throws IOException, ClassNotFoundException {
+
+       floodclasses.SensorMonitor sensorMonitor;
+        try (FileInputStream in = new FileInputStream("DataFiles/FloodSensors.txt")) {
+            ObjectInputStream ois = new ObjectInputStream(in);
+           sensorMonitor = (floodclasses.SensorMonitor) ois
+                    .readObject();
+        }
+
+        return sensorMonitor;
+    }
 
     public static SetOfProductStock deserializeProductsStock() throws IOException, ClassNotFoundException {
 

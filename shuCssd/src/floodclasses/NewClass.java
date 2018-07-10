@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package binclasses;
+package floodclasses;
 
 /**
  *
  * @author wolf
  */
-public interface Mothership {
-     public void update(String availability);
+public class NewClass {
+    
 }

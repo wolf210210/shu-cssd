@@ -28,11 +28,16 @@ public class AddEmergencySensor extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel4 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jTextField6 = new javax.swing.JTextField();
         jTextField1 = new javax.swing.JTextField();
+        jTextField5 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
+        jTextField7 = new javax.swing.JTextField();
         add = new javax.swing.JButton();
         reset = new javax.swing.JButton();
-        reset1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -55,9 +60,32 @@ public class AddEmergencySensor extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         jLabel4.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
-        jLabel4.setText("Description");
+        jLabel4.setText("Name");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(40, 380, 140, 30);
+        jLabel4.setBounds(40, 330, 140, 30);
+
+        jLabel16.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
+        jLabel16.setText("Longitude");
+        getContentPane().add(jLabel16);
+        jLabel16.setBounds(40, 230, 140, 30);
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
+        jLabel7.setText("Latitude");
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(40, 280, 140, 30);
+
+        jLabel15.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
+        jLabel15.setText("Description");
+        getContentPane().add(jLabel15);
+        jLabel15.setBounds(40, 380, 140, 30);
+
+        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField6ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jTextField6);
+        jTextField6.setBounds(190, 280, 250, 30);
 
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -65,9 +93,25 @@ public class AddEmergencySensor extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jTextField1);
-        jTextField1.setBounds(190, 380, 250, 30);
+        jTextField1.setBounds(190, 230, 250, 30);
+
+        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField5ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jTextField5);
+        jTextField5.setBounds(190, 380, 250, 30);
         getContentPane().add(jTextField2);
         jTextField2.setBounds(190, 430, 250, 30);
+
+        jTextField7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField7ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jTextField7);
+        jTextField7.setBounds(190, 330, 250, 30);
 
         add.setBackground(new java.awt.Color(0, 102, 153));
         add.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
@@ -106,25 +150,6 @@ public class AddEmergencySensor extends javax.swing.JFrame {
         });
         getContentPane().add(reset);
         reset.setBounds(320, 540, 120, 40);
-
-        reset1.setBackground(new java.awt.Color(0, 102, 153));
-        reset1.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
-        reset1.setForeground(new java.awt.Color(255, 255, 255));
-        reset1.setText("Update");
-        reset1.setContentAreaFilled(false);
-        reset1.setOpaque(true);
-        reset1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                reset1MouseClicked(evt);
-            }
-        });
-        reset1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                reset1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(reset1);
-        reset1.setBounds(170, 540, 130, 40);
 
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -189,13 +214,13 @@ public class AddEmergencySensor extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(153, 153, 153));
         jLabel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
         getContentPane().add(jLabel8);
-        jLabel8.setBounds(430, 210, 520, 40);
+        jLabel8.setBounds(480, 210, 520, 40);
 
         jLabel12.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(153, 153, 153));
         jLabel12.setText("    Bin Sensor");
         getContentPane().add(jLabel12);
-        jLabel12.setBounds(410, 200, 160, 50);
+        jLabel12.setBounds(470, 200, 160, 50);
 
         jLabel14.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(153, 153, 153));
@@ -221,7 +246,27 @@ public class AddEmergencySensor extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMouseClicked
+                String name , des , status;
+                  Double frequencys ; 
+            
+                    name =  nameText.getText() ; 
+                    des =  desText.getText() ; 
+                    status =  statusText.getText(); 
+                    frequencys = Double.parseDouble(frequency.getText());
+             sensorSet.addNewSensor(new Sensor(name, des, frequencys,status));
+             
+                try {
+                Serialization.Serialize(sensorSet, FILE_NAME_Sensor);
 
+                System.out.println("Add Sucsessfully");
+
+            } catch (IOException ex) {
+                //                Logger.getLogger(AddNewProduct.class.getName()).log(Level.SEVERE, null, ex);
+                //                JOptionPane.showMessageDialog(this, "Unsuccessful...", "Error", JOptionPane.ERROR_MESSAGE);
+                System.out.println("Unsuccessful...");
+            }
+                
+               loadAddSensor(sensorSet);
     }//GEN-LAST:event_addMouseClicked
 
     private void resetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resetMouseClicked
@@ -236,18 +281,22 @@ public class AddEmergencySensor extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_addActionPerformed
 
-    private void reset1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reset1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_reset1MouseClicked
-
-    private void reset1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reset1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_reset1ActionPerformed
-
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
         EmergencySensorStation h = new EmergencySensorStation();
         h.setVisible(true);
     }//GEN-LAST:event_jLabel3MouseClicked
+
+    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField5ActionPerformed
+
+    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField6ActionPerformed
+
+    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField7ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -292,11 +341,14 @@ public class AddEmergencySensor extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
@@ -305,7 +357,9 @@ public class AddEmergencySensor extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField jTextField7;
     private javax.swing.JButton reset;
-    private javax.swing.JButton reset1;
     // End of variables declaration//GEN-END:variables
 }

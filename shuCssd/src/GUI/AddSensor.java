@@ -13,6 +13,7 @@ package GUI;
 //import javax.swing.table.TableRowSorter;
 //import serialization.Serialization;
 import binclasses.Location;
+import binclasses.MotherShipObserverImp;
 import java.io.IOException;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
@@ -70,6 +71,7 @@ public class AddSensor extends javax.swing.JFrame {
     private void initComponents() {
 
         frequencyText = new javax.swing.JTextField();
+        jButton5 = new javax.swing.JButton();
         textStatus = new javax.swing.JTextField();
         jButton4 = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
@@ -102,6 +104,20 @@ public class AddSensor extends javax.swing.JFrame {
         getContentPane().setLayout(null);
         getContentPane().add(frequencyText);
         frequencyText.setBounds(190, 480, 250, 40);
+
+        jButton5.setText("observer");
+        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton5MouseClicked(evt);
+            }
+        });
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton5);
+        jButton5.setBounds(1180, 160, 150, 25);
         getContentPane().add(textStatus);
         textStatus.setBounds(190, 432, 250, 30);
 
@@ -408,6 +424,36 @@ public class AddSensor extends javax.swing.JFrame {
 // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton5MouseClicked
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+            MotherShipObserverImp arpitPerson=new MotherShipObserverImp("Arpit");
+             MotherShipObserverImp johnPerson=new MotherShipObserverImp("John");
+                 MotherShipObserverImp piyumiPerson=new MotherShipObserverImp("piyumi");
+    
+                 
+                 
+                 
+                
+              SensorMonitor notMobile=new SensorMonitor();
+                  notMobile.addNewSensor(new Sensor("mithilaSen2", "sett2", 5.22,"mithilaSen2"));
+    
+    //When you opt for option "Notify me when product is available".Below registerObserver method
+    //get executed   
+                sensorSet.registerObserver(arpitPerson);
+                sensorSet.registerObserver(johnPerson);
+                notMobile.registerObserver(piyumiPerson);
+    
+    //Now product is available
+    //samsungMobile.setAvailability("Available");
+            sensorSet.setAvailability("Available");
+            System.out.println(arpitPerson.getAvailabiliy());
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton5ActionPerformed
+
        private void loadAddSensor(SensorMonitor sensorMoni) {
 
         String[] colName = {"SensorID", "Name", "Status", "Description",  "Frequency"};
@@ -507,6 +553,7 @@ public class AddSensor extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

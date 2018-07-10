@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package binclasses;
+package floodclasses;
 
 
 
@@ -22,7 +22,7 @@ public class SensorMonitor extends Vector<Sensor> implements  SensorStation , Se
 
             private static final long serialVersionUID = 2428035439452881234L;
             SensorMonitor monitorSet;
-            Location sensorLocation;
+           
             List<Mothership> observerList = new ArrayList<Mothership>();
             String availability;
       
