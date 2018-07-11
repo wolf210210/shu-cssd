@@ -5,6 +5,8 @@
  */
 package binclasses;
 
+import userclasses.User;
+
 /**
  *
  * @author wolf

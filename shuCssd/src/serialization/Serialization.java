@@ -23,6 +23,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import userclasses.SetOfUsers;
 
 /**
  *
@@ -84,6 +85,18 @@ public class Serialization {
         }
 
         return sensorMonitor;
+    }
+    
+       public static SetOfUsers deserializeUsers() throws IOException, ClassNotFoundException {
+
+        SetOfUsers users;
+        try (FileInputStream in = new FileInputStream("DataFiles/Users.txt")) {
+            ObjectInputStream ois = new ObjectInputStream(in);
+            users = (SetOfUsers) ois
+                    .readObject();
+        }
+
+        return users;
     }
 
     public static SetOfProductStock deserializeProductsStock() throws IOException, ClassNotFoundException {

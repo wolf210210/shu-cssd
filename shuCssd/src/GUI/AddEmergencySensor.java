@@ -246,27 +246,27 @@ public class AddEmergencySensor extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMouseClicked
-                String name , des , status;
-                  Double frequencys ; 
-            
-                    name =  nameText.getText() ; 
-                    des =  desText.getText() ; 
-                    status =  statusText.getText(); 
-                    frequencys = Double.parseDouble(frequency.getText());
-             sensorSet.addNewSensor(new Sensor(name, des, frequencys,status));
-             
-                try {
-                Serialization.Serialize(sensorSet, FILE_NAME_Sensor);
-
-                System.out.println("Add Sucsessfully");
-
-            } catch (IOException ex) {
-                //                Logger.getLogger(AddNewProduct.class.getName()).log(Level.SEVERE, null, ex);
-                //                JOptionPane.showMessageDialog(this, "Unsuccessful...", "Error", JOptionPane.ERROR_MESSAGE);
-                System.out.println("Unsuccessful...");
-            }
-                
-               loadAddSensor(sensorSet);
+//                String name , des , status;
+//                  Double frequencys ; 
+//            
+//                    name =  nameText.getText() ; 
+//                    des =  desText.getText() ; 
+//                    status =  statusText.getText(); 
+//                    frequencys = Double.parseDouble(frequency.getText());
+//             sensorSet.addNewSensor(new Sensor(name, des, frequencys,status));
+//             
+//                try {
+//                Serialization.Serialize(sensorSet, FILE_NAME_Sensor);
+//
+//                System.out.println("Add Sucsessfully");
+//
+//            } catch (IOException ex) {
+//                //                Logger.getLogger(AddNewProduct.class.getName()).log(Level.SEVERE, null, ex);
+//                //                JOptionPane.showMessageDialog(this, "Unsuccessful...", "Error", JOptionPane.ERROR_MESSAGE);
+//                System.out.println("Unsuccessful...");
+//            }
+//                
+//               loadAddSensor(sensorSet);
     }//GEN-LAST:event_addMouseClicked
 
     private void resetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resetMouseClicked
@@ -275,6 +275,7 @@ public class AddEmergencySensor extends javax.swing.JFrame {
 
     private void resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_resetActionPerformed
 
     private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed

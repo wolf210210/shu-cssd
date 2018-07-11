@@ -93,8 +93,8 @@ public class SensorMonitor extends Vector<Sensor> implements  SensorStation , Se
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public void setAvailability(String availability) {
-		this.availability = availability;
+    public void setAvailability(String availabilitys) {
+		this.availability = availabilitys;
 		notifyObservers();
     }
 
@@ -113,6 +113,7 @@ public class SensorMonitor extends Vector<Sensor> implements  SensorStation , Se
        System.out.println("Notifying to all the subscribers when product became available");
 		 for (Mothership ob : observerList) {
              ob.update(this.availability);
+                   
       }
     }
     

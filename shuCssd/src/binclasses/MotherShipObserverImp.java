@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import serialization.Serialization;
+import userclasses.User;
 
 /**
  *
@@ -45,9 +46,9 @@ public class MotherShipObserverImp implements Mothership{
         this.availabiliy = availabiliy;
     } 
     @Override
-    public void update(String availability) {
-        System.out.println("Hello "+personName+", Product is now "+availabiliy+" on flipkart");
-        this.availabiliy =availability;
+    public void update(String availabilitys) {
+        System.out.println("Hello "+personName+", Product is now "+availabilitys+" on flipkart");
+        this.availabiliy =availabilitys;
 
     }
     

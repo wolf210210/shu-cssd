@@ -5,6 +5,12 @@
  */
 package GUI;
 
+import java.io.IOException;
+import javax.swing.JOptionPane;
+import serialization.Serialization;
+import userclasses.SetOfUsers;
+import userclasses.User;
+
 /**
  *
  * @author Piyu
@@ -14,8 +20,18 @@ public class Login extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
+      SetOfUsers userList = new SetOfUsers();
+    public static final String FILE_NAME_Users = "DataFiles/Users.txt";
+    
     public Login() {
         initComponents();
+             try {
+            for (User user : Serialization.deserializeUsers()) {
+                userList.addUser(user);
+            }
+        } catch (IOException | ClassNotFoundException ex) {
+            JOptionPane.showMessageDialog(this, ex);
+        }
     }
 
     /**
@@ -192,7 +208,47 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_passwordActionPerformed
 
     private void addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMouseClicked
+  if (!userName.getText().isEmpty() && !password.getText().isEmpty()) {
+            String username = userName.getText().trim();
+            String Password = password.getText().trim();
+            try {
+                String userLevels = "", userID = "", email = "";
 
+                String str = userList.userAuthontication(username, Password);
+                String[] splited = str.split("\\s+");
+                userLevels = splited[0];
+                userID = splited[1];
+                email = splited[2];
+                
+                System.out.println(userLevels);
+
+                userList.removeAll(userList);
+
+                if (userLevels.equals("PasswordIncorrect")) {
+                    JOptionPane.showMessageDialog(this, "Password incorrect... Please try again later", "Error", JOptionPane.ERROR_MESSAGE);
+
+                } else if (userLevels.equals("UsernameIncorrect")) {
+                    JOptionPane.showMessageDialog(this, "Username incorrect... Please try again with correct username", "Error", JOptionPane.ERROR_MESSAGE);
+                } else if (userLevels.equals("user")) {
+                    JOptionPane.showMessageDialog(this, "Username log", "Error", JOptionPane.ERROR_MESSAGE);
+//                    userMain u = new userMain(userID, userLevels, email);
+//                    u.setVisible(true);
+//                    this.hide();
+                } else if (userLevels.equals("admin")) {
+//                    adminMain a = new adminMain(userID, userLevels, email);
+//                    a.setVisible(true);
+//                    this.hide();
+                }
+
+            } catch (Exception ex) {
+
+                System.out.println(ex.getMessage());
+            }
+        } else {
+
+            JOptionPane.showMessageDialog(this, "Username or password not given... Please try again with correct username and password", "Error", JOptionPane.ERROR_MESSAGE);
+
+        }
     }//GEN-LAST:event_addMouseClicked
 
     private void resetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resetMouseClicked

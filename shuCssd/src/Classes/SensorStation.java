@@ -8,12 +8,14 @@ package Classes;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Observer;
+import javafx.beans.Observable;
 
 /**
  *
  * @author wolf
  */
-public class SensorStation implements Serializable {
+public class SensorStation implements Serializable,Observer {
 
     public SensorStation(String stationID, List<SensorMonitor> SensorsMonitors) {
         this.stationID = stationID;
@@ -45,6 +47,11 @@ public class SensorStation implements Serializable {
 
     public static void setObserver(Mothership observer) {
         SensorStation.observer = observer;
+    }
+
+    @Override
+    public void update(java.util.Observable o, Object arg) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
    
