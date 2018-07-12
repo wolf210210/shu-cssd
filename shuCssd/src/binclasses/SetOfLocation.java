@@ -34,4 +34,8 @@ public class SetOfLocation extends Vector<Location> implements Serializable  {
                 }
                 return locationSet;
     }
+    
+      public boolean remove(Location loc) {
+         return super.remove(loc);
+    }
 }

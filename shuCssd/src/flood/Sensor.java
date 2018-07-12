@@ -19,8 +19,10 @@ public class Sensor implements Serializable{
     private static int sensor = 0;
     private int sensorNumber, stockNo;
     private String name, description;
-    private String state;
+    private String state , availability;
     private double frequency;
+    
+    Data readingA ;
     
     
     public Sensor() {
@@ -92,4 +94,19 @@ public class Sensor implements Serializable{
        public String getdescription() {
         return description;
     }
+       
+       
+    private Data getData(){
+        readingA =new  Data();
+        return readingA;
+    }
+    
+    public String getID(String sensorID){
+        return sensorID;
+    }
+
+    void update(String availabilitys) {
+        this.availability = availabilitys;
+    }
+    
 }

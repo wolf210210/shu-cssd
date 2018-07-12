@@ -76,7 +76,7 @@ public class SetOfUsers extends Vector<User> implements Serializable {
     }
     
      public void update(User user, String availability) {
-        System.out.println("Hello "+user.getName()+", Product is now "+user.getAvailabiliy()+" on flipkart");
+        System.out.println("Hello "+user.getName()+", sensor is now "+user.getAvailabiliy()+"and notified");
         this.elementAt(this.indexOf(user)).setAvailabiliy(availability);
 
     }

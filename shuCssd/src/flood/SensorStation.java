@@ -15,4 +15,5 @@ public interface SensorStation {
     public void notifyObservers();
      public void setStatus(String status);
     public String getStatus();
+    
 }

@@ -62,7 +62,7 @@ public class User implements Serializable, Mothership {
 
     @Override
     public void update(String availabilitys) {
-         System.out.println("Hello "+username+", Product is now "+availabilitys+" on flipkart");
+         System.out.println("Hello "+getName()+", sensor is now "+getAvailabiliy()+"and notified");
       this.availabiliy  = availabilitys;
     }
 

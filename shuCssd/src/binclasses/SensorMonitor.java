@@ -110,7 +110,7 @@ public class SensorMonitor extends Vector<Sensor> implements  SensorStation , Se
 
     @Override
     public void notifyObservers() {
-       System.out.println("Notifying to all the subscribers when product became available");
+       System.out.println("Notifying all the subscribers when the bin is full");
 		 for (Mothership ob : observerList) {
              ob.update(this.availability);
                    
@@ -122,8 +122,20 @@ public class SensorMonitor extends Vector<Sensor> implements  SensorStation , Se
 //        super.add(aSensor);
 //    }
 //    
-    public boolean unregisterObserver(Sensor sen) {
-         return super.remove(sen);
+//    public boolean unregisterObserver(Sensor sen) {
+//         return super.remove(sen);
+//    }
+//    
+     public boolean remove(Sensor sen) {
+        return super.remove(sen);
     }
     
+     public void doTick(){
+            for (Sensor sensor : this) {
+            if (sensor.getfrequency() > 100) {
+                   monitorSet.addNewSensor(sensor);
+                
+            }
+        }
+     }
 }

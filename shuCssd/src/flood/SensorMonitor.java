@@ -23,6 +23,12 @@ public class SensorMonitor extends Vector<Sensor> implements SensorStation,Seria
     private String productType;
     String availability;
     
+    private String SensorMonitorID;
+    private ArrayList<Double> coords;
+    Data Reading; 
+    
+
+    
     public SensorMonitor() {
         super();
     }
@@ -90,5 +96,42 @@ public class SensorMonitor extends Vector<Sensor> implements SensorStation,Seria
     public String getStatus() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
+    
+    
+     String personName;
+
+	public SensorMonitor(String personName) {
+		this.personName = personName;
+	}
+
+	public String getPersonName() {
+		return personName;
+	}
+
+	public void setPersonName(String personName) {
+		this.personName = personName;
+	}
+
+	public void update(String availabiliy) {
+		
+		System.out.println("Hello "+personName+", Product is now "+availabiliy+" on flipkart");
+	}
+        
+        
+        
+        public void doTick(){
+            
+        }
+        
+        private void ShouldTakeReading(){
+            
+        }
+        
+       public void embllishedData(){
+            
+        }
+        
+      
     
 }

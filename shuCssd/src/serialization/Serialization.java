@@ -6,6 +6,7 @@
 package serialization;
 
 import Product.SetOfProductStock;
+import binclasses.Mothership;
 import binclasses.SensorMonitor;
 
 import binclasses.SetOfLocation;
@@ -19,10 +20,14 @@ import binclasses.SetOfLocation;
 //import Classes.user.SetOfRandomCode;
 //import Classes.user.SetOfUsers;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import userclasses.SetOfUsers;
 
 /**
@@ -98,7 +103,51 @@ public class Serialization {
 
         return users;
     }
+       
+       
+    public static ArrayList<SensorMonitor> getObserver() throws ClassNotFoundException{
+        try {
+            FileInputStream fil  =  new FileInputStream("DataFiles/ObserverUsers.txt");  
+            if(fil.available()>0 ){
+                ObjectInputStream  oo =  new  ObjectInputStream(fil); 
+                ArrayList<SensorMonitor> sr  = ( ArrayList<SensorMonitor> ) oo.readObject();
+                oo.close(); 
+                fil.close();;
+                return sr ; 
+                
+            }
+            
+            else{
+                ArrayList<SensorMonitor> sr = new ArrayList<>();
+                fil.close();
+                return sr ; 
+                
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Serialization.class.getName()).log(Level.SEVERE, null, ex);
+             return null;
+        } catch (IOException ex) {
+            Logger.getLogger(Serialization.class.getName()).log(Level.SEVERE, null, ex);
+             return null;
+        }
+       
+  
+    }
 
+    
+     public static SetOfUsers deserializeObserver() throws IOException, ClassNotFoundException {
+
+        SetOfUsers users;
+        try (FileInputStream in = new FileInputStream("DataFiles/ObserverUsers.txt")) {
+            ObjectInputStream ois = new ObjectInputStream(in);
+            users = (SetOfUsers) ois
+                    .readObject();
+        }
+
+        return users;
+    }
+    
+    
     public static SetOfProductStock deserializeProductsStock() throws IOException, ClassNotFoundException {
 
         SetOfProductStock products;

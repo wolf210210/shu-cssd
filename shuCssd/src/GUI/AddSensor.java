@@ -15,6 +15,7 @@ package GUI;
 import static GUI.MyProfile.theUsers;
 import binclasses.Location;
 import binclasses.MotherShipObserverImp;
+import binclasses.Mothership;
 import java.io.IOException;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
@@ -23,9 +24,11 @@ import serialization.Serialization;
 import binclasses.Sensor;
 import binclasses.SensorMonitor;
 import binclasses.SetOfLocation;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import userclasses.SetOfUsers;
 import userclasses.User;
 
@@ -43,19 +46,23 @@ public class AddSensor extends javax.swing.JFrame {
     public static final String FILE_NAME_Sensor = "DataFiles/BinSensors.txt";
     public static final String FILE_NAME_Location = "DataFiles/BinSensorsLocation.txt";
         public static final String FILE_NAME_Users = "DataFiles/Users.txt";
+        public static final String  FILE_NAME_Observer = "DataFiles/ObserverUsers.txt"; 
     private  SensorMonitor sensorSet = new SensorMonitor();
     private SetOfLocation locationSet = new SetOfLocation();
      public static SetOfUsers theUsers = new SetOfUsers();
+      public static SetOfUsers theUsersObserver = new SetOfUsers();
     private Double setLatitude;
     private Double setLongitude;
     SensorMonitor notMobile=new SensorMonitor();
+    
                       
-    public AddSensor() {
+    public AddSensor()  {
         initComponents();
 
                load();
                loadLocation();
                loadUser();
+               loadObserver();
                
     }
     
@@ -82,9 +89,12 @@ public class AddSensor extends javax.swing.JFrame {
         frequencyText = new javax.swing.JTextField();
         jButton7 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         userID = new javax.swing.JTextField();
         textStatus = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jButton4 = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -117,7 +127,7 @@ public class AddSensor extends javax.swing.JFrame {
         getContentPane().add(frequencyText);
         frequencyText.setBounds(190, 480, 250, 40);
 
-        jButton7.setText("get observer sensor");
+        jButton7.setText("set observer sensor");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
@@ -140,7 +150,16 @@ public class AddSensor extends javax.swing.JFrame {
         getContentPane().add(jButton5);
         jButton5.setBounds(1190, 170, 150, 25);
 
-        jButton6.setText("set");
+        jButton8.setText("Remove");
+        jButton8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton8MouseClicked(evt);
+            }
+        });
+        getContentPane().add(jButton8);
+        jButton8.setBounds(1200, 270, 140, 25);
+
+        jButton6.setText("notifyObservers");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
@@ -152,6 +171,22 @@ public class AddSensor extends javax.swing.JFrame {
         userID.setBounds(1020, 170, 150, 30);
         getContentPane().add(textStatus);
         textStatus.setBounds(190, 432, 250, 30);
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable1);
+
+        getContentPane().add(jScrollPane2);
+        jScrollPane2.setBounds(940, 370, 410, 230);
 
         jButton4.setText("jButton4");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -284,7 +319,7 @@ public class AddSensor extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tblanpSensor);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(530, 370, 760, 230);
+        jScrollPane1.setBounds(500, 370, 410, 230);
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel9.setText("Search");
@@ -415,7 +450,7 @@ public class AddSensor extends javax.swing.JFrame {
         Sensor sensor = sensorSet.getSensorFromID(Integer.parseInt(txtanpId.getText())).firstElement();
                 System.out.println("delete product" + sensor);
                 
-                  if (sensorSet.unregisterObserver(sensor)) {
+                  if (sensorSet.remove(sensor)) {
                     try {
                         Serialization.Serialize(sensorSet, FILE_NAME_Sensor);
                     } catch (IOException ex) {
@@ -469,6 +504,16 @@ public class AddSensor extends javax.swing.JFrame {
     //get executed   
           
                 notMobile.registerObserver(user);
+                theUsersObserver.add(user);
+                  try {
+                Serialization.Serialize(theUsersObserver, FILE_NAME_Observer);
+
+                System.out.println("Add Observer Sucsessfully");
+
+            } catch (IOException ex) {
+               
+                System.out.println("Unsuccessful...");
+            }
                // notMobile.registerObserver(johnPerson);
 //                notMobile.registerObserver(piyumiPerson);
     
@@ -481,25 +526,34 @@ public class AddSensor extends javax.swing.JFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
 
-            notMobile.setAvailability("not Available");
+            notMobile.setAvailability("66Available");
            // System.out.println(arpitPerson.getAvailabiliy());
-            
-            try {
-                        Serialization.Serialize(theUsers, FILE_NAME_Users);
-                    } catch (IOException ex) {
-                        Logger.getLogger(MyProfile.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+//                 try {
+//                        Serialization.Serialize(theUsersObserver, FILE_NAME_Observer);
+//                    } catch (IOException ex) {
+//                        Logger.getLogger(MyProfile.class.getName()).log(Level.SEVERE, null, ex);
+//                    }
+                 
+                    TableLoad(theUsersObserver);
+           
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-         String name, description , frequency;   
+        String name, description , frequency;   
         name = txtanpName.getText();
-            description = txtanpDes.getText();
-            frequency =  frequencyText.getText();
-                  notMobile.addNewSensor(new Sensor(name, description, Double.parseDouble(frequency),textStatus.getText()));
+        description = txtanpDes.getText();
+        frequency =  frequencyText.getText();
+        notMobile.addNewSensor(new Sensor(name, description, Double.parseDouble(frequency),textStatus.getText()));
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseClicked
+            User user = theUsersObserver.getMemberFromNumber(Integer.parseInt(userID.getText())).firstElement();
+                  notMobile.unregisterObserver(user);
+             
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton8MouseClicked
 
        private void loadAddSensor(SensorMonitor sensorMoni) {
 
@@ -562,11 +616,57 @@ public class AddSensor extends javax.swing.JFrame {
            try {
             for (User member : Serialization.deserializeUsers()) {
                 theUsers.addUser(member);
+                //member.print();
+            }
+        } catch (IOException | ClassNotFoundException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage());
+        }
+    }
+    
+    
+        private void loadObserver() {
+        try {
+            for (User member : Serialization.deserializeObserver()) {
+                 notMobile.registerObserver(member);
+                 theUsersObserver.add(member);
+                 TableLoad(theUsersObserver);
                 member.print();
             }
         } catch (IOException | ClassNotFoundException ex) {
             JOptionPane.showMessageDialog(this, ex.getMessage());
         }
+
+           
+    }
+        
+           public void TableLoad( SetOfUsers searchList) {
+        String[] colName = {"User ID", "First Name", "Address", "Email", "Mobile Number","Availabiliy"};
+        Object[][] object = new Object[searchList.size()][6];
+        int i = 0;
+        if (searchList.size() != 0) {
+            for (User member : searchList) {
+                object[i][0] = member.getMemberNumber();
+                object[i][1] = member.getName();
+                object[i][2] = member.getAddress();
+                object[i][3] = member.getUsername();
+                object[i][4] = member.getMobile();
+                object[i][5] = member.getAvailabiliy();
+
+                i++;
+
+            }
+        }
+
+        DefaultTableModel model = new DefaultTableModel(object, colName) {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;//This causes all cells to be not editable
+            }
+        };
+        jTable1.setModel(model);
+        jTable1.setRowSorter(new TableRowSorter<>(model));
+        jTable1.setAutoscrolls(true);
+        jTable1.getTableHeader().setReorderingAllowed(false);
     }
     
     /**
@@ -613,6 +713,7 @@ public class AddSensor extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -627,6 +728,8 @@ public class AddSensor extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTable tblanpSensor;
