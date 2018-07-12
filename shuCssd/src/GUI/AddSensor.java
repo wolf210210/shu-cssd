@@ -45,15 +45,15 @@ public class AddSensor extends javax.swing.JFrame {
      public static Sensor sensors = new Sensor();
     public static final String FILE_NAME_Sensor = "DataFiles/BinSensors.txt";
     public static final String FILE_NAME_Location = "DataFiles/BinSensorsLocation.txt";
-        public static final String FILE_NAME_Users = "DataFiles/Users.txt";
-        public static final String  FILE_NAME_Observer = "DataFiles/ObserverUsers.txt"; 
+    public static final String FILE_NAME_Users = "DataFiles/Users.txt";
+    public static final String  FILE_NAME_Observer = "DataFiles/ObserverUsers.txt"; 
     private  SensorMonitor sensorSet = new SensorMonitor();
     private SetOfLocation locationSet = new SetOfLocation();
      public static SetOfUsers theUsers = new SetOfUsers();
       public static SetOfUsers theUsersObserver = new SetOfUsers();
     private Double setLatitude;
     private Double setLongitude;
-    SensorMonitor notMobile=new SensorMonitor();
+    private SensorMonitor notMobile=new SensorMonitor();
     
                       
     public AddSensor()  {
@@ -91,6 +91,7 @@ public class AddSensor extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
+        jTextField2 = new javax.swing.JTextField();
         userID = new javax.swing.JTextField();
         textStatus = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -167,6 +168,8 @@ public class AddSensor extends javax.swing.JFrame {
         });
         getContentPane().add(jButton6);
         jButton6.setBounds(1200, 230, 140, 25);
+        getContentPane().add(jTextField2);
+        jTextField2.setBounds(1020, 230, 150, 40);
         getContentPane().add(userID);
         userID.setBounds(1020, 170, 150, 30);
         getContentPane().add(textStatus);
@@ -419,14 +422,15 @@ public class AddSensor extends javax.swing.JFrame {
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
               String name, description;
+               double freq; 
               
               name = txtanpName.getText();
               description = txtanpDes.getText();
-        
+                     freq  = Double.parseDouble(frequencyText.getText());
         
            Sensor sensor = sensorSet.getSensorFromID(Integer.parseInt(txtanpId.getText())).firstElement();
 
-            String status = sensorSet.updateSensors(sensor, name, description);
+            String status = sensorSet.updateSensors(sensor, name, description , freq);
             System.out.println(status);
                if (status.equals("success")) {
                     try {
@@ -526,7 +530,7 @@ public class AddSensor extends javax.swing.JFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
 
-            notMobile.setAvailability("66Available");
+            notMobile.setAvailability(jTextField2.getText());
            // System.out.println(arpitPerson.getAvailabiliy());
 //                 try {
 //                        Serialization.Serialize(theUsersObserver, FILE_NAME_Observer);
@@ -731,6 +735,7 @@ public class AddSensor extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTable tblanpSensor;
     private javax.swing.JTextField textStatus;

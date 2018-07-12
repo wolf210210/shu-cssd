@@ -3,9 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package flood;
+package binclasses;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import userclasses.User;
@@ -14,10 +16,10 @@ import userclasses.User;
  *
  * @author Piyu
  */
-public class Clock extends Thread{
+public class Clock extends Thread implements  Serializable {
   
     
-
+    
     private String productNames;
     
   
@@ -25,20 +27,22 @@ public class Clock extends Thread{
         
     private static Clock instance = null;
 
-    private ArrayList<SensorMonitor> observers;
+    private List<SensorMonitor> observers ;
      private ArrayList<User> userObservers;
    private Thread t;
-   private  static String threadName;
+  // private  static String threadName;
     String availability;
+    
     
     public Clock() {
      observers = new ArrayList<SensorMonitor>();
+     start();
     }
     
       public static Clock getInstance() {
       if (instance == null) {
                 instance = new Clock();
-
+           
 	}
         return instance;
     }
@@ -49,16 +53,22 @@ public class Clock extends Thread{
      
 
     public void notifyObservers() {
-       System.out.println("Notifying all the subscribers");
+    //   System.out.println("Notifying all the subscribers when the bin is full");
 		 for (SensorMonitor ob : observers) {
-                            ob.doTick();
+                      System.out.println("Notifying all the subscribers when the bin is full oi");
+                      if(ob != null){
+                          ob.doTick();
+                      }  
+                     
                  }
+                   
 
 
 	}
 
 	public void registerObserver(SensorMonitor observer) {
 		 observers.add(observer);
+                
 		
 	}
 
@@ -90,13 +100,14 @@ public class Clock extends Thread{
                  return timeInMiles;
         }
         
-       
+        
+        
         public void run() {
-      System.out.println("Running " +  threadName );
+      System.out.println("Running "  );
       while (true) {
           System.out.println("Thread Notifying" );
           // Let the thread sleep for a while.
-          notifyObservers();
+        notifyObservers();
           waitForTime();
       }
       

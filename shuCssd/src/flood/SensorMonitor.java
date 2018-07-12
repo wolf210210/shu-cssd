@@ -18,7 +18,7 @@ public class SensorMonitor extends Vector<Sensor> implements SensorStation,Seria
     private static final long serialVersionUID = 2428035439452881234L;
     SensorMonitor monitorSet;
     private ArrayList<Mothership> observers = new ArrayList<Mothership>();
-    
+     public  Clock clock ;
     private String productName;
     private String productType;
     String availability;
@@ -31,16 +31,17 @@ public class SensorMonitor extends Vector<Sensor> implements SensorStation,Seria
     
     public SensorMonitor() {
         super();
-    }
-    
-    
-	public SensorMonitor(String productName, String productType,String availability) {
-		super();
-		this.productName = productName;
-		this.productType = productType;
-		this.availability=availability;
-	}
-	
+        clock = Clock.getInstance();
+     }
+     
+//    
+//	public SensorMonitor(String productName, String productType,String availability) {
+//		super();
+//		this.productName = productName;
+//		this.productType = productType;
+//		this.availability=availability;
+//	}
+//	
 	public ArrayList<Mothership> getObservers() {
 		return observers;
 	}

@@ -22,22 +22,32 @@ public class SensorMonitor extends Vector<Sensor> implements  SensorStation , Se
 
             private static final long serialVersionUID = 2428035439452881234L;
             SensorMonitor monitorSet;
+             
             Location sensorLocation;
             List<Mothership> observerList = new ArrayList<Mothership>();
             String availability;
+             public  Clock clock ;
+             private static int sensorMonitorNoCount = 0;
+             private int sensorMonitorNo ;
       
      
     public SensorMonitor() {
         super();
+      clock = Clock.getInstance();
+       clock.registerObserver(monitorSet);
     }
+    
+  
 //    
 
-    public String updateSensors(Sensor aSensor, String Name, String description) {
+    
+    public String updateSensors(Sensor aSensor, String Name, String description , Double frequency) {
         String status = "";
         try {
             
             this.elementAt(this.indexOf(aSensor)).setName(Name);
             this.elementAt(this.indexOf(aSensor)).setDescription(description);
+            this.elementAt(this.indexOf(aSensor)).setfrequency(frequency);
            
             
             status = "success";
@@ -133,8 +143,8 @@ public class SensorMonitor extends Vector<Sensor> implements  SensorStation , Se
      public void doTick(){
             for (Sensor sensor : this) {
             if (sensor.getfrequency() > 100) {
-                   monitorSet.addNewSensor(sensor);
-                
+//                   monitorSet.addNewSensor(sensor);
+                System.out.println("methanata awoo");
             }
         }
      }
