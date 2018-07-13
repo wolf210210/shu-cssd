@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package binclasses;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +12,7 @@ import java.util.List;
  *
  * @author Piyu
  */
-public class EmbellishedData {
+public class EmbellishedData implements  Serializable{
     
 
     public Long TimeInMiles;

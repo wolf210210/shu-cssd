@@ -34,8 +34,13 @@ public class BinLocation extends javax.swing.JFrame {
     
     private SetOfLocation locationSet = new SetOfLocation();
     public static final String FILE_NAME_Location = "DataFiles/BinSensorsLocation.txt";
+     private  SensorMonitor sensorSet = new SensorMonitor();
+      private SetOfLocation locationFullBin = new SetOfLocation();
+        private SetOfLocation locationNotFullBin = new SetOfLocation();
+        Sensor sensor;
     public BinLocation() {
         initComponents();
+        loadSensor();
         loadLocation();
     }
 
@@ -199,7 +204,13 @@ public class BinLocation extends javax.swing.JFrame {
                 object[i][0] = location.getSensorID();
                 object[i][1] = location.getLatitude();
                 object[i][2] = location.getLongitude();
-             
+                       sensor  = sensorSet.getSensorFromID( location.getSensorID()).firstElement();
+                      if( sensor.getfrequency() >= 100 ){
+                          locationFullBin.addNewSensor(location);
+                      }
+                      else{
+                          locationNotFullBin.addNewSensor(location);
+                      }
                 i++;
 
             }
@@ -220,8 +231,8 @@ public class BinLocation extends javax.swing.JFrame {
         
          
 
-                if (setOfLocation.size() != 0) {
-                for (Location location : setOfLocation) {
+                if (locationNotFullBin.size() != 0) {
+                for (Location location : locationNotFullBin) {
                             Random rand = new Random();
                             System.out.println("New Field...");
                             Container contentPane = getContentPane();
@@ -243,9 +254,48 @@ public class BinLocation extends javax.swing.JFrame {
 
             }
         }
+                
+                       if (locationFullBin.size() != 0) {
+                for (Location location : locationFullBin) {
+                            Random rand = new Random();
+                            System.out.println("New Field...");
+                            Container contentPane = getContentPane();
+                            JLabel label = new JLabel (Integer.toString(location.getSensorID()));
+                            label.setIcon(new ImageIcon(
+                                "C:/Users/wolf/Documents/GitHub/shu-cssd/shuCssd/src/Images/Untitled-2.png"));
+
+                        label.setBounds(10,10,50,50);
+                        label.setLocation( location.getLatitude().intValue(),  location.getLongitude().intValue());
+
+                        //some random value that I know is in my dialog
+                        jLabel1.add(label);
+
+                        jLabel1.revalidate();
+                        jLabel1.repaint();
+                        this.pack();
+             
+                i++;
+
+            }
+        }
         
         
 
+    }
+        
+        
+      public void loadSensor(){
+        try { 
+             for (Sensor sensors : Serialization.deserializeBinSensors()) {
+                         sensorSet.addNewSensor(sensors);
+              
+            }
+        } catch (IOException | ClassNotFoundException  ex) {
+            JOptionPane.showMessageDialog(this, ex);
+        
+        }
+       
+         
     }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

@@ -9,6 +9,7 @@ package binclasses;
 
 
 
+import GUI.EmbellishedDataMap;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +24,7 @@ public class SensorMonitor extends Vector<Sensor> implements  SensorStation , Se
             private static final long serialVersionUID = 2428035439452881234L;
             SensorMonitor monitorSet;
             SensorMonitor monitorSetPass;
+            EmbellishedDataMap embellishedDataMap ;
             Location sensorLocation;
             List<Mothership> observerList = new ArrayList<Mothership>();
             String availability;
@@ -142,12 +144,18 @@ public class SensorMonitor extends Vector<Sensor> implements  SensorStation , Se
     
      public void doTick(){
           monitorSetPass = new SensorMonitor();
+          
             for (Sensor sensor : this) {
                     if (sensor.getfrequency() > 100) {
-                            monitorSetPass.addNewSensor(sensor);
+                           embellishedDataMap = new EmbellishedDataMap();
+                           embellishedDataMap.setVisible(true);
+                           System.out.println("awa");
+                           break;
+                           
                      
                     }
         }
-             embellishedData  = new EmbellishedData(monitorSetPass) ; 
+           //  embellishedData  = new EmbellishedData(monitorSetPass) ; 
+            
      }
 }
