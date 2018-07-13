@@ -53,9 +53,9 @@ public class Clock extends Thread implements  Serializable {
      
 
     public void notifyObservers() {
-    //   System.out.println("Notifying all the subscribers when the bin is full");
+       System.out.println("Notifying all the subscribers when the bin is full");
 		 for (SensorMonitor ob : observers) {
-                      System.out.println("Notifying all the subscribers when the bin is full oi");
+//                      System.out.println("Notifying all the subscribers when the bin is full oi");
                       if(ob != null){
                           ob.doTick();
                       }  

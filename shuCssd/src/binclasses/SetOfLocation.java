@@ -35,6 +35,18 @@ public class SetOfLocation extends Vector<Location> implements Serializable  {
                 return locationSet;
     }
     
+       public Double getLatitudeFromSensorID(int number) {
+        
+                Double tempLat =0.0 ; 
+                for (Location location : this) {
+                    if (location.getSensorNo() == number) {
+                         tempLat  =location.getLatitude();
+                    }
+                }
+                return tempLat;
+    }
+    
+    
       public boolean remove(Location loc) {
          return super.remove(loc);
     }

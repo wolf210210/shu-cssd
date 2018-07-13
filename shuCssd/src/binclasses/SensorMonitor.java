@@ -22,19 +22,19 @@ public class SensorMonitor extends Vector<Sensor> implements  SensorStation , Se
 
             private static final long serialVersionUID = 2428035439452881234L;
             SensorMonitor monitorSet;
-             
+            SensorMonitor monitorSetPass;
             Location sensorLocation;
             List<Mothership> observerList = new ArrayList<Mothership>();
             String availability;
              public  Clock clock ;
              private static int sensorMonitorNoCount = 0;
              private int sensorMonitorNo ;
-      
+               private  EmbellishedData   embellishedData ; 
      
     public SensorMonitor() {
         super();
-      clock = Clock.getInstance();
-       clock.registerObserver(monitorSet);
+//      clock = Clock.getInstance();
+//       clock.registerObserver(monitorSet);
     }
     
   
@@ -141,11 +141,13 @@ public class SensorMonitor extends Vector<Sensor> implements  SensorStation , Se
     }
     
      public void doTick(){
+          monitorSetPass = new SensorMonitor();
             for (Sensor sensor : this) {
-            if (sensor.getfrequency() > 100) {
-//                   monitorSet.addNewSensor(sensor);
-                System.out.println("methanata awoo");
-            }
+                    if (sensor.getfrequency() > 100) {
+                            monitorSetPass.addNewSensor(sensor);
+                     
+                    }
         }
+             embellishedData  = new EmbellishedData(monitorSetPass) ; 
      }
 }
