@@ -20,24 +20,34 @@ import java.util.Vector;
  */
 public class SensorMonitor extends Vector<Sensor> implements  SensorStation , Serializable {
 
-            private static final long serialVersionUID = 2428035439452881234L;
+       private static final long serialVersionUID = 2428035439452881234L;
             SensorMonitor monitorSet;
-           
+            SensorMonitor monitorSetPass;
+            Location sensorLocation;
             List<Mothership> observerList = new ArrayList<Mothership>();
             String availability;
-      
+             public  Clock clock ;
+             private static int sensorMonitorNoCount = 0;
+             private int sensorMonitorNo ;
+               private  EmbellishedData   embellishedData ; 
      
     public SensorMonitor() {
         super();
+//      clock = Clock.getInstance();
+//       clock.registerObserver(monitorSet);
     }
+    
+  
 //    
 
-    public String updateSensors(Sensor aSensor, String Name, String description) {
+    
+    public String updateSensors(Sensor aSensor, String Name, String description , Double frequency) {
         String status = "";
         try {
             
             this.elementAt(this.indexOf(aSensor)).setName(Name);
             this.elementAt(this.indexOf(aSensor)).setDescription(description);
+            this.elementAt(this.indexOf(aSensor)).setfrequency(frequency);
            
             
             status = "success";
@@ -93,8 +103,8 @@ public class SensorMonitor extends Vector<Sensor> implements  SensorStation , Se
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public void setAvailability(String availability) {
-		this.availability = availability;
+    public void setAvailability(String availabilitys) {
+		this.availability = availabilitys;
 		notifyObservers();
     }
 
@@ -110,9 +120,10 @@ public class SensorMonitor extends Vector<Sensor> implements  SensorStation , Se
 
     @Override
     public void notifyObservers() {
-       System.out.println("Notifying to all the subscribers when product became available");
+       System.out.println("Notifying all the subscribers when the bin is full");
 		 for (Mothership ob : observerList) {
              ob.update(this.availability);
+                   
       }
     }
     
@@ -121,8 +132,22 @@ public class SensorMonitor extends Vector<Sensor> implements  SensorStation , Se
 //        super.add(aSensor);
 //    }
 //    
-    public boolean unregisterObserver(Sensor sen) {
-         return super.remove(sen);
+//    public boolean unregisterObserver(Sensor sen) {
+//         return super.remove(sen);
+//    }
+//    
+     public boolean remove(Sensor sen) {
+        return super.remove(sen);
     }
     
+     public void doTick(){
+          monitorSetPass = new SensorMonitor();
+            for (Sensor sensor : this) {
+                    if (sensor.getfrequency() > 100) {
+                            monitorSetPass.addNewSensor(sensor);
+                     
+                    }
+        }
+             embellishedData  = new EmbellishedData(monitorSetPass) ; 
+     }    
 }

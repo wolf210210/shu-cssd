@@ -10,5 +10,5 @@ package floodclasses;
  * @author wolf
  */
 public interface Mothership {
-     public void update(String availability);
+      public void update(String availability);
 }

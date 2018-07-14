@@ -10,7 +10,7 @@ package floodclasses;
  * @author wolf
  */
 public interface SensorStation {
-    public void registerObserver(Mothership motherShip );
+   public void registerObserver(Mothership motherShip );
     public  void unregisterObserver(Mothership motherShip );
     public  void notifyObservers();  
     public void setStatus(String status);

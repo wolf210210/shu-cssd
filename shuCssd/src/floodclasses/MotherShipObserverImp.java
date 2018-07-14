@@ -16,7 +16,7 @@ import serialization.Serialization;
  *
  * @author wolf
  */
-public class MotherShipObserverImp implements Mothership{
+public class MotherShipObserverImp {
   String personName;
     private int sensorID;
     private String availabiliy;
@@ -44,11 +44,12 @@ public class MotherShipObserverImp implements Mothership{
     public void setAvailabiliy(String availabiliy) {
         this.availabiliy = availabiliy;
     } 
-    @Override
-    public void update(String availability) {
-        System.out.println("Hello "+personName+", Product is now "+availabiliy+" on flipkart");
-        this.availabiliy =availability;
+//    @Override
+    public void update(String availabilitys) {
+        System.out.println("Hello "+personName+", Product is now "+availabilitys+" on flipkart");
+        this.availabiliy =availabilitys;
 
     }
+    
     
 }
