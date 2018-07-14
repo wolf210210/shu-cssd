@@ -131,7 +131,7 @@ public class EmbellishedDataMap extends javax.swing.JFrame implements  Serializa
         ));
         jScrollPane2.setViewportView(jTable2);
 
-        jButton1.setText("jButton1");
+        jButton1.setText("save");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -189,6 +189,13 @@ public class EmbellishedDataMap extends javax.swing.JFrame implements  Serializa
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+            try {
+            Serialization.Serialize(theUsersObserver, FILE_NAME_Observer);
+            System.out.println("Serialize");
+        } catch (IOException ex) {
+            Logger.getLogger(MyProfile.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Error");
+        }
           
 
         // TODO add your handling code here:
@@ -290,6 +297,7 @@ public class EmbellishedDataMap extends javax.swing.JFrame implements  Serializa
     }
                
         private void loadObserver() {
+           
         try {
             for (User member : Serialization.deserializeObserver()) {
                  notMobile.registerObserver(member);

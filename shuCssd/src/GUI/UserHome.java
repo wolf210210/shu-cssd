@@ -29,10 +29,9 @@ public class UserHome extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        Emergency = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
-        bin = new javax.swing.JButton();
-        flood = new javax.swing.JButton();
+        add = new javax.swing.JButton();
+        reset = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
@@ -45,28 +44,9 @@ public class UserHome extends javax.swing.JFrame {
         jLabel1.setBackground(new java.awt.Color(0, 153, 153));
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel1.setText("WELCOME STAFF");
+        jLabel1.setText("WELCOME USER");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(530, 320, 410, 66);
-
-        Emergency.setBackground(new java.awt.Color(0, 102, 153));
-        Emergency.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
-        Emergency.setForeground(new java.awt.Color(255, 255, 255));
-        Emergency.setText("Emergency Sensor");
-        Emergency.setContentAreaFilled(false);
-        Emergency.setOpaque(true);
-        Emergency.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                EmergencyMouseClicked(evt);
-            }
-        });
-        Emergency.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EmergencyActionPerformed(evt);
-            }
-        });
-        jPanel1.add(Emergency);
-        Emergency.setBounds(580, 540, 310, 40);
+        jLabel1.setBounds(540, 320, 400, 66);
 
         jLabel13.setFont(new java.awt.Font("Segoe UI Light", 0, 17)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(0, 102, 0));
@@ -75,43 +55,43 @@ public class UserHome extends javax.swing.JFrame {
         jPanel1.add(jLabel13);
         jLabel13.setBounds(180, 20, 280, 40);
 
-        bin.setBackground(new java.awt.Color(0, 102, 153));
-        bin.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
-        bin.setForeground(new java.awt.Color(255, 255, 255));
-        bin.setText("Bin Sensor");
-        bin.setContentAreaFilled(false);
-        bin.setOpaque(true);
-        bin.addMouseListener(new java.awt.event.MouseAdapter() {
+        add.setBackground(new java.awt.Color(0, 102, 153));
+        add.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
+        add.setForeground(new java.awt.Color(255, 255, 255));
+        add.setText("My Profile");
+        add.setContentAreaFilled(false);
+        add.setOpaque(true);
+        add.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                binMouseClicked(evt);
+                addMouseClicked(evt);
             }
         });
-        bin.addActionListener(new java.awt.event.ActionListener() {
+        add.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                binActionPerformed(evt);
+                addActionPerformed(evt);
             }
         });
-        jPanel1.add(bin);
-        bin.setBounds(580, 420, 310, 40);
+        jPanel1.add(add);
+        add.setBounds(580, 420, 310, 40);
 
-        flood.setBackground(new java.awt.Color(0, 102, 153));
-        flood.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
-        flood.setForeground(new java.awt.Color(255, 255, 255));
-        flood.setText("Flood Sensor");
-        flood.setContentAreaFilled(false);
-        flood.setOpaque(true);
-        flood.addMouseListener(new java.awt.event.MouseAdapter() {
+        reset.setBackground(new java.awt.Color(0, 102, 153));
+        reset.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
+        reset.setForeground(new java.awt.Color(255, 255, 255));
+        reset.setText("FeedBack");
+        reset.setContentAreaFilled(false);
+        reset.setOpaque(true);
+        reset.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                floodMouseClicked(evt);
+                resetMouseClicked(evt);
             }
         });
-        flood.addActionListener(new java.awt.event.ActionListener() {
+        reset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                floodActionPerformed(evt);
+                resetActionPerformed(evt);
             }
         });
-        jPanel1.add(flood);
-        flood.setBounds(580, 480, 310, 40);
+        jPanel1.add(reset);
+        reset.setBounds(580, 480, 310, 40);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logo.png"))); // NOI18N
         jPanel1.add(jLabel3);
@@ -138,32 +118,24 @@ public class UserHome extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void binMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_binMouseClicked
+    private void addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMouseClicked
         MyProfile a = new MyProfile();
         a.setVisible(true);
 
-    }//GEN-LAST:event_binMouseClicked
+    }//GEN-LAST:event_addMouseClicked
 
-    private void floodMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_floodMouseClicked
+    private void resetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resetMouseClicked
         FeedBack a = new FeedBack();
         a.setVisible(true);
-    }//GEN-LAST:event_floodMouseClicked
+    }//GEN-LAST:event_resetMouseClicked
 
-    private void floodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_floodActionPerformed
+    private void resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_floodActionPerformed
+    }//GEN-LAST:event_resetActionPerformed
 
-    private void binActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_binActionPerformed
+    private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_binActionPerformed
-
-    private void EmergencyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EmergencyMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_EmergencyMouseClicked
-
-    private void EmergencyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmergencyActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_EmergencyActionPerformed
+    }//GEN-LAST:event_addActionPerformed
 
     /**
      * @param args the command line arguments
@@ -201,13 +173,12 @@ public class UserHome extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Emergency;
-    private javax.swing.JButton bin;
-    private javax.swing.JButton flood;
+    private javax.swing.JButton add;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton reset;
     // End of variables declaration//GEN-END:variables
 }

@@ -64,6 +64,7 @@ public class Clock extends Thread implements  Serializable{
 	}
 
 	public void registerObserver(SensorMonitor observer) {
+         
 		 observers.add(observer);
                 
 		

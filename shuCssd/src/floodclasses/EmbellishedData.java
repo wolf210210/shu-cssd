@@ -15,14 +15,8 @@ public class EmbellishedData {
     public String sensorID;
 //        private List<SensorMonitor> observers ;
     
-    public EmbellishedData(SensorMonitor sensorMonitor) {
-       
-        
-         for (Sensor ob : sensorMonitor) {
-//                      System.out.println("Notifying all the subscribers when the bin is full oi");
-                     System.out.println("wadda EmbellishedData");
-                     
-                 }
-                   
+    public EmbellishedData() {
+        System.out.println("awooooo");
+ 
     }
 }

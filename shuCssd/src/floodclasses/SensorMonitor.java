@@ -144,10 +144,10 @@ public class SensorMonitor extends Vector<Sensor> implements  SensorStation , Se
           monitorSetPass = new SensorMonitor();
             for (Sensor sensor : this) {
                     if (sensor.getfrequency() > 100) {
-                            monitorSetPass.addNewSensor(sensor);
-                     
+//                            monitorSetPass.addNewSensor(sensor);
+                        System.out.println("awooooo");
                     }
         }
-             embellishedData  = new EmbellishedData(monitorSetPass) ; 
+//             embellishedData  = new EmbellishedData(monitorSetPass) ; 
      }    
 }

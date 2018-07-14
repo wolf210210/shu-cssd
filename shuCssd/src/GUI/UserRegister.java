@@ -5,7 +5,6 @@
  */
 package GUI;
 
-import Validations.Validation;
 import java.io.IOException;
 import javax.swing.JOptionPane;
 import serialization.Serialization;
@@ -25,8 +24,6 @@ public class UserRegister extends javax.swing.JFrame {
        private static final String FILE_NAME_Users = "DataFiles/Users.txt";
     public UserRegister() {
         initComponents();
-       
-
     }
 
     /**
@@ -38,33 +35,31 @@ public class UserRegister extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         add = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
-        lastName = new javax.swing.JTextField();
-        jLabel30 = new javax.swing.JLabel();
+        firstName = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        password = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
-        city = new javax.swing.JTextField();
-        email = new javax.swing.JTextField();
-        mobile = new javax.swing.JTextField();
-        password1 = new javax.swing.JTextField();
+        jLabel23 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
-        firstName = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
+        password1 = new javax.swing.JTextField();
+        password = new javax.swing.JTextField();
+        mobile = new javax.swing.JTextField();
+        email = new javax.swing.JTextField();
+        city = new javax.swing.JTextField();
         address = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        lastName = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(null);
 
-        add.setBackground(new java.awt.Color(0, 102, 153));
-        add.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        add.setBackground(new java.awt.Color(51, 153, 0));
+        add.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
         add.setForeground(new java.awt.Color(255, 255, 255));
         add.setText("Sign Up");
         add.setContentAreaFilled(false);
@@ -74,57 +69,50 @@ public class UserRegister extends javax.swing.JFrame {
                 addMouseClicked(evt);
             }
         });
-        getContentPane().add(add);
-        add.setBounds(680, 630, 130, 40);
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
-        jLabel6.setText("Mobile Number  :");
-        getContentPane().add(jLabel6);
-        jLabel6.setBounds(490, 480, 170, 30);
+        firstName.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        firstName.setForeground(new java.awt.Color(102, 102, 102));
+        firstName.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lastName.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        lastName.setForeground(new java.awt.Color(102, 102, 102));
-        lastName.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        getContentPane().add(lastName);
-        lastName.setBounds(660, 310, 240, 29);
+        jLabel8.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel8.setText("First Name                :");
 
-        jLabel30.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
-        jLabel30.setText("Password           :");
-        getContentPane().add(jLabel30);
-        jLabel30.setBounds(490, 530, 170, 30);
+        jLabel19.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel19.setText("Last Name                :");
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
-        jLabel8.setText("First Name         :");
-        getContentPane().add(jLabel8);
-        jLabel8.setBounds(490, 260, 170, 30);
+        jLabel23.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel23.setText("Address                    :");
 
-        jLabel23.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
-        jLabel23.setText("Address             :");
-        getContentPane().add(jLabel23);
-        jLabel23.setBounds(490, 360, 170, 30);
+        jLabel28.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        jLabel28.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel28.setText("City                          :");
+
+        jLabel29.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        jLabel29.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel29.setText("Email                        :");
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel6.setText("Mobile Number        :");
+
+        jLabel30.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        jLabel30.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel30.setText("Password                  :");
+
+        jLabel31.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        jLabel31.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel31.setText("Confirm Password     :");
+
+        password1.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        password1.setForeground(new java.awt.Color(102, 102, 102));
+        password1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         password.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
         password.setForeground(new java.awt.Color(102, 102, 102));
         password.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        getContentPane().add(password);
-        password.setBounds(660, 530, 240, 29);
-
-        jLabel19.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
-        jLabel19.setText("Last Name         :");
-        getContentPane().add(jLabel19);
-        jLabel19.setBounds(490, 310, 170, 30);
-
-        city.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        city.setForeground(new java.awt.Color(102, 102, 102));
-        city.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        getContentPane().add(city);
-        city.setBounds(660, 400, 240, 29);
-
-        email.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        email.setForeground(new java.awt.Color(102, 102, 102));
-        email.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        getContentPane().add(email);
-        email.setBounds(660, 440, 240, 29);
 
         mobile.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
         mobile.setForeground(new java.awt.Color(102, 102, 102));
@@ -134,61 +122,121 @@ public class UserRegister extends javax.swing.JFrame {
                 mobileKeyTyped(evt);
             }
         });
-        getContentPane().add(mobile);
-        mobile.setBounds(660, 480, 240, 29);
 
-        password1.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        password1.setForeground(new java.awt.Color(102, 102, 102));
-        password1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        getContentPane().add(password1);
-        password1.setBounds(660, 580, 240, 29);
+        email.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        email.setForeground(new java.awt.Color(102, 102, 102));
+        email.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jLabel28.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
-        jLabel28.setText("City                   :");
-        getContentPane().add(jLabel28);
-        jLabel28.setBounds(490, 400, 170, 30);
-
-        jLabel29.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
-        jLabel29.setText("Email                 :");
-        getContentPane().add(jLabel29);
-        jLabel29.setBounds(490, 440, 170, 30);
-
-        jLabel31.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
-        jLabel31.setText("Confirm Password:");
-        getContentPane().add(jLabel31);
-        jLabel31.setBounds(490, 580, 170, 30);
-
-        firstName.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        firstName.setForeground(new java.awt.Color(102, 102, 102));
-        firstName.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        getContentPane().add(firstName);
-        firstName.setBounds(660, 260, 240, 30);
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/kk.png"))); // NOI18N
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(500, 60, 400, 130);
+        city.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        city.setForeground(new java.awt.Color(102, 102, 102));
+        city.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         address.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
         address.setForeground(new java.awt.Color(102, 102, 102));
         address.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        getContentPane().add(address);
-        address.setBounds(660, 360, 240, 29);
 
-        jLabel7.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel7.setText("Registration");
-        getContentPane().add(jLabel7);
-        jLabel7.setBounds(610, 200, 190, 60);
+        lastName.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        lastName.setForeground(new java.awt.Color(102, 102, 102));
+        lastName.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Back.png"))); // NOI18N
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 1366, 810);
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 999, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(0, 0, 0)
+                            .addComponent(firstName, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(0, 0, 0)
+                            .addComponent(lastName, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(0, 0, 0)
+                            .addComponent(address, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(0, 0, 0)
+                            .addComponent(city, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(0, 0, 0)
+                            .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(0, 0, 0)
+                            .addComponent(mobile, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(0, 0, 0)
+                            .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(0, 0, 0)
+                            .addComponent(password1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(170, 170, 170)
+                            .addComponent(add, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 613, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(firstName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(10, 10, 10)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(10, 10, 10)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(address, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(10, 10, 10)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(city, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(10, 10, 10)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(10, 10, 10)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(mobile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(20, 20, 20)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(20, 20, 20)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(password1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(30, 30, 30)
+                    .addComponent(add)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(null);
-        getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 0, 0);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -200,7 +248,7 @@ public class UserRegister extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Please provide all the details...", "Error", JOptionPane.ERROR_MESSAGE);
 
         } else {
-           if (Validation.isEmail(email.getText())) {
+//            if (validations.isEmail(email.getText())) {
                 firstname = firstName.getText();
                 lastname = lastName.getText();
                 Address = address.getText();
@@ -229,27 +277,21 @@ public class UserRegister extends javax.swing.JFrame {
                         this.hide();
 
                     } else {
-                        JOptionPane.showMessageDialog(this, "Registration Failed", "Error", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(this, "Registration unsuccessful...", "Error", JOptionPane.ERROR_MESSAGE);
                     }
                 } else {
                     JOptionPane.showMessageDialog(this, "Confirmation password must be same as the password...", "Error", JOptionPane.ERROR_MESSAGE);
 
                 }
-            } else {
-                JOptionPane.showMessageDialog(this, "Please provide a valied email address...", "Error", JOptionPane.ERROR_MESSAGE);
-
-            }
+//            } else {
+//                JOptionPane.showMessageDialog(this, "Please provide a valied email address...", "Error", JOptionPane.ERROR_MESSAGE);
+//
+//            }
         }
     }//GEN-LAST:event_addMouseClicked
 
     private void mobileKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_mobileKeyTyped
-        Validation.validateNumber(mobile, evt);
-         
-         char enter =evt.getKeyChar();
-            if((!Character.isDigit(enter)) || mobile.getText().length()>=10)
-               {
-                  evt.consume();
-               }    
+       
     }//GEN-LAST:event_mobileKeyTyped
 
     /**
@@ -329,16 +371,13 @@ public class UserRegister extends javax.swing.JFrame {
     private javax.swing.JTextField city;
     private javax.swing.JTextField email;
     private javax.swing.JTextField firstName;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField lastName;

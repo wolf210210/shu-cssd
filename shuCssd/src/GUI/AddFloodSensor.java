@@ -5,15 +5,22 @@
  */
 package GUI;
 
+import floodclasses.Clock;
+import floodclasses.Location;
 import floodclasses.MotherShipObserverImp;
 import floodclasses.Sensor;
 import floodclasses.SensorMonitor;
+import floodclasses.SetOfLocation;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import serialization.Serialization;
+import userclasses.SetOfUsers;
+import userclasses.User;
 
 /**
  *
@@ -21,15 +28,46 @@ import serialization.Serialization;
  */
 public class AddFloodSensor extends javax.swing.JFrame {
 
+    
+        public static Sensor sensors = new Sensor();
+        public static final String FILE_NAME_Sensor = "DataFiles/FloodSensors.txt";
+        public static final String FILE_NAME_Location = "DataFiles/FloodSensorsLocation.txt";
+//        public static final String FILE_NAME_Users = "DataFiles/Users.txt";
+//        public static final String  FILE_NAME_Observer = "DataFiles/ObserverUsers.txt"; 
+        private  SensorMonitor sensorSet = new SensorMonitor();
+        private SetOfLocation locationSet = new SetOfLocation();
+        public static SetOfUsers theUsers = new SetOfUsers();
+        public static SetOfUsers theUsersObserver = new SetOfUsers();
+        private Double setLatitude;
+        private Double setLongitude;
+        private SensorMonitor notMobile=new SensorMonitor();
+        public  Clock clock ;
     /**
      * Creates new form AddFloodSensor
      */
-     public static final String FILE_NAME_Sensor = "DataFiles/FloodSensors.txt";
-      private  SensorMonitor sensorSet = new SensorMonitor();
     public AddFloodSensor() {
         initComponents();
-        load();
+        
+               load();
+               loadLocation();
+               clock = Clock.getInstance();
     }
+    
+    public AddFloodSensor( Double setLatitudes ,Double setLongitudes) {
+        initComponents();
+
+               load();
+               loadLocation();
+               this.setLatitude = setLatitudes;
+               this.setLongitude = setLongitudes;
+               System.err.println(this.setLatitude);
+               System.err.println(this.setLongitude);
+                clock = Clock.getInstance();
+    }
+
+//    AddFloodSensor(Double setLatitudes, Double setLongitudes) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -46,7 +84,11 @@ public class AddFloodSensor extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblanpSensor = new javax.swing.JTable();
         jButton5 = new javax.swing.JButton();
-        add = new javax.swing.JButton();
+        remove = new javax.swing.JButton();
+        add1 = new javax.swing.JButton();
+        update = new javax.swing.JButton();
+        idText = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -54,7 +96,7 @@ public class AddFloodSensor extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        frequency = new javax.swing.JTextField();
+        frequencyText = new javax.swing.JTextField();
         statusText = new javax.swing.JTextField();
         desText = new javax.swing.JTextField();
         nameText = new javax.swing.JTextField();
@@ -90,6 +132,11 @@ public class AddFloodSensor extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tblanpSensor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblanpSensorMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblanpSensor);
 
         getContentPane().add(jScrollPane1);
@@ -109,19 +156,60 @@ public class AddFloodSensor extends javax.swing.JFrame {
         getContentPane().add(jButton5);
         jButton5.setBounds(1180, 160, 150, 25);
 
-        add.setBackground(new java.awt.Color(0, 102, 153));
-        add.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
-        add.setForeground(new java.awt.Color(255, 255, 255));
-        add.setText("Add");
-        add.setContentAreaFilled(false);
-        add.setOpaque(true);
-        add.addMouseListener(new java.awt.event.MouseAdapter() {
+        remove.setBackground(new java.awt.Color(0, 102, 153));
+        remove.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
+        remove.setForeground(new java.awt.Color(255, 255, 255));
+        remove.setText("Remove");
+        remove.setContentAreaFilled(false);
+        remove.setOpaque(true);
+        remove.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                addMouseClicked(evt);
+                removeMouseClicked(evt);
             }
         });
-        getContentPane().add(add);
-        add.setBounds(230, 560, 130, 40);
+        getContentPane().add(remove);
+        remove.setBounds(340, 560, 130, 40);
+
+        add1.setBackground(new java.awt.Color(0, 102, 153));
+        add1.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
+        add1.setForeground(new java.awt.Color(255, 255, 255));
+        add1.setText("Add");
+        add1.setContentAreaFilled(false);
+        add1.setOpaque(true);
+        add1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                add1MouseClicked(evt);
+            }
+        });
+        getContentPane().add(add1);
+        add1.setBounds(40, 560, 130, 40);
+
+        update.setBackground(new java.awt.Color(0, 102, 153));
+        update.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
+        update.setForeground(new java.awt.Color(255, 255, 255));
+        update.setText("Update");
+        update.setContentAreaFilled(false);
+        update.setOpaque(true);
+        update.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                updateMouseClicked(evt);
+            }
+        });
+        getContentPane().add(update);
+        update.setBounds(190, 560, 130, 40);
+
+        idText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                idTextActionPerformed(evt);
+            }
+        });
+        getContentPane().add(idText);
+        idText.setBounds(190, 290, 250, 30);
+
+        jLabel11.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
+        jLabel11.setText("SensorID");
+        getContentPane().add(jLabel11);
+        jLabel11.setBounds(40, 290, 140, 30);
 
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -161,8 +249,8 @@ public class AddFloodSensor extends javax.swing.JFrame {
         jLabel2.setText("Frequency");
         getContentPane().add(jLabel2);
         jLabel2.setBounds(40, 480, 130, 30);
-        getContentPane().add(frequency);
-        frequency.setBounds(190, 480, 250, 30);
+        getContentPane().add(frequencyText);
+        frequencyText.setBounds(190, 480, 250, 30);
         getContentPane().add(statusText);
         statusText.setBounds(190, 430, 250, 30);
 
@@ -218,33 +306,27 @@ public class AddFloodSensor extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_nameTextActionPerformed
 
-    private void addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMouseClicked
-            String name , des , status;
-            Double frequencys ; 
-            
-            name =  nameText.getText() ; 
-            des =  desText.getText() ; 
-            status =  statusText.getText(); 
-            frequencys = Double.parseDouble(frequency.getText());
-             sensorSet.addNewSensor(new Sensor(name, des, frequencys,status));
-             
-                try {
-                Serialization.Serialize(sensorSet, FILE_NAME_Sensor);
-
-                System.out.println("Add Sucsessfully");
-
-            } catch (IOException ex) {
-                //                Logger.getLogger(AddNewProduct.class.getName()).log(Level.SEVERE, null, ex);
-                //                JOptionPane.showMessageDialog(this, "Unsuccessful...", "Error", JOptionPane.ERROR_MESSAGE);
-                System.out.println("Unsuccessful...");
-            }
+    private void removeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeMouseClicked
+          Sensor sensor = sensorSet.getSensorFromID(Integer.parseInt(idText.getText())).firstElement();
+                System.out.println("delete sensor" + sensor);
                 
-               loadAddSensor(sensorSet);
-    }//GEN-LAST:event_addMouseClicked
+                  if (sensorSet.remove(sensor)) {
+                    try {
+                        Serialization.Serialize(sensorSet, FILE_NAME_Sensor);
+                    } catch (IOException ex) {
+                        Logger.getLogger(AddSensor.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    loadAddFloodSensor(sensorSet);
+                    JOptionPane.showMessageDialog(this, "Delete Sucsessfully", "Message", JOptionPane.PLAIN_MESSAGE);
+                
+
+                } else {
+                    JOptionPane.showMessageDialog(this, "Delete unsuccessful...", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+    }//GEN-LAST:event_removeMouseClicked
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
-       FloodSensorStation h = new FloodSensorStation();
-       h.setVisible(true);
+     
     }//GEN-LAST:event_jLabel3MouseClicked
 
     private void desTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_desTextActionPerformed
@@ -256,32 +338,101 @@ public class AddFloodSensor extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5MouseClicked
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        MotherShipObserverImp arpitPerson=new MotherShipObserverImp("Arpit");
-        MotherShipObserverImp johnPerson=new MotherShipObserverImp("John");
-        MotherShipObserverImp piyumiPerson=new MotherShipObserverImp("piyumi");
-
-        SensorMonitor notMobile=new SensorMonitor();
-        notMobile.addNewSensor(new Sensor("mithilaSen2", "sett2", 5.22,"mithilaSen2"));
-
-        //When you opt for option "Notify me when product is available".Below registerObserver method
-        //get executed
-        sensorSet.registerObserver(arpitPerson);
-        sensorSet.registerObserver(johnPerson);
-        notMobile.registerObserver(piyumiPerson);
-
-        //Now product is available
-        //samsungMobile.setAvailability("Available");
-        sensorSet.setAvailability("Available");
-        System.out.println(arpitPerson.getAvailabiliy());
-
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void add1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_add1MouseClicked
+       String name, description , frequency;
+        if (nameText.getText().isEmpty()) {
+            //            JOptionPane.showMessageDialog(this, "Please provide the name...", "Error", JOptionPane.ERROR_MESSAGE);
+            System.out.println("Please provide the name...");
+        } else {
+            name = nameText.getText();
+            description = desText.getText();
+            frequency =  frequencyText.getText();
+            //            Icon icon = imageIcon.getIcon();
+
+            sensorSet.addNewSensor(new Sensor(name, description, Double.parseDouble(frequency),statusText.getText()));
+
+                clock.registerObserver(sensorSet);
+            try {
+                Serialization.Serialize(sensorSet, FILE_NAME_Sensor);
+
+                System.out.println("Add Sucsessfully");
+
+            } catch (IOException ex) {
+                //                Logger.getLogger(AddNewProduct.class.getName()).log(Level.SEVERE, null, ex);
+                //                JOptionPane.showMessageDialog(this, "Unsuccessful...", "Error", JOptionPane.ERROR_MESSAGE);
+                System.out.println("Unsuccessful...");
+            }
+
+            loadAddFloodSensor(sensorSet);
+
+            
+            Sensor sensor = sensorSet.getSensorFromName(nameText.getText()).firstElement();
+//            sensorSet.addNewSensorLocation(sensor.getSensorNo(), 55.2, 55.2);
+            locationSet.addNewSensor(new Location(this.setLatitude,this.setLongitude,sensor.getSensorNo())); 
+ 
+             try {
+                Serialization.Serialize(locationSet, FILE_NAME_Location);
+
+                System.out.println("Add Sucsessfully");
+
+            } catch (IOException ex) {
+                //                Logger.getLogger(AddNewProduct.class.getName()).log(Level.SEVERE, null, ex);
+                //                JOptionPane.showMessageDialog(this, "Unsuccessful...", "Error", JOptionPane.ERROR_MESSAGE);
+                System.out.println("Unsuccessful...");
+            }
+            
+        }
+    }//GEN-LAST:event_add1MouseClicked
+
+    private void updateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateMouseClicked
+        String name, description;
+               double freq; 
+              
+              name = nameText.getText();
+              description = desText.getText();
+                     freq  = Double.parseDouble(frequencyText.getText());
+        
+           Sensor sensor = sensorSet.getSensorFromID(Integer.parseInt(idText.getText())).firstElement();
+
+            String status = sensorSet.updateSensors(sensor, name, description , freq);
+            System.out.println(status);
+               if (status.equals("success")) {
+                    try {
+                        Serialization.Serialize(sensorSet, FILE_NAME_Sensor);
+                    } catch (IOException ex) {
+                        Logger.getLogger(AddSensor.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    JOptionPane.showMessageDialog(this, "You have updated successful", "Congradulations", JOptionPane.INFORMATION_MESSAGE);
+                  //  clear();
+                    loadAddFloodSensor(sensorSet);
+
+                } else {
+                    JOptionPane.showMessageDialog(this, "Update unsuccessful...", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+    }//GEN-LAST:event_updateMouseClicked
+
+    private void idTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_idTextActionPerformed
+
+    private void tblanpSensorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblanpSensorMouseClicked
+       
+           DefaultTableModel dtModel= (DefaultTableModel) tblanpSensor.getModel();
+           int row = tblanpSensor.getSelectedRow();
+           idText.setText(tblanpSensor.getValueAt(row, 0).toString());
+           nameText.setText(tblanpSensor.getValueAt(row, 1).toString());
+           desText.setText(tblanpSensor.getValueAt(row, 3).toString());
+           frequencyText.setText(tblanpSensor.getValueAt(row, 4).toString());
+    }//GEN-LAST:event_tblanpSensorMouseClicked
 
     /**
      * @param args the command line arguments
      */
     
-       private void loadAddSensor(SensorMonitor sensorMoni) {
+    private void loadAddFloodSensor(SensorMonitor sensorMoni) {
 
         String[] colName = {"SensorID", "Name", "Status", "Description",  "Frequency"};
         Object[][] object = new Object[sensorMoni.size()][6];
@@ -309,12 +460,29 @@ public class AddFloodSensor extends javax.swing.JFrame {
         tblanpSensor.getTableHeader().setReorderingAllowed(false);
 
     }
+    
        
-         
         public void load(){
         try { 
-             for (Sensor sensors: Serialization.deserializeFloodSensors()) {
+             for (Sensor sensors : Serialization.deserializeFloodSensors()) {
                          sensorSet.addNewSensor(sensors);
+                       
+//                          products.print();
+            }
+        } catch (IOException | ClassNotFoundException  ex) {
+            JOptionPane.showMessageDialog(this, ex);
+        
+        }
+       
+          loadAddFloodSensor(sensorSet);
+    }  
+        
+        
+        
+    public void loadLocation(){
+        try { 
+             for (Location location : Serialization.deserializeFloodSensorsLocation()) {
+                         locationSet.addNewSensor(location);
 //                          products.print();
             }
         } catch (IOException | ClassNotFoundException  ex) {
@@ -322,8 +490,12 @@ public class AddFloodSensor extends javax.swing.JFrame {
         
         }
          
-          loadAddSensor(sensorSet);
+//          loadAddSensor(sensorSet);
     }
+       
+
+         
+       
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -357,12 +529,14 @@ public class AddFloodSensor extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton add;
+    private javax.swing.JButton add1;
     private javax.swing.JTextField desText;
-    private javax.swing.JTextField frequency;
+    private javax.swing.JTextField frequencyText;
+    private javax.swing.JTextField idText;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -378,7 +552,9 @@ public class AddFloodSensor extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField nameText;
+    private javax.swing.JButton remove;
     private javax.swing.JTextField statusText;
     private javax.swing.JTable tblanpSensor;
+    private javax.swing.JButton update;
     // End of variables declaration//GEN-END:variables
 }

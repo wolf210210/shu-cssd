@@ -107,7 +107,7 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_addMouseClicked
 
     private void resetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resetMouseClicked
-         UserRegister l = new UserRegister();
+         Registration l = new Registration();
          l.setVisible(true);
     }//GEN-LAST:event_resetMouseClicked
 
