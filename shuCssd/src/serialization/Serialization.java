@@ -92,6 +92,32 @@ public class Serialization {
         return sensorMonitor;
     }
     
+    
+    public static floodclasses.SensorMonitor deserializeEmergencySensors() throws IOException, ClassNotFoundException {
+
+       floodclasses.SensorMonitor sensorMonitor;
+        try (FileInputStream in = new FileInputStream("DataFiles/EmergencySensors.txt")) {
+            ObjectInputStream ois = new ObjectInputStream(in);
+           sensorMonitor = (floodclasses.SensorMonitor) ois
+                    .readObject();
+        }
+
+        return sensorMonitor;
+    }
+    
+    
+    public static SetOfLocation deserializeEmergencySensorsLocation() throws IOException, ClassNotFoundException {
+
+        SetOfLocation sensorLocation;
+        try (FileInputStream in = new FileInputStream("DataFiles/EmergencySensorsLocation.txt")) {
+            ObjectInputStream ois = new ObjectInputStream(in);
+            sensorLocation = (SetOfLocation) ois
+                    .readObject();
+        }
+
+        return sensorLocation;
+    }
+    
        public static SetOfUsers deserializeUsers() throws IOException, ClassNotFoundException {
 
         SetOfUsers users;
