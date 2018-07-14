@@ -230,7 +230,10 @@ public class Login extends javax.swing.JFrame {
                 } else if (userLevels.equals("UsernameIncorrect")) {
                     JOptionPane.showMessageDialog(this, "Username incorrect... Please try again with correct username", "Error", JOptionPane.ERROR_MESSAGE);
                 } else if (userLevels.equals("user")) {
-                    JOptionPane.showMessageDialog(this, "Username log", "Error", JOptionPane.ERROR_MESSAGE);
+                    LoginType a = new LoginType();
+                    a.setVisible(true);
+                    
+                    //JOptionPane.showMessageDialog(this, "Username log", "Error", JOptionPane.ERROR_MESSAGE);
 //                    userMain u = new userMain(userID, userLevels, email);
 //                    u.setVisible(true);
 //                    this.hide();

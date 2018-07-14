@@ -137,7 +137,7 @@ public class ForgotPassword extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Back.png"))); // NOI18N
         jLabel1.setText("jLabel1");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(10, 0, 1366, 810);
+        jLabel1.setBounds(-4, 0, 1380, 810);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 1380, 810);
