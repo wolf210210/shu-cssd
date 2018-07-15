@@ -5,27 +5,12 @@
  */
 package GUI;
 
-import static GUI.AddSensor.FILE_NAME_Observer;
-import static GUI.AddSensor.theUsersObserver;
 import binclasses.Location;
 import binclasses.Sensor;
 import binclasses.SensorMonitor;
 import binclasses.SetOfLocation;
-import java.awt.Container;
-import java.io.IOException;
-import java.io.Serializable;
-import java.util.Random;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
-import javax.swing.table.TableRowSorter;
-import serialization.Serialization;
-import userclasses.SetOfUsers;
-import userclasses.User;
 
 /**
  *
@@ -33,37 +18,23 @@ import userclasses.User;
  */
        
 
-public class EmbellishedDataMap extends javax.swing.JFrame implements  Serializable{
+public class EmbellishedDataMap extends javax.swing.JFrame {
             Location location ;  
-          
-            
-             private SetOfLocation locationSet = new SetOfLocation();
-            private SetOfLocation locationFullBin = new SetOfLocation();
-             private  SensorMonitor sensorSet = new SensorMonitor();
-                private SensorMonitor notMobile=new SensorMonitor();
-                public static SetOfUsers theUsersObserver = new SetOfUsers();
-    public static final String FILE_NAME_Location = "DataFiles/BinSensorsLocation.txt";
-     Sensor sensor;
+            SetOfLocation setOfLocation;
     /**
      * Creates new form EmbellishedDataMap
      */
     public EmbellishedDataMap() {
         initComponents();
-         System.out.println("wadda EmbellishedData H");
-            loadSensor();  
-         loadLocation();
-         loadObserver();
-         notifyObserverss();
-        
     }
     
-//     public EmbellishedDataMap(SensorMonitor sensorMonitor) {
-//        initComponents();
-//         
-//         for (Sensor ob : sensorMonitor) {
-////                      System.out.println("Notifying all the subscribers when the bin is full oi");
-//                     System.out.println("wadda EmbellishedData");
-//                        System.err.println(setOfLocation.getLatitudeFromSensorID(ob.getSensorNo()));
+     public EmbellishedDataMap(SensorMonitor sensorMonitor) {
+        initComponents();
+         
+         for (Sensor ob : sensorMonitor) {
+//                      System.out.println("Notifying all the subscribers when the bin is full oi");
+                     System.out.println("wadda EmbellishedData");
+                        System.err.println(setOfLocation.getLatitudeFromSensorID(ob.getSensorNo()));
                      
 //                     
 //                     
@@ -80,9 +51,9 @@ public class EmbellishedDataMap extends javax.swing.JFrame implements  Serializa
 //                        jLabel1.revalidate();
 //                        jLabel1.repaint();
 //                        this.pack();
-//                 }
-//        
-//    }
+                 }
+        
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -95,83 +66,20 @@ public class EmbellishedDataMap extends javax.swing.JFrame implements  Serializa
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/binMap.png"))); // NOI18N
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
-
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane2.setViewportView(jTable2);
-
-        jButton1.setText("save");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(1257, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(80, 80, 80))))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1246, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 300, Short.MAX_VALUE)))
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(61, 61, 61)
-                .addComponent(jButton1)
-                .addContainerGap(299, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 866, Short.MAX_VALUE)
-                    .addContainerGap()))
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -188,170 +96,9 @@ public class EmbellishedDataMap extends javax.swing.JFrame implements  Serializa
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-            try {
-            Serialization.Serialize(theUsersObserver, FILE_NAME_Observer);
-            System.out.println("Serialize");
-        } catch (IOException ex) {
-            Logger.getLogger(MyProfile.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("Error");
-        }
-          
-
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     /**
      * @param args the command line arguments
      */
-    
-        public void loadLocation(){
-        try { 
-             for (Location location : Serialization.deserializeBinSensorsLocation()) {
-                         locationSet.addNewSensor(location);
-//                          products.print();
-            }
-        } catch (IOException | ClassNotFoundException  ex) {
-            JOptionPane.showMessageDialog(this, ex);
-        
-        }
-        
-                   loadAddSensor(locationSet);
-    }
-    
-      private void loadAddSensor(SetOfLocation setOfLocation) {
-               
-        String[] colName = {"SensorID", "Name", "Status"};
-        Object[][] object = new Object[setOfLocation.size()][4];
-        int i = 0;
-        if (setOfLocation.size() != 0) {
-            for (Location location : setOfLocation) {
-                object[i][0] = location.getSensorID();
-                object[i][1] = location.getLatitude();
-                object[i][2] = location.getLongitude();
-                        sensor  = sensorSet.getSensorFromID( location.getSensorID()).firstElement();
-                      if( sensor.getfrequency() >= 100 ){
-                          locationFullBin.addNewSensor(location);
-                      }
-             
-                i++;
-
-            }
-        }
-
-        DefaultTableModel model = new DefaultTableModel(object, colName) {
-            public boolean isCellEditable(int row, int column) {
-                return false;//This causes all cells to be not editable
-            }
-        };
-        jTable1.setModel(model);
-        jTable1.setRowSorter(new TableRowSorter<TableModel>(model));
-        jTable1.setAutoscrolls(true);
-        jTable1.getTableHeader().setReorderingAllowed(false);
-        
-        
-        
-        
-         
-
-                if (locationFullBin.size() != 0) {
-                for (Location location : locationFullBin) {
-                            Random rand = new Random();
-                            System.out.println("New Field...");
-                            Container contentPane = getContentPane();
-                            JLabel label = new JLabel (Integer.toString(location.getSensorID()));
-                            label.setIcon(new ImageIcon(
-                                "C:/Users/wolf/Documents/GitHub/shu-cssd/shuCssd/src/Images/Untitled-1.png"));
-
-                        label.setBounds(10,10,50,50);
-                        label.setLocation( location.getLatitude().intValue(),  location.getLongitude().intValue());
-
-                        //some random value that I know is in my dialog
-                        jLabel1.add(label);
-
-                        jLabel1.revalidate();
-                        jLabel1.repaint();
-                        this.pack();
-             
-                i++;
-
-            }
-        }
-          
-
-    }
-      
-      
-         public void loadSensor(){
-        try { 
-             for (Sensor sensors : Serialization.deserializeBinSensors()) {
-                         sensorSet.addNewSensor(sensors);
-              
-            }
-        } catch (IOException | ClassNotFoundException  ex) {
-            JOptionPane.showMessageDialog(this, ex);
-        
-        }
-       
-         
-    }
-               
-        private void loadObserver() {
-           
-        try {
-            for (User member : Serialization.deserializeObserver()) {
-                 notMobile.registerObserver(member);
-                 theUsersObserver.add(member);
-//                 TableLoadObserver(theUsersObserver);
-                member.print();
-            }
-        } catch (IOException | ClassNotFoundException ex) {
-            JOptionPane.showMessageDialog(this, ex.getMessage());
-        }
-
-           
-    }
-        
-         public void TableLoadObserver( SetOfUsers searchList) {
-        String[] colName = {"User ID", "First Name","Availabiliy"};
-        Object[][] object = new Object[searchList.size()][4];
-        int i = 0;
-        if (searchList.size() != 0) {
-            for (User member : searchList) {
-                object[i][0] = member.getMemberNumber();
-                object[i][1] = member.getName();
-               object[i][2] = member.getAvailabiliy();
-
-                i++;
-
-            }
-        }
-
-        DefaultTableModel model = new DefaultTableModel(object, colName) {
-            @Override
-            public boolean isCellEditable(int row, int column) {
-                return false;//This causes all cells to be not editable
-            }
-        };
-        jTable2.setModel(model);
-        jTable2.setRowSorter(new TableRowSorter<>(model));
-        jTable2.setAutoscrolls(true);
-        jTable2.getTableHeader().setReorderingAllowed(false);
-    }
-         
-         public void notifyObserverss(){
-               notMobile.setAvailability("Available");
-                TableLoadObserver(theUsersObserver);
-//                   
-//                 try {
-//                        Serialization.Serialize(theUsersObserver, FILE_NAME_Observer);
-//                         System.out.println("Serialize");
-//                    } catch (IOException ex) {
-//                        Logger.getLogger(MyProfile.class.getName()).log(Level.SEVERE, null, ex);
-//                         System.out.println("Error");
-//                    }
-                 
-         }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -385,12 +132,7 @@ public class EmbellishedDataMap extends javax.swing.JFrame implements  Serializa
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
     // End of variables declaration//GEN-END:variables
 }

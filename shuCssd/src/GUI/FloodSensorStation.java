@@ -217,11 +217,13 @@ public class FloodSensorStation extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMouseClicked
-
+         AddFloodSensor e = new AddFloodSensor();
+         e.setVisible(true);
     }//GEN-LAST:event_addMouseClicked
 
     private void resetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resetMouseClicked
-
+         AddFloodSensor e = new AddFloodSensor();
+         e.setVisible(true);
     }//GEN-LAST:event_resetMouseClicked
 
     private void resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetActionPerformed
@@ -233,7 +235,8 @@ public class FloodSensorStation extends javax.swing.JFrame {
     }//GEN-LAST:event_addActionPerformed
 
     private void reset1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reset1MouseClicked
-        // TODO add your handling code here:
+         FloodMap e = new FloodMap();
+         e.setVisible(true);
     }//GEN-LAST:event_reset1MouseClicked
 
     private void reset1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reset1ActionPerformed

@@ -9,12 +9,12 @@ package GUI;
  *
  * @author Piyu
  */
-public class Home extends javax.swing.JFrame {
+public class home extends javax.swing.JFrame {
 
     /**
-     * Creates new form Home
+     * Creates new form home
      */
-    public Home() {
+    public home() {
         initComponents();
     }
 
@@ -27,93 +27,96 @@ public class Home extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        add = new javax.swing.JButton();
-        reset = new javax.swing.JButton();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1366, 830));
+        getContentPane().setLayout(null);
 
-        jPanel1.setLayout(null);
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 58)); // NOI18N
+        jLabel1.setText("WELCOME");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(530, 250, 330, 100);
 
-        add.setBackground(new java.awt.Color(0, 102, 153));
-        add.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
-        add.setForeground(new java.awt.Color(255, 255, 255));
-        add.setText("Login");
-        add.setContentAreaFilled(false);
-        add.setOpaque(true);
-        add.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 60)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/city3.jpg"))); // NOI18N
+        jLabel3.setText("WELCOME ");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(0, 0, 1360, 780);
+
+        jMenu1.setText("Sensors");
+        jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                addMouseClicked(evt);
+                jMenu1MouseClicked(evt);
             }
         });
-        jPanel1.add(add);
-        add.setBounds(530, 460, 180, 40);
 
-        reset.setBackground(new java.awt.Color(0, 102, 153));
-        reset.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
-        reset.setForeground(new java.awt.Color(255, 255, 255));
-        reset.setText("Registration");
-        reset.setContentAreaFilled(false);
-        reset.setOpaque(true);
-        reset.addMouseListener(new java.awt.event.MouseAdapter() {
+        jMenuItem1.setText("Bin Sensor");
+        jMenuItem1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                resetMouseClicked(evt);
+                jMenuItem1MouseClicked(evt);
             }
         });
-        reset.addActionListener(new java.awt.event.ActionListener() {
+        jMenu1.add(jMenuItem1);
+
+        jMenuItem2.setText("Flood Sensor");
+        jMenuItem2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenuItem2MouseClicked(evt);
+            }
+        });
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                resetActionPerformed(evt);
+                jMenuItem2ActionPerformed(evt);
             }
         });
-        jPanel1.add(reset);
-        reset.setBounds(730, 460, 170, 40);
+        jMenu1.add(jMenuItem2);
 
-        jLabel11.setFont(new java.awt.Font("Segoe UI Light", 0, 17)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(0, 102, 0));
-        jLabel11.setText("www.Elegantro.com/Home.html");
-        jLabel11.setToolTipText("");
-        jPanel1.add(jLabel11);
-        jLabel11.setBounds(170, 30, 240, 30);
+        jMenuItem3.setText("Emergency Sensor");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem3);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logo1.png"))); // NOI18N
-        jPanel1.add(jLabel3);
-        jLabel3.setBounds(470, 80, 500, 440);
+        jMenuBar1.add(jMenu1);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Back.png"))); // NOI18N
-        jPanel1.add(jLabel1);
-        jLabel1.setBounds(0, 2, 1370, 810);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1364, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 809, Short.MAX_VALUE)
-        );
+        setJMenuBar(jMenuBar1);
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMouseClicked
-         Login l = new Login();
-         l.setVisible(true);
-    }//GEN-LAST:event_addMouseClicked
-
-    private void resetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resetMouseClicked
-         Registration l = new Registration();
-         l.setVisible(true);
-    }//GEN-LAST:event_resetMouseClicked
-
-    private void resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetActionPerformed
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_resetActionPerformed
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
+        
+    }//GEN-LAST:event_jMenu1MouseClicked
+
+    private void jMenuItem2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem2MouseClicked
+         FloodSensor b = new FloodSensor();
+         b.setVisible(true);
+    }//GEN-LAST:event_jMenuItem2MouseClicked
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+         Emergency c = new Emergency();
+         c.setVisible(true);
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem1MouseClicked
+         BinSensor a = new BinSensor();
+         a.setVisible(true);
+    }//GEN-LAST:event_jMenuItem1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -132,30 +135,31 @@ public class Home extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Home().setVisible(true);
+                new home().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton add;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JButton reset;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     // End of variables declaration//GEN-END:variables
 }

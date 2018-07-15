@@ -5,17 +5,6 @@
  */
 package GUI;
 
-import binclasses.SensorMonitor;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableRowSorter;
-import serialization.Serialization;
-import userclasses.SetOfUsers;
-import userclasses.User;
-
 /**
  *
  * @author wolf
@@ -25,14 +14,8 @@ public class BinObserver extends javax.swing.JFrame {
     /**
      * Creates new form BinObserver
      */
-     public static final String  FILE_NAME_Observer = "DataFiles/ObserverUsers.txt"; 
-           public static SetOfUsers theUsersObserver = new SetOfUsers();
-              public static SetOfUsers theUsers = new SetOfUsers();
-               private SensorMonitor notMobile=new SensorMonitor();
     public BinObserver() {
         initComponents();
-        loadUser();
-         loadObserver();
     }
 
     /**
@@ -44,306 +27,22 @@ public class BinObserver extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton8 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        userID = new javax.swing.JTextField();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jButton8.setText("Remove observer ");
-        jButton8.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton8MouseClicked(evt);
-            }
-        });
-
-        jButton10.setText("save");
-        jButton10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton10ActionPerformed(evt);
-            }
-        });
-
-        jButton9.setText("Remove From table ");
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
-            }
-        });
-
-        jButton6.setText("notifyObservers");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
-
-        jButton5.setText("observer user");
-        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton5MouseClicked(evt);
-            }
-        });
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-
-        jButton7.setText("set observer sensor");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
-            }
-        });
-
-        jLabel14.setText("user no");
-
-        jLabel13.setText("notify");
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane2.setViewportView(jTable1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(329, 329, 329)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(452, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(269, 269, 269)
-                            .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(40, 40, 40)
-                            .addComponent(userID, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(20, 20, 20)
-                            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(40, 40, 40)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(30, 30, 30)
-                            .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(280, 280, 280)
-                            .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(280, 280, 280)
-                            .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(279, 279, 279)
-                            .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGap(0, 1191, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(356, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 21, Short.MAX_VALUE)
-                    .addComponent(jButton7)
-                    .addGap(25, 25, 25)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(10, 10, 10)
-                            .addComponent(jLabel14))
-                        .addComponent(userID, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton5))
-                    .addGap(30, 30, 30)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(10, 10, 10)
-                            .addComponent(jLabel13))
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton6))
-                    .addGap(10, 10, 10)
-                    .addComponent(jButton8)
-                    .addGap(15, 15, 15)
-                    .addComponent(jButton9)
-                    .addGap(25, 25, 25)
-                    .addComponent(jButton10)
-                    .addGap(0, 328, Short.MAX_VALUE)))
+            .addGap(0, 614, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseClicked
-        User user = theUsersObserver.getMemberFromNumber(Integer.parseInt(userID.getText())).firstElement();
-        notMobile.unregisterObserver(user);
-
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8MouseClicked
-
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-
-        try {
-            Serialization.Serialize(theUsersObserver, FILE_NAME_Observer);
-            System.out.println("Serialize");
-        } catch (IOException ex) {
-            Logger.getLogger(MyProfile.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("Error");
-        }
-
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton10ActionPerformed
-
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        User user = theUsersObserver.getMemberFromNumber(Integer.parseInt(userID.getText())).firstElement();
-        boolean status = theUsersObserver.removeUser(user);
-        if (status) {
-            //                      try {
-                //                        Serialization.Serialize(theUsersObserver, FILE_NAME_Observer);
-                //                    } catch (IOException ex) {
-                //                        Logger.getLogger(MyProfile.class.getName()).log(Level.SEVERE, null, ex);
-                //                    }
-            JOptionPane.showMessageDialog(this, "You have deleted successful", "Congradulations", JOptionPane.INFORMATION_MESSAGE);
-            //    clear();
-            //                    loadObserver();
-            TableLoad(theUsersObserver);
-
-        } else {
-            JOptionPane.showMessageDialog(this, "Delete unsuccessful...", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton9ActionPerformed
-
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-
-        notMobile.setAvailability(jTextField2.getText());
-        //           System.out.println(arpitPerson.getAvailabiliy());
-        //                 try {
-            //                        Serialization.Serialize(theUsersObserver, FILE_NAME_Observer);
-            //                    } catch (IOException ex) {
-            //                        Logger.getLogger(MyProfile.class.getName()).log(Level.SEVERE, null, ex);
-            //                    }
-
-        TableLoad(theUsersObserver);
-
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
-
-    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5MouseClicked
-
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-
-        User user = theUsers.getMemberFromNumber(Integer.parseInt(userID.getText())).firstElement();
-        
-        notMobile.registerObserver(user);
-        theUsersObserver.add(user);
-        try {
-            Serialization.Serialize(theUsersObserver, FILE_NAME_Observer);
-
-            System.out.println("Add Observer Sucsessfully");
-            TableLoad(theUsersObserver);
-        } catch (IOException ex) {
-
-            System.out.println("Unsuccessful...");
-        }
-        // notMobile.registerObserver(johnPerson);
-        //                notMobile.registerObserver(piyumiPerson);
-
-        //Now product is available
-        //samsungMobile.setAvailability("Available");
-
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
-
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-//        String name, description , frequency;
-//        name = txtanpName.getText();
-//        description = txtanpDes.getText();
-//        frequency =  frequencyText.getText();
-//
-//        notMobile.addNewSensor(new Sensor(name, description, Double.parseDouble(frequency),textStatus.getText()));
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton7ActionPerformed
-     public void TableLoad( SetOfUsers searchList) {
-        String[] colName = {"User ID", "First Name", "Address", "Email", "Mobile Number","Availabiliy"};
-        Object[][] object = new Object[searchList.size()][6];
-        int i = 0;
-        if (searchList.size() != 0) {
-            for (User member : searchList) {
-                object[i][0] = member.getMemberNumber();
-                object[i][1] = member.getName();
-                object[i][2] = member.getAddress();
-                object[i][3] = member.getUsername();
-                object[i][4] = member.getMobile();
-                object[i][5] = member.getAvailabiliy();
-
-                i++;
-
-            }
-        }
-        
-        DefaultTableModel model = new DefaultTableModel(object, colName) {
-            @Override
-            public boolean isCellEditable(int row, int column) {
-                return false;//This causes all cells to be not editable
-            }
-        };
-        jTable1.setModel(model);
-        jTable1.setRowSorter(new TableRowSorter<>(model));
-        jTable1.setAutoscrolls(true);
-        jTable1.getTableHeader().setReorderingAllowed(false);
-     }
-     
-        private void loadObserver() {
-        try {
-            for (User member : Serialization.deserializeObserver()) {
-                 notMobile.registerObserver(member);
-                 theUsersObserver.add(member);
-                 TableLoad(theUsersObserver);
-                member.print();
-            }
-        } catch (IOException | ClassNotFoundException ex) {
-            JOptionPane.showMessageDialog(this, ex.getMessage());
-        }
-
-           
-    }
-        
-         private void loadUser(){
-           try {
-            for (User member : Serialization.deserializeUsers()) {
-                theUsers.addUser(member);
-                //member.print();
-            }
-        } catch (IOException | ClassNotFoundException ex) {
-            JOptionPane.showMessageDialog(this, ex.getMessage());
-        }
-    }
     /**
      * @param args the command line arguments
      */
@@ -380,17 +79,5 @@ public class BinObserver extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField userID;
     // End of variables declaration//GEN-END:variables
 }

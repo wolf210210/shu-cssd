@@ -31,6 +31,7 @@ public class UserHome extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         add = new javax.swing.JButton();
+        reset1 = new javax.swing.JButton();
         reset = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -44,9 +45,9 @@ public class UserHome extends javax.swing.JFrame {
         jLabel1.setBackground(new java.awt.Color(0, 153, 153));
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel1.setText("WELCOME USER");
+        jLabel1.setText("WELCOME STAFF");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(540, 320, 400, 66);
+        jLabel1.setBounds(520, 320, 420, 66);
 
         jLabel13.setFont(new java.awt.Font("Segoe UI Light", 0, 17)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(0, 102, 0));
@@ -58,7 +59,7 @@ public class UserHome extends javax.swing.JFrame {
         add.setBackground(new java.awt.Color(0, 102, 153));
         add.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
         add.setForeground(new java.awt.Color(255, 255, 255));
-        add.setText("My Profile");
+        add.setText("Bin Sensor");
         add.setContentAreaFilled(false);
         add.setOpaque(true);
         add.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -74,10 +75,29 @@ public class UserHome extends javax.swing.JFrame {
         jPanel1.add(add);
         add.setBounds(580, 420, 310, 40);
 
+        reset1.setBackground(new java.awt.Color(0, 102, 153));
+        reset1.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
+        reset1.setForeground(new java.awt.Color(255, 255, 255));
+        reset1.setText("Emergency Sensor");
+        reset1.setContentAreaFilled(false);
+        reset1.setOpaque(true);
+        reset1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                reset1MouseClicked(evt);
+            }
+        });
+        reset1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reset1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(reset1);
+        reset1.setBounds(580, 540, 310, 40);
+
         reset.setBackground(new java.awt.Color(0, 102, 153));
         reset.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
         reset.setForeground(new java.awt.Color(255, 255, 255));
-        reset.setText("FeedBack");
+        reset.setText("Flood Sensor");
         reset.setContentAreaFilled(false);
         reset.setOpaque(true);
         reset.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -93,9 +113,9 @@ public class UserHome extends javax.swing.JFrame {
         jPanel1.add(reset);
         reset.setBounds(580, 480, 310, 40);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logo.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/kk.png"))); // NOI18N
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(630, 110, 200, 190);
+        jLabel3.setBounds(530, 100, 380, 190);
 
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Back.png"))); // NOI18N
@@ -119,13 +139,13 @@ public class UserHome extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMouseClicked
-        MyProfile a = new MyProfile();
+        BinSensor a = new BinSensor();
         a.setVisible(true);
 
     }//GEN-LAST:event_addMouseClicked
 
     private void resetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resetMouseClicked
-        FeedBack a = new FeedBack();
+        FloodSensor a = new FloodSensor();
         a.setVisible(true);
     }//GEN-LAST:event_resetMouseClicked
 
@@ -136,6 +156,15 @@ public class UserHome extends javax.swing.JFrame {
     private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_addActionPerformed
+
+    private void reset1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reset1MouseClicked
+        Emergency a = new Emergency();
+        a.setVisible(true);
+    }//GEN-LAST:event_reset1MouseClicked
+
+    private void reset1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reset1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_reset1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -180,5 +209,6 @@ public class UserHome extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton reset;
+    private javax.swing.JButton reset1;
     // End of variables declaration//GEN-END:variables
 }

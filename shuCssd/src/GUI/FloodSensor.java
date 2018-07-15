@@ -29,6 +29,9 @@ public class FloodSensor extends javax.swing.JFrame {
 
         jLabel2 = new javax.swing.JLabel();
         add = new javax.swing.JButton();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         reset = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
@@ -43,12 +46,12 @@ public class FloodSensor extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(0, 153, 153));
         jLabel2.setText("FLOOD SENSOR");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(520, 330, 390, 66);
+        jLabel2.setBounds(500, 330, 390, 66);
 
         add.setBackground(new java.awt.Color(0, 102, 153));
-        add.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
+        add.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
         add.setForeground(new java.awt.Color(255, 255, 255));
-        add.setText("Sensor Station");
+        add.setText("Manage Sensor Station");
         add.setContentAreaFilled(false);
         add.setOpaque(true);
         add.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -57,7 +60,24 @@ public class FloodSensor extends javax.swing.JFrame {
             }
         });
         getContentPane().add(add);
-        add.setBounds(550, 420, 290, 40);
+        add.setBounds(520, 420, 320, 40);
+
+        jLabel14.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
+        jLabel14.setText("Staff");
+        getContentPane().add(jLabel14);
+        jLabel14.setBounds(710, 260, 90, 60);
+
+        jLabel12.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel12.setText("Admin");
+        getContentPane().add(jLabel12);
+        jLabel12.setBounds(610, 260, 120, 60);
+
+        jLabel5.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel5.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(510, 270, 350, 40);
 
         jLabel13.setFont(new java.awt.Font("Segoe UI Light", 0, 17)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(0, 102, 0));
@@ -67,9 +87,9 @@ public class FloodSensor extends javax.swing.JFrame {
         jLabel13.setBounds(170, 10, 290, 50);
 
         reset.setBackground(new java.awt.Color(0, 102, 153));
-        reset.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
+        reset.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
         reset.setForeground(new java.awt.Color(255, 255, 255));
-        reset.setText("Data Analysis");
+        reset.setText("Manage Sensor Observer ");
         reset.setContentAreaFilled(false);
         reset.setOpaque(true);
         reset.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -83,7 +103,7 @@ public class FloodSensor extends javax.swing.JFrame {
             }
         });
         getContentPane().add(reset);
-        reset.setBounds(550, 490, 290, 40);
+        reset.setBounds(520, 490, 320, 40);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/kk.png"))); // NOI18N
         getContentPane().add(jLabel3);
@@ -107,7 +127,8 @@ public class FloodSensor extends javax.swing.JFrame {
     }//GEN-LAST:event_addMouseClicked
 
     private void resetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resetMouseClicked
-
+//        FloodSesnorObserver h1 = new FloodSesnorObserver();
+//        h1.setVisible(true);
     }//GEN-LAST:event_resetMouseClicked
 
     private void resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetActionPerformed
@@ -152,9 +173,12 @@ public class FloodSensor extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton add;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton reset;
     // End of variables declaration//GEN-END:variables

@@ -33,6 +33,9 @@ public class BinSensor extends javax.swing.JFrame {
         add = new javax.swing.JButton();
         reset = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -46,7 +49,7 @@ public class BinSensor extends javax.swing.JFrame {
         add.setBackground(new java.awt.Color(0, 102, 153));
         add.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
         add.setForeground(new java.awt.Color(255, 255, 255));
-        add.setText("Sensor Station");
+        add.setText("Manage Sensor Station");
         add.setContentAreaFilled(false);
         add.setOpaque(true);
         add.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -60,7 +63,7 @@ public class BinSensor extends javax.swing.JFrame {
         reset.setBackground(new java.awt.Color(0, 102, 153));
         reset.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
         reset.setForeground(new java.awt.Color(255, 255, 255));
-        reset.setText("Data Analysis");
+        reset.setText("Manage Sensor Observer");
         reset.setContentAreaFilled(false);
         reset.setOpaque(true);
         reset.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -83,9 +86,26 @@ public class BinSensor extends javax.swing.JFrame {
         getContentPane().add(jLabel13);
         jLabel13.setBounds(170, 20, 270, 40);
 
+        jLabel14.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
+        jLabel14.setText("Staff");
+        getContentPane().add(jLabel14);
+        jLabel14.setBounds(670, 260, 90, 50);
+
+        jLabel12.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel12.setText("Admin");
+        getContentPane().add(jLabel12);
+        jLabel12.setBounds(580, 260, 120, 50);
+
+        jLabel5.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel5.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(480, 270, 350, 40);
+
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/kk.png"))); // NOI18N
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(470, 110, 400, 150);
+        jLabel4.setBounds(450, 100, 400, 150);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 153, 153));
@@ -122,7 +142,8 @@ public class BinSensor extends javax.swing.JFrame {
     }//GEN-LAST:event_addMouseClicked
 
     private void resetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resetMouseClicked
-
+         BinObserver a = new BinObserver();
+         a.setVisible(true);
     }//GEN-LAST:event_resetMouseClicked
 
     private void resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetActionPerformed
@@ -171,9 +192,12 @@ public class BinSensor extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton add;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton reset;

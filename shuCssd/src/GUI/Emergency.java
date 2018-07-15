@@ -32,8 +32,7 @@ public class Emergency extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         reset = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1366, 830));
@@ -46,9 +45,9 @@ public class Emergency extends javax.swing.JFrame {
         jLabel2.setBounds(440, 330, 530, 66);
 
         add2.setBackground(new java.awt.Color(0, 102, 153));
-        add2.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
+        add2.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
         add2.setForeground(new java.awt.Color(255, 255, 255));
-        add2.setText("Sensor Station");
+        add2.setText("Manage Sensor Station");
         add2.setContentAreaFilled(false);
         add2.setOpaque(true);
         add2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -71,9 +70,9 @@ public class Emergency extends javax.swing.JFrame {
         jLabel3.setBounds(510, 140, 370, 150);
 
         reset.setBackground(new java.awt.Color(0, 102, 153));
-        reset.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
+        reset.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
         reset.setForeground(new java.awt.Color(255, 255, 255));
-        reset.setText("Data Analysis");
+        reset.setText("View All Locations");
         reset.setContentAreaFilled(false);
         reset.setOpaque(true);
         reset.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -89,14 +88,9 @@ public class Emergency extends javax.swing.JFrame {
         getContentPane().add(reset);
         reset.setBounds(550, 480, 290, 40);
 
-        jPanel1.setLayout(null);
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Back.png"))); // NOI18N
-        jPanel1.add(jLabel1);
-        jLabel1.setBounds(0, 0, 1366, 810);
-
-        getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 1366, 810);
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Back.png"))); // NOI18N
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(0, 0, 1370, 810);
 
         pack();
         setLocationRelativeTo(null);
@@ -108,13 +102,13 @@ public class Emergency extends javax.swing.JFrame {
          
     }//GEN-LAST:event_add2MouseClicked
 
-    private void resetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resetMouseClicked
-
-    }//GEN-LAST:event_resetMouseClicked
-
     private void resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_resetActionPerformed
+
+    private void resetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resetMouseClicked
+
+    }//GEN-LAST:event_resetMouseClicked
 
     /**
      * @param args the command line arguments
@@ -153,11 +147,10 @@ public class Emergency extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton add2;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JButton reset;
     // End of variables declaration//GEN-END:variables
 }

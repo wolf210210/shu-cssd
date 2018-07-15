@@ -28,15 +28,15 @@ public class SensorStation extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
         add = new javax.swing.JButton();
-        reset2 = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
+        reset2 = new javax.swing.JButton();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
         reset1 = new javax.swing.JButton();
         jLabel15 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
         jSeparator4 = new javax.swing.JSeparator();
         jLabel4 = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
@@ -47,9 +47,6 @@ public class SensorStation extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
 
@@ -59,12 +56,6 @@ public class SensorStation extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 102));
         jPanel1.setLayout(null);
-
-        jLabel5.setBackground(new java.awt.Color(204, 204, 204));
-        jLabel5.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        jPanel1.add(jLabel5);
-        jLabel5.setBounds(550, 200, 520, 40);
 
         add.setBackground(new java.awt.Color(0, 102, 153));
         add.setFont(new java.awt.Font("Segoe UI Light", 1, 20)); // NOI18N
@@ -85,6 +76,16 @@ public class SensorStation extends javax.swing.JFrame {
         jPanel1.add(add);
         add.setBounds(440, 570, 230, 40);
 
+        jLabel12.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
+        jLabel12.setText("    Bin Sensor");
+        jLabel12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel12MouseClicked(evt);
+            }
+        });
+        jPanel1.add(jLabel12);
+        jLabel12.setBounds(530, 196, 160, 40);
+
         reset2.setBackground(new java.awt.Color(0, 102, 153));
         reset2.setFont(new java.awt.Font("Segoe UI Light", 1, 20)); // NOI18N
         reset2.setForeground(new java.awt.Color(255, 255, 255));
@@ -102,12 +103,29 @@ public class SensorStation extends javax.swing.JFrame {
             }
         });
         jPanel1.add(reset2);
-        reset2.setBounds(690, 570, 230, 40);
+        reset2.setBounds(680, 570, 240, 40);
 
-        jLabel12.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
-        jLabel12.setText("    Bin Sensor");
-        jPanel1.add(jLabel12);
-        jLabel12.setBounds(530, 196, 160, 40);
+        jLabel14.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel14.setText("Flood Sensor");
+        jLabel14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel14MouseClicked(evt);
+            }
+        });
+        jPanel1.add(jLabel14);
+        jLabel14.setBounds(900, 200, 190, 30);
+
+        jLabel13.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel13.setText("Emergency Sensor");
+        jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel13MouseClicked(evt);
+            }
+        });
+        jPanel1.add(jLabel13);
+        jLabel13.setBounds(700, 190, 200, 50);
 
         reset1.setBackground(new java.awt.Color(0, 102, 153));
         reset1.setFont(new java.awt.Font("Segoe UI Light", 1, 20)); // NOI18N
@@ -135,11 +153,11 @@ public class SensorStation extends javax.swing.JFrame {
         jPanel1.add(jLabel15);
         jLabel15.setBounds(170, 20, 310, 60);
 
-        jLabel14.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel14.setText("Flood Sensor");
-        jPanel1.add(jLabel14);
-        jLabel14.setBounds(900, 200, 190, 30);
+        jLabel5.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel5.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        jPanel1.add(jLabel5);
+        jLabel5.setBounds(550, 200, 520, 40);
 
         jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -148,12 +166,6 @@ public class SensorStation extends javax.swing.JFrame {
         });
         jPanel1.add(jLabel8);
         jLabel8.setBounds(0, 40, 30, 30);
-
-        jLabel13.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel13.setText("Emergency Sensor");
-        jPanel1.add(jLabel13);
-        jLabel13.setBounds(700, 190, 200, 50);
 
         jSeparator4.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator4.setForeground(new java.awt.Color(0, 0, 0));
@@ -228,17 +240,6 @@ public class SensorStation extends javax.swing.JFrame {
         jPanel1.add(jLabel2);
         jLabel2.setBounds(20, 300, 210, 50);
 
-        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel9.setText("Find Location");
-        jPanel1.add(jLabel9);
-        jLabel9.setBounds(610, 640, 160, 40);
-        jPanel1.add(jTextField1);
-        jTextField1.setBounds(760, 640, 240, 40);
-
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon.png"))); // NOI18N
-        jPanel1.add(jLabel10);
-        jLabel10.setBounds(1010, 640, 40, 40);
-
         jLabel3.setForeground(new java.awt.Color(102, 102, 102));
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Back.png"))); // NOI18N
         jLabel3.setText("jLabel3");
@@ -282,19 +283,31 @@ public class SensorStation extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_reset1ActionPerformed
 
-    private void reset2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reset2MouseClicked
-        AddSensor h = new AddSensor();
+    private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
+         BinSensor h = new BinSensor();
          h.setVisible(true);
+    }//GEN-LAST:event_jLabel8MouseClicked
+
+    private void reset2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reset2MouseClicked
+        BinMap b = new BinMap();
+         b.setVisible(true);
     }//GEN-LAST:event_reset2MouseClicked
 
     private void reset2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reset2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_reset2ActionPerformed
 
-    private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
-         BinSensor h = new BinSensor();
-         h.setVisible(true);
-    }//GEN-LAST:event_jLabel8MouseClicked
+    private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
+
+    }//GEN-LAST:event_jLabel12MouseClicked
+
+    private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
+       
+    }//GEN-LAST:event_jLabel14MouseClicked
+
+    private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel13MouseClicked
 
     /**
      * @param args the command line arguments
@@ -334,7 +347,6 @@ public class SensorStation extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton add;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -347,13 +359,11 @@ public class SensorStation extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JButton reset;
     private javax.swing.JButton reset1;
     private javax.swing.JButton reset2;

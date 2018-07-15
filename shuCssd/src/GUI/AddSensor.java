@@ -30,6 +30,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.JLabel;
 import userclasses.SetOfUsers;
 import userclasses.User;
 
@@ -43,21 +44,21 @@ public class AddSensor extends javax.swing.JFrame {
      * Creates new form AddSensor
      */
     
-     public static Sensor sensors = new Sensor();
+    public static Sensor sensors = new Sensor();
     public static final String FILE_NAME_Sensor = "DataFiles/BinSensors.txt";
     public static final String FILE_NAME_Location = "DataFiles/BinSensorsLocation.txt";
     public static final String FILE_NAME_Users = "DataFiles/Users.txt";
     public static final String  FILE_NAME_Observer = "DataFiles/ObserverUsers.txt"; 
     private  SensorMonitor sensorSet = new SensorMonitor();
     private SetOfLocation locationSet = new SetOfLocation();
-     public static SetOfUsers theUsers = new SetOfUsers();
-      public static SetOfUsers theUsersObserver = new SetOfUsers();
+    public static SetOfUsers theUsers = new SetOfUsers();
+    public static SetOfUsers theUsersObserver = new SetOfUsers();
     private Double setLatitude;
     private Double setLongitude;
     private SensorMonitor notMobile=new SensorMonitor();
     public  Clock clock ;
     
-    
+           
                       
     public AddSensor()  {
         initComponents();
@@ -67,7 +68,7 @@ public class AddSensor extends javax.swing.JFrame {
                loadUser();
                loadObserver();
                clock = Clock.getInstance();
-               jButton1.disable();
+               
                
     }
     
@@ -81,7 +82,6 @@ public class AddSensor extends javax.swing.JFrame {
                System.err.println(this.setLatitude);
                System.err.println(this.setLongitude);
                 clock = Clock.getInstance();
-                  loadObserver();
     }
 
     /**
@@ -100,13 +100,13 @@ public class AddSensor extends javax.swing.JFrame {
         jButton9 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
-        jLabel14 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
         userID = new javax.swing.JTextField();
         textStatus = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jButton4 = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -124,6 +124,9 @@ public class AddSensor extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblanpSensor = new javax.swing.JTable();
+        jLabel9 = new javax.swing.JLabel();
+        jTextField4 = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
@@ -158,7 +161,7 @@ public class AddSensor extends javax.swing.JFrame {
         getContentPane().add(jButton5);
         jButton5.setBounds(1190, 170, 150, 25);
 
-        jButton8.setText("Remove observer ");
+        jButton8.setText("Remove");
         jButton8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton8MouseClicked(evt);
@@ -192,15 +195,11 @@ public class AddSensor extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton10);
-        jButton10.setBounds(1199, 360, 140, 25);
-
-        jLabel14.setText("user no");
-        getContentPane().add(jLabel14);
-        jLabel14.setBounds(920, 180, 60, 16);
+        jButton10.setBounds(1220, 360, 59, 25);
 
         jLabel13.setText("notify");
         getContentPane().add(jLabel13);
-        jLabel13.setBounds(920, 240, 60, 16);
+        jLabel13.setBounds(870, 240, 140, 16);
         getContentPane().add(jTextField2);
         jTextField2.setBounds(1020, 230, 150, 30);
         getContentPane().add(userID);
@@ -223,6 +222,15 @@ public class AddSensor extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane2);
         jScrollPane2.setBounds(930, 420, 410, 230);
+
+        jButton4.setText("jButton4");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton4);
+        jButton4.setBounds(320, 90, 79, 25);
 
         jLabel12.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel12.setText("sENSER ID");
@@ -346,7 +354,18 @@ public class AddSensor extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tblanpSensor);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(470, 380, 410, 230);
+        jScrollPane1.setBounds(500, 370, 410, 230);
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel9.setText("Search");
+        getContentPane().add(jLabel9);
+        jLabel9.setBounds(530, 320, 120, 30);
+        getContentPane().add(jTextField4);
+        jTextField4.setBounds(650, 320, 270, 30);
+
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon.png"))); // NOI18N
+        getContentPane().add(jLabel10);
+        jLabel10.setBounds(970, 310, 45, 50);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -501,6 +520,14 @@ public class AddSensor extends javax.swing.JFrame {
 
     }//GEN-LAST:event_tblanpSensorMouseClicked
 
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+            Location location = locationSet.getLocationFromSensorID(Integer.parseInt(txtanpId.getText())).firstElement();       
+        System.err.println(location.getLatitude());
+         System.err.println(location.getLongitude());
+        
+// TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
+
     private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton5MouseClicked
@@ -537,7 +564,7 @@ public class AddSensor extends javax.swing.JFrame {
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
 
             notMobile.setAvailability(jTextField2.getText());
-//           System.out.println(arpitPerson.getAvailabiliy());
+           // System.out.println(arpitPerson.getAvailabiliy());
 //                 try {
 //                        Serialization.Serialize(theUsersObserver, FILE_NAME_Observer);
 //                    } catch (IOException ex) {
@@ -587,15 +614,14 @@ public class AddSensor extends javax.swing.JFrame {
          User user = theUsersObserver.getMemberFromNumber(Integer.parseInt(userID.getText())).firstElement();
              boolean status = theUsersObserver.removeUser(user);
                 if (status) {
-//                      try {
-//                        Serialization.Serialize(theUsersObserver, FILE_NAME_Observer);
-//                    } catch (IOException ex) {
-//                        Logger.getLogger(MyProfile.class.getName()).log(Level.SEVERE, null, ex);
-//                    }
+                      try {
+                        Serialization.Serialize(theUsersObserver, FILE_NAME_Observer);
+                    } catch (IOException ex) {
+                        Logger.getLogger(MyProfile.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                     JOptionPane.showMessageDialog(this, "You have deleted successful", "Congradulations", JOptionPane.INFORMATION_MESSAGE);
-                     //    clear();
-//                    loadObserver();
-                    TableLoad(theUsersObserver);
+                         clear();
+                    loadObserver();
 
                 } else {
                     JOptionPane.showMessageDialog(this, "Delete unsuccessful...", "Error", JOptionPane.ERROR_MESSAGE);
@@ -772,16 +798,17 @@ public class AddSensor extends javax.swing.JFrame {
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -789,12 +816,14 @@ public class AddSensor extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField4;
     private javax.swing.JTable tblanpSensor;
     private javax.swing.JTextField textStatus;
     private javax.swing.JTextField txtanpDes;

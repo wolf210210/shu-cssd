@@ -44,9 +44,6 @@ public class EmergencySensorStation extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
 
@@ -183,17 +180,6 @@ public class EmergencySensorStation extends javax.swing.JFrame {
         getContentPane().add(jLabel2);
         jLabel2.setBounds(313, 267, 740, 276);
 
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon.png"))); // NOI18N
-        getContentPane().add(jLabel10);
-        jLabel10.setBounds(1010, 640, 40, 40);
-        getContentPane().add(jTextField1);
-        jTextField1.setBounds(760, 640, 240, 40);
-
-        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel9.setText("Find Location");
-        getContentPane().add(jLabel9);
-        jLabel9.setBounds(610, 640, 160, 40);
-
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Back.png"))); // NOI18N
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 0, 1366, 810);
@@ -214,7 +200,7 @@ public class EmergencySensorStation extends javax.swing.JFrame {
     }//GEN-LAST:event_addMouseClicked
 
     private void resetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resetMouseClicked
-          AddEmergencySensor h1 = new AddEmergencySensor();
+          EmergencyMap h1 = new EmergencyMap();
           h1.setVisible(true);
     }//GEN-LAST:event_resetMouseClicked
 
@@ -278,7 +264,6 @@ public class EmergencySensorStation extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton add;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -291,11 +276,9 @@ public class EmergencySensorStation extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JButton reset;
     private javax.swing.JButton reset1;
     // End of variables declaration//GEN-END:variables
