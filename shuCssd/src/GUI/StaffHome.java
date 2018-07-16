@@ -27,21 +27,119 @@ public class StaffHome extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jLabel3 = new javax.swing.JLabel();
+        add = new javax.swing.JButton();
+        reset = new javax.swing.JButton();
+        reset1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/kk.png"))); // NOI18N
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(540, 110, 380, 190);
+
+        add.setBackground(new java.awt.Color(0, 102, 153));
+        add.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
+        add.setForeground(new java.awt.Color(255, 255, 255));
+        add.setText("Bin Sensor");
+        add.setContentAreaFilled(false);
+        add.setOpaque(true);
+        add.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addMouseClicked(evt);
+            }
+        });
+        add.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addActionPerformed(evt);
+            }
+        });
+        getContentPane().add(add);
+        add.setBounds(580, 420, 310, 40);
+
+        reset.setBackground(new java.awt.Color(0, 102, 153));
+        reset.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
+        reset.setForeground(new java.awt.Color(255, 255, 255));
+        reset.setText("Flood Sensor");
+        reset.setContentAreaFilled(false);
+        reset.setOpaque(true);
+        reset.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                resetMouseClicked(evt);
+            }
+        });
+        reset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resetActionPerformed(evt);
+            }
+        });
+        getContentPane().add(reset);
+        reset.setBounds(580, 480, 310, 40);
+
+        reset1.setBackground(new java.awt.Color(0, 102, 153));
+        reset1.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
+        reset1.setForeground(new java.awt.Color(255, 255, 255));
+        reset1.setText("Emergency Sensor");
+        reset1.setContentAreaFilled(false);
+        reset1.setOpaque(true);
+        reset1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                reset1MouseClicked(evt);
+            }
+        });
+        reset1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reset1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(reset1);
+        reset1.setBounds(580, 540, 310, 40);
+
+        jLabel2.setBackground(new java.awt.Color(0, 153, 153));
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel2.setText("WELCOME STAFF");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(520, 320, 420, 66);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Back.png"))); // NOI18N
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, 0, 1366, 810);
+
+        jPanel1.setLayout(null);
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(0, 0, 1366, 810);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMouseClicked
+       
+    }//GEN-LAST:event_addMouseClicked
+
+    private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addActionPerformed
+
+    private void resetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resetMouseClicked
+     
+    }//GEN-LAST:event_resetMouseClicked
+
+    private void resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_resetActionPerformed
+
+    private void reset1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reset1MouseClicked
+       
+    }//GEN-LAST:event_reset1MouseClicked
+
+    private void reset1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reset1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_reset1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +177,12 @@ public class StaffHome extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton add;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton reset;
+    private javax.swing.JButton reset1;
     // End of variables declaration//GEN-END:variables
 }
