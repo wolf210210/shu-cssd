@@ -87,12 +87,12 @@ public class BinSensor extends javax.swing.JFrame {
         jLabel13.setBounds(170, 20, 270, 40);
 
         jLabel14.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(153, 153, 153));
         jLabel14.setText("Staff");
         getContentPane().add(jLabel14);
         jLabel14.setBounds(670, 260, 90, 50);
 
         jLabel12.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(153, 153, 153));
         jLabel12.setText("Admin");
         getContentPane().add(jLabel12);
         jLabel12.setBounds(580, 260, 120, 50);

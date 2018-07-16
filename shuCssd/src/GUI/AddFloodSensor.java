@@ -5,7 +5,8 @@
  */
 package GUI;
 
-import flood.Clock;
+import Validations.Validation;
+import floodclasses.Clock;
 import floodclasses.Location;
 import floodclasses.MotherShipObserverImp;
 import floodclasses.Sensor;
@@ -42,6 +43,7 @@ public class AddFloodSensor extends javax.swing.JFrame {
         private Double setLongitude;
         private SensorMonitor notMobile=new SensorMonitor();
         public  Clock clock ;
+        Validation validation = new Validation() ; 
     /**
      * Creates new form AddFloodSensor
      */
@@ -49,7 +51,7 @@ public class AddFloodSensor extends javax.swing.JFrame {
         initComponents();
         
                load();
-               //loadLocation();
+//               loadLocation();
                clock = Clock.getInstance();
     }
     
@@ -57,7 +59,7 @@ public class AddFloodSensor extends javax.swing.JFrame {
         initComponents();
 
                load();
-               //loadLocation();
+              
                this.setLatitude = setLatitudes;
                this.setLongitude = setLongitudes;
                System.err.println(this.setLatitude);
@@ -86,6 +88,7 @@ public class AddFloodSensor extends javax.swing.JFrame {
         remove = new javax.swing.JButton();
         add1 = new javax.swing.JButton();
         update = new javax.swing.JButton();
+        statusText = new javax.swing.JComboBox<>();
         idText = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -96,7 +99,6 @@ public class AddFloodSensor extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         frequencyText = new javax.swing.JTextField();
-        statusText = new javax.swing.JTextField();
         desText = new javax.swing.JTextField();
         nameText = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
@@ -116,9 +118,9 @@ public class AddFloodSensor extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
         jLabel7.setText("Description");
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(60, 410, 140, 30);
+        jLabel7.setBounds(40, 380, 140, 30);
         getContentPane().add(jTextField4);
-        jTextField4.setBounds(770, 310, 270, 30);
+        jTextField4.setBounds(760, 350, 270, 30);
 
         tblanpSensor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -139,7 +141,7 @@ public class AddFloodSensor extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tblanpSensor);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(530, 360, 760, 230);
+        jScrollPane1.setBounds(530, 400, 760, 230);
 
         remove.setBackground(new java.awt.Color(0, 102, 153));
         remove.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
@@ -183,18 +185,22 @@ public class AddFloodSensor extends javax.swing.JFrame {
         getContentPane().add(update);
         update.setBounds(190, 560, 130, 40);
 
+        statusText.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Active", "Non-Active" }));
+        getContentPane().add(statusText);
+        statusText.setBounds(190, 432, 250, 30);
+
         idText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 idTextActionPerformed(evt);
             }
         });
         getContentPane().add(idText);
-        idText.setBounds(210, 320, 250, 30);
+        idText.setBounds(190, 290, 250, 30);
 
         jLabel11.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
-        jLabel11.setText("SensorID");
+        jLabel11.setText("Sensor ID");
         getContentPane().add(jLabel11);
-        jLabel11.setBounds(60, 320, 140, 30);
+        jLabel11.setBounds(40, 290, 140, 30);
 
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -214,30 +220,34 @@ public class AddFloodSensor extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
         jLabel9.setText("Search");
         getContentPane().add(jLabel9);
-        jLabel9.setBounds(650, 310, 120, 30);
+        jLabel9.setBounds(640, 350, 120, 30);
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon.png"))); // NOI18N
         getContentPane().add(jLabel10);
-        jLabel10.setBounds(1090, 300, 45, 50);
+        jLabel10.setBounds(1080, 340, 45, 50);
 
         jLabel4.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
         jLabel4.setText("Name");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(60, 360, 140, 30);
+        jLabel4.setBounds(40, 330, 140, 30);
 
         jLabel5.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
         jLabel5.setText("Status");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(60, 460, 120, 30);
+        jLabel5.setBounds(40, 430, 120, 30);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
         jLabel2.setText("Frequency");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(60, 510, 130, 30);
+        jLabel2.setBounds(40, 480, 130, 30);
+
+        frequencyText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                frequencyTextKeyTyped(evt);
+            }
+        });
         getContentPane().add(frequencyText);
-        frequencyText.setBounds(210, 510, 250, 30);
-        getContentPane().add(statusText);
-        statusText.setBounds(210, 460, 250, 30);
+        frequencyText.setBounds(190, 480, 250, 30);
 
         desText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -245,7 +255,7 @@ public class AddFloodSensor extends javax.swing.JFrame {
             }
         });
         getContentPane().add(desText);
-        desText.setBounds(210, 420, 250, 30);
+        desText.setBounds(190, 390, 250, 30);
 
         nameText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -253,31 +263,31 @@ public class AddFloodSensor extends javax.swing.JFrame {
             }
         });
         getContentPane().add(nameText);
-        nameText.setBounds(210, 370, 250, 30);
+        nameText.setBounds(190, 340, 250, 30);
 
         jLabel8.setBackground(new java.awt.Color(204, 204, 204));
         jLabel8.setForeground(new java.awt.Color(153, 153, 153));
         jLabel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
         getContentPane().add(jLabel8);
-        jLabel8.setBounds(440, 210, 520, 40);
+        jLabel8.setBounds(430, 210, 520, 40);
 
         jLabel12.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(153, 153, 153));
         jLabel12.setText("    Bin Sensor");
         getContentPane().add(jLabel12);
-        jLabel12.setBounds(430, 200, 160, 50);
+        jLabel12.setBounds(420, 200, 160, 50);
 
         jLabel14.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(51, 51, 51));
         jLabel14.setText("Flood Sensor");
         getContentPane().add(jLabel14);
-        jLabel14.setBounds(810, 200, 190, 50);
+        jLabel14.setBounds(800, 200, 190, 50);
 
         jLabel13.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(153, 153, 153));
         jLabel13.setText("Emergency Sensor");
         getContentPane().add(jLabel13);
-        jLabel13.setBounds(600, 200, 200, 50);
+        jLabel13.setBounds(590, 200, 200, 50);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Back.png"))); // NOI18N
         getContentPane().add(jLabel1);
@@ -321,17 +331,28 @@ public class AddFloodSensor extends javax.swing.JFrame {
     private void add1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_add1MouseClicked
        String name, description , frequency;
         if (nameText.getText().isEmpty()) {
-            //            JOptionPane.showMessageDialog(this, "Please provide the name...", "Error", JOptionPane.ERROR_MESSAGE);
-            System.out.println("Please provide the name...");
-        } else {
+                  JOptionPane.showMessageDialog(this, "Please provide the name...", "Error", JOptionPane.ERROR_MESSAGE);
+         
+        }
+        
+        else if (desText.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Please provide the Description...", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        else if (frequencyText.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Please provide the frequency...", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+     
+        
+        else if(sensorSet.size()<3){
             name = nameText.getText();
             description = desText.getText();
             frequency =  frequencyText.getText();
             //            Icon icon = imageIcon.getIcon();
 
-            sensorSet.addNewSensor(new Sensor(name, description, Double.parseDouble(frequency),statusText.getText()));
+            sensorSet.addNewSensor(new Sensor(name, description, Double.parseDouble(frequency),statusText.getSelectedItem().toString()));
 
-                //clock.registerObserver(sensorSet);
+                clock.registerObserver(sensorSet);
             try {
                 Serialization.Serialize(sensorSet, FILE_NAME_Sensor);
 
@@ -350,31 +371,34 @@ public class AddFloodSensor extends javax.swing.JFrame {
 //            sensorSet.addNewSensorLocation(sensor.getSensorNo(), 55.2, 55.2);
             locationSet.addNewSensor(new Location(this.setLatitude,this.setLongitude,sensor.getSensorNo())); 
  
-             try {
-                Serialization.Serialize(locationSet, FILE_NAME_Location);
-
-                System.out.println("Add Sucsessfully");
-
-            } catch (IOException ex) {
-                //                Logger.getLogger(AddNewProduct.class.getName()).log(Level.SEVERE, null, ex);
-                //                JOptionPane.showMessageDialog(this, "Unsuccessful...", "Error", JOptionPane.ERROR_MESSAGE);
-                System.out.println("Unsuccessful...");
-            }
+//             try {
+//                Serialization.Serialize(locationSet, FILE_NAME_Location);
+//
+//                System.out.println("Add Sucsessfully");
+//
+//            } catch (IOException ex) {
+//                //                Logger.getLogger(AddNewProduct.class.getName()).log(Level.SEVERE, null, ex);
+//                //                JOptionPane.showMessageDialog(this, "Unsuccessful...", "Error", JOptionPane.ERROR_MESSAGE);
+//                System.out.println("Unsuccessful...");
+//            }
             
+        }
+        else{
+             JOptionPane.showMessageDialog(this, "you can't insert more than 3 sensors", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_add1MouseClicked
 
     private void updateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateMouseClicked
-        String name, description;
+        String name, description , statusUp;
                double freq; 
               
               name = nameText.getText();
               description = desText.getText();
                      freq  = Double.parseDouble(frequencyText.getText());
-        
+                statusUp = statusText.getSelectedItem().toString() ; 
            Sensor sensor = sensorSet.getSensorFromID(Integer.parseInt(idText.getText())).firstElement();
 
-            String status = sensorSet.updateSensors(sensor, name, description , freq);
+            String status = sensorSet.updateSensors(sensor, name, description , freq ,statusUp );
             System.out.println(status);
                if (status.equals("success")) {
                     try {
@@ -403,7 +427,14 @@ public class AddFloodSensor extends javax.swing.JFrame {
            nameText.setText(tblanpSensor.getValueAt(row, 1).toString());
            desText.setText(tblanpSensor.getValueAt(row, 3).toString());
            frequencyText.setText(tblanpSensor.getValueAt(row, 4).toString());
+           statusText.setSelectedItem(tblanpSensor.getValueAt(row, 2).toString());
     }//GEN-LAST:event_tblanpSensorMouseClicked
+
+    private void frequencyTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_frequencyTextKeyTyped
+          validation.validateNumber(frequencyText,evt);
+            
+        
+    }//GEN-LAST:event_frequencyTextKeyTyped
 
     /**
      * @param args the command line arguments
@@ -455,7 +486,7 @@ public class AddFloodSensor extends javax.swing.JFrame {
     }  
         
         
-        
+//        
 //    public void loadLocation(){
 //        try { 
 //             for (Location location : Serialization.deserializeFloodSensorsLocation()) {
@@ -529,7 +560,7 @@ public class AddFloodSensor extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField nameText;
     private javax.swing.JButton remove;
-    private javax.swing.JTextField statusText;
+    private javax.swing.JComboBox<String> statusText;
     private javax.swing.JTable tblanpSensor;
     private javax.swing.JButton update;
     // End of variables declaration//GEN-END:variables

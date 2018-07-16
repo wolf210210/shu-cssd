@@ -33,12 +33,9 @@ public class FloodSensorStation extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         reset1 = new javax.swing.JButton();
         add = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -127,8 +124,6 @@ public class FloodSensorStation extends javax.swing.JFrame {
         });
         getContentPane().add(add);
         add.setBounds(440, 570, 220, 40);
-        getContentPane().add(jTextField1);
-        jTextField1.setBounds(760, 640, 240, 40);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/map.png"))); // NOI18N
         jLabel3.setText("map");
@@ -155,15 +150,6 @@ public class FloodSensorStation extends javax.swing.JFrame {
         jLabel15.setToolTipText("");
         getContentPane().add(jLabel15);
         jLabel15.setBounds(170, 20, 340, 40);
-
-        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel9.setText("Find Location");
-        getContentPane().add(jLabel9);
-        jLabel9.setBounds(610, 640, 160, 40);
-
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon.png"))); // NOI18N
-        getContentPane().add(jLabel10);
-        jLabel10.setBounds(1010, 640, 40, 40);
         getContentPane().add(jSeparator3);
         jSeparator3.setBounds(30, 370, 180, 10);
 
@@ -217,13 +203,13 @@ public class FloodSensorStation extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMouseClicked
-         AddFloodSensor e = new AddFloodSensor();
-         e.setVisible(true);
+        AddFloodSensor addFloodSensor =  new AddFloodSensor() ; 
+            addFloodSensor.setVisible(true);
     }//GEN-LAST:event_addMouseClicked
 
     private void resetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resetMouseClicked
-         AddFloodSensor e = new AddFloodSensor();
-         e.setVisible(true);
+  AddFloodSensor addFloodSensor =  new AddFloodSensor() ; 
+            addFloodSensor.setVisible(true);
     }//GEN-LAST:event_resetMouseClicked
 
     private void resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetActionPerformed
@@ -235,8 +221,9 @@ public class FloodSensorStation extends javax.swing.JFrame {
     }//GEN-LAST:event_addActionPerformed
 
     private void reset1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reset1MouseClicked
-         FloodMap e = new FloodMap();
-         e.setVisible(true);
+            AddFloodSensor addFloodSensor =  new AddFloodSensor() ; 
+            addFloodSensor.setVisible(true);
+        // TODO add your handling code here:
     }//GEN-LAST:event_reset1MouseClicked
 
     private void reset1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reset1ActionPerformed
@@ -286,7 +273,6 @@ public class FloodSensorStation extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton add;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -298,12 +284,10 @@ public class FloodSensorStation extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JButton reset;
     private javax.swing.JButton reset1;
     // End of variables declaration//GEN-END:variables

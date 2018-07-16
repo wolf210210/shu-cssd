@@ -63,12 +63,12 @@ public class FloodSensor extends javax.swing.JFrame {
         add.setBounds(520, 420, 320, 40);
 
         jLabel14.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(153, 153, 153));
         jLabel14.setText("Staff");
         getContentPane().add(jLabel14);
         jLabel14.setBounds(710, 260, 90, 60);
 
         jLabel12.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(153, 153, 153));
         jLabel12.setText("Admin");
         getContentPane().add(jLabel12);
         jLabel12.setBounds(610, 260, 120, 60);

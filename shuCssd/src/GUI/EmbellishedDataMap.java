@@ -5,12 +5,27 @@
  */
 package GUI;
 
+import static GUI.AddSensor.FILE_NAME_Observer;
+import static GUI.AddSensor.theUsersObserver;
 import binclasses.Location;
 import binclasses.Sensor;
 import binclasses.SensorMonitor;
 import binclasses.SetOfLocation;
+import java.awt.Container;
+import java.io.IOException;
+import java.io.Serializable;
+import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
+import serialization.Serialization;
+import userclasses.SetOfUsers;
+import userclasses.User;
 
 /**
  *
@@ -18,23 +33,37 @@ import javax.swing.JLabel;
  */
        
 
-public class EmbellishedDataMap extends javax.swing.JFrame {
+public class EmbellishedDataMap extends javax.swing.JFrame implements  Serializable{
             Location location ;  
-            SetOfLocation setOfLocation;
+          
+            
+             private SetOfLocation locationSet = new SetOfLocation();
+            private SetOfLocation locationFullBin = new SetOfLocation();
+             private  SensorMonitor sensorSet = new SensorMonitor();
+                private SensorMonitor notMobile=new SensorMonitor();
+                public static SetOfUsers theUsersObserver = new SetOfUsers();
+    public static final String FILE_NAME_Location = "DataFiles/BinSensorsLocation.txt";
+     Sensor sensor;
     /**
      * Creates new form EmbellishedDataMap
      */
     public EmbellishedDataMap() {
         initComponents();
+         System.out.println("wadda EmbellishedData H");
+            loadSensor();  
+         loadLocation();
+         loadObserver();
+         notifyObserverss();
+        
     }
     
-     public EmbellishedDataMap(SensorMonitor sensorMonitor) {
-        initComponents();
-         
-         for (Sensor ob : sensorMonitor) {
-//                      System.out.println("Notifying all the subscribers when the bin is full oi");
-                     System.out.println("wadda EmbellishedData");
-                        System.err.println(setOfLocation.getLatitudeFromSensorID(ob.getSensorNo()));
+//     public EmbellishedDataMap(SensorMonitor sensorMonitor) {
+//        initComponents();
+//         
+//         for (Sensor ob : sensorMonitor) {
+////                      System.out.println("Notifying all the subscribers when the bin is full oi");
+//                     System.out.println("wadda EmbellishedData");
+//                        System.err.println(setOfLocation.getLatitudeFromSensorID(ob.getSensorNo()));
                      
 //                     
 //                     
@@ -51,9 +80,9 @@ public class EmbellishedDataMap extends javax.swing.JFrame {
 //                        jLabel1.revalidate();
 //                        jLabel1.repaint();
 //                        this.pack();
-                 }
-        
-    }
+//                 }
+//        
+//    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -66,39 +95,284 @@ public class EmbellishedDataMap extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1567, 853));
+
+        jPanel1.setLayout(null);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/binMap.png"))); // NOI18N
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(0, 0, 1246, 860);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable2);
+
+        jPanel1.add(jScrollPane2);
+        jScrollPane2.setBounds(1257, 466, 277, 250);
+
+        jButton1.setText("save");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1);
+        jButton1.setBounds(1302, 747, 180, 40);
+
+        jPanel2.setBackground(new java.awt.Color(0, 102, 102));
+
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Staff Members");
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Bin Locations");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(97, 97, 97)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(72, 72, 72))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(89, 89, 89)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(426, Short.MAX_VALUE))
         );
+
+        jPanel1.add(jPanel2);
+        jPanel2.setBounds(1245, 0, 301, 880);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1307, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 857, Short.MAX_VALUE)
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+            try {
+            Serialization.Serialize(theUsersObserver, FILE_NAME_Observer);
+            System.out.println("Serialize");
+        } catch (IOException ex) {
+            Logger.getLogger(MyProfile.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Error");
+        }
+          
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
      */
+    
+        public void loadLocation(){
+        try { 
+             for (Location location : Serialization.deserializeBinSensorsLocation()) {
+                         locationSet.addNewSensor(location);
+//                          products.print();
+            }
+        } catch (IOException | ClassNotFoundException  ex) {
+            JOptionPane.showMessageDialog(this, ex);
+        
+        }
+        
+                   loadAddSensor(locationSet);
+    }
+    
+      private void loadAddSensor(SetOfLocation setOfLocation) {
+               
+        String[] colName = {"SensorID", "Name", "Status"};
+        Object[][] object = new Object[setOfLocation.size()][4];
+        int i = 0;
+        if (setOfLocation.size() != 0) {
+            for (Location location : setOfLocation) {
+                object[i][0] = location.getSensorID();
+                object[i][1] = location.getLatitude();
+                object[i][2] = location.getLongitude();
+                        sensor  = sensorSet.getSensorFromID( location.getSensorID()).firstElement();
+                      if( sensor.getfrequency() >= 100 ){
+                          locationFullBin.addNewSensor(location);
+                      }
+             
+                i++;
+
+            }
+        }
+
+        DefaultTableModel model = new DefaultTableModel(object, colName) {
+            public boolean isCellEditable(int row, int column) {
+                return false;//This causes all cells to be not editable
+            }
+        };
+        jTable1.setModel(model);
+        jTable1.setRowSorter(new TableRowSorter<TableModel>(model));
+        jTable1.setAutoscrolls(true);
+        jTable1.getTableHeader().setReorderingAllowed(false);
+        
+        
+        
+        
+         
+
+                if (locationFullBin.size() != 0) {
+                for (Location location : locationFullBin) {
+                            Random rand = new Random();
+                            System.out.println("New Field...");
+                            Container contentPane = getContentPane();
+                            JLabel label = new JLabel (Integer.toString(location.getSensorID()));
+                            label.setIcon(new ImageIcon(
+                                "C:/Users/wolf/Documents/GitHub/shu-cssd/shuCssd/src/Images/Untitled-1.png"));
+
+                        label.setBounds(10,10,50,50);
+                        label.setLocation( location.getLatitude().intValue(),  location.getLongitude().intValue());
+
+                        //some random value that I know is in my dialog
+                        jLabel1.add(label);
+
+                        jLabel1.revalidate();
+                        jLabel1.repaint();
+                        this.pack();
+             
+                i++;
+
+            }
+        }
+          
+
+    }
+      
+      
+         public void loadSensor(){
+        try { 
+             for (Sensor sensors : Serialization.deserializeBinSensors()) {
+                         sensorSet.addNewSensor(sensors);
+              
+            }
+        } catch (IOException | ClassNotFoundException  ex) {
+            JOptionPane.showMessageDialog(this, ex);
+        
+        }
+       
+         
+    }
+               
+        private void loadObserver() {
+           
+        try {
+            for (User member : Serialization.deserializeObserver()) {
+                 notMobile.registerObserver(member);
+                 theUsersObserver.add(member);
+//                 TableLoadObserver(theUsersObserver);
+                member.print();
+            }
+        } catch (IOException | ClassNotFoundException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage());
+        }
+
+           
+    }
+        
+         public void TableLoadObserver( SetOfUsers searchList) {
+        String[] colName = {"User ID", "First Name","Availabiliy"};
+        Object[][] object = new Object[searchList.size()][4];
+        int i = 0;
+        if (searchList.size() != 0) {
+            for (User member : searchList) {
+                object[i][0] = member.getMemberNumber();
+                object[i][1] = member.getName();
+               object[i][2] = member.getAvailabiliy();
+
+                i++;
+
+            }
+        }
+
+        DefaultTableModel model = new DefaultTableModel(object, colName) {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;//This causes all cells to be not editable
+            }
+        };
+        jTable2.setModel(model);
+        jTable2.setRowSorter(new TableRowSorter<>(model));
+        jTable2.setAutoscrolls(true);
+        jTable2.getTableHeader().setReorderingAllowed(false);
+    }
+         
+         public void notifyObserverss(){
+               notMobile.setAvailability("Available");
+                TableLoadObserver(theUsersObserver);
+//                   
+//                 try {
+//                        Serialization.Serialize(theUsersObserver, FILE_NAME_Observer);
+//                         System.out.println("Serialize");
+//                    } catch (IOException ex) {
+//                        Logger.getLogger(MyProfile.class.getName()).log(Level.SEVERE, null, ex);
+//                         System.out.println("Error");
+//                    }
+                 
+         }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -132,7 +406,15 @@ public class EmbellishedDataMap extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
     // End of variables declaration//GEN-END:variables
 }

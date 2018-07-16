@@ -67,7 +67,7 @@ public class Login extends javax.swing.JFrame {
 
         jLabel7.setBackground(new java.awt.Color(255, 255, 255));
         jLabel7.setFont(new java.awt.Font("Segoe UI Light", 1, 20)); // NOI18N
-        jLabel7.setText("User name     :");
+        jLabel7.setText("Email             :");
         jPanel1.add(jLabel7);
         jLabel7.setBounds(480, 370, 150, 30);
 

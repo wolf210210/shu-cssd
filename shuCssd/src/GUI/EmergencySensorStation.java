@@ -200,7 +200,7 @@ public class EmergencySensorStation extends javax.swing.JFrame {
     }//GEN-LAST:event_addMouseClicked
 
     private void resetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resetMouseClicked
-          EmergencyMap h1 = new EmergencyMap();
+          AddEmergencySensor h1 = new AddEmergencySensor();
           h1.setVisible(true);
     }//GEN-LAST:event_resetMouseClicked
 
