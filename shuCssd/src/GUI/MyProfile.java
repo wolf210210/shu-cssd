@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import Validations.Validation;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -54,14 +55,13 @@ public class MyProfile extends javax.swing.JFrame {
         userID = new javax.swing.JLabel();
         comboUserLevel = new javax.swing.JComboBox();
         firstName = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         lastName = new javax.swing.JTextField();
         address = new javax.swing.JTextField();
         city = new javax.swing.JTextField();
         email = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
         password = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         mobile = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
@@ -72,6 +72,8 @@ public class MyProfile extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         add = new javax.swing.JButton();
         update = new javax.swing.JButton();
         delete = new javax.swing.JButton();
@@ -85,25 +87,119 @@ public class MyProfile extends javax.swing.JFrame {
         userID.setForeground(new java.awt.Color(102, 102, 102));
         userID.setText("Cus-001");
         getContentPane().add(userID);
-        userID.setBounds(270, 200, 230, 30);
+        userID.setBounds(290, 230, 230, 30);
 
         comboUserLevel.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
         comboUserLevel.setForeground(new java.awt.Color(102, 102, 102));
-        comboUserLevel.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Customer", "Administrator" }));
+        comboUserLevel.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Staff", "Admin" }));
         comboUserLevel.setBorder(null);
-        comboUserLevel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboUserLevelActionPerformed(evt);
-            }
-        });
         getContentPane().add(comboUserLevel);
-        comboUserLevel.setBounds(270, 240, 240, 29);
+        comboUserLevel.setBounds(290, 280, 240, 29);
 
         firstName.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
         firstName.setForeground(new java.awt.Color(102, 102, 102));
         firstName.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(firstName);
-        firstName.setBounds(270, 300, 240, 29);
+        firstName.setBounds(290, 330, 240, 29);
+
+        lastName.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        lastName.setForeground(new java.awt.Color(102, 102, 102));
+        lastName.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        getContentPane().add(lastName);
+        lastName.setBounds(290, 370, 240, 29);
+
+        address.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        address.setForeground(new java.awt.Color(102, 102, 102));
+        address.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        getContentPane().add(address);
+        address.setBounds(290, 420, 240, 29);
+
+        city.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        city.setForeground(new java.awt.Color(102, 102, 102));
+        city.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        getContentPane().add(city);
+        city.setBounds(290, 460, 240, 29);
+
+        email.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        email.setForeground(new java.awt.Color(102, 102, 102));
+        email.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        getContentPane().add(email);
+        email.setBounds(290, 500, 240, 29);
+
+        password.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        password.setForeground(new java.awt.Color(102, 102, 102));
+        password.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        getContentPane().add(password);
+        password.setBounds(290, 540, 240, 29);
+
+        jLabel11.setFont(new java.awt.Font("Segoe UI Light", 0, 17)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(0, 102, 0));
+        jLabel11.setText("www.Elegantro.com/MyProfile.html");
+        jLabel11.setToolTipText("");
+        getContentPane().add(jLabel11);
+        jLabel11.setBounds(170, 20, 270, 40);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/kk.png"))); // NOI18N
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(510, 80, 390, 130);
+
+        mobile.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        mobile.setForeground(new java.awt.Color(102, 102, 102));
+        mobile.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        mobile.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                mobileKeyTyped(evt);
+            }
+        });
+        getContentPane().add(mobile);
+        mobile.setBounds(290, 580, 240, 29);
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
+        jLabel6.setText("Mobile Number   :");
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(110, 580, 170, 30);
+
+        jLabel30.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
+        jLabel30.setText("Password            :");
+        jLabel30.setToolTipText("");
+        getContentPane().add(jLabel30);
+        jLabel30.setBounds(110, 540, 170, 30);
+
+        jLabel29.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
+        jLabel29.setText("Email                  :");
+        getContentPane().add(jLabel29);
+        jLabel29.setBounds(110, 500, 170, 30);
+
+        jLabel28.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
+        jLabel28.setText("City                     :");
+        getContentPane().add(jLabel28);
+        jLabel28.setBounds(110, 460, 170, 30);
+
+        jLabel23.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
+        jLabel23.setText("Address              :");
+        getContentPane().add(jLabel23);
+        jLabel23.setBounds(110, 420, 170, 30);
+
+        jLabel19.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
+        jLabel19.setText("Last Name          : ");
+        jLabel19.setToolTipText("");
+        getContentPane().add(jLabel19);
+        jLabel19.setBounds(110, 370, 170, 30);
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
+        jLabel8.setText("First Name          :");
+        getContentPane().add(jLabel8);
+        jLabel8.setBounds(110, 320, 170, 40);
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
+        jLabel7.setText("User Level           :");
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(110, 280, 170, 30);
+
+        jLabel10.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
+        jLabel10.setText("User ID               :");
+        getContentPane().add(jLabel10);
+        jLabel10.setBounds(110, 230, 170, 30);
 
         jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setForeground(new java.awt.Color(255, 255, 255));
@@ -145,107 +241,10 @@ public class MyProfile extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(585, 275, 700, 270);
-
-        lastName.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        lastName.setForeground(new java.awt.Color(102, 102, 102));
-        lastName.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        getContentPane().add(lastName);
-        lastName.setBounds(270, 350, 240, 29);
-
-        address.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        address.setForeground(new java.awt.Color(102, 102, 102));
-        address.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        getContentPane().add(address);
-        address.setBounds(270, 400, 240, 29);
-
-        city.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        city.setForeground(new java.awt.Color(102, 102, 102));
-        city.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        getContentPane().add(city);
-        city.setBounds(270, 450, 240, 29);
-
-        email.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        email.setForeground(new java.awt.Color(102, 102, 102));
-        email.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        email.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                emailActionPerformed(evt);
-            }
-        });
-        getContentPane().add(email);
-        email.setBounds(270, 490, 240, 29);
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/kk.png"))); // NOI18N
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(460, 60, 380, 140);
-
-        password.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        password.setForeground(new java.awt.Color(102, 102, 102));
-        password.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        getContentPane().add(password);
-        password.setBounds(270, 530, 240, 29);
-
-        mobile.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        mobile.setForeground(new java.awt.Color(102, 102, 102));
-        mobile.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        mobile.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                mobileKeyTyped(evt);
-            }
-        });
-        getContentPane().add(mobile);
-        mobile.setBounds(270, 580, 240, 29);
-
-        jLabel6.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
-        jLabel6.setText("Mobile Number   :");
-        getContentPane().add(jLabel6);
-        jLabel6.setBounds(90, 580, 170, 30);
-
-        jLabel30.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
-        jLabel30.setText("Password            :");
-        jLabel30.setToolTipText("");
-        getContentPane().add(jLabel30);
-        jLabel30.setBounds(90, 530, 170, 30);
-
-        jLabel29.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
-        jLabel29.setText("Email                  :");
-        getContentPane().add(jLabel29);
-        jLabel29.setBounds(90, 490, 170, 30);
-
-        jLabel28.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
-        jLabel28.setText("City                     :");
-        getContentPane().add(jLabel28);
-        jLabel28.setBounds(90, 450, 170, 30);
-
-        jLabel23.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
-        jLabel23.setText("Address              :");
-        getContentPane().add(jLabel23);
-        jLabel23.setBounds(90, 400, 170, 30);
-
-        jLabel19.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
-        jLabel19.setText("Last Name          : ");
-        jLabel19.setToolTipText("");
-        getContentPane().add(jLabel19);
-        jLabel19.setBounds(90, 350, 170, 30);
-
-        jLabel8.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
-        jLabel8.setText("First Name          :");
-        getContentPane().add(jLabel8);
-        jLabel8.setBounds(90, 300, 170, 30);
-
-        jLabel7.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
-        jLabel7.setText("User Level           :");
-        getContentPane().add(jLabel7);
-        jLabel7.setBounds(90, 250, 170, 30);
-
-        jLabel10.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
-        jLabel10.setText("User ID               :");
-        getContentPane().add(jLabel10);
-        jLabel10.setBounds(90, 200, 170, 30);
+        jScrollPane1.setBounds(585, 275, 730, 270);
 
         add.setBackground(new java.awt.Color(0, 102, 153));
-        add.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
+        add.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
         add.setForeground(new java.awt.Color(102, 102, 102));
         add.setText("Add User");
         add.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -256,10 +255,10 @@ public class MyProfile extends javax.swing.JFrame {
             }
         });
         getContentPane().add(add);
-        add.setBounds(650, 570, 150, 40);
+        add.setBounds(670, 560, 170, 40);
 
         update.setBackground(new java.awt.Color(0, 102, 153));
-        update.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
+        update.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
         update.setForeground(new java.awt.Color(102, 102, 102));
         update.setText("Update User");
         update.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -270,10 +269,10 @@ public class MyProfile extends javax.swing.JFrame {
             }
         });
         getContentPane().add(update);
-        update.setBounds(830, 570, 150, 40);
+        update.setBounds(870, 560, 170, 40);
 
         delete.setBackground(new java.awt.Color(0, 102, 153));
-        delete.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
+        delete.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
         delete.setForeground(new java.awt.Color(102, 102, 102));
         delete.setText("Delete User");
         delete.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -284,7 +283,7 @@ public class MyProfile extends javax.swing.JFrame {
             }
         });
         getContentPane().add(delete);
-        delete.setBounds(1000, 570, 150, 40);
+        delete.setBounds(1070, 560, 190, 40);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Back.png"))); // NOI18N
         getContentPane().add(jLabel1);
@@ -295,7 +294,13 @@ public class MyProfile extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void mobileKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_mobileKeyTyped
-      
+     Validation.validateNumber(mobile, evt);
+         
+         char enter =evt.getKeyChar();
+            if((!Character.isDigit(enter)) || mobile.getText().length()>=10)
+               {
+                  evt.consume();
+               }        
     }//GEN-LAST:event_mobileKeyTyped
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
@@ -332,7 +337,7 @@ public class MyProfile extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Please provide all the details...", "Error", JOptionPane.ERROR_MESSAGE);
 
         } else {
-//            if () {
+         if (Validation.isEmail(email.getText())) {
                 firstname = firstName.getText();
                 lastname = lastName.getText();
                 Address = address.getText();
@@ -344,9 +349,9 @@ public class MyProfile extends javax.swing.JFrame {
                 String userLevels;
 
                 if (Levels.equals("Customer")) {
-                    userLevels = "user";
+                    userLevels = "Staff";
                 } else {
-                    userLevels = "admin";
+                    userLevels = "Admin";
                 }
 
                 String status = registerUser(firstname, lastname, Address, City, Email, Mobile, Password, userLevels);
@@ -358,10 +363,10 @@ public class MyProfile extends javax.swing.JFrame {
                 } else {
                     JOptionPane.showMessageDialog(this, "Registration unsuccessful...", "Error", JOptionPane.ERROR_MESSAGE);
                 }
-//            } else {
-//                JOptionPane.showMessageDialog(this, "Please provide a valied email address...", "Error", JOptionPane.ERROR_MESSAGE);
-//
-//            }
+            } else {
+                JOptionPane.showMessageDialog(this, "Please provide a valied email address...", "Error", JOptionPane.ERROR_MESSAGE);
+
+            }
         }
     }//GEN-LAST:event_addMouseClicked
 
@@ -440,14 +445,6 @@ public class MyProfile extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_deleteMouseClicked
-
-    private void emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_emailActionPerformed
-
-    private void comboUserLevelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboUserLevelActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_comboUserLevelActionPerformed
 
    
     public void TableLoad(JTable table, SetOfUsers searchList) {
@@ -561,6 +558,7 @@ public class MyProfile extends javax.swing.JFrame {
     private javax.swing.JTextField firstName;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel23;
