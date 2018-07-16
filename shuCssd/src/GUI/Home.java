@@ -28,29 +28,15 @@ public class Home extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        add = new javax.swing.JButton();
         reset = new javax.swing.JButton();
+        add = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(null);
-
-        add.setBackground(new java.awt.Color(0, 102, 153));
-        add.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
-        add.setForeground(new java.awt.Color(255, 255, 255));
-        add.setText("Login");
-        add.setContentAreaFilled(false);
-        add.setOpaque(true);
-        add.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                addMouseClicked(evt);
-            }
-        });
-        jPanel1.add(add);
-        add.setBounds(530, 460, 180, 40);
 
         reset.setBackground(new java.awt.Color(0, 102, 153));
         reset.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
@@ -69,7 +55,26 @@ public class Home extends javax.swing.JFrame {
             }
         });
         jPanel1.add(reset);
-        reset.setBounds(730, 460, 170, 40);
+        reset.setBounds(690, 320, 170, 60);
+
+        add.setBackground(new java.awt.Color(0, 102, 153));
+        add.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
+        add.setForeground(new java.awt.Color(255, 255, 255));
+        add.setText("Login");
+        add.setContentAreaFilled(false);
+        add.setOpaque(true);
+        add.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addMouseClicked(evt);
+            }
+        });
+        jPanel1.add(add);
+        add.setBounds(480, 320, 180, 60);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/city3.jpg"))); // NOI18N
+        jLabel2.setText("jLabel2");
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(0, 66, 1360, 740);
 
         jLabel11.setFont(new java.awt.Font("Segoe UI Light", 0, 17)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 102, 0));
@@ -77,10 +82,6 @@ public class Home extends javax.swing.JFrame {
         jLabel11.setToolTipText("");
         jPanel1.add(jLabel11);
         jLabel11.setBounds(170, 30, 240, 30);
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logo1.png"))); // NOI18N
-        jPanel1.add(jLabel3);
-        jLabel3.setBounds(470, 80, 500, 440);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Back.png"))); // NOI18N
         jPanel1.add(jLabel1);
@@ -104,6 +105,7 @@ public class Home extends javax.swing.JFrame {
     private void addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMouseClicked
          Login l = new Login();
          l.setVisible(true);
+         //l.setVisible(true);
     }//GEN-LAST:event_addMouseClicked
 
     private void resetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resetMouseClicked
@@ -154,7 +156,7 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JButton add;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton reset;
     // End of variables declaration//GEN-END:variables
