@@ -40,13 +40,14 @@ public class SensorMonitor extends Vector<Sensor> implements  SensorStation , Se
 //    
 
     
-    public String updateSensors(Sensor aSensor, String Name, String description , Double frequency) {
+    public String updateSensors(Sensor aSensor, String Name, String description , Double frequency ,String statu) {
         String status = "";
         try {
             
             this.elementAt(this.indexOf(aSensor)).setName(Name);
             this.elementAt(this.indexOf(aSensor)).setDescription(description);
             this.elementAt(this.indexOf(aSensor)).setfrequency(frequency);
+            this.elementAt(this.indexOf(aSensor)).setStatus(statu);
            
             
             status = "success";

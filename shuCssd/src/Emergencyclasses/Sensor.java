@@ -97,6 +97,11 @@ public class Sensor  implements Serializable{
         return this.state;
     }
     
+    
+    public void setStatus(String states) {
+        this.state = states;
+    }
+    
 //    public double getPrice() {
 //        return uprice;
 //    }

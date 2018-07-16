@@ -45,6 +45,8 @@ public class SetOfLocation extends Vector<Location> implements Serializable  {
                 }
                 return tempLat;
     }
+       
+       
     
     
       public boolean remove(Location loc) {
