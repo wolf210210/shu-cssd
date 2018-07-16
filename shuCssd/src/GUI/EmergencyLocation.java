@@ -183,7 +183,7 @@ public class EmergencyLocation extends javax.swing.JFrame {
          
         private void loadAddSensor(SetOfLocation setOfLocation) {
 
-        String[] colName = {"SensorID", "Name", "Status"};
+        String[] colName = {"SensorID", "Longitude", "Latitude"};
         Object[][] object = new Object[setOfLocation.size()][4];
         int i = 0;
         if (setOfLocation.size() != 0) {

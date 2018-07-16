@@ -97,8 +97,6 @@ public class SensorObserverMap extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jButton1.setText("Show table");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -143,13 +141,13 @@ public class SensorObserverMap extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        if(jComboBox1.getSelectedItem()=="Item 1"){
+        if(jComboBox1.getSelectedIndex()==0){
             TableLoadObserver(theUsersObserver1);
         }
-        else   if(jComboBox1.getSelectedItem()=="Item 2"){
+        else   if(jComboBox1.getSelectedIndex()==1){
             TableLoadObserver(theUsersObserverTwo);
         }
-        else   if(jComboBox1.getSelectedItem()=="Item 3"){
+        else   if(jComboBox1.getSelectedIndex()==2){
             TableLoadObserver(theUsersObserverThree);
         }
 
@@ -169,6 +167,7 @@ public class SensorObserverMap extends javax.swing.JFrame {
                               System.out.println(sensors.getSensorNo());
                                sensorSet1.addNewSensor(new Sensor(sensors.getName(), sensors.getdescription(),sensors.getfrequency(),sensors.getStatus()));
                                sensorSetClock.addNewSensor(new Sensor(sensors.getName(), sensors.getdescription(),sensors.getfrequency(),sensors.getStatus()));
+                               jComboBox1.addItem(sensors.getName());
                                if(sensors.getfrequency() >100){
                                      sensorSet1.setAvailability("Warnning");
                                     TableLoadObserver(theUsersObserver1);
@@ -180,7 +179,8 @@ public class SensorObserverMap extends javax.swing.JFrame {
                                 System.out.println(sensors.getSensorNo());
                                sensorSetTwo.addNewSensor(new Sensor(sensors.getName(), sensors.getdescription(),sensors.getfrequency(),sensors.getStatus()));
                                 sensorSetClock.addNewSensor(new Sensor(sensors.getName(), sensors.getdescription(),sensors.getfrequency(),sensors.getStatus()));
-                                      if(sensors.getfrequency() >100){
+                                jComboBox1.addItem(sensors.getName());    
+                                if(sensors.getfrequency() >100){
                                            sensorSetTwo.setAvailability("Warnning");
                                     TableLoadObserver(theUsersObserverTwo);
                                    
@@ -190,7 +190,8 @@ public class SensorObserverMap extends javax.swing.JFrame {
                               if(i ==2){System.out.println(sensors.getSensorNo());
                                sensorSetThree.addNewSensor(new Sensor(sensors.getName(), sensors.getdescription(),sensors.getfrequency(),sensors.getStatus()));
                                  sensorSetClock.addNewSensor(new Sensor(sensors.getName(), sensors.getdescription(),sensors.getfrequency(),sensors.getStatus()));
-                                if(sensors.getfrequency() >100){
+                                jComboBox1.addItem(sensors.getName());
+                                 if(sensors.getfrequency() >100){
                                     sensorSetThree.setAvailability("Warnning");
                                     TableLoadObserver(theUsersObserverThree);
                                           

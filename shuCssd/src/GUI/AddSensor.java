@@ -13,6 +13,7 @@ package GUI;
 //import javax.swing.table.TableRowSorter;
 //import serialization.Serialization;
 import static GUI.MyProfile.theUsers;
+import Validations.Validation;
 import binclasses.Clock;
 import binclasses.Location;
 import binclasses.MotherShipObserverImp;
@@ -57,7 +58,7 @@ public class AddSensor extends javax.swing.JFrame {
     private SensorMonitor notMobile=new SensorMonitor();
     public  Clock clock ;
     
-    
+       Validation validation = new Validation() ; 
                       
     public AddSensor()  {
         initComponents();
@@ -94,9 +95,9 @@ public class AddSensor extends javax.swing.JFrame {
     private void initComponents() {
 
         frequencyText = new javax.swing.JTextField();
-        textStatus = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
+        statusText = new javax.swing.JComboBox<>();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -120,10 +121,14 @@ public class AddSensor extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(1366, 830));
         setResizable(false);
         getContentPane().setLayout(null);
+
+        frequencyText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                frequencyTextKeyTyped(evt);
+            }
+        });
         getContentPane().add(frequencyText);
         frequencyText.setBounds(240, 490, 250, 40);
-        getContentPane().add(textStatus);
-        textStatus.setBounds(240, 430, 250, 40);
 
         jLabel12.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel12.setText("Sensor ID");
@@ -134,6 +139,10 @@ public class AddSensor extends javax.swing.JFrame {
         jLabel11.setText("Name");
         getContentPane().add(jLabel11);
         jLabel11.setBounds(90, 330, 120, 30);
+
+        statusText.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Active", "Non-Active" }));
+        getContentPane().add(statusText);
+        statusText.setBounds(240, 440, 250, 30);
 
         jPanel1.setLayout(null);
 
@@ -290,7 +299,7 @@ public class AddSensor extends javax.swing.JFrame {
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
 
-   String name, description , frequency;
+   String name, description , frequency , statu;
         if (txtanpName.getText().isEmpty()) {
             //            JOptionPane.showMessageDialog(this, "Please provide the name...", "Error", JOptionPane.ERROR_MESSAGE);
             System.out.println("Please provide the name...");
@@ -298,9 +307,10 @@ public class AddSensor extends javax.swing.JFrame {
             name = txtanpName.getText();
             description = txtanpDes.getText();
             frequency =  frequencyText.getText();
+            statu  =statusText.getSelectedItem().toString() ;   
             //            Icon icon = imageIcon.getIcon();
 
-            sensorSet.addNewSensor(new Sensor(name, description, Double.parseDouble(frequency),textStatus.getText()));
+            sensorSet.addNewSensor(new Sensor(name, description, Double.parseDouble(frequency),statu));
 
                 clock.registerObserver(sensorSet);
             try {
@@ -336,16 +346,16 @@ public class AddSensor extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-              String name, description;
+              String name, description, states;
                double freq; 
               
               name = txtanpName.getText();
               description = txtanpDes.getText();
                      freq  = Double.parseDouble(frequencyText.getText());
-        
+                states = statusText.getSelectedItem().toString() ; 
            Sensor sensor = sensorSet.getSensorFromID(Integer.parseInt(txtanpId.getText())).firstElement();
 
-            String status = sensorSet.updateSensors(sensor, name, description , freq);
+            String status = sensorSet.updateSensors(sensor, name, description , freq,states);
             System.out.println(status);
                if (status.equals("success")) {
                     try {
@@ -404,6 +414,10 @@ public class AddSensor extends javax.swing.JFrame {
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel3MouseClicked
+
+    private void frequencyTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_frequencyTextKeyTyped
+       validation.validateNumber(frequencyText,evt);
+    }//GEN-LAST:event_frequencyTextKeyTyped
 
        private void loadAddSensor(SensorMonitor sensorMoni) {
 
@@ -586,8 +600,8 @@ public class AddSensor extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JComboBox<String> statusText;
     private javax.swing.JTable tblanpSensor;
-    private javax.swing.JTextField textStatus;
     private javax.swing.JTextField txtanpDes;
     private javax.swing.JTextField txtanpId;
     private javax.swing.JTextField txtanpName;

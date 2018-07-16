@@ -112,7 +112,7 @@ public class StaffHome extends javax.swing.JFrame {
 
         jPanel1.setLayout(null);
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 1366, 810);
+        jPanel1.setBounds(0, 0, 0, 0);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

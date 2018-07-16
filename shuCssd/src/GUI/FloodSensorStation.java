@@ -203,8 +203,8 @@ public class FloodSensorStation extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMouseClicked
-        AddFloodSensor addFloodSensor =  new AddFloodSensor() ; 
-            addFloodSensor.setVisible(true);
+        SensorObserverMap viewFloodSensor =  new SensorObserverMap() ; 
+            viewFloodSensor.setVisible(true);
     }//GEN-LAST:event_addMouseClicked
 
     private void resetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resetMouseClicked

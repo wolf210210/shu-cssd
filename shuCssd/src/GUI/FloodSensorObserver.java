@@ -5,6 +5,7 @@
  */
 package GUI;
 //import floodclasses.SensorMonitor;
+import Validations.Validation;
 import floodclasses.Clock;
 import floodclasses.SensorMonitor;
 import floodclasses.Location;
@@ -29,10 +30,10 @@ public class FloodSensorObserver extends javax.swing.JFrame {
     /**
      * Creates new form FloodSensorObserver
      */
-         public static final String  FILE_NAME_Users_FloodSensor = "DataFiles/FILE_NAME_Users_FloodSensor.txt"; 
-          public static final String  FILE_NAME_Set_Users_FloodSensor1 = "DataFiles/FILE_NAME_Set_Users_FloodSensor1.txt"; 
-            public static final String  FILE_NAME_Set_Users_FloodSensorTwo = "DataFiles/FILE_NAME_Set_Users_FloodSensorTwo.txt";
-             public static final String  FILE_NAME_Set_Users_FloodSensorThree = "DataFiles/FILE_NAME_Set_Users_FloodSensorThree.txt";
+         public static final String  FILE_NAME_Users_FloodSensor = "DataFiles/FileNnameUsersFloodSensor.txt"; 
+          public static final String  FILE_NAME_Set_Users_FloodSensor1 = "DataFiles/FileNameSetUsersFloodSensorOne.txt"; 
+            public static final String  FILE_NAME_Set_Users_FloodSensorTwo = "DataFiles/FileNameSetUsersFloodSensorTwo.txt";
+             public static final String  FILE_NAME_Set_Users_FloodSensorThree = "DataFiles/FileNameSetUsersFloodSensorThree.txt";
                 public static SetOfUsers theUsersObserver1 = new SetOfUsers();
                 private  SensorMonitor sensorSet = new SensorMonitor();
                 public static SetOfUsers theUsers = new SetOfUsers();
@@ -75,13 +76,15 @@ public class FloodSensorObserver extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton10 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        add2 = new javax.swing.JButton();
+        add6 = new javax.swing.JButton();
+        add5 = new javax.swing.JButton();
+        add4 = new javax.swing.JButton();
+        add1 = new javax.swing.JButton();
+        add3 = new javax.swing.JButton();
+        delete = new javax.swing.JButton();
+        statusText = new javax.swing.JComboBox<>();
         userID = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -89,7 +92,7 @@ public class FloodSensorObserver extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         lastName = new javax.swing.JTextField();
         firstName = new javax.swing.JTextField();
-        userID1 = new javax.swing.JLabel();
+        userIDLable = new javax.swing.JLabel();
         address = new javax.swing.JTextField();
         city = new javax.swing.JTextField();
         password = new javax.swing.JTextField();
@@ -108,90 +111,118 @@ public class FloodSensorObserver extends javax.swing.JFrame {
         jTable2 = new javax.swing.JTable();
         add = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        jButton10.setBackground(new java.awt.Color(0, 102, 153));
-        jButton10.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
-        jButton10.setForeground(new java.awt.Color(255, 255, 255));
-        jButton10.setText("save");
-        jButton10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton10ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton10);
-        jButton10.setBounds(1050, 440, 210, 30);
-
-        jButton9.setBackground(new java.awt.Color(0, 102, 153));
-        jButton9.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
-        jButton9.setForeground(new java.awt.Color(255, 255, 255));
-        jButton9.setText("Remove From Table ");
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton9);
-        jButton9.setBounds(1050, 390, 210, 33);
-
-        jButton6.setBackground(new java.awt.Color(0, 102, 153));
-        jButton6.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(255, 255, 255));
-        jButton6.setText("Notify Observers");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton6);
-        jButton6.setBounds(1050, 300, 210, 33);
-
-        jButton8.setBackground(new java.awt.Color(0, 102, 153));
-        jButton8.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
-        jButton8.setForeground(new java.awt.Color(255, 255, 255));
-        jButton8.setText("Remove Observer ");
-        jButton8.addMouseListener(new java.awt.event.MouseAdapter() {
+        add2.setBackground(new java.awt.Color(0, 102, 153));
+        add2.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
+        add2.setForeground(new java.awt.Color(255, 255, 255));
+        add2.setText("Observer User");
+        add2.setContentAreaFilled(false);
+        add2.setOpaque(true);
+        add2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton8MouseClicked(evt);
+                add2MouseClicked(evt);
             }
         });
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton8);
-        jButton8.setBounds(1050, 340, 210, 33);
+        getContentPane().add(add2);
+        add2.setBounds(1050, 260, 210, 33);
 
-        jButton5.setBackground(new java.awt.Color(0, 102, 153));
-        jButton5.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setText("Observer User");
-        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+        add6.setBackground(new java.awt.Color(0, 102, 153));
+        add6.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
+        add6.setForeground(new java.awt.Color(255, 255, 255));
+        add6.setText("Save");
+        add6.setContentAreaFilled(false);
+        add6.setOpaque(true);
+        add6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton5MouseClicked(evt);
+                add6MouseClicked(evt);
             }
         });
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+        getContentPane().add(add6);
+        add6.setBounds(1050, 430, 210, 33);
+
+        add5.setBackground(new java.awt.Color(0, 102, 153));
+        add5.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
+        add5.setForeground(new java.awt.Color(255, 255, 255));
+        add5.setText("Remove From Table");
+        add5.setContentAreaFilled(false);
+        add5.setOpaque(true);
+        add5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                add5MouseClicked(evt);
             }
         });
-        getContentPane().add(jButton5);
-        jButton5.setBounds(1050, 260, 210, 33);
+        getContentPane().add(add5);
+        add5.setBounds(1050, 390, 210, 33);
+
+        add4.setBackground(new java.awt.Color(0, 102, 153));
+        add4.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
+        add4.setForeground(new java.awt.Color(255, 255, 255));
+        add4.setText("Remove Observer");
+        add4.setContentAreaFilled(false);
+        add4.setOpaque(true);
+        add4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                add4MouseClicked(evt);
+            }
+        });
+        getContentPane().add(add4);
+        add4.setBounds(1050, 340, 210, 40);
+
+        add1.setBackground(new java.awt.Color(0, 102, 153));
+        add1.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
+        add1.setForeground(new java.awt.Color(255, 255, 255));
+        add1.setText("Show Table");
+        add1.setContentAreaFilled(false);
+        add1.setOpaque(true);
+        add1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                add1MouseClicked(evt);
+            }
+        });
+        getContentPane().add(add1);
+        add1.setBounds(1050, 210, 210, 33);
+
+        add3.setBackground(new java.awt.Color(0, 102, 153));
+        add3.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
+        add3.setForeground(new java.awt.Color(255, 255, 255));
+        add3.setText("Notify Observers");
+        add3.setContentAreaFilled(false);
+        add3.setOpaque(true);
+        add3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                add3MouseClicked(evt);
+            }
+        });
+        getContentPane().add(add3);
+        add3.setBounds(1050, 300, 210, 33);
+
+        delete.setFont(new java.awt.Font("Segoe UI Light", 0, 16)); // NOI18N
+        delete.setForeground(new java.awt.Color(102, 102, 102));
+        delete.setText("Delete User");
+        delete.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        delete.setContentAreaFilled(false);
+        delete.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                deleteMouseClicked(evt);
+            }
+        });
+        getContentPane().add(delete);
+        delete.setBounds(500, 440, 160, 40);
+
+        statusText.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Active", "Non-Active" }));
+        getContentPane().add(statusText);
+        statusText.setBounds(870, 310, 160, 30);
         getContentPane().add(userID);
-        userID.setBounds(880, 260, 150, 30);
-        getContentPane().add(jTextField2);
-        jTextField2.setBounds(880, 300, 150, 30);
+        userID.setBounds(870, 260, 160, 30);
 
         jLabel13.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
         jLabel13.setText("Notify");
         getContentPane().add(jLabel13);
-        jLabel13.setBounds(780, 295, 80, 40);
+        jLabel13.setBounds(780, 300, 80, 40);
 
         jLabel14.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
         jLabel14.setText("User No");
@@ -236,11 +267,10 @@ public class FloodSensorObserver extends javax.swing.JFrame {
         getContentPane().add(firstName);
         firstName.setBounds(340, 160, 240, 29);
 
-        userID1.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        userID1.setForeground(new java.awt.Color(102, 102, 102));
-        userID1.setText("Cus-001");
-        getContentPane().add(userID1);
-        userID1.setBounds(340, 110, 230, 30);
+        userIDLable.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        userIDLable.setForeground(new java.awt.Color(102, 102, 102));
+        getContentPane().add(userIDLable);
+        userIDLable.setBounds(340, 110, 230, 30);
 
         address.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
         address.setForeground(new java.awt.Color(102, 102, 102));
@@ -404,65 +434,230 @@ public class FloodSensorObserver extends javax.swing.JFrame {
         getContentPane().add(add);
         add.setBounds(290, 440, 190, 40);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         getContentPane().add(jComboBox1);
-        jComboBox1.setBounds(882, 212, 150, 30);
-
-        jButton1.setBackground(new java.awt.Color(0, 102, 153));
-        jButton1.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Show Table");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton1);
-        jButton1.setBounds(1050, 210, 210, 33);
+        jComboBox1.setBounds(872, 212, 160, 30);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Back.png"))); // NOI18N
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
+            }
+        });
         getContentPane().add(jLabel2);
         jLabel2.setBounds(0, 0, 1510, 810);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        if(jComboBox1.getSelectedItem()=="Item 1"){
-                    try {
-                        Serialization.Serialize(theUsersObserver1, FILE_NAME_Set_Users_FloodSensor1);
-                        System.out.println("Serialize");
-                    } catch (IOException ex) {
-                        Logger.getLogger(MyProfile.class.getName()).log(Level.SEVERE, null, ex);
-                        System.out.println("Error");
-                    }
-        }
-        
-      if(jComboBox1.getSelectedItem()=="Item 2"){
-                    try {
-                        Serialization.Serialize(theUsersObserverTwo, FILE_NAME_Set_Users_FloodSensorTwo);
-                        System.out.println("Serialize");
-                    } catch (IOException ex) {
-                        Logger.getLogger(MyProfile.class.getName()).log(Level.SEVERE, null, ex);
-                        System.out.println("Error");
-                    }
-        }
-      
-      if(jComboBox1.getSelectedItem()=="Item 3"){
-                    try {
-                        Serialization.Serialize(theUsersObserverThree, FILE_NAME_Set_Users_FloodSensorThree);
-                        System.out.println("Serialize");
-                    } catch (IOException ex) {
-                        Logger.getLogger(MyProfile.class.getName()).log(Level.SEVERE, null, ex);
-                        System.out.println("Error");
-                    }
-        }
+    private void mobileKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_mobileKeyTyped
 
+    }//GEN-LAST:event_mobileKeyTyped
+
+    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
+   // when user click on tbInfo table, all the information what in user selected row will want to show on Update tab
+        //  load info to update tab
+        DefaultTableModel dtm = (DefaultTableModel) jTable2.getModel();
+
+        int row = jTable2.getSelectedRow();
+        userIDLable.setText(jTable2.getValueAt(row, 0).toString());
+        userID.setText(jTable2.getValueAt(row, 0).toString());
+        firstName.setText(jTable2.getValueAt(row, 1).toString());
+        address.setText(jTable2.getValueAt(row, 2).toString());
+        email.setText(jTable2.getValueAt(row, 3).toString());
+        mobile.setText(jTable2.getValueAt(row, 4).toString());
+        User user = theUsers.getMemberFromNumber(Integer.parseInt(userID.getText())).firstElement();
+        password.setText(user.getPassword());
+        city.setText(user.getCity());
+        lastName.setText(user.getLastName());
+   
+    }//GEN-LAST:event_jTable2MouseClicked
+
+    private void addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMouseClicked
+  String firstname, lastname, Address, City, Email, Mobile, Password, Password1;
+        if (firstName.getText().isEmpty() || lastName.getText().isEmpty() || address.getText().isEmpty() || city.getText().isEmpty()
+            || email.getText().isEmpty() || mobile.getText().isEmpty() || password.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please provide all the details...", "Error", JOptionPane.ERROR_MESSAGE);
+
+        } else {
+         if (Validation.isEmail(email.getText())) {
+                firstname = firstName.getText();
+                lastname = lastName.getText();
+                Address = address.getText();
+                City = city.getText();
+                Email = email.getText();
+                Mobile = mobile.getText();
+                Password = password.getText();
+               
+                String userLevels ="user";
+
+
+                String status = registerUser(firstname, lastname, Address, City, Email, Mobile, Password, userLevels);
+                if (status.equals("success")) {
+                    JOptionPane.showMessageDialog(this, "You have registered successful", "Congradulations", JOptionPane.INFORMATION_MESSAGE);
+                    clear();
+                    TableLoad(theUsers);
+
+                } else {
+                    JOptionPane.showMessageDialog(this, "Registration unsuccessful...", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "Please provide a valied email address...", "Error", JOptionPane.ERROR_MESSAGE);
+
+            }
+        }
+    }//GEN-LAST:event_addMouseClicked
+
+    private void mobileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mobileActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton10ActionPerformed
+    }//GEN-LAST:event_mobileActionPerformed
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-                 if(jComboBox1.getSelectedItem()=="Item 1"){
+    private void cityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cityActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cityActionPerformed
+
+    private void lastNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lastNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lastNameActionPerformed
+
+    private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_passwordActionPerformed
+
+    private void deleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteMouseClicked
+        int userNum;
+        int confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this user?", "Confirm", JOptionPane.YES_NO_OPTION,
+            JOptionPane.QUESTION_MESSAGE);
+        if (confirm == 0) {
+            if (userID.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Please select a user to delete...", "Error", JOptionPane.ERROR_MESSAGE);
+
+            } else {
+                userNum = Integer.parseInt(userID.getText());
+
+                User user = theUsers.getMemberFromNumber(Integer.parseInt(userID.getText())).firstElement();
+                boolean status = theUsers.removeUser(user);
+                if (status) {
+                    try {
+                        Serialization.Serialize(theUsers, FILE_NAME_Users_FloodSensor);
+                    } catch (IOException ex) {
+                        Logger.getLogger(MyProfile.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    JOptionPane.showMessageDialog(this, "You have deleted successful", "Congradulations", JOptionPane.INFORMATION_MESSAGE);
+                    clear();
+                    TableLoad(theUsers);
+
+                } else {
+                    JOptionPane.showMessageDialog(this, "Delete unsuccessful...", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        }
+    }//GEN-LAST:event_deleteMouseClicked
+
+    private void add1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_add1MouseClicked
+ 
+          if(jComboBox1.getSelectedIndex()==0){
+                  TableLoadObserver(theUsersObserver1);
+            }
+          else   if(jComboBox1.getSelectedIndex()==1){
+                 TableLoadObserver(theUsersObserverTwo);
+          }
+            else   if(jComboBox1.getSelectedIndex()==2){
+                 TableLoadObserver(theUsersObserverThree);
+          }
+          
+    }//GEN-LAST:event_add1MouseClicked
+
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel2MouseClicked
+
+    private void add2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_add2MouseClicked
+   User user = theUsers.getMemberFromNumber(Integer.parseInt(userID.getText())).firstElement();
+
+        if(jComboBox1.getSelectedIndex()==0){
+                sensorSet1.registerObserver(user);
+                theUsersObserver1.add(user);
+                try {
+                    Serialization.Serialize(theUsersObserver1, FILE_NAME_Set_Users_FloodSensor1);
+
+                    System.out.println("Add Observer Sucsessfully");
+                    TableLoadObserver(theUsersObserver1);
+                } catch (IOException ex) {
+
+                    System.out.println("Unsuccessful...");
+                }
+         }
+        
+        
+        
+          if(jComboBox1.getSelectedIndex()==1){
+                sensorSetTwo.registerObserver(user);
+                theUsersObserverTwo.add(user);
+                try {
+                    Serialization.Serialize(theUsersObserverTwo, FILE_NAME_Set_Users_FloodSensorTwo);
+
+                    System.out.println("Add Observer Sucsessfully");
+                    TableLoadObserver(theUsersObserverTwo);
+                } catch (IOException ex) {
+
+                    System.out.println("Unsuccessful...");
+                }
+         }
+          
+                  if(jComboBox1.getSelectedIndex()==2){
+                sensorSetThree.registerObserver(user);
+                theUsersObserverThree.add(user);
+                try {
+                    Serialization.Serialize(theUsersObserverThree, FILE_NAME_Set_Users_FloodSensorThree);
+
+                    System.out.println("Add Observer Sucsessfully");
+                    TableLoadObserver(theUsersObserverThree);
+                } catch (IOException ex) {
+
+                    System.out.println("Unsuccessful...");
+                }
+         }
+    }//GEN-LAST:event_add2MouseClicked
+
+    private void add3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_add3MouseClicked
+
+            if(jComboBox1.getSelectedIndex()==0){
+      
+                sensorSet1.setAvailability(statusText.getSelectedItem().toString());
+                TableLoadObserver(theUsersObserver1);
+          }
+            else if(jComboBox1.getSelectedIndex()==1){
+      
+                sensorSetTwo.setAvailability(statusText.getSelectedItem().toString());
+                TableLoadObserver(theUsersObserverTwo);
+          }
+               else if(jComboBox1.getSelectedIndex()==2){
+      
+                sensorSetThree.setAvailability(statusText.getSelectedItem().toString());
+                TableLoadObserver(theUsersObserverThree);
+          }
+    }//GEN-LAST:event_add3MouseClicked
+
+    private void add4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_add4MouseClicked
+   if(jComboBox1.getSelectedIndex()==0){
+                    User user = theUsersObserver1.getMemberFromNumber(Integer.parseInt(userID.getText())).firstElement();
+                    sensorSet1.unregisterObserver(user);
+                    JOptionPane.showMessageDialog(this, "You have Unregister Observer successful", "Congradulations", JOptionPane.INFORMATION_MESSAGE);
+          }
+          else  if(jComboBox1.getSelectedIndex()==1){
+                    User user = theUsersObserverTwo.getMemberFromNumber(Integer.parseInt(userID.getText())).firstElement();
+                    sensorSetTwo.unregisterObserver(user);
+                    JOptionPane.showMessageDialog(this, "You have Unregister Observer successful", "Congradulations", JOptionPane.INFORMATION_MESSAGE);
+          }
+          else if(jComboBox1.getSelectedIndex()==2){
+                    User user = theUsersObserverThree.getMemberFromNumber(Integer.parseInt(userID.getText())).firstElement();
+                    sensorSetThree.unregisterObserver(user);
+                    JOptionPane.showMessageDialog(this, "You have Unregister Observer successful", "Congradulations", JOptionPane.INFORMATION_MESSAGE);
+          }
+    }//GEN-LAST:event_add4MouseClicked
+
+    private void add5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_add5MouseClicked
+     if(jComboBox1.getSelectedIndex()==0){
                                 User user = theUsersObserver1.getMemberFromNumber(Integer.parseInt(userID.getText())).firstElement();
                                 boolean status = theUsersObserver1.removeUser(user);
                                 if (status) {
@@ -481,7 +676,7 @@ public class FloodSensorObserver extends javax.swing.JFrame {
                                 }
                     }
                  
-                 else  if(jComboBox1.getSelectedItem()=="Item 2"){
+                 else  if(jComboBox1.getSelectedIndex()==1){
                                 User user = theUsersObserverTwo.getMemberFromNumber(Integer.parseInt(userID.getText())).firstElement();
                                 boolean status = theUsersObserverTwo.removeUser(user);
                                 if (status) {
@@ -500,7 +695,7 @@ public class FloodSensorObserver extends javax.swing.JFrame {
                                 }
                     }
                  
-                      else  if(jComboBox1.getSelectedItem()=="Item 3"){
+                      else  if(jComboBox1.getSelectedIndex()==2){
                                 User user = theUsersObserverThree.getMemberFromNumber(Integer.parseInt(userID.getText())).firstElement();
                                 boolean status = theUsersObserverThree.removeUser(user);
                                 if (status) {
@@ -518,187 +713,39 @@ public class FloodSensorObserver extends javax.swing.JFrame {
                                     JOptionPane.showMessageDialog(this, "Delete unsuccessful...", "Error", JOptionPane.ERROR_MESSAGE);
                                 }
                     }
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton9ActionPerformed
+    }//GEN-LAST:event_add5MouseClicked
 
-    private void jButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseClicked
-      
-         if(jComboBox1.getSelectedItem()=="Item 1"){
-                    User user = theUsersObserver1.getMemberFromNumber(Integer.parseInt(userID.getText())).firstElement();
-                    sensorSet1.unregisterObserver(user);
-          }
-          else  if(jComboBox1.getSelectedItem()=="Item 2"){
-                    User user = theUsersObserverTwo.getMemberFromNumber(Integer.parseInt(userID.getText())).firstElement();
-                    sensorSetTwo.unregisterObserver(user);
-          }
-          else if(jComboBox1.getSelectedItem()=="Item 3"){
-                    User user = theUsersObserverThree.getMemberFromNumber(Integer.parseInt(userID.getText())).firstElement();
-                    sensorSetThree.unregisterObserver(user);
-          }
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8MouseClicked
-
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        
-            if(jComboBox1.getSelectedItem()=="Item 1"){
-      
-                sensorSet1.setAvailability(jTextField2.getText());
-                TableLoadObserver(theUsersObserver1);
-          }
-            else if(jComboBox1.getSelectedItem()=="Item 2"){
-      
-                sensorSetTwo.setAvailability(jTextField2.getText());
-                TableLoadObserver(theUsersObserverTwo);
-          }
-               else if(jComboBox1.getSelectedItem()=="Item 3"){
-      
-                sensorSetThree.setAvailability(jTextField2.getText());
-                TableLoadObserver(theUsersObserverThree);
-          }
-
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
-
-    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5MouseClicked
-
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-
-        User user = theUsers.getMemberFromNumber(Integer.parseInt(userID.getText())).firstElement();
-
-        if(jComboBox1.getSelectedItem()=="Item 1"){
-                sensorSet1.registerObserver(user);
-                theUsersObserver1.add(user);
-                try {
-                    Serialization.Serialize(theUsersObserver1, FILE_NAME_Set_Users_FloodSensor1);
-
-                    System.out.println("Add Observer Sucsessfully");
-                    TableLoadObserver(theUsersObserver1);
-                } catch (IOException ex) {
-
-                    System.out.println("Unsuccessful...");
-                }
-         }
-        
-        
-        
-          if(jComboBox1.getSelectedItem()=="Item 2"){
-                sensorSetTwo.registerObserver(user);
-                theUsersObserverTwo.add(user);
-                try {
-                    Serialization.Serialize(theUsersObserverTwo, FILE_NAME_Set_Users_FloodSensorTwo);
-
-                    System.out.println("Add Observer Sucsessfully");
-                    TableLoadObserver(theUsersObserverTwo);
-                } catch (IOException ex) {
-
-                    System.out.println("Unsuccessful...");
-                }
-         }
-          
-                  if(jComboBox1.getSelectedItem()=="Item 3"){
-                sensorSetThree.registerObserver(user);
-                theUsersObserverThree.add(user);
-                try {
-                    Serialization.Serialize(theUsersObserverThree, FILE_NAME_Set_Users_FloodSensorThree);
-
-                    System.out.println("Add Observer Sucsessfully");
-                    TableLoadObserver(theUsersObserverThree);
-                } catch (IOException ex) {
-
-                    System.out.println("Unsuccessful...");
-                }
-         }
-        // notMobile.registerObserver(johnPerson);
-        //                notMobile.registerObserver(piyumiPerson);
-
-        //Now product is available
-        //samsungMobile.setAvailability("Available");
-
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
-
-    private void mobileKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_mobileKeyTyped
-
-    }//GEN-LAST:event_mobileKeyTyped
-
-    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
-
-   
-    }//GEN-LAST:event_jTable2MouseClicked
-
-    private void addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMouseClicked
-        String firstname, lastname, Address, City, Email, Mobile, Password, Password1;
-        if (firstName.getText().isEmpty() || lastName.getText().isEmpty() || address.getText().isEmpty() || city.getText().isEmpty()
-            || email.getText().isEmpty() || mobile.getText().isEmpty() || password.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Please provide all the details...", "Error", JOptionPane.ERROR_MESSAGE);
-
-        } else {
-            //            if () {
-                firstname = firstName.getText();
-                lastname = lastName.getText();
-                Address = address.getText();
-                City = city.getText();
-                Email = email.getText();
-                Mobile = mobile.getText();
-                Password = password.getText();
-                String Levels = "User";
-                String userLevels= "User";;
-
-             
-                String status = registerUser(firstname, lastname, Address, City, Email, Mobile, Password, userLevels);
-                if (status.equals("success")) {
-                    JOptionPane.showMessageDialog(this, "You have registered successful", "Congradulations", JOptionPane.INFORMATION_MESSAGE);
-                   
-                    TableLoad(theUsers);
-
-                } else {
-                    JOptionPane.showMessageDialog(this, "Registration unsuccessful...", "Error", JOptionPane.ERROR_MESSAGE);
-                }
-                //            } else {
-                //                JOptionPane.showMessageDialog(this, "Please provide a valied email address...", "Error", JOptionPane.ERROR_MESSAGE);
-                //
-                //            }
+    private void add6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_add6MouseClicked
+  if(jComboBox1.getSelectedIndex()==0){
+                    try {
+                        Serialization.Serialize(theUsersObserver1, FILE_NAME_Set_Users_FloodSensor1);
+                        System.out.println("Serialize");
+                    } catch (IOException ex) {
+                        Logger.getLogger(MyProfile.class.getName()).log(Level.SEVERE, null, ex);
+                        System.out.println("Error");
+                    }
         }
-    }//GEN-LAST:event_addMouseClicked
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
-          if(jComboBox1.getSelectedItem()=="Item 1"){
-                  TableLoadObserver(theUsersObserver1);
-            }
-          else   if(jComboBox1.getSelectedItem()=="Item 2"){
-                 TableLoadObserver(theUsersObserverTwo);
-          }
-            else   if(jComboBox1.getSelectedItem()=="Item 3"){
-                 TableLoadObserver(theUsersObserverThree);
-          }
-          
-             
-               
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void mobileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mobileActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_mobileActionPerformed
-
-    private void cityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cityActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cityActionPerformed
-
-    private void lastNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lastNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lastNameActionPerformed
-
-    private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_passwordActionPerformed
-
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8ActionPerformed
+      if(jComboBox1.getSelectedIndex()==1){
+                    try {
+                        Serialization.Serialize(theUsersObserverTwo, FILE_NAME_Set_Users_FloodSensorTwo);
+                        System.out.println("Serialize");
+                    } catch (IOException ex) {
+                        Logger.getLogger(MyProfile.class.getName()).log(Level.SEVERE, null, ex);
+                        System.out.println("Error");
+                    }
+        }
+      
+      if(jComboBox1.getSelectedIndex()==2){
+                    try {
+                        Serialization.Serialize(theUsersObserverThree, FILE_NAME_Set_Users_FloodSensorThree);
+                        System.out.println("Serialize");
+                    } catch (IOException ex) {
+                        Logger.getLogger(MyProfile.class.getName()).log(Level.SEVERE, null, ex);
+                        System.out.println("Error");
+                    }
+        }
+    }//GEN-LAST:event_add6MouseClicked
     public void TableLoad( SetOfUsers searchList) {
         String[] colName = {"User ID", "First Name", "Address", "Email", "Mobile Number"};
         Object[][] object = new Object[searchList.size()][5];
@@ -771,15 +818,18 @@ public class FloodSensorObserver extends javax.swing.JFrame {
                               System.out.println(sensors.getSensorNo());
                                sensorSet1.addNewSensor(new Sensor(sensors.getName(), sensors.getdescription(),sensors.getfrequency(),sensors.getStatus()));
                                sensorSetClock.addNewSensor(new Sensor(sensors.getName(), sensors.getdescription(),sensors.getfrequency(),sensors.getStatus()));
+                                jComboBox1.addItem(sensors.getName());
                           }
                             if(i ==1){
                                 System.out.println(sensors.getSensorNo());
                                sensorSetTwo.addNewSensor(new Sensor(sensors.getName(), sensors.getdescription(),sensors.getfrequency(),sensors.getStatus()));
                                 sensorSetClock.addNewSensor(new Sensor(sensors.getName(), sensors.getdescription(),sensors.getfrequency(),sensors.getStatus()));
+                             jComboBox1.addItem(sensors.getName());
                             }
                               if(i ==2){System.out.println(sensors.getSensorNo());
-                               sensorSetThree.addNewSensor(new Sensor(sensors.getName(), sensors.getdescription(),sensors.getfrequency(),sensors.getStatus()));
+                                 sensorSetThree.addNewSensor(new Sensor(sensors.getName(), sensors.getdescription(),sensors.getfrequency(),sensors.getStatus()));
                                  sensorSetClock.addNewSensor(new Sensor(sensors.getName(), sensors.getdescription(),sensors.getfrequency(),sensors.getStatus()));
+                               jComboBox1.addItem(sensors.getName());
                               }
 
                             i++;
@@ -822,6 +872,7 @@ public class FloodSensorObserver extends javax.swing.JFrame {
 
         return status;
     }
+       
             
         public void getUser(){
                 try {
@@ -834,6 +885,29 @@ public class FloodSensorObserver extends javax.swing.JFrame {
         }
         TableLoad(theUsers);
             }
+        
+               public void clear() {
+        userID.setText("");
+//        comboUserLevel.setSelectedItem("Customer");
+        firstName.setText("");
+        lastName.setText("");
+        address.setText("");
+        city.setText("");
+        email.setText("");
+        password.setText("");
+        mobile.setText("");
+       
+
+        theUsers.removeAll(theUsers);
+        try {
+            for (User user : Serialization.deserializeFloodUsers()) {
+                theUsers.addUser(user);
+                user.print();
+            }
+        } catch (IOException | ClassNotFoundException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage());
+        }
+    }
         
            private void loadObserverOne() {
         try {
@@ -918,16 +992,17 @@ public class FloodSensorObserver extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton add;
+    private javax.swing.JButton add1;
+    private javax.swing.JButton add2;
+    private javax.swing.JButton add3;
+    private javax.swing.JButton add4;
+    private javax.swing.JButton add5;
+    private javax.swing.JButton add6;
     private javax.swing.JTextField address;
     private javax.swing.JTextField city;
+    private javax.swing.JButton delete;
     private javax.swing.JTextField email;
     private javax.swing.JTextField firstName;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -946,11 +1021,11 @@ public class FloodSensorObserver extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField lastName;
     private javax.swing.JTextField mobile;
     private javax.swing.JTextField password;
+    private javax.swing.JComboBox<String> statusText;
     private javax.swing.JTextField userID;
-    private javax.swing.JLabel userID1;
+    private javax.swing.JLabel userIDLable;
     // End of variables declaration//GEN-END:variables
 }
