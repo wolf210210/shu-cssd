@@ -29,6 +29,7 @@ public class UserHome extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         add = new javax.swing.JButton();
         reset1 = new javax.swing.JButton();
@@ -45,13 +46,21 @@ public class UserHome extends javax.swing.JFrame {
         jLabel1.setBackground(new java.awt.Color(0, 153, 153));
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel1.setText("WELCOME STAFF");
+        jLabel1.setText("WELCOME ADMIN");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(520, 320, 420, 66);
+        jLabel1.setBounds(520, 320, 440, 66);
+
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel4MouseClicked(evt);
+            }
+        });
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(0, 30, 30, 30);
 
         jLabel13.setFont(new java.awt.Font("Segoe UI Light", 0, 17)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(0, 102, 0));
-        jLabel13.setText("www.Elegantro.com/UserHome.html");
+        jLabel13.setText("www.Elegantro.com/adminhome.html");
         jLabel13.setToolTipText("");
         jPanel1.add(jLabel13);
         jLabel13.setBounds(180, 20, 280, 40);
@@ -166,6 +175,11 @@ public class UserHome extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_reset1ActionPerformed
 
+    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+        Login f = new Login();
+        f.setVisible(true);
+    }//GEN-LAST:event_jLabel4MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -207,6 +221,7 @@ public class UserHome extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton reset;
     private javax.swing.JButton reset1;

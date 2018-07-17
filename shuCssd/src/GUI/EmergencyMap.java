@@ -57,10 +57,10 @@ public class EmergencyMap extends javax.swing.JFrame {
         jPanel1.add(jLabel1);
         jLabel1.setBounds(0, 0, 1250, 850);
 
-        jPanel2.setBackground(new java.awt.Color(0, 102, 102));
+        jPanel2.setBackground(new java.awt.Color(0, 102, 153));
         jPanel2.setForeground(new java.awt.Color(255, 255, 255));
 
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Selected Location");
 
@@ -125,6 +125,7 @@ public class EmergencyMap extends javax.swing.JFrame {
     private void addSensorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addSensorMouseClicked
         AddEmergencySensor aAddFloodSensor = new AddEmergencySensor( setLatitudes , setLongitudes);
         aAddFloodSensor.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_addSensorMouseClicked
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked

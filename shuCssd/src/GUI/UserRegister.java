@@ -44,8 +44,10 @@ public class UserRegister extends javax.swing.JFrame {
         jLabel30 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         password = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
         city = new javax.swing.JTextField();
         email = new javax.swing.JTextField();
         mobile = new javax.swing.JTextField();
@@ -104,6 +106,14 @@ public class UserRegister extends javax.swing.JFrame {
         getContentPane().add(jLabel23);
         jLabel23.setBounds(490, 360, 170, 30);
 
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
+        });
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(0, 30, 30, 30);
+
         password.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
         password.setForeground(new java.awt.Color(102, 102, 102));
         password.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -114,6 +124,13 @@ public class UserRegister extends javax.swing.JFrame {
         jLabel19.setText("Last Name         :");
         getContentPane().add(jLabel19);
         jLabel19.setBounds(490, 310, 170, 30);
+
+        jLabel11.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(0, 153, 51));
+        jLabel11.setText("www.Elegantro.com/registration.html");
+        jLabel11.setToolTipText("");
+        getContentPane().add(jLabel11);
+        jLabel11.setBounds(170, 20, 279, 40);
 
         city.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
         city.setForeground(new java.awt.Color(102, 102, 102));
@@ -178,9 +195,9 @@ public class UserRegister extends javax.swing.JFrame {
         jLabel7.setBackground(new java.awt.Color(255, 255, 255));
         jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel7.setText("Registration");
+        jLabel7.setText("REGISTRATION");
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(610, 200, 190, 60);
+        jLabel7.setBounds(560, 200, 280, 60);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Back.png"))); // NOI18N
         getContentPane().add(jLabel1);
@@ -192,6 +209,7 @@ public class UserRegister extends javax.swing.JFrame {
         jPanel1.setBounds(0, 0, 0, 0);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMouseClicked
@@ -252,6 +270,11 @@ public class UserRegister extends javax.swing.JFrame {
                   evt.consume();
                }    
     }//GEN-LAST:event_mobileKeyTyped
+
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        Home home = new Home();
+        home.setVisible(true);
+    }//GEN-LAST:event_jLabel3MouseClicked
 
     /**
      * @param args the command line arguments
@@ -331,11 +354,13 @@ public class UserRegister extends javax.swing.JFrame {
     private javax.swing.JTextField email;
     private javax.swing.JTextField firstName;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel6;

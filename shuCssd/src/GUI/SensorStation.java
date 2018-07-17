@@ -28,15 +28,15 @@ public class SensorStation extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
         add = new javax.swing.JButton();
         reset2 = new javax.swing.JButton();
-        jLabel12 = new javax.swing.JLabel();
         reset1 = new javax.swing.JButton();
         jLabel15 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jSeparator4 = new javax.swing.JSeparator();
         jLabel4 = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
@@ -56,12 +56,6 @@ public class SensorStation extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 102));
         jPanel1.setLayout(null);
-
-        jLabel5.setBackground(new java.awt.Color(204, 204, 204));
-        jLabel5.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        jPanel1.add(jLabel5);
-        jLabel5.setBounds(550, 200, 520, 40);
 
         add.setBackground(new java.awt.Color(0, 102, 153));
         add.setFont(new java.awt.Font("Segoe UI Light", 1, 20)); // NOI18N
@@ -101,11 +95,6 @@ public class SensorStation extends javax.swing.JFrame {
         jPanel1.add(reset2);
         reset2.setBounds(690, 570, 230, 40);
 
-        jLabel12.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
-        jLabel12.setText("    Bin Sensor");
-        jPanel1.add(jLabel12);
-        jLabel12.setBounds(530, 196, 160, 40);
-
         reset1.setBackground(new java.awt.Color(0, 102, 153));
         reset1.setFont(new java.awt.Font("Segoe UI Light", 1, 20)); // NOI18N
         reset1.setForeground(new java.awt.Color(255, 255, 255));
@@ -127,16 +116,10 @@ public class SensorStation extends javax.swing.JFrame {
 
         jLabel15.setFont(new java.awt.Font("Segoe UI Light", 0, 17)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(0, 102, 0));
-        jLabel15.setText("www.Elegantro.com/SensorStation.html");
+        jLabel15.setText("www.Elegantro.com/sensorstation.html");
         jLabel15.setToolTipText("");
         jPanel1.add(jLabel15);
         jLabel15.setBounds(170, 20, 310, 60);
-
-        jLabel14.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel14.setText("Flood Sensor");
-        jPanel1.add(jLabel14);
-        jLabel14.setBounds(900, 200, 190, 30);
 
         jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -146,11 +129,38 @@ public class SensorStation extends javax.swing.JFrame {
         jPanel1.add(jLabel8);
         jLabel8.setBounds(0, 40, 30, 30);
 
+        jLabel12.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
+        jLabel12.setText("    Bin Sensor");
+        jPanel1.add(jLabel12);
+        jLabel12.setBounds(530, 196, 160, 40);
+
+        jLabel14.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel14.setText("Flood Sensor");
+        jLabel14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel14MouseClicked(evt);
+            }
+        });
+        jPanel1.add(jLabel14);
+        jLabel14.setBounds(900, 200, 190, 30);
+
         jLabel13.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(153, 153, 153));
         jLabel13.setText("Emergency Sensor");
+        jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel13MouseClicked(evt);
+            }
+        });
         jPanel1.add(jLabel13);
         jLabel13.setBounds(700, 190, 200, 50);
+
+        jLabel5.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel5.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        jPanel1.add(jLabel5);
+        jLabel5.setBounds(550, 200, 520, 40);
 
         jSeparator4.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator4.setForeground(new java.awt.Color(0, 0, 0));
@@ -229,7 +239,7 @@ public class SensorStation extends javax.swing.JFrame {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Back.png"))); // NOI18N
         jLabel3.setText("jLabel3");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(0, 10, 1360, 810);
+        jLabel3.setBounds(0, 10, 1370, 810);
 
         jLabel11.setText("jLabel11");
         jPanel1.add(jLabel11);
@@ -245,6 +255,7 @@ public class SensorStation extends javax.swing.JFrame {
     private void addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMouseClicked
          BinLocation binLocation = new BinLocation();
          binLocation.setVisible(true);
+         this.dispose();
     }//GEN-LAST:event_addMouseClicked
 
     private void resetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resetMouseClicked
@@ -262,6 +273,7 @@ public class SensorStation extends javax.swing.JFrame {
     private void reset1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reset1MouseClicked
          AddSensor h = new AddSensor();
          h.setVisible(true);
+         this.dispose();
     }//GEN-LAST:event_reset1MouseClicked
 
     private void reset1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reset1ActionPerformed
@@ -271,6 +283,7 @@ public class SensorStation extends javax.swing.JFrame {
     private void reset2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reset2MouseClicked
         BinMap binMap = new BinMap();
          binMap.setVisible(true);
+         this.dispose();
     }//GEN-LAST:event_reset2MouseClicked
 
     private void reset2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reset2ActionPerformed
@@ -280,7 +293,19 @@ public class SensorStation extends javax.swing.JFrame {
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
          BinSensor h = new BinSensor();
          h.setVisible(true);
+         this.dispose();
     }//GEN-LAST:event_jLabel8MouseClicked
+
+    private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
+         Emergency emergency = new Emergency();
+         emergency.setVisible(true);
+    }//GEN-LAST:event_jLabel13MouseClicked
+
+    private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
+         FloodSensor flood = new FloodSensor();
+         flood.setVisible(true);
+         this.dispose();
+    }//GEN-LAST:event_jLabel14MouseClicked
 
     /**
      * @param args the command line arguments

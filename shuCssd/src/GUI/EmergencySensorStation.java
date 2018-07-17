@@ -27,7 +27,6 @@ public class EmergencySensorStation extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel5 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator5 = new javax.swing.JSeparator();
@@ -43,6 +42,7 @@ public class EmergencySensorStation extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -50,12 +50,6 @@ public class EmergencySensorStation extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1366, 830));
         getContentPane().setLayout(null);
-
-        jLabel5.setBackground(new java.awt.Color(204, 204, 204));
-        jLabel5.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        getContentPane().add(jLabel5);
-        jLabel5.setBounds(430, 200, 520, 40);
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/kk.png"))); // NOI18N
         getContentPane().add(jLabel8);
@@ -143,7 +137,7 @@ public class EmergencySensorStation extends javax.swing.JFrame {
 
         jLabel15.setFont(new java.awt.Font("Segoe UI Light", 0, 17)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(0, 102, 0));
-        jLabel15.setText("www.Elegantro.com/EmergencySensorStation.html");
+        jLabel15.setText("www.Elegantro.com/emergencysensorstation.html");
         jLabel15.setToolTipText("");
         getContentPane().add(jLabel15);
         jLabel15.setBounds(170, 20, 380, 40);
@@ -161,12 +155,22 @@ public class EmergencySensorStation extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(153, 153, 153));
         jLabel12.setText("    Bin Sensor");
+        jLabel12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel12MouseClicked(evt);
+            }
+        });
         getContentPane().add(jLabel12);
         jLabel12.setBounds(410, 200, 160, 40);
 
         jLabel14.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(153, 153, 153));
         jLabel14.setText("Flood Sensor");
+        jLabel14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel14MouseClicked(evt);
+            }
+        });
         getContentPane().add(jLabel14);
         jLabel14.setBounds(780, 200, 190, 30);
 
@@ -174,6 +178,12 @@ public class EmergencySensorStation extends javax.swing.JFrame {
         jLabel13.setText("Emergency Sensor");
         getContentPane().add(jLabel13);
         jLabel13.setBounds(560, 190, 220, 50);
+
+        jLabel5.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel5.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(430, 200, 520, 40);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/map.png"))); // NOI18N
         jLabel2.setText("map");
@@ -197,11 +207,13 @@ public class EmergencySensorStation extends javax.swing.JFrame {
     private void addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMouseClicked
           AddEmergencySensor h = new AddEmergencySensor();
           h.setVisible(true);
+          this.dispose();
     }//GEN-LAST:event_addMouseClicked
 
     private void resetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resetMouseClicked
-          AddEmergencySensor h1 = new AddEmergencySensor();
-          h1.setVisible(true);
+          EmergencyMap emergencymap = new EmergencyMap();
+          emergencymap.setVisible(true);
+          this.dispose();
     }//GEN-LAST:event_resetMouseClicked
 
     private void resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetActionPerformed
@@ -215,6 +227,7 @@ public class EmergencySensorStation extends javax.swing.JFrame {
     private void reset1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reset1MouseClicked
           AddEmergencySensor h2 = new AddEmergencySensor();
           h2.setVisible(true);
+          this.dispose();
     }//GEN-LAST:event_reset1MouseClicked
 
     private void reset1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reset1ActionPerformed
@@ -222,9 +235,22 @@ public class EmergencySensorStation extends javax.swing.JFrame {
     }//GEN-LAST:event_reset1ActionPerformed
 
     private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
-         Emergency h = new Emergency();
-         h.setVisible(true);
+         Emergency emergency = new Emergency();
+         emergency.setVisible(true);
+         this.dispose();
     }//GEN-LAST:event_jLabel11MouseClicked
+
+    private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
+         BinSensor binSensor = new BinSensor();
+         binSensor.setVisible(true);
+         this.dispose();
+    }//GEN-LAST:event_jLabel12MouseClicked
+
+    private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
+        FloodSensor  floodSensor = new FloodSensor();
+        floodSensor.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jLabel14MouseClicked
 
     /**
      * @param args the command line arguments

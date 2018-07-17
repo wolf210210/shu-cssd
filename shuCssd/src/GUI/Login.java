@@ -73,7 +73,7 @@ public class Login extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/kk.png"))); // NOI18N
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(580, 60, 370, 230);
+        jLabel2.setBounds(590, 50, 370, 230);
 
         jLabel8.setBackground(new java.awt.Color(255, 255, 255));
         jLabel8.setFont(new java.awt.Font("Segoe UI Light", 1, 20)); // NOI18N
@@ -120,9 +120,9 @@ public class Login extends javax.swing.JFrame {
         jLabel6.setBackground(new java.awt.Color(255, 255, 255));
         jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel6.setText("Login");
+        jLabel6.setText("LOGIN");
         jPanel1.add(jLabel6);
-        jLabel6.setBounds(690, 290, 90, 60);
+        jLabel6.setBounds(690, 290, 130, 60);
 
         jLabel11.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
         jLabel11.setText("Forgot password");
@@ -194,13 +194,14 @@ public class Login extends javax.swing.JFrame {
     private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
       ForgotPassword f = new ForgotPassword();
       f.setVisible(true);
-      
+      this.dispose();
       
     }//GEN-LAST:event_jLabel11MouseClicked
 
     private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
       Registration r = new Registration();
       r.setVisible(true);
+      this.dispose();
     }//GEN-LAST:event_jLabel12MouseClicked
 
     private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed

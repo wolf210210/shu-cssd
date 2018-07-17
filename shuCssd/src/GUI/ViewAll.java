@@ -5,6 +5,15 @@
  */
 package GUI;
 
+
+
+import java.io.IOException;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
+import serialization.Serialization;
+
 /**
  *
  * @author Piyu
@@ -14,8 +23,15 @@ public class ViewAll extends javax.swing.JFrame {
     /**
      * Creates new form ViewAll
      */
+
+     private  floodclasses.SensorMonitor sensorSet = new floodclasses.SensorMonitor();
+      private  binclasses.SensorMonitor sensorSetBin = new binclasses.SensorMonitor();
+       private  Emergencyclasses.SensorMonitor sensorSetEmergency = new Emergencyclasses.SensorMonitor();
     public ViewAll() {
         initComponents();
+        load();
+        loadBin();
+        loadEmergency();
     }
 
     /**
@@ -28,22 +44,41 @@ public class ViewAll extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        floodTable = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        binTable = new javax.swing.JTable();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        EmergencyTable = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1366, 830));
         getContentPane().setLayout(null);
 
         jPanel1.setLayout(null);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel4.setText("Bin Sensor Table ");
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(590, 260, 220, 60);
+
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel5.setText("Emergency Sensor Table");
+        jPanel1.add(jLabel5);
+        jLabel5.setBounds(1030, 270, 280, 40);
+
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel3.setText("Flood Sensor Table ");
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(120, 260, 220, 60);
+
+        floodTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -54,12 +89,12 @@ public class ViewAll extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(floodTable);
 
         jPanel1.add(jScrollPane1);
         jScrollPane1.setBounds(10, 320, 440, 280);
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        binTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -70,12 +105,12 @@ public class ViewAll extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(binTable);
 
         jPanel1.add(jScrollPane2);
         jScrollPane2.setBounds(470, 320, 420, 280);
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        EmergencyTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -86,32 +121,165 @@ public class ViewAll extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane3.setViewportView(jTable3);
+        jScrollPane3.setViewportView(EmergencyTable);
 
         jPanel1.add(jScrollPane3);
         jScrollPane3.setBounds(910, 320, 440, 280);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/kk.png"))); // NOI18N
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(550, 100, 370, 140);
+        jLabel2.setBounds(520, 110, 370, 140);
 
         jLabel11.setFont(new java.awt.Font("Segoe UI Light", 0, 17)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 102, 0));
-        jLabel11.setText("www.Elegantro.com/ViewAll.html");
+        jLabel11.setText("www.Elegantro.com/viewall.html");
         jLabel11.setToolTipText("");
         jPanel1.add(jLabel11);
         jLabel11.setBounds(170, 20, 250, 40);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Back.png"))); // NOI18N
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(0, 0, 1366, 810);
+        jLabel1.setBounds(0, -230, 1366, 1270);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 1366, 810);
+        jPanel1.setBounds(0, 0, 1366, 860);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    
+     public void load(){
+        try { 
+             for (floodclasses.Sensor sensors : Serialization.deserializeFloodSensors()) {
+                         sensorSet.addNewSensor(sensors);
+                       
+//                          products.print();
+            }
+        } catch (IOException | ClassNotFoundException  ex) {
+            JOptionPane.showMessageDialog(this, ex);
+        
+        }
+       
+          loadAddFloodSensor(sensorSet);
+    }  
+     
+       private void loadAddFloodSensor(floodclasses.SensorMonitor sensorMoni) {
+
+        String[] colName = {"SensorID", "Name", "Status", "Description",  "Frequency"};
+        Object[][] object = new Object[sensorMoni.size()][6];
+        int i = 0;
+        if (sensorMoni.size() != 0) {
+            for (floodclasses.Sensor sensors : sensorMoni) {
+                object[i][0] = sensors.getSensorNo();
+                object[i][1] = sensors.getName();
+                object[i][2] = sensors.getStatus();
+                object[i][3] = sensors.getdescription();
+                object[i][4] = sensors.getfrequency();
+                i++;
+
+            }
+        }
+
+        DefaultTableModel model = new DefaultTableModel(object, colName) {
+            public boolean isCellEditable(int row, int column) {
+                return false;//This causes all cells to be not editable
+            }
+        };
+        floodTable.setModel(model);
+        floodTable.setRowSorter(new TableRowSorter<TableModel>(model));
+        floodTable.setAutoscrolls(true);
+        floodTable.getTableHeader().setReorderingAllowed(false);
+
+    }
+       
+            public void loadBin(){
+        try { 
+             for (binclasses.Sensor sensors : Serialization.deserializeBinSensors()) {
+                         sensorSetBin.addNewSensor(sensors);
+                       
+//                          products.print();
+            }
+        } catch (IOException | ClassNotFoundException  ex) {
+            JOptionPane.showMessageDialog(this, ex);
+        
+        }
+       
+          loadAddSensor(sensorSetBin);
+    }
+            
+              private void loadAddSensor(binclasses.SensorMonitor sensorMoni) {
+
+        String[] colName = {"SensorID", "Name", "Status", "Description",  "Frequency"};
+        Object[][] object = new Object[sensorMoni.size()][6];
+        int i = 0;
+        if (sensorMoni.size() != 0) {
+            for (binclasses.Sensor sensors : sensorMoni) {
+                object[i][0] = sensors.getSensorNo();
+                object[i][1] = sensors.getName();
+                object[i][2] = sensors.getStatus();
+                object[i][3] = sensors.getdescription();
+                object[i][4] = sensors.getfrequency();
+                i++;
+
+            }
+        }
+
+        DefaultTableModel model = new DefaultTableModel(object, colName) {
+            public boolean isCellEditable(int row, int column) {
+                return false;//This causes all cells to be not editable
+            }
+        };
+        binTable.setModel(model);
+        binTable.setRowSorter(new TableRowSorter<TableModel>(model));
+        binTable.setAutoscrolls(true);
+        binTable.getTableHeader().setReorderingAllowed(false);
+
+    }
+              
+   public void loadEmergency(){
+        try { 
+             for (Emergencyclasses.Sensor sensors : Serialization.deserializeEmergencySensors()) {
+                         sensorSetEmergency.addNewSensor(sensors);
+                       
+//                          products.print();
+            }
+        } catch (IOException | ClassNotFoundException  ex) {
+            JOptionPane.showMessageDialog(this, ex);
+        
+        }
+       
+          loadAddEmergencySensor(sensorSetEmergency);
+    }
+   
+   private void loadAddEmergencySensor(Emergencyclasses.SensorMonitor sensorMoni) {
+
+        String[] colName = {"SensorID", "Name", "Status", "Description",  "Frequency"};
+        Object[][] object = new Object[sensorMoni.size()][6];
+        int i = 0;
+        if (sensorMoni.size() != 0) {
+            for (Emergencyclasses.Sensor sensors : sensorMoni) {
+                object[i][0] = sensors.getSensorNo();
+                object[i][1] = sensors.getName();
+                object[i][2] = sensors.getStatus();
+                object[i][3] = sensors.getdescription();
+                object[i][4] = sensors.getfrequency();
+                i++;
+
+            }
+        }
+
+        DefaultTableModel model = new DefaultTableModel(object, colName) {
+            public boolean isCellEditable(int row, int column) {
+                return false;//This causes all cells to be not editable
+            }
+        };
+        EmergencyTable.setModel(model);
+        EmergencyTable.setRowSorter(new TableRowSorter<TableModel>(model));
+        EmergencyTable.setAutoscrolls(true);
+        EmergencyTable.getTableHeader().setReorderingAllowed(false);
+
+    }
     /**
      * @param args the command line arguments
      */
@@ -148,15 +316,18 @@ public class ViewAll extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable EmergencyTable;
+    private javax.swing.JTable binTable;
+    private javax.swing.JTable floodTable;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
     // End of variables declaration//GEN-END:variables
 }

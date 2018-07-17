@@ -146,7 +146,7 @@ public class FloodSensorStation extends javax.swing.JFrame {
 
         jLabel15.setFont(new java.awt.Font("Segoe UI Light", 0, 17)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(0, 102, 0));
-        jLabel15.setText("www.Elegantro.com/FloodSensorStation.html");
+        jLabel15.setText("www.Elegantro.com/floodsensorstation.html");
         jLabel15.setToolTipText("");
         getContentPane().add(jLabel15);
         jLabel15.setBounds(170, 20, 340, 40);
@@ -156,12 +156,22 @@ public class FloodSensorStation extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(153, 153, 153));
         jLabel12.setText("    Bin Sensor");
+        jLabel12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel12MouseClicked(evt);
+            }
+        });
         getContentPane().add(jLabel12);
         jLabel12.setBounds(530, 196, 160, 40);
 
         jLabel13.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(153, 153, 153));
         jLabel13.setText("Emergency Sensor");
+        jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel13MouseClicked(evt);
+            }
+        });
         getContentPane().add(jLabel13);
         jLabel13.setBounds(700, 190, 200, 50);
 
@@ -203,13 +213,15 @@ public class FloodSensorStation extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMouseClicked
-        SensorObserverMap viewFloodSensor =  new SensorObserverMap() ; 
+            SensorObserverMap viewFloodSensor =  new SensorObserverMap() ; 
             viewFloodSensor.setVisible(true);
+            this.dispose();
     }//GEN-LAST:event_addMouseClicked
 
     private void resetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resetMouseClicked
-  AddFloodSensor addFloodSensor =  new AddFloodSensor() ; 
+            AddFloodSensor addFloodSensor =  new AddFloodSensor() ; 
             addFloodSensor.setVisible(true);
+            this.dispose();
     }//GEN-LAST:event_resetMouseClicked
 
     private void resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetActionPerformed
@@ -223,6 +235,7 @@ public class FloodSensorStation extends javax.swing.JFrame {
     private void reset1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reset1MouseClicked
             AddFloodSensor addFloodSensor =  new AddFloodSensor() ; 
             addFloodSensor.setVisible(true);
+            this.dispose();
         // TODO add your handling code here:
     }//GEN-LAST:event_reset1MouseClicked
 
@@ -233,7 +246,20 @@ public class FloodSensorStation extends javax.swing.JFrame {
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
         FloodSensor h = new FloodSensor();
         h.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jLabel8MouseClicked
+
+    private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
+        BinSensor binSensor = new BinSensor();
+        binSensor.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jLabel12MouseClicked
+
+    private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
+         Emergency emergency = new Emergency();
+         emergency.setVisible(true);
+         this.dispose();
+    }//GEN-LAST:event_jLabel13MouseClicked
 
     /**
      * @param args the command line arguments

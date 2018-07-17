@@ -31,11 +31,13 @@ public class StaffHome extends javax.swing.JFrame {
         add = new javax.swing.JButton();
         reset = new javax.swing.JButton();
         reset1 = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1366, 830));
         getContentPane().setLayout(null);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/kk.png"))); // NOI18N
@@ -99,6 +101,13 @@ public class StaffHome extends javax.swing.JFrame {
         getContentPane().add(reset1);
         reset1.setBounds(580, 540, 310, 40);
 
+        jLabel11.setFont(new java.awt.Font("Segoe UI Light", 0, 17)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(0, 102, 0));
+        jLabel11.setText("www.Elegantro.com/staffhome.html");
+        jLabel11.setToolTipText("");
+        getContentPane().add(jLabel11);
+        jLabel11.setBounds(170, 20, 270, 40);
+
         jLabel2.setBackground(new java.awt.Color(0, 153, 153));
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 153, 153));
@@ -115,10 +124,13 @@ public class StaffHome extends javax.swing.JFrame {
         jPanel1.setBounds(0, 0, 0, 0);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMouseClicked
-       
+          EmbellishedDataMap embellishedDataMap = new EmbellishedDataMap();
+          embellishedDataMap.setVisible(true);
+          this.dispose();
     }//GEN-LAST:event_addMouseClicked
 
     private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
@@ -126,7 +138,9 @@ public class StaffHome extends javax.swing.JFrame {
     }//GEN-LAST:event_addActionPerformed
 
     private void resetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resetMouseClicked
-     
+          SensorObserverMap sensorObserverMap = new SensorObserverMap();
+          sensorObserverMap.setVisible(true);
+          this.dispose();
     }//GEN-LAST:event_resetMouseClicked
 
     private void resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetActionPerformed
@@ -134,7 +148,9 @@ public class StaffHome extends javax.swing.JFrame {
     }//GEN-LAST:event_resetActionPerformed
 
     private void reset1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reset1MouseClicked
-       
+          EmergencyLocation emergencyLocation  = new EmergencyLocation();
+          emergencyLocation .setVisible(true);
+          this.dispose();
     }//GEN-LAST:event_reset1MouseClicked
 
     private void reset1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reset1ActionPerformed
@@ -179,6 +195,7 @@ public class StaffHome extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton add;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;

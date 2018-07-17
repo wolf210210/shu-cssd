@@ -30,6 +30,7 @@ public class Home extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         add = new javax.swing.JButton();
         reset = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -50,7 +51,7 @@ public class Home extends javax.swing.JFrame {
             }
         });
         jPanel1.add(add);
-        add.setBounds(530, 460, 180, 40);
+        add.setBounds(480, 690, 180, 40);
 
         reset.setBackground(new java.awt.Color(0, 102, 153));
         reset.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
@@ -69,11 +70,15 @@ public class Home extends javax.swing.JFrame {
             }
         });
         jPanel1.add(reset);
-        reset.setBounds(730, 460, 170, 40);
+        reset.setBounds(670, 690, 170, 40);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/max.jpg"))); // NOI18N
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(0, 66, 1280, 720);
 
         jLabel11.setFont(new java.awt.Font("Segoe UI Light", 0, 17)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 102, 0));
-        jLabel11.setText("www.Elegantro.com/Home.html");
+        jLabel11.setText("www.Elegantro.com/home.html");
         jLabel11.setToolTipText("");
         jPanel1.add(jLabel11);
         jLabel11.setBounds(170, 30, 240, 30);
@@ -84,13 +89,13 @@ public class Home extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Back.png"))); // NOI18N
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(0, 2, 1370, 810);
+        jLabel1.setBounds(0, 2, 1280, 810);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1364, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1280, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -102,13 +107,15 @@ public class Home extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMouseClicked
-         Login l = new Login();
-         l.setVisible(true);
+         Login login = new Login();
+         login.setVisible(true);
+         this.dispose();
     }//GEN-LAST:event_addMouseClicked
 
     private void resetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resetMouseClicked
-         Registration l = new Registration();
-         l.setVisible(true);
+         Registration registration = new Registration();
+         registration.setVisible(true);
+         this.dispose();
     }//GEN-LAST:event_resetMouseClicked
 
     private void resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetActionPerformed
@@ -154,6 +161,7 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JButton add;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton reset;

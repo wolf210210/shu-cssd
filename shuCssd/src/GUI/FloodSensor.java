@@ -29,9 +29,11 @@ public class FloodSensor extends javax.swing.JFrame {
 
         jLabel2 = new javax.swing.JLabel();
         add = new javax.swing.JButton();
-        jLabel14 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        add1 = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         reset = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
@@ -62,11 +64,27 @@ public class FloodSensor extends javax.swing.JFrame {
         getContentPane().add(add);
         add.setBounds(520, 420, 320, 40);
 
-        jLabel14.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel14.setText("Staff");
-        getContentPane().add(jLabel14);
-        jLabel14.setBounds(710, 260, 90, 60);
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel4MouseClicked(evt);
+            }
+        });
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(0, 20, 30, 30);
+
+        add1.setBackground(new java.awt.Color(0, 102, 153));
+        add1.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
+        add1.setForeground(new java.awt.Color(255, 255, 255));
+        add1.setText("Manage User Profile");
+        add1.setContentAreaFilled(false);
+        add1.setOpaque(true);
+        add1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                add1MouseClicked(evt);
+            }
+        });
+        getContentPane().add(add1);
+        add1.setBounds(520, 550, 320, 40);
 
         jLabel12.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
         jLabel12.setText("Admin");
@@ -79,9 +97,15 @@ public class FloodSensor extends javax.swing.JFrame {
         getContentPane().add(jLabel5);
         jLabel5.setBounds(510, 270, 350, 40);
 
+        jLabel14.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel14.setText("Staff");
+        getContentPane().add(jLabel14);
+        jLabel14.setBounds(710, 260, 90, 60);
+
         jLabel13.setFont(new java.awt.Font("Segoe UI Light", 0, 17)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(0, 102, 0));
-        jLabel13.setText("www.Elegantro.com/FloodSensor.html");
+        jLabel13.setText("www.Elegantro.com/floodsensor.html");
         jLabel13.setToolTipText("");
         getContentPane().add(jLabel13);
         jLabel13.setBounds(170, 10, 290, 50);
@@ -127,13 +151,24 @@ public class FloodSensor extends javax.swing.JFrame {
     }//GEN-LAST:event_addMouseClicked
 
     private void resetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resetMouseClicked
-//        FloodSesnorObserver h1 = new FloodSesnorObserver();
-//        h1.setVisible(true);
+        FloodSensorObserver h1 = new FloodSensorObserver();
+        h1.setVisible(true);
     }//GEN-LAST:event_resetMouseClicked
 
     private void resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_resetActionPerformed
+
+    private void add1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_add1MouseClicked
+        MyProfile myProfile = new MyProfile();
+        myProfile.setVisible(true);
+
+    }//GEN-LAST:event_add1MouseClicked
+
+    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+        UserHome admin = new UserHome();
+        admin.setVisible(true);
+    }//GEN-LAST:event_jLabel4MouseClicked
 
     /**
      * @param args the command line arguments
@@ -172,12 +207,14 @@ public class FloodSensor extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton add;
+    private javax.swing.JButton add1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton reset;

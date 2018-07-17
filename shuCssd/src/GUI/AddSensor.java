@@ -107,6 +107,8 @@ public class AddSensor extends javax.swing.JFrame {
         txtanpId = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         txtanpDes = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -185,6 +187,21 @@ public class AddSensor extends javax.swing.JFrame {
         jLabel7.setBounds(200, 200, 200, 40);
         getContentPane().add(txtanpDes);
         txtanpDes.setBounds(240, 380, 250, 40);
+
+        jLabel13.setFont(new java.awt.Font("Segoe UI Light", 0, 17)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(0, 102, 0));
+        jLabel13.setText("www.Elegantro.com/addsensor.html");
+        jLabel13.setToolTipText("");
+        getContentPane().add(jLabel13);
+        jLabel13.setBounds(170, 10, 290, 60);
+
+        jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel9MouseClicked(evt);
+            }
+        });
+        getContentPane().add(jLabel9);
+        jLabel9.setBounds(0, 30, 30, 30);
 
         jButton1.setBackground(new java.awt.Color(0, 102, 102));
         jButton1.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
@@ -315,7 +332,7 @@ public class AddSensor extends javax.swing.JFrame {
                 clock.registerObserver(sensorSet);
             try {
                 Serialization.Serialize(sensorSet, FILE_NAME_Sensor);
-
+                JOptionPane.showMessageDialog(this, "You have added successfully", "Message", JOptionPane.INFORMATION_MESSAGE);
                 System.out.println("Add Sucsessfully");
 
             } catch (IOException ex) {
@@ -363,7 +380,7 @@ public class AddSensor extends javax.swing.JFrame {
                     } catch (IOException ex) {
                         Logger.getLogger(AddSensor.class.getName()).log(Level.SEVERE, null, ex);
                     }
-                    JOptionPane.showMessageDialog(this, "You have updated successful", "Congradulations", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(this, "You have updated successful", "Message", JOptionPane.INFORMATION_MESSAGE);
                   //  clear();
                     loadAddSensor(sensorSet);
 
@@ -389,7 +406,7 @@ public class AddSensor extends javax.swing.JFrame {
                         Logger.getLogger(AddSensor.class.getName()).log(Level.SEVERE, null, ex);
                     }
                     loadAddSensor(sensorSet);
-                    JOptionPane.showMessageDialog(this, "Delete Sucsessfully", "Message", JOptionPane.PLAIN_MESSAGE);
+                    JOptionPane.showMessageDialog(this, "Delete Sucsessfully", "Message", JOptionPane.INFORMATION_MESSAGE);
                 
 
                 } else {
@@ -418,6 +435,11 @@ public class AddSensor extends javax.swing.JFrame {
     private void frequencyTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_frequencyTextKeyTyped
        validation.validateNumber(frequencyText,evt);
     }//GEN-LAST:event_frequencyTextKeyTyped
+
+    private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
+        SensorStation sensorStation = new SensorStation();
+        sensorStation.setVisible(true);
+    }//GEN-LAST:event_jLabel9MouseClicked
 
        private void loadAddSensor(SensorMonitor sensorMoni) {
 
@@ -590,6 +612,7 @@ public class AddSensor extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -597,6 +620,7 @@ public class AddSensor extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;

@@ -76,6 +76,7 @@ public class MyProfile extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         add = new javax.swing.JButton();
         update = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
         delete = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
@@ -271,6 +272,14 @@ public class MyProfile extends javax.swing.JFrame {
         getContentPane().add(update);
         update.setBounds(870, 560, 170, 40);
 
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
+        });
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(0, 30, 30, 30);
+
         delete.setBackground(new java.awt.Color(0, 102, 153));
         delete.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
         delete.setForeground(new java.awt.Color(102, 102, 102));
@@ -446,6 +455,12 @@ public class MyProfile extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_deleteMouseClicked
 
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        BinSensor bin = new BinSensor();
+        bin.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jLabel3MouseClicked
+
    
     public void TableLoad(JTable table, SetOfUsers searchList) {
         String[] colName = {"User ID", "First Name", "Address", "Email", "Mobile Number","Availabiliy"};
@@ -564,6 +579,7 @@ public class MyProfile extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;

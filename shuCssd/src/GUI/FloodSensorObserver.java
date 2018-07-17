@@ -104,6 +104,7 @@ public class FloodSensorObserver extends javax.swing.JFrame {
         jLabel29 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -114,6 +115,7 @@ public class FloodSensorObserver extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1366, 830));
         getContentPane().setLayout(null);
 
         add2.setBackground(new java.awt.Color(0, 102, 153));
@@ -128,7 +130,7 @@ public class FloodSensorObserver extends javax.swing.JFrame {
             }
         });
         getContentPane().add(add2);
-        add2.setBounds(1050, 260, 210, 33);
+        add2.setBounds(1040, 170, 210, 33);
 
         add6.setBackground(new java.awt.Color(0, 102, 153));
         add6.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
@@ -142,7 +144,7 @@ public class FloodSensorObserver extends javax.swing.JFrame {
             }
         });
         getContentPane().add(add6);
-        add6.setBounds(1050, 430, 210, 33);
+        add6.setBounds(950, 580, 180, 33);
 
         add5.setBackground(new java.awt.Color(0, 102, 153));
         add5.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
@@ -156,7 +158,7 @@ public class FloodSensorObserver extends javax.swing.JFrame {
             }
         });
         getContentPane().add(add5);
-        add5.setBounds(1050, 390, 210, 33);
+        add5.setBounds(730, 580, 209, 33);
 
         add4.setBackground(new java.awt.Color(0, 102, 153));
         add4.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
@@ -170,7 +172,7 @@ public class FloodSensorObserver extends javax.swing.JFrame {
             }
         });
         getContentPane().add(add4);
-        add4.setBounds(1050, 340, 210, 40);
+        add4.setBounds(1140, 580, 200, 33);
 
         add1.setBackground(new java.awt.Color(0, 102, 153));
         add1.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
@@ -184,7 +186,7 @@ public class FloodSensorObserver extends javax.swing.JFrame {
             }
         });
         getContentPane().add(add1);
-        add1.setBounds(1050, 210, 210, 33);
+        add1.setBounds(1040, 120, 210, 33);
 
         add3.setBackground(new java.awt.Color(0, 102, 153));
         add3.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
@@ -198,10 +200,10 @@ public class FloodSensorObserver extends javax.swing.JFrame {
             }
         });
         getContentPane().add(add3);
-        add3.setBounds(1050, 300, 210, 33);
+        add3.setBounds(1040, 220, 210, 33);
 
-        delete.setFont(new java.awt.Font("Segoe UI Light", 0, 16)); // NOI18N
-        delete.setForeground(new java.awt.Color(102, 102, 102));
+        delete.setBackground(new java.awt.Color(0, 102, 153));
+        delete.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
         delete.setText("Delete User");
         delete.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         delete.setContentAreaFilled(false);
@@ -211,23 +213,23 @@ public class FloodSensorObserver extends javax.swing.JFrame {
             }
         });
         getContentPane().add(delete);
-        delete.setBounds(500, 440, 160, 40);
+        delete.setBounds(500, 450, 170, 40);
 
         statusText.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Active", "Non-Active" }));
         getContentPane().add(statusText);
-        statusText.setBounds(870, 310, 160, 30);
+        statusText.setBounds(860, 220, 160, 30);
         getContentPane().add(userID);
-        userID.setBounds(870, 260, 160, 30);
+        userID.setBounds(860, 170, 160, 30);
 
         jLabel13.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
         jLabel13.setText("Notify");
         getContentPane().add(jLabel13);
-        jLabel13.setBounds(780, 300, 80, 40);
+        jLabel13.setBounds(770, 210, 80, 40);
 
         jLabel14.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
         jLabel14.setText("User No");
         getContentPane().add(jLabel14);
-        jLabel14.setBounds(780, 255, 80, 40);
+        jLabel14.setBounds(770, 160, 80, 40);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -243,12 +245,12 @@ public class FloodSensorObserver extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jTable1);
 
         getContentPane().add(jScrollPane2);
-        jScrollPane2.setBounds(780, 490, 570, 120);
+        jScrollPane2.setBounds(730, 290, 590, 280);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI Light", 1, 20)); // NOI18N
         jLabel1.setText("All user");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(860, 435, 100, 40);
+        jLabel1.setBounds(150, 450, 100, 40);
 
         lastName.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
         lastName.setForeground(new java.awt.Color(102, 102, 102));
@@ -268,9 +270,9 @@ public class FloodSensorObserver extends javax.swing.JFrame {
         firstName.setBounds(340, 160, 240, 29);
 
         userIDLable.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        userIDLable.setForeground(new java.awt.Color(102, 102, 102));
+        userIDLable.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
         getContentPane().add(userIDLable);
-        userIDLable.setBounds(340, 110, 230, 30);
+        userIDLable.setBounds(340, 110, 240, 30);
 
         address.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
         address.setForeground(new java.awt.Color(102, 102, 102));
@@ -322,62 +324,62 @@ public class FloodSensorObserver extends javax.swing.JFrame {
         getContentPane().add(email);
         email.setBounds(340, 320, 240, 29);
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel6.setFont(new java.awt.Font("Segoe UI Light", 1, 20)); // NOI18N
         jLabel6.setText("Mobile Number   :");
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(180, 400, 140, 30);
+        jLabel6.setBounds(150, 400, 170, 30);
 
         jLabel11.setFont(new java.awt.Font("Segoe UI Light", 0, 17)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 102, 0));
-        jLabel11.setText("www.Elegantro.com/FloodSensorObserver.html");
+        jLabel11.setText("www.Elegantro.com/floodsensorobserver.html");
         jLabel11.setToolTipText("");
         getContentPane().add(jLabel11);
-        jLabel11.setBounds(170, 20, 370, 40);
+        jLabel11.setBounds(170, 10, 370, 40);
 
-        jLabel30.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        jLabel30.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel30.setFont(new java.awt.Font("Segoe UI Light", 1, 20)); // NOI18N
         jLabel30.setText("Password            :");
         jLabel30.setToolTipText("");
         getContentPane().add(jLabel30);
-        jLabel30.setBounds(180, 360, 140, 30);
+        jLabel30.setBounds(150, 360, 170, 30);
 
-        jLabel29.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        jLabel29.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel29.setFont(new java.awt.Font("Segoe UI Light", 1, 20)); // NOI18N
         jLabel29.setText("Email                  :");
         getContentPane().add(jLabel29);
-        jLabel29.setBounds(180, 320, 140, 30);
+        jLabel29.setBounds(150, 320, 170, 30);
 
-        jLabel28.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        jLabel28.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel28.setFont(new java.awt.Font("Segoe UI Light", 1, 20)); // NOI18N
         jLabel28.setText("City                     :");
         getContentPane().add(jLabel28);
-        jLabel28.setBounds(180, 280, 140, 30);
+        jLabel28.setBounds(150, 280, 170, 30);
 
-        jLabel23.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        jLabel23.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel23.setFont(new java.awt.Font("Segoe UI Light", 1, 20)); // NOI18N
         jLabel23.setText("Address              :");
         getContentPane().add(jLabel23);
-        jLabel23.setBounds(180, 240, 140, 30);
+        jLabel23.setBounds(150, 240, 170, 30);
 
-        jLabel19.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        jLabel19.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
+        });
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(0, 30, 30, 30);
+
+        jLabel19.setFont(new java.awt.Font("Segoe UI Light", 1, 20)); // NOI18N
         jLabel19.setText("Last Name          : ");
         jLabel19.setToolTipText("");
         getContentPane().add(jLabel19);
-        jLabel19.setBounds(180, 200, 140, 30);
+        jLabel19.setBounds(150, 200, 170, 30);
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel8.setFont(new java.awt.Font("Segoe UI Light", 1, 20)); // NOI18N
         jLabel8.setText("First Name          :");
         getContentPane().add(jLabel8);
-        jLabel8.setBounds(180, 160, 140, 30);
+        jLabel8.setBounds(150, 160, 170, 30);
 
-        jLabel10.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel10.setFont(new java.awt.Font("Segoe UI Light", 1, 20)); // NOI18N
         jLabel10.setText("User ID               :");
         getContentPane().add(jLabel10);
-        jLabel10.setBounds(180, 110, 140, 30);
+        jLabel10.setBounds(150, 110, 170, 30);
 
         jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setForeground(new java.awt.Color(255, 255, 255));
@@ -419,10 +421,10 @@ public class FloodSensorObserver extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable2);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(30, 490, 720, 120);
+        jScrollPane1.setBounds(20, 500, 650, 140);
 
+        add.setBackground(new java.awt.Color(0, 102, 153));
         add.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
-        add.setForeground(new java.awt.Color(102, 102, 102));
         add.setText("Add User");
         add.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         add.setContentAreaFilled(false);
@@ -432,10 +434,10 @@ public class FloodSensorObserver extends javax.swing.JFrame {
             }
         });
         getContentPane().add(add);
-        add.setBounds(290, 440, 190, 40);
+        add.setBounds(300, 450, 190, 40);
 
         getContentPane().add(jComboBox1);
-        jComboBox1.setBounds(872, 212, 160, 30);
+        jComboBox1.setBounds(860, 120, 160, 30);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Back.png"))); // NOI18N
         jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -444,9 +446,10 @@ public class FloodSensorObserver extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(0, 0, 1510, 810);
+        jLabel2.setBounds(0, 0, 1370, 810);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void mobileKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_mobileKeyTyped
@@ -493,7 +496,7 @@ public class FloodSensorObserver extends javax.swing.JFrame {
 
                 String status = registerUser(firstname, lastname, Address, City, Email, Mobile, Password, userLevels);
                 if (status.equals("success")) {
-                    JOptionPane.showMessageDialog(this, "You have registered successful", "Congradulations", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(this, "You have registered successful", "Message", JOptionPane.INFORMATION_MESSAGE);
                     clear();
                     TableLoad(theUsers);
 
@@ -542,7 +545,7 @@ public class FloodSensorObserver extends javax.swing.JFrame {
                     } catch (IOException ex) {
                         Logger.getLogger(MyProfile.class.getName()).log(Level.SEVERE, null, ex);
                     }
-                    JOptionPane.showMessageDialog(this, "You have deleted successful", "Congradulations", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(this, "You have deleted successful", "message", JOptionPane.INFORMATION_MESSAGE);
                     clear();
                     TableLoad(theUsers);
 
@@ -579,7 +582,7 @@ public class FloodSensorObserver extends javax.swing.JFrame {
                 theUsersObserver1.add(user);
                 try {
                     Serialization.Serialize(theUsersObserver1, FILE_NAME_Set_Users_FloodSensor1);
-
+                JOptionPane.showMessageDialog(this, " Observer added sucsessfully", "message", JOptionPane.INFORMATION_MESSAGE);
                     System.out.println("Add Observer Sucsessfully");
                     TableLoadObserver(theUsersObserver1);
                 } catch (IOException ex) {
@@ -595,7 +598,7 @@ public class FloodSensorObserver extends javax.swing.JFrame {
                 theUsersObserverTwo.add(user);
                 try {
                     Serialization.Serialize(theUsersObserverTwo, FILE_NAME_Set_Users_FloodSensorTwo);
-
+                    JOptionPane.showMessageDialog(this, " Observer added sucsessfully", "message", JOptionPane.INFORMATION_MESSAGE);
                     System.out.println("Add Observer Sucsessfully");
                     TableLoadObserver(theUsersObserverTwo);
                 } catch (IOException ex) {
@@ -609,7 +612,7 @@ public class FloodSensorObserver extends javax.swing.JFrame {
                 theUsersObserverThree.add(user);
                 try {
                     Serialization.Serialize(theUsersObserverThree, FILE_NAME_Set_Users_FloodSensorThree);
-
+                    JOptionPane.showMessageDialog(this, " Observer added sucsessfully", "message", JOptionPane.INFORMATION_MESSAGE);
                     System.out.println("Add Observer Sucsessfully");
                     TableLoadObserver(theUsersObserverThree);
                 } catch (IOException ex) {
@@ -642,17 +645,17 @@ public class FloodSensorObserver extends javax.swing.JFrame {
    if(jComboBox1.getSelectedIndex()==0){
                     User user = theUsersObserver1.getMemberFromNumber(Integer.parseInt(userID.getText())).firstElement();
                     sensorSet1.unregisterObserver(user);
-                    JOptionPane.showMessageDialog(this, "You have Unregister Observer successful", "Congradulations", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(this, "You have Unregister Observer successful", "Message", JOptionPane.INFORMATION_MESSAGE);
           }
           else  if(jComboBox1.getSelectedIndex()==1){
                     User user = theUsersObserverTwo.getMemberFromNumber(Integer.parseInt(userID.getText())).firstElement();
                     sensorSetTwo.unregisterObserver(user);
-                    JOptionPane.showMessageDialog(this, "You have Unregister Observer successful", "Congradulations", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(this, "You have Unregister Observer successful", "Message", JOptionPane.INFORMATION_MESSAGE);
           }
           else if(jComboBox1.getSelectedIndex()==2){
                     User user = theUsersObserverThree.getMemberFromNumber(Integer.parseInt(userID.getText())).firstElement();
                     sensorSetThree.unregisterObserver(user);
-                    JOptionPane.showMessageDialog(this, "You have Unregister Observer successful", "Congradulations", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(this, "You have Unregister Observer successful", "Message", JOptionPane.INFORMATION_MESSAGE);
           }
     }//GEN-LAST:event_add4MouseClicked
 
@@ -666,7 +669,7 @@ public class FloodSensorObserver extends javax.swing.JFrame {
                                         //                    } catch (IOException ex) {
                                         //                        Logger.getLogger(MyProfile.class.getName()).log(Level.SEVERE, null, ex);
                                         //                    }
-                                    JOptionPane.showMessageDialog(this, "You have deleted successful", "Congradulations", JOptionPane.INFORMATION_MESSAGE);
+                                    JOptionPane.showMessageDialog(this, "You have deleted successful", "Message", JOptionPane.INFORMATION_MESSAGE);
                                     //    clear();
                                     //                    loadObserver();
                                     TableLoadObserver(theUsersObserver1);
@@ -685,7 +688,7 @@ public class FloodSensorObserver extends javax.swing.JFrame {
                                         //                    } catch (IOException ex) {
                                         //                        Logger.getLogger(MyProfile.class.getName()).log(Level.SEVERE, null, ex);
                                         //                    }
-                                    JOptionPane.showMessageDialog(this, "You have deleted successful", "Congradulations", JOptionPane.INFORMATION_MESSAGE);
+                                    JOptionPane.showMessageDialog(this, "You have deleted successful", "Message", JOptionPane.INFORMATION_MESSAGE);
                                     //    clear();
                                     //                    loadObserver();
                                     TableLoadObserver(theUsersObserverTwo);
@@ -704,7 +707,7 @@ public class FloodSensorObserver extends javax.swing.JFrame {
                                         //                    } catch (IOException ex) {
                                         //                        Logger.getLogger(MyProfile.class.getName()).log(Level.SEVERE, null, ex);
                                         //                    }
-                                    JOptionPane.showMessageDialog(this, "You have deleted successful", "Congradulations", JOptionPane.INFORMATION_MESSAGE);
+                                    JOptionPane.showMessageDialog(this, "You have deleted successful", "Message", JOptionPane.INFORMATION_MESSAGE);
                                     //    clear();
                                     //                    loadObserver();
                                     TableLoadObserver(theUsersObserverThree);
@@ -745,7 +748,13 @@ public class FloodSensorObserver extends javax.swing.JFrame {
                         System.out.println("Error");
                     }
         }
+      JOptionPane.showMessageDialog(this, "You have save successful", "Message", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_add6MouseClicked
+
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+         BinSensor binsensor = new BinSensor();
+         binsensor.setVisible(true);
+    }//GEN-LAST:event_jLabel3MouseClicked
     public void TableLoad( SetOfUsers searchList) {
         String[] colName = {"User ID", "First Name", "Address", "Email", "Mobile Number"};
         Object[][] object = new Object[searchList.size()][5];
@@ -1014,6 +1023,7 @@ public class FloodSensorObserver extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;

@@ -44,115 +44,157 @@ public class BinObserver extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton8 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        add = new javax.swing.JButton();
+        Save = new javax.swing.JButton();
+        statusText = new javax.swing.JComboBox<>();
+        add1 = new javax.swing.JButton();
+        notify = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        fromTable = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jButton7 = new javax.swing.JButton();
         userID = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tableLoad = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1366, 830));
         getContentPane().setLayout(null);
 
-        jButton8.setBackground(new java.awt.Color(0, 102, 153));
-        jButton8.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
-        jButton8.setForeground(new java.awt.Color(255, 255, 255));
-        jButton8.setText("Remove observer ");
-        jButton8.addMouseListener(new java.awt.event.MouseAdapter() {
+        add.setBackground(new java.awt.Color(0, 102, 153));
+        add.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
+        add.setForeground(new java.awt.Color(255, 255, 255));
+        add.setText("Observer User");
+        add.setContentAreaFilled(false);
+        add.setOpaque(true);
+        add.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton8MouseClicked(evt);
+                addMouseClicked(evt);
             }
         });
-        getContentPane().add(jButton8);
-        jButton8.setBounds(590, 550, 230, 33);
+        getContentPane().add(add);
+        add.setBounds(330, 360, 220, 40);
 
-        jButton10.setBackground(new java.awt.Color(0, 102, 153));
-        jButton10.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
-        jButton10.setForeground(new java.awt.Color(255, 255, 255));
-        jButton10.setText("save");
-        jButton10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton10ActionPerformed(evt);
+        Save.setBackground(new java.awt.Color(0, 102, 153));
+        Save.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
+        Save.setForeground(new java.awt.Color(255, 255, 255));
+        Save.setText("Save");
+        Save.setContentAreaFilled(false);
+        Save.setOpaque(true);
+        Save.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                SaveMouseClicked(evt);
             }
         });
-        getContentPane().add(jButton10);
-        jButton10.setBounds(1080, 550, 230, 33);
+        getContentPane().add(Save);
+        Save.setBounds(1070, 610, 230, 40);
 
-        jButton9.setBackground(new java.awt.Color(0, 102, 153));
-        jButton9.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
-        jButton9.setForeground(new java.awt.Color(255, 255, 255));
-        jButton9.setText("Remove From table ");
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton9);
-        jButton9.setBounds(840, 550, 230, 33);
+        statusText.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Active", "Non-Active" }));
+        getContentPane().add(statusText);
+        statusText.setBounds(140, 420, 170, 40);
 
-        jButton6.setBackground(new java.awt.Color(0, 102, 153));
-        jButton6.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(255, 255, 255));
-        jButton6.setText("Notify Observers");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+        add1.setBackground(new java.awt.Color(0, 102, 153));
+        add1.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
+        add1.setForeground(new java.awt.Color(255, 255, 255));
+        add1.setText("Remove  Observer");
+        add1.setContentAreaFilled(false);
+        add1.setOpaque(true);
+        add1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                add1MouseClicked(evt);
             }
         });
-        getContentPane().add(jButton6);
-        jButton6.setBounds(330, 430, 200, 30);
+        getContentPane().add(add1);
+        add1.setBounds(590, 610, 210, 40);
+
+        notify.setBackground(new java.awt.Color(0, 102, 153));
+        notify.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
+        notify.setForeground(new java.awt.Color(255, 255, 255));
+        notify.setText("Notify  Observers");
+        notify.setContentAreaFilled(false);
+        notify.setOpaque(true);
+        notify.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                notifyMouseClicked(evt);
+            }
+        });
+        getContentPane().add(notify);
+        notify.setBounds(330, 423, 220, 40);
+
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
+        });
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(0, 30, 30, 30);
+
+        jLabel12.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
+        jLabel12.setText("    Bin Sensor");
+        getContentPane().add(jLabel12);
+        jLabel12.setBounds(510, 230, 160, 50);
+
+        jLabel15.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel15.setText("Flood Sensor");
+        jLabel15.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel15MouseClicked(evt);
+            }
+        });
+        getContentPane().add(jLabel15);
+        jLabel15.setBounds(880, 240, 190, 30);
+
+        jLabel16.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel16.setText("Emergency Sensor");
+        jLabel16.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel16MouseClicked(evt);
+            }
+        });
+        getContentPane().add(jLabel16);
+        jLabel16.setBounds(680, 230, 200, 50);
+
+        jLabel5.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel5.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(530, 240, 520, 40);
+
+        fromTable.setBackground(new java.awt.Color(0, 102, 153));
+        fromTable.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
+        fromTable.setForeground(new java.awt.Color(255, 255, 255));
+        fromTable.setText("Remove From Table");
+        fromTable.setContentAreaFilled(false);
+        fromTable.setOpaque(true);
+        fromTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                fromTableMouseClicked(evt);
+            }
+        });
+        getContentPane().add(fromTable);
+        fromTable.setBounds(840, 610, 210, 40);
 
         jLabel11.setFont(new java.awt.Font("Segoe UI Light", 0, 17)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 102, 0));
-        jLabel11.setText("www.Elegantro.com/BinObserver.html");
+        jLabel11.setText("www.Elegantro.com/binobserver.html");
         jLabel11.setToolTipText("");
         getContentPane().add(jLabel11);
         jLabel11.setBounds(170, 20, 290, 40);
 
-        jButton5.setBackground(new java.awt.Color(0, 102, 153));
-        jButton5.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setText("Observer User");
-        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton5MouseClicked(evt);
-            }
-        });
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton5);
-        jButton5.setBounds(330, 370, 200, 30);
-
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/kk.png"))); // NOI18N
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(480, 100, 470, 150);
-
-        jButton7.setBackground(new java.awt.Color(0, 102, 153));
-        jButton7.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
-        jButton7.setForeground(new java.awt.Color(255, 255, 255));
-        jButton7.setText("set observer sensor");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton7);
-        jButton7.setBounds(330, 310, 200, 30);
+        jLabel2.setBounds(590, 90, 470, 150);
         getContentPane().add(userID);
-        userID.setBounds(150, 370, 150, 30);
+        userID.setBounds(140, 370, 170, 30);
 
         jLabel14.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
         jLabel14.setText("User No");
@@ -163,10 +205,8 @@ public class BinObserver extends javax.swing.JFrame {
         jLabel13.setText("Notify");
         getContentPane().add(jLabel13);
         jLabel13.setBounds(60, 430, 90, 30);
-        getContentPane().add(jTextField2);
-        jTextField2.setBounds(150, 430, 150, 30);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tableLoad.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -177,10 +217,15 @@ public class BinObserver extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane2.setViewportView(jTable1);
+        tableLoad.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableLoadMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(tableLoad);
 
         getContentPane().add(jScrollPane2);
-        jScrollPane2.setBounds(590, 300, 720, 230);
+        jScrollPane2.setBounds(580, 360, 720, 230);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Back.png"))); // NOI18N
         getContentPane().add(jLabel1);
@@ -190,98 +235,103 @@ public class BinObserver extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseClicked
-        User user = theUsersObserver.getMemberFromNumber(Integer.parseInt(userID.getText())).firstElement();
-        notMobile.unregisterObserver(user);
-
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8MouseClicked
-
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-
-        try {
-            Serialization.Serialize(theUsersObserver, FILE_NAME_Observer);
-            System.out.println("Serialize");
-        } catch (IOException ex) {
-            Logger.getLogger(MyProfile.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("Error");
-        }
-
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton10ActionPerformed
-
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        User user = theUsersObserver.getMemberFromNumber(Integer.parseInt(userID.getText())).firstElement();
-        boolean status = theUsersObserver.removeUser(user);
-        if (status) {
-            //                      try {
-                //                        Serialization.Serialize(theUsersObserver, FILE_NAME_Observer);
-                //                    } catch (IOException ex) {
-                //                        Logger.getLogger(MyProfile.class.getName()).log(Level.SEVERE, null, ex);
-                //                    }
-            JOptionPane.showMessageDialog(this, "You have deleted successful", "Congradulations", JOptionPane.INFORMATION_MESSAGE);
-            //    clear();
-            //                    loadObserver();
-            TableLoad(theUsersObserver);
-
-        } else {
-            JOptionPane.showMessageDialog(this, "Delete unsuccessful...", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton9ActionPerformed
-
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-
-        notMobile.setAvailability(jTextField2.getText());
-        //           System.out.println(arpitPerson.getAvailabiliy());
-        //                 try {
-            //                        Serialization.Serialize(theUsersObserver, FILE_NAME_Observer);
-            //                    } catch (IOException ex) {
-            //                        Logger.getLogger(MyProfile.class.getName()).log(Level.SEVERE, null, ex);
-            //                    }
-
-        TableLoad(theUsersObserver);
-
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
-
-    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5MouseClicked
-
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-
+    private void addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMouseClicked
+   
+         if(!userID.getText().isEmpty()){
         User user = theUsers.getMemberFromNumber(Integer.parseInt(userID.getText())).firstElement();
         
         notMobile.registerObserver(user);
         theUsersObserver.add(user);
         try {
             Serialization.Serialize(theUsersObserver, FILE_NAME_Observer);
-
+            JOptionPane.showMessageDialog(this, "Add Observer Sucsessfully", "Message", JOptionPane.INFORMATION_MESSAGE);
             System.out.println("Add Observer Sucsessfully");
             TableLoad(theUsersObserver);
         } catch (IOException ex) {
-
+              JOptionPane.showMessageDialog(this, "Unsuccessful...", "Error", JOptionPane.ERROR_MESSAGE);
             System.out.println("Unsuccessful...");
         }
-        // notMobile.registerObserver(johnPerson);
-        //                notMobile.registerObserver(piyumiPerson);
+       }
+         else{
+                JOptionPane.showMessageDialog(this, "Select user number", "Error", JOptionPane.ERROR_MESSAGE);
+         }
+    }//GEN-LAST:event_addMouseClicked
 
-        //Now product is available
-        //samsungMobile.setAvailability("Available");
+    private void notifyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_notifyMouseClicked
+            notMobile.setAvailability(statusText.getSelectedItem().toString());
+        TableLoad(theUsersObserver);
+    }//GEN-LAST:event_notifyMouseClicked
 
+    private void add1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_add1MouseClicked
+        if(!userID.getText().isEmpty()){  
+        User user = theUsersObserver.getMemberFromNumber(Integer.parseInt(userID.getText())).firstElement();
+        notMobile.unregisterObserver(user);
+        }
+        else{
+             JOptionPane.showMessageDialog(this, "Select user number", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_add1MouseClicked
+
+    private void fromTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fromTableMouseClicked
+  
+  
+          if(!userID.getText().isEmpty()){
+              
+                    int confirm = JOptionPane.showConfirmDialog(null, "Do you really want to remove this user?", "Confirm", JOptionPane.YES_NO_OPTION,
+                       JOptionPane.QUESTION_MESSAGE);
+                           if (confirm == 0) {
+                           User user = theUsersObserver.getMemberFromNumber(Integer.parseInt(userID.getText())).firstElement();
+                           boolean status = theUsersObserver.removeUser(user);
+                           if (status) {
+
+                               JOptionPane.showMessageDialog(this, "You have deleted successful", "Message", JOptionPane.INFORMATION_MESSAGE);
+
+                               TableLoad(theUsersObserver);
+
+                           } else {
+                               JOptionPane.showMessageDialog(this, "Delete unsuccessful...", "Error", JOptionPane.ERROR_MESSAGE);
+                           }
+                           }
+                      }
+          else{
+               JOptionPane.showMessageDialog(this, "Select user number.", "Error", JOptionPane.ERROR_MESSAGE);
+          }
+    }//GEN-LAST:event_fromTableMouseClicked
+
+    private void SaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SaveMouseClicked
+
+                    try {
+                        Serialization.Serialize(theUsersObserver, FILE_NAME_Observer);
+                          JOptionPane.showMessageDialog(this, "You have Save", "Congradulations", JOptionPane.INFORMATION_MESSAGE);
+                        System.out.println("Serialize");
+                    } catch (IOException ex) {
+                        Logger.getLogger(MyProfile.class.getName()).log(Level.SEVERE, null, ex);
+                        System.out.println("Error");
+                    }
+
+    }//GEN-LAST:event_SaveMouseClicked
+
+    private void tableLoadMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableLoadMouseClicked
+                 DefaultTableModel dtModel= (DefaultTableModel) tableLoad.getModel();
+           int row = tableLoad.getSelectedRow();
+           userID.setText(tableLoad.getValueAt(row, 0).toString());
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_tableLoadMouseClicked
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-//        String name, description , frequency;
-//        name = txtanpName.getText();
-//        description = txtanpDes.getText();
-//        frequency =  frequencyText.getText();
-//
-//        notMobile.addNewSensor(new Sensor(name, description, Double.parseDouble(frequency),textStatus.getText()));
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton7ActionPerformed
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+         BinSensor binSensor = new BinSensor();
+         binSensor.setVisible(true);
+    }//GEN-LAST:event_jLabel3MouseClicked
+
+    private void jLabel15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MouseClicked
+        FloodSensor flood = new FloodSensor();
+        flood.setVisible(true);
+    }//GEN-LAST:event_jLabel15MouseClicked
+
+    private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
+        Emergency emergency = new Emergency();
+        emergency.setVisible(true);
+    }//GEN-LAST:event_jLabel16MouseClicked
      public void TableLoad( SetOfUsers searchList) {
         String[] colName = {"User ID", "First Name", "Address", "Email", "Mobile Number","Availabiliy"};
         Object[][] object = new Object[searchList.size()][6];
@@ -306,10 +356,10 @@ public class BinObserver extends javax.swing.JFrame {
                 return false;//This causes all cells to be not editable
             }
         };
-        jTable1.setModel(model);
-        jTable1.setRowSorter(new TableRowSorter<>(model));
-        jTable1.setAutoscrolls(true);
-        jTable1.getTableHeader().setReorderingAllowed(false);
+        tableLoad.setModel(model);
+        tableLoad.setRowSorter(new TableRowSorter<>(model));
+        tableLoad.setAutoscrolls(true);
+        tableLoad.getTableHeader().setReorderingAllowed(false);
      }
      
         private void loadObserver() {
@@ -373,20 +423,24 @@ public class BinObserver extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
+    private javax.swing.JButton Save;
+    private javax.swing.JButton add;
+    private javax.swing.JButton add1;
+    private javax.swing.JButton fromTable;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JButton notify;
+    private javax.swing.JComboBox<String> statusText;
+    private javax.swing.JTable tableLoad;
     private javax.swing.JTextField userID;
     // End of variables declaration//GEN-END:variables
 }

@@ -39,6 +39,7 @@ public class AddEmergencySensor extends javax.swing.JFrame {
         initComponents();
             load();
             loadLocation();
+           //   add.disable();
     }
     
       public AddEmergencySensor(Double setLatitudes ,Double setLongitudes) {
@@ -81,22 +82,22 @@ public class AddEmergencySensor extends javax.swing.JFrame {
         jTextField4 = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1366, 830));
         getContentPane().setLayout(null);
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         jLabel4.setText("Name");
         getContentPane().add(jLabel4);
         jLabel4.setBounds(40, 330, 140, 30);
 
-        jLabel15.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         jLabel15.setText("Description");
         getContentPane().add(jLabel15);
         jLabel15.setBounds(40, 380, 140, 30);
@@ -148,7 +149,7 @@ public class AddEmergencySensor extends javax.swing.JFrame {
         getContentPane().add(txtanpId);
         txtanpId.setBounds(190, 270, 250, 40);
 
-        jLabel16.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel16.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         jLabel16.setText("Sensor ID");
         getContentPane().add(jLabel16);
         jLabel16.setBounds(40, 270, 140, 30);
@@ -201,17 +202,17 @@ public class AddEmergencySensor extends javax.swing.JFrame {
 
         jLabel11.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 153, 51));
-        jLabel11.setText("www.Agrivi.com/AddEmergencySensor.html");
+        jLabel11.setText("www.Agrivi.com/addemergencysensor.html");
         jLabel11.setToolTipText("");
         getContentPane().add(jLabel11);
-        jLabel11.setBounds(170, 20, 331, 40);
+        jLabel11.setBounds(170, 20, 327, 40);
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         jLabel5.setText("Status");
         getContentPane().add(jLabel5);
         jLabel5.setBounds(40, 430, 120, 30);
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         jLabel2.setText("Frequency");
         getContentPane().add(jLabel2);
         jLabel2.setBounds(40, 480, 130, 30);
@@ -243,46 +244,56 @@ public class AddEmergencySensor extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tblanpSensor);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(530, 370, 760, 230);
+        jScrollPane1.setBounds(530, 370, 760, 220);
 
         jLabel9.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
         jLabel9.setText("Search");
         getContentPane().add(jLabel9);
-        jLabel9.setBounds(530, 320, 120, 30);
+        jLabel9.setBounds(650, 320, 120, 30);
         getContentPane().add(jTextField4);
-        jTextField4.setBounds(650, 320, 270, 30);
+        jTextField4.setBounds(770, 320, 270, 30);
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon.png"))); // NOI18N
         getContentPane().add(jLabel10);
-        jLabel10.setBounds(970, 310, 45, 50);
+        jLabel10.setBounds(1090, 310, 45, 50);
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/kk.png"))); // NOI18N
         jLabel6.setText("jLabel6");
         getContentPane().add(jLabel6);
         jLabel6.setBounds(520, 80, 380, 120);
 
-        jLabel8.setBackground(new java.awt.Color(204, 204, 204));
-        jLabel8.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        getContentPane().add(jLabel8);
-        jLabel8.setBounds(480, 210, 520, 40);
-
         jLabel12.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(153, 153, 153));
         jLabel12.setText("    Bin Sensor");
+        jLabel12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel12MouseClicked(evt);
+            }
+        });
         getContentPane().add(jLabel12);
         jLabel12.setBounds(470, 200, 160, 50);
 
         jLabel14.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(153, 153, 153));
         jLabel14.setText("Flood Sensor");
+        jLabel14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel14MouseClicked(evt);
+            }
+        });
         getContentPane().add(jLabel14);
-        jLabel14.setBounds(780, 200, 190, 50);
+        jLabel14.setBounds(850, 200, 190, 50);
 
         jLabel13.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
         jLabel13.setText("Emergency Sensor");
         getContentPane().add(jLabel13);
-        jLabel13.setBounds(560, 200, 220, 50);
+        jLabel13.setBounds(620, 200, 220, 50);
+
+        jLabel8.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel8.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        getContentPane().add(jLabel8);
+        jLabel8.setBounds(480, 210, 520, 40);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Back.png"))); // NOI18N
         getContentPane().add(jLabel1);
@@ -296,16 +307,16 @@ public class AddEmergencySensor extends javax.swing.JFrame {
  String name, description , frequency ,status;
      
           if (txtanpName.getText().isEmpty()) {
-                  JOptionPane.showMessageDialog(this, "Please provide the name...", "Error", JOptionPane.ERROR_MESSAGE);
+                  JOptionPane.showMessageDialog(this, "Please provide name...", "Error", JOptionPane.ERROR_MESSAGE);
          
         }
         
         else if (txtanpDes.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "Please provide the Description...", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Please provide Description...", "Error", JOptionPane.ERROR_MESSAGE);
         }
         
         else if (frequencyText.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "Please provide the frequency...", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Please provide frequency...", "Error", JOptionPane.ERROR_MESSAGE);
         }
 
         else {
@@ -321,11 +332,13 @@ public class AddEmergencySensor extends javax.swing.JFrame {
             try {
                 Serialization.Serialize(sensorSet, FILE_NAME_Sensor);
                 System.out.println("Add Sucsessfully");
+                 JOptionPane.showMessageDialog(this, "You have Added successfully", "Message", JOptionPane.INFORMATION_MESSAGE);
 
             } catch (IOException ex) {
                 //                Logger.getLogger(AddNewProduct.class.getName()).log(Level.SEVERE, null, ex);
                 //                JOptionPane.showMessageDialog(this, "Unsuccessful...", "Error", JOptionPane.ERROR_MESSAGE);
                 System.out.println("Unsuccessful...");
+                JOptionPane.showMessageDialog(this,"submission failed ", "Error", JOptionPane.ERROR_MESSAGE);
             }
 
             loadAddSensor(sensorSet);
@@ -368,7 +381,7 @@ public class AddEmergencySensor extends javax.swing.JFrame {
                     } catch (IOException ex) {
                         Logger.getLogger(AddSensor.class.getName()).log(Level.SEVERE, null, ex);
                     }
-                    JOptionPane.showMessageDialog(this, "You have updated successful", "Congradulations", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(this, "You have updated successful", "Message", JOptionPane.INFORMATION_MESSAGE);
                   //  clear();
                     loadAddSensor(sensorSet);
 
@@ -445,6 +458,18 @@ public class AddEmergencySensor extends javax.swing.JFrame {
          validation.validateNumber(frequencyText,evt);
         // TODO add your handling code here:
     }//GEN-LAST:event_frequencyTextKeyTyped
+
+    private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
+         BinSensor binSensor = new BinSensor();
+         binSensor.setVisible(true);
+         this.dispose();
+    }//GEN-LAST:event_jLabel12MouseClicked
+
+    private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
+         FloodSensor floodSensor = new FloodSensor();
+         floodSensor.setVisible(true);
+         this.dispose();
+    }//GEN-LAST:event_jLabel14MouseClicked
   private void loadAddSensor(SensorMonitor sensorMoni) {
 
         String[] colName = {"SensorID", "Name", "Status", "Description",  "Frequency"};
