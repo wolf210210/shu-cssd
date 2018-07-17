@@ -11,11 +11,22 @@ package Emergencyclasses;
  */
 public class EmbellishedData {
    
+    /**
+     *
+     */
     public Long TimeInMiles;
      SensorMonitor monitorSet;
+
+    /**
+     *
+     */
     public String sensorID;
 //        private List<SensorMonitor> observers ;
     
+    /**EmbellishedData
+     * 
+     * @param sensorMonitor
+     */
     public EmbellishedData(SensorMonitor sensorMonitor) {
        
         

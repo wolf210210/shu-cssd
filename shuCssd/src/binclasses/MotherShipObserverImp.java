@@ -27,27 +27,53 @@ public class MotherShipObserverImp {
     private static final String FILE_NAME_Products = "DataFiles/BinSensors.txt";
     private SensorMonitor sensorSet = new SensorMonitor();
 
+    /**MotherShipObserverImp
+     *
+     * @param personName
+     */
     public MotherShipObserverImp(String personName) {
         this.personName = personName;
     }
 
+    /**getPersonName
+     *
+     * @return personName
+     */
     public String getPersonName() {
 		return personName;
 	}
 
+    /**setPersonName
+     *
+     * @param personName
+     */
     public void setPersonName(String personName) {
 		this.personName = personName;
 	}
-     public String getAvailabiliy() {
+
+    /**getAvailabiliy
+     *
+     * @return availabiliy 
+     */
+    public String getAvailabiliy() {
         return availabiliy;
     }
 
+    /**setAvailabiliy
+     *
+     * @param availabiliy
+     */
     public void setAvailabiliy(String availabiliy) {
         this.availabiliy = availabiliy;
     } 
 //    @Override
+
+    /**update
+     *
+     * @param availabilitys
+     */
     public void update(String availabilitys) {
-        System.out.println("Hello "+personName+", Product is now "+availabilitys+" on flipkart");
+        System.out.println("Hello "+personName+", Sensor is now "+availabilitys+" and notified");
         this.availabiliy =availabilitys;
 
     }

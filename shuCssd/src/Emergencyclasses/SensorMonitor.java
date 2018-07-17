@@ -25,11 +25,18 @@ public class SensorMonitor extends Vector<Sensor> implements  SensorStation , Se
             Location sensorLocation;
             List<Mothership> observerList = new ArrayList<Mothership>();
             String availability;
-             public  Clock clock ;
+
+    /**
+     *
+     */
+    public  Clock clock ;
              private static int sensorMonitorNoCount = 0;
              private int sensorMonitorNo ;
                private  EmbellishedData   embellishedData ; 
      
+    /** SensorMonitor
+     *
+     */
     public SensorMonitor() {
         super();
 //      clock = Clock.getInstance();
@@ -38,6 +45,16 @@ public class SensorMonitor extends Vector<Sensor> implements  SensorStation , Se
     
   
 //    
+
+    /**
+     *
+     * @param aSensor
+     * @param Name
+     * @param description
+     * @param frequency
+     * @param statu
+     * @return
+     */
 
     
     public String updateSensors(Sensor aSensor, String Name, String description , Double frequency ,String statu) {
@@ -57,6 +74,11 @@ public class SensorMonitor extends Vector<Sensor> implements  SensorStation , Se
         return status;
     }
     
+    /**getSensorFromID
+     *
+     * @param number
+     * @return monitorSet
+     */
     public SensorMonitor getSensorFromID(int number) {
         
         monitorSet = new SensorMonitor();
@@ -69,6 +91,11 @@ public class SensorMonitor extends Vector<Sensor> implements  SensorStation , Se
         return monitorSet;
     }
     
+    /**getSensorFromName
+     *
+     * @param name
+     * @return monitorSet
+     */
     public SensorMonitor getSensorFromName(String name) {
         
         monitorSet = new SensorMonitor();
@@ -81,6 +108,10 @@ public class SensorMonitor extends Vector<Sensor> implements  SensorStation , Se
         return monitorSet;
     }
     
+    /**
+     *
+     * @param aSensor
+     */
     public void addNewSensor(Sensor aSensor){
           super.add(aSensor);
     }
@@ -91,33 +122,54 @@ public class SensorMonitor extends Vector<Sensor> implements  SensorStation , Se
 //          
 //    }
  
-    
-
+    /**
+     *
+     * @param status
+     */
     @Override
     public void setStatus(String status) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    /**getStatus
+     *
+     * @return
+     */
     @Override
     public String getStatus() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    /**setAvailability
+     *
+     * @param availabilitys
+     */
     public void setAvailability(String availabilitys) {
 		this.availability = availabilitys;
 		notifyObservers();
     }
 
+    /**registerObserver
+     *
+     * @param motherShip
+     */
     @Override
     public void registerObserver(Mothership motherShip) {
          observerList.add(motherShip);
     }
 
+    /**unregisterObserver
+     *
+     * @param motherShip
+     */
     @Override
     public void unregisterObserver(Mothership motherShip) {
               observerList.remove(motherShip);
     }
 
+    /**notifyObservers
+     *
+     */
     @Override
     public void notifyObservers() {
        System.out.println("Notifying all the subscribers when the bin is full");
@@ -128,19 +180,20 @@ public class SensorMonitor extends Vector<Sensor> implements  SensorStation , Se
     }
     
       
-//    public void registerObserver(Sensor aSensor ) {
-//        super.add(aSensor);
-//    }
-//    
-//    public boolean unregisterObserver(Sensor sen) {
-//         return super.remove(sen);
-//    }
-//    
+
+    /**remove
+     *
+     * @param sen
+     * @return true/false 
+     */
      public boolean remove(Sensor sen) {
         return super.remove(sen);
     }
     
-     public void doTick(){
+    /**doTick
+     * check all the sensors where frequency higher than 100 set monitorSetPass object, pass to Emblishedata  
+     */
+    public void doTick(){
           monitorSetPass = new SensorMonitor();
             for (Sensor sensor : this) {
                     if (sensor.getfrequency() > 100) {

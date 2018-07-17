@@ -182,7 +182,7 @@ public class BinLocation extends javax.swing.JFrame {
                             Container contentPane = getContentPane();
                             JLabel label = new JLabel (Integer.toString(location.getSensorID()));
                             label.setIcon(new ImageIcon(
-                                "C:/Users/wolf/Documents/GitHub/shu-cssd/shuCssd/src/Images/Untitled-1.png"));
+                                "C:/Users/wolf/Documents/GitHub/shu-cssd/shuCssd/src/Images/Untitled-2.png"));
 
                         label.setBounds(10,10,50,50);
                         label.setLocation( location.getLatitude().intValue(),  location.getLongitude().intValue());
@@ -206,7 +206,7 @@ public class BinLocation extends javax.swing.JFrame {
                             Container contentPane = getContentPane();
                             JLabel label = new JLabel (Integer.toString(location.getSensorID()));
                             label.setIcon(new ImageIcon(
-                                "C:/Users/wolf/Documents/GitHub/shu-cssd/shuCssd/src/Images/Untitled-2.png"));
+                                "C:/Users/wolf/Documents/GitHub/shu-cssd/shuCssd/src/Images/Untitled-1.png"));
 
                         label.setBounds(10,10,50,50);
                         label.setLocation( location.getLatitude().intValue(),  location.getLongitude().intValue());

@@ -15,13 +15,22 @@ import javax.swing.JTextField;
 public class Validation {
       private static boolean dot = false;
     
-    
+    /**
+     *
+     * @param email
+     * @return
+     */
     public static boolean isEmail(String email) {
         String EMAIL_REGEX = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
         return email.matches(EMAIL_REGEX);
     }
     
-     public static void validateNumber(JTextField textField, KeyEvent evt) {
+    /**
+     *
+     * @param textField
+     * @param evt
+     */
+    public static void validateNumber(JTextField textField, KeyEvent evt) {
         char vChar = evt.getKeyChar();
         if (textField.getText().equals("")) {
             dot = false;

@@ -59,9 +59,9 @@ public class MyProfile extends javax.swing.JFrame {
         address = new javax.swing.JTextField();
         city = new javax.swing.JTextField();
         email = new javax.swing.JTextField();
-        password = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        password = new javax.swing.JPasswordField();
         mobile = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
@@ -127,15 +127,9 @@ public class MyProfile extends javax.swing.JFrame {
         getContentPane().add(email);
         email.setBounds(290, 500, 240, 29);
 
-        password.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        password.setForeground(new java.awt.Color(102, 102, 102));
-        password.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        getContentPane().add(password);
-        password.setBounds(290, 540, 240, 29);
-
         jLabel11.setFont(new java.awt.Font("Segoe UI Light", 0, 17)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 102, 0));
-        jLabel11.setText("www.Elegantro.com/MyProfile.html");
+        jLabel11.setText("www.Elegantro.com/myprofile.html");
         jLabel11.setToolTipText("");
         getContentPane().add(jLabel11);
         jLabel11.setBounds(170, 20, 270, 40);
@@ -143,6 +137,8 @@ public class MyProfile extends javax.swing.JFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/kk.png"))); // NOI18N
         getContentPane().add(jLabel2);
         jLabel2.setBounds(510, 80, 390, 130);
+        getContentPane().add(password);
+        password.setBounds(290, 540, 240, 30);
 
         mobile.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
         mobile.setForeground(new java.awt.Color(102, 102, 102));
@@ -156,12 +152,12 @@ public class MyProfile extends javax.swing.JFrame {
         mobile.setBounds(290, 580, 240, 29);
 
         jLabel6.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
-        jLabel6.setText("Mobile Number   :");
+        jLabel6.setText("Mobile Number    :");
         getContentPane().add(jLabel6);
         jLabel6.setBounds(110, 580, 170, 30);
 
         jLabel30.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
-        jLabel30.setText("Password            :");
+        jLabel30.setText("Password             :");
         jLabel30.setToolTipText("");
         getContentPane().add(jLabel30);
         jLabel30.setBounds(110, 540, 170, 30);
@@ -177,18 +173,18 @@ public class MyProfile extends javax.swing.JFrame {
         jLabel28.setBounds(110, 460, 170, 30);
 
         jLabel23.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
-        jLabel23.setText("Address              :");
+        jLabel23.setText("Address               :");
         getContentPane().add(jLabel23);
         jLabel23.setBounds(110, 420, 170, 30);
 
         jLabel19.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
-        jLabel19.setText("Last Name          : ");
+        jLabel19.setText("Last Name           : ");
         jLabel19.setToolTipText("");
         getContentPane().add(jLabel19);
         jLabel19.setBounds(110, 370, 170, 30);
 
         jLabel8.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
-        jLabel8.setText("First Name          :");
+        jLabel8.setText("First Name           :");
         getContentPane().add(jLabel8);
         jLabel8.setBounds(110, 320, 170, 40);
 
@@ -331,10 +327,11 @@ public class MyProfile extends javax.swing.JFrame {
         lastName.setText(user.getLastName());
         String userLevels = user.getUserLevel();
 
-        if (userLevels.equals("user")) {
-            comboUserLevel.setSelectedItem("Customer");
+        if (userLevels.equals("Staff")) {
+            comboUserLevel.setSelectedItem("Staff");
+
         } else {
-            comboUserLevel.setSelectedItem("Administrator");
+            comboUserLevel.setSelectedItem("Admin");
         }
 
     }//GEN-LAST:event_jTable1MouseClicked
@@ -357,7 +354,7 @@ public class MyProfile extends javax.swing.JFrame {
                 String Levels = comboUserLevel.getSelectedItem().toString();
                 String userLevels;
 
-                if (Levels.equals("Customer")) {
+                if (Levels.equals("Staff")) {
                     userLevels = "Staff";
                 } else {
                     userLevels = "Admin";
@@ -397,8 +394,8 @@ public class MyProfile extends javax.swing.JFrame {
                 String Levels = comboUserLevel.getSelectedItem().toString();
                 String userLevels;
 
-                if (Levels.equals("Customer")) {
-                    userLevels = "user";
+                if (Levels.equals("Staff")) {
+                    userLevels = "Staff";
                 } else {
                     userLevels = "admin";
                 }
@@ -588,7 +585,7 @@ public class MyProfile extends javax.swing.JFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField lastName;
     private javax.swing.JTextField mobile;
-    private javax.swing.JTextField password;
+    private javax.swing.JPasswordField password;
     private javax.swing.JButton update;
     private javax.swing.JLabel userID;
     // End of variables declaration//GEN-END:variables

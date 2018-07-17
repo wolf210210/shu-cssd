@@ -16,14 +16,26 @@ public class SetOfLocation extends Vector<Location> implements Serializable  {
     
       SetOfLocation locationSet;
       
+    /** SetOfLocation
+     * 
+     */
     public SetOfLocation() {
         super();
     }
     
+    /**addNewSensor
+     *
+     * @param aLocation
+     */
     public void addNewSensor(Location aLocation){
           super.add(aLocation);
     }
        
+    /**getLocationFromSensorID
+     * 
+     * @param number
+     * @return locationSet
+     */
     public SetOfLocation getLocationFromSensorID(int number) {
         
                 locationSet = new SetOfLocation();
@@ -35,7 +47,12 @@ public class SetOfLocation extends Vector<Location> implements Serializable  {
                 return locationSet;
     }
     
-       public Double getLatitudeFromSensorID(int number) {
+    /**getLatitudeFromSensorID
+     *
+     * @param number
+     * @return tempLat
+     */
+    public Double getLatitudeFromSensorID(int number) {
         
                 Double tempLat =0.0 ; 
                 for (Location location : this) {
@@ -46,8 +63,12 @@ public class SetOfLocation extends Vector<Location> implements Serializable  {
                 return tempLat;
     }
     
-    
-      public boolean remove(Location loc) {
+    /**remove
+     *
+     * @param loc
+     * @return true/false
+     */
+    public boolean remove(Location loc) {
          return super.remove(loc);
     }
 }

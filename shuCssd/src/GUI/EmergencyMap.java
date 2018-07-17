@@ -20,6 +20,7 @@ public class EmergencyMap extends javax.swing.JFrame {
     private Double setLatitudes ;
     public EmergencyMap() {
         initComponents();
+        jLabel4.setVisible(false);
     }
 
     /**
@@ -64,10 +65,14 @@ public class EmergencyMap extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Selected Location");
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+
         addSensor.setBackground(new java.awt.Color(0, 102, 153));
         addSensor.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
         addSensor.setForeground(new java.awt.Color(255, 255, 255));
         addSensor.setText("Add Sensor");
+        addSensor.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         addSensor.setContentAreaFilled(false);
         addSensor.setOpaque(true);
         addSensor.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -87,9 +92,9 @@ public class EmergencyMap extends javax.swing.JFrame {
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(51, 51, 51))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(addSensor)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
+                            .addComponent(addSensor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(80, 80, 80))))
         );
         jPanel2Layout.setVerticalGroup(
@@ -134,6 +139,7 @@ public class EmergencyMap extends javax.swing.JFrame {
                 jLabel4.setLocation(evt.getX(),evt.getY());
                 setLongitudes = Double.valueOf(evt.getY());
                 setLatitudes  =  Double.valueOf(evt.getX());
+                jLabel4.setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel1MouseClicked
 

@@ -192,16 +192,12 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
-      ForgotPassword f = new ForgotPassword();
-      f.setVisible(true);
-      this.dispose();
+     
       
     }//GEN-LAST:event_jLabel11MouseClicked
 
     private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
-      Registration r = new Registration();
-      r.setVisible(true);
-      this.dispose();
+    
     }//GEN-LAST:event_jLabel12MouseClicked
 
     private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
@@ -230,17 +226,14 @@ public class Login extends javax.swing.JFrame {
 
                 } else if (userLevels.equals("UsernameIncorrect")) {
                     JOptionPane.showMessageDialog(this, "Username incorrect... Please try again with correct username", "Error", JOptionPane.ERROR_MESSAGE);
-                } else if (userLevels.equals("user")) {
-                    LoginType l = new LoginType();
-                    l.setVisible(true);
-                    //JOptionPane.showMessageDialog(this, "Username log", "Error", JOptionPane.ERROR_MESSAGE);
-//                    userMain u = new userMain(userID, userLevels, email);
-//                    u.setVisible(true);
-//                    this.hide();
+                } else if (userLevels.equals("Staff")) {
+                    StaffHome staffHome = new StaffHome();
+                    staffHome.setVisible(true);
+                    this.dispose();
                 } else if (userLevels.equals("admin")) {
-//                    adminMain a = new adminMain(userID, userLevels, email);
-//                    a.setVisible(true);
-//                    this.hide();
+                    UserHome userHome = new UserHome();
+                    userHome.setVisible(true);
+                    this.dispose();
                 }
 
             } catch (Exception ex) {
@@ -256,7 +249,8 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_addMouseClicked
 
     private void resetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resetMouseClicked
-
+                userName.setText("");
+                password.setText("");
     }//GEN-LAST:event_resetMouseClicked
 
     private void resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetActionPerformed

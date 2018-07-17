@@ -5,7 +5,7 @@
  */
 package serialization;
 
-import Product.SetOfProductStock;
+//import Product.SetOfProductStock;
 import binclasses.Mothership;
 import binclasses.SensorMonitor;
 
@@ -53,7 +53,12 @@ public class Serialization {
         System.out.println(filename + " Serialized !");
     }
 
- 
+    /**
+     *
+     * @return
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
     public static SensorMonitor deserializeBinSensors() throws IOException, ClassNotFoundException {
 
         SensorMonitor sensorMonitor;
@@ -66,7 +71,13 @@ public class Serialization {
         return sensorMonitor;
     }
     
-        public static SetOfLocation deserializeBinSensorsLocation() throws IOException, ClassNotFoundException {
+    /**
+     *
+     * @return
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
+    public static SetOfLocation deserializeBinSensorsLocation() throws IOException, ClassNotFoundException {
 
         SetOfLocation sensorLocation;
         try (FileInputStream in = new FileInputStream("DataFiles/BinSensorsLocation.txt")) {
@@ -77,9 +88,14 @@ public class Serialization {
 
         return sensorLocation;
     }
-
         
-           public static floodclasses.SetOfLocation deserializeFloodSensorsLocation() throws IOException, ClassNotFoundException {
+    /**
+     *
+     * @return
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
+    public static floodclasses.SetOfLocation deserializeFloodSensorsLocation() throws IOException, ClassNotFoundException {
 
         floodclasses.SetOfLocation sensorLocation;
         try (FileInputStream in = new FileInputStream("DataFiles/FloodSensorsLocation.txt")) {
@@ -91,7 +107,12 @@ public class Serialization {
         return sensorLocation;
     }
         
-        
+    /**
+     *
+     * @return
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
     public static floodclasses.SensorMonitor deserializeFloodSensors() throws IOException, ClassNotFoundException {
 
        floodclasses.SensorMonitor sensorMonitor;
@@ -104,7 +125,49 @@ public class Serialization {
         return sensorMonitor;
     }
     
-       public static SetOfUsers deserializeUsers() throws IOException, ClassNotFoundException {
+    /**
+     *
+     * @return
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
+    public static Emergencyclasses.SensorMonitor deserializeEmergencySensors() throws IOException, ClassNotFoundException {
+
+       Emergencyclasses.SensorMonitor sensorMonitor;
+        try (FileInputStream in = new FileInputStream("DataFiles/EmergencySensors.txt")) {
+            ObjectInputStream ois = new ObjectInputStream(in);
+           sensorMonitor = (Emergencyclasses.SensorMonitor) ois
+                    .readObject();
+        }
+
+        return sensorMonitor;
+    }
+      
+    /**
+     *
+     * @return
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
+    public static Emergencyclasses.SetOfLocation deserializeEmergencySensorsLocation() throws IOException, ClassNotFoundException {
+
+        Emergencyclasses.SetOfLocation sensorLocation;
+        try (FileInputStream in = new FileInputStream("DataFiles/EmergencySensorsLocation.txt")) {
+            ObjectInputStream ois = new ObjectInputStream(in);
+            sensorLocation = (Emergencyclasses.SetOfLocation) ois
+                    .readObject();
+        }
+
+        return sensorLocation;
+    }
+    
+    /**
+     *
+     * @return
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
+    public static SetOfUsers deserializeUsers() throws IOException, ClassNotFoundException {
 
         SetOfUsers users;
         try (FileInputStream in = new FileInputStream("DataFiles/Users.txt")) {
@@ -115,10 +178,17 @@ public class Serialization {
 
         return users;
     }
-     public static floodclasses.SetOfUsers deserializeFloodUsers() throws IOException, ClassNotFoundException {
+
+    /**
+     *
+     * @return
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
+    public static floodclasses.SetOfUsers deserializeFloodUsers() throws IOException, ClassNotFoundException {
 
         floodclasses.SetOfUsers users;
-        try (FileInputStream in = new FileInputStream("DataFiles/FILE_NAME_Users_FloodSensor.txt")) {
+        try (FileInputStream in = new FileInputStream("DataFiles/FileNnameUsersFloodSensor.txt")) {
             ObjectInputStream ois = new ObjectInputStream(in);
             users = (floodclasses.SetOfUsers) ois
                     .readObject();
@@ -127,10 +197,16 @@ public class Serialization {
         return users;
     }
      
-       public static floodclasses.SetOfUsers deserializeFloodUsersOne() throws IOException, ClassNotFoundException {
+    /**
+     *
+     * @return
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
+    public static floodclasses.SetOfUsers deserializeFloodUsersOne() throws IOException, ClassNotFoundException {
 
         floodclasses.SetOfUsers users;
-        try (FileInputStream in = new FileInputStream("DataFiles/FILE_NAME_Set_Users_FloodSensor1.txt")) {
+        try (FileInputStream in = new FileInputStream("DataFiles/FileNameSetUsersFloodSensorOne.txt")) {
             ObjectInputStream ois = new ObjectInputStream(in);
             users = (floodclasses.SetOfUsers) ois
                     .readObject();
@@ -139,10 +215,16 @@ public class Serialization {
         return users;
     }
        
-        public static floodclasses.SetOfUsers deserializeFloodUsersTwo() throws IOException, ClassNotFoundException {
+    /**
+     *
+     * @return
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
+    public static floodclasses.SetOfUsers deserializeFloodUsersTwo() throws IOException, ClassNotFoundException {
 
         floodclasses.SetOfUsers users;
-        try (FileInputStream in = new FileInputStream("DataFiles/FILE_NAME_Set_Users_FloodSensorTwo.txt")) {
+        try (FileInputStream in = new FileInputStream("DataFiles/FileNameSetUsersFloodSensorTwo.txt")) {
             ObjectInputStream ois = new ObjectInputStream(in);
             users = (floodclasses.SetOfUsers) ois
                     .readObject();
@@ -151,11 +233,16 @@ public class Serialization {
         return users;
     }
         
-        
-           public static floodclasses.SetOfUsers deserializeFloodUsersThree() throws IOException, ClassNotFoundException {
+    /**
+     *
+     * @return
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
+    public static floodclasses.SetOfUsers deserializeFloodUsersThree() throws IOException, ClassNotFoundException {
 
         floodclasses.SetOfUsers users;
-        try (FileInputStream in = new FileInputStream("DataFiles/FILE_NAME_Set_Users_FloodSensorThree.txt")) {
+        try (FileInputStream in = new FileInputStream("DataFiles/FileNameSetUsersFloodSensorThree.txt")) {
             ObjectInputStream ois = new ObjectInputStream(in);
             users = (floodclasses.SetOfUsers) ois
                     .readObject();
@@ -164,9 +251,11 @@ public class Serialization {
         return users;
     }
        
-       
-       
-       
+    /**
+     *
+     * @return
+     * @throws ClassNotFoundException
+     */
     public static ArrayList<SensorMonitor> getObserver() throws ClassNotFoundException{
         try {
             FileInputStream fil  =  new FileInputStream("DataFiles/ObserverUsers.txt");  
@@ -196,8 +285,13 @@ public class Serialization {
   
     }
 
-    
-     public static SetOfUsers deserializeObserver() throws IOException, ClassNotFoundException {
+    /**
+     *
+     * @return
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
+    public static SetOfUsers deserializeObserver() throws IOException, ClassNotFoundException {
 
         SetOfUsers users;
         try (FileInputStream in = new FileInputStream("DataFiles/ObserverUsers.txt")) {
@@ -209,18 +303,18 @@ public class Serialization {
         return users;
     }
     
-    
-    public static SetOfProductStock deserializeProductsStock() throws IOException, ClassNotFoundException {
-
-        SetOfProductStock products;
-        try (FileInputStream in = new FileInputStream("DataFiles/ProductsStock.txt")) {
-            ObjectInputStream ois = new ObjectInputStream(in);
-            products = (SetOfProductStock) ois
-                    .readObject();
-        }
-
-        return products;
-    }
+//    
+//    public static SetOfProductStock deserializeProductsStock() throws IOException, ClassNotFoundException {
+//
+//        SetOfProductStock products;
+//        try (FileInputStream in = new FileInputStream("DataFiles/ProductsStock.txt")) {
+//            ObjectInputStream ois = new ObjectInputStream(in);
+//            products = (SetOfProductStock) ois
+//                    .readObject();
+//        }
+//
+//        return products;
+//    }
 
 
 }

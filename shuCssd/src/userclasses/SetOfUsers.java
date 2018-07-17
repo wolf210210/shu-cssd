@@ -75,7 +75,12 @@ public class SetOfUsers extends Vector<User> implements Serializable {
         return status;
     }
     
-     public void update(User user, String availability) {
+    /**
+     *
+     * @param user
+     * @param availability
+     */
+    public void update(User user, String availability) {
         System.out.println("Hello "+user.getName()+", sensor is now "+user.getAvailabiliy()+"and notified");
         this.elementAt(this.indexOf(user)).setAvailabiliy(availability);
 

@@ -12,8 +12,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import userclasses.User;
 
-/**
- *
+/**Clock
+ * 
  * @author Piyu
  */
 public class Clock extends Thread implements  Serializable {
@@ -30,13 +30,19 @@ public class Clock extends Thread implements  Serializable {
   // private  static String threadName;
     String availability;
     
-    
+    /**
+     *
+     */
     public Clock() {
      observers = new ArrayList<SensorMonitor>();
      start();
     }
     
-      public static Clock getInstance() {
+    /**getInstance
+     * get clock constructor 
+     * @return instance
+     */
+    public static Clock getInstance() {
       if (instance == null) {
                 instance = new Clock();
            
@@ -48,7 +54,9 @@ public class Clock extends Thread implements  Serializable {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
      
-
+    /**notifyObservers
+     *
+     */
     public void notifyObservers() {
        System.out.println("Notifying all the subscribers when the bin is full");
 		 for (SensorMonitor ob : observers) {
@@ -63,24 +71,36 @@ public class Clock extends Thread implements  Serializable {
 
 	}
 
-	public void registerObserver(SensorMonitor observer) {
+    /**registerObserver
+     *
+     * @param observer
+     */
+    public void registerObserver(SensorMonitor observer) {
 		 observers.add(observer);
                 
 		
 	}
 
-	public void unregisterObserver(SensorMonitor observer) {
+    /**unregisterObserver
+     *
+     * @param observer
+     */
+    public void unregisterObserver(SensorMonitor observer) {
 		 observers.remove(observer);
 		
 	}
         
-        
-        
-        public void tractTime(){
+    /**
+     *
+     */
+    public void tractTime(){
             
         }
         
-        public void waitForTime(){
+    /**waitForTime
+     * thread set to sleep
+     */
+    public void waitForTime(){
                     try {
                         Thread.sleep(3000);
                     } catch (InterruptedException ex) {
@@ -89,11 +109,19 @@ public class Clock extends Thread implements  Serializable {
             
         }
         
-        public void notifyAllObservers(){
+    /**
+     *
+     */
+    public void notifyAllObservers(){
             
         }
         
-        public long mills(long timeInMiles){
+    /**mills
+     *
+     * @param timeInMiles
+     * @return timeInMiles
+     */
+    public long mills(long timeInMiles){
                  return timeInMiles;
         }
         

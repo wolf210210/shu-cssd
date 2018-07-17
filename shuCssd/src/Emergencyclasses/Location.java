@@ -22,33 +22,62 @@ public class Location  implements  Serializable  {
      private static int locationNo = 0;
   Location locations;
     
+    /**
+     *
+     */
     public Location() {
      
     } 
   
-  
-     public Location(Double latitudes, Double longitudes ,int sensorID) {
+    /**
+     *
+     * @param latitudes
+     * @param longitudes
+     * @param sensorID
+     */
+    public Location(Double latitudes, Double longitudes ,int sensorID) {
         this.latitude = latitudes;
         this.longitude = longitudes;
         this.sensorID = sensorID; 
         
     } 
       
+    /**getLatitude
+     *
+     * @return latitude
+     */
     public Double getLatitude() {
         return latitude;
     }
 
+    /**setLatitude
+     *
+     * @param latitude
+     */
     public void setLatitude(Double latitude) {
         this.latitude = latitude;
     }
 
+    /**getLongitude
+     *
+     * @return longitude
+     */
     public Double getLongitude() {
         return longitude;
     }
     
-     public int getSensorID() {
+    /** getSensorID
+     *
+     * @return sensorID
+     */
+    public int getSensorID() {
         return sensorID;
     }
+
+    /**getSensorNo
+     *
+     * @return sensorID
+     */
     public int getSensorNo() {
         return sensorID;
     }

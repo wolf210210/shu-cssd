@@ -26,7 +26,15 @@ public class UserRegister extends javax.swing.JFrame {
     public UserRegister() {
         initComponents();
        
-
+  
+         try {
+            for (User member : Serialization.deserializeUsers()) {
+                theUsers.addUser(member);
+                member.print();
+            }
+        } catch (IOException | ClassNotFoundException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage());
+        }
     }
 
     /**
@@ -44,14 +52,14 @@ public class UserRegister extends javax.swing.JFrame {
         jLabel30 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
+        password = new javax.swing.JPasswordField();
+        password1 = new javax.swing.JPasswordField();
         jLabel3 = new javax.swing.JLabel();
-        password = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         city = new javax.swing.JTextField();
         email = new javax.swing.JTextField();
         mobile = new javax.swing.JTextField();
-        password1 = new javax.swing.JTextField();
         jLabel28 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
@@ -105,6 +113,10 @@ public class UserRegister extends javax.swing.JFrame {
         jLabel23.setText("Address             :");
         getContentPane().add(jLabel23);
         jLabel23.setBounds(490, 360, 170, 30);
+        getContentPane().add(password);
+        password.setBounds(660, 530, 240, 30);
+        getContentPane().add(password1);
+        password1.setBounds(660, 580, 240, 30);
 
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -113,12 +125,6 @@ public class UserRegister extends javax.swing.JFrame {
         });
         getContentPane().add(jLabel3);
         jLabel3.setBounds(0, 30, 30, 30);
-
-        password.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        password.setForeground(new java.awt.Color(102, 102, 102));
-        password.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        getContentPane().add(password);
-        password.setBounds(660, 530, 240, 29);
 
         jLabel19.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
         jLabel19.setText("Last Name         :");
@@ -154,12 +160,6 @@ public class UserRegister extends javax.swing.JFrame {
         });
         getContentPane().add(mobile);
         mobile.setBounds(660, 480, 240, 29);
-
-        password1.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        password1.setForeground(new java.awt.Color(102, 102, 102));
-        password1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        getContentPane().add(password1);
-        password1.setBounds(660, 580, 240, 29);
 
         jLabel28.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
         jLabel28.setText("City                   :");
@@ -230,7 +230,7 @@ public class UserRegister extends javax.swing.JFrame {
                 Password1 = password1.getText();
 
                 if (Password.equals(Password1)) {
-                    String status = registerUser(firstname, lastname, Address, "user", City, Email, Mobile, Password);
+                    String status = registerUser(firstname, lastname, Address, "Staff", City, Email, Mobile, Password);
                     if (status.equals("success")) {
                         JOptionPane.showMessageDialog(this, "You have registered successful", "Congradulations", JOptionPane.INFORMATION_MESSAGE);
                         clear();
@@ -282,7 +282,7 @@ public class UserRegister extends javax.swing.JFrame {
     
       public String registerUser(String firstName, String lastName, String address, String userLevel, String city, String email, String mobile, String password) {
         String status = "";
-        new User.SingletonBuilder(firstName, lastName, address, "user", email, mobile, password).city(city).build();
+        new User.SingletonBuilder(firstName, lastName, address, "Staff", email, mobile, password).city(city).build();
         theUsers.addUser(User.getInstance());
         try {
             Serialization.Serialize(theUsers, FILE_NAME_Users);
@@ -369,7 +369,7 @@ public class UserRegister extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField lastName;
     private javax.swing.JTextField mobile;
-    private javax.swing.JTextField password;
-    private javax.swing.JTextField password1;
+    private javax.swing.JPasswordField password;
+    private javax.swing.JPasswordField password1;
     // End of variables declaration//GEN-END:variables
 }

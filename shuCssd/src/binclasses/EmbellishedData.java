@@ -14,12 +14,22 @@ import java.util.List;
  */
 public class EmbellishedData implements  Serializable{
     
-
+    /**
+     *
+     */
     public Long TimeInMiles;
      SensorMonitor monitorSet;
+
+    /**
+     *
+     */
     public String sensorID;
 //        private List<SensorMonitor> observers ;
     
+    /**EmbellishedData
+     *
+     * @param sensorMonitor
+     */
     public EmbellishedData(SensorMonitor sensorMonitor) {
        
         

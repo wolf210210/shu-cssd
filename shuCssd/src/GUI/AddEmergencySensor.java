@@ -78,9 +78,6 @@ public class AddEmergencySensor extends javax.swing.JFrame {
         frequencyText = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblanpSensor = new javax.swing.JTable();
-        jLabel9 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
@@ -244,18 +241,7 @@ public class AddEmergencySensor extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tblanpSensor);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(530, 370, 760, 220);
-
-        jLabel9.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
-        jLabel9.setText("Search");
-        getContentPane().add(jLabel9);
-        jLabel9.setBounds(650, 320, 120, 30);
-        getContentPane().add(jTextField4);
-        jTextField4.setBounds(770, 320, 270, 30);
-
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon.png"))); // NOI18N
-        getContentPane().add(jLabel10);
-        jLabel10.setBounds(1090, 310, 45, 50);
+        jScrollPane1.setBounds(530, 310, 760, 280);
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/kk.png"))); // NOI18N
         jLabel6.setText("jLabel6");
@@ -564,7 +550,6 @@ public class AddEmergencySensor extends javax.swing.JFrame {
     private javax.swing.JButton add;
     private javax.swing.JTextField frequencyText;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -577,9 +562,7 @@ public class AddEmergencySensor extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JButton reset;
     private javax.swing.JButton reset1;
     private javax.swing.JComboBox<String> statusText;

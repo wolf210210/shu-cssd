@@ -68,7 +68,7 @@ public class AddSensor extends javax.swing.JFrame {
                loadUser();
                loadObserver();
                clock = Clock.getInstance();
-               jButton1.disable();
+               add.disable();
                
     }
     
@@ -95,6 +95,9 @@ public class AddSensor extends javax.swing.JFrame {
     private void initComponents() {
 
         frequencyText = new javax.swing.JTextField();
+        add = new javax.swing.JButton();
+        updateBu = new javax.swing.JButton();
+        removes = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         statusText = new javax.swing.JComboBox<>();
@@ -109,9 +112,6 @@ public class AddSensor extends javax.swing.JFrame {
         txtanpDes = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblanpSensor = new javax.swing.JTable();
@@ -131,6 +131,48 @@ public class AddSensor extends javax.swing.JFrame {
         });
         getContentPane().add(frequencyText);
         frequencyText.setBounds(240, 490, 250, 40);
+
+        add.setBackground(new java.awt.Color(0, 102, 153));
+        add.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
+        add.setForeground(new java.awt.Color(255, 255, 255));
+        add.setText("Add");
+        add.setContentAreaFilled(false);
+        add.setOpaque(true);
+        add.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addMouseClicked(evt);
+            }
+        });
+        getContentPane().add(add);
+        add.setBounds(90, 563, 130, 40);
+
+        updateBu.setBackground(new java.awt.Color(0, 102, 153));
+        updateBu.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
+        updateBu.setForeground(new java.awt.Color(255, 255, 255));
+        updateBu.setText("Update");
+        updateBu.setContentAreaFilled(false);
+        updateBu.setOpaque(true);
+        updateBu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                updateBuMouseClicked(evt);
+            }
+        });
+        getContentPane().add(updateBu);
+        updateBu.setBounds(240, 563, 130, 40);
+
+        removes.setBackground(new java.awt.Color(0, 102, 153));
+        removes.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
+        removes.setForeground(new java.awt.Color(255, 255, 255));
+        removes.setText("Remove");
+        removes.setContentAreaFilled(false);
+        removes.setOpaque(true);
+        removes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                removesMouseClicked(evt);
+            }
+        });
+        getContentPane().add(removes);
+        removes.setBounds(390, 560, 130, 40);
 
         jLabel12.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel12.setText("Sensor ID");
@@ -203,52 +245,6 @@ public class AddSensor extends javax.swing.JFrame {
         getContentPane().add(jLabel9);
         jLabel9.setBounds(0, 30, 30, 30);
 
-        jButton1.setBackground(new java.awt.Color(0, 102, 102));
-        jButton1.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Add");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
-            }
-        });
-        getContentPane().add(jButton1);
-        jButton1.setBounds(90, 560, 120, 40);
-
-        jButton2.setBackground(new java.awt.Color(0, 102, 102));
-        jButton2.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Update");
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
-            }
-        });
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton2);
-        jButton2.setBounds(240, 560, 120, 40);
-
-        jButton3.setBackground(new java.awt.Color(0, 102, 102));
-        jButton3.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Remove");
-        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton3MouseClicked(evt);
-            }
-        });
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton3);
-        jButton3.setBounds(390, 560, 110, 40);
-
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/kk.png"))); // NOI18N
         jLabel6.setText("jLabel6");
         getContentPane().add(jLabel6);
@@ -299,26 +295,39 @@ public class AddSensor extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-
-
-
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
-
     private void txtanpIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtanpIdActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtanpIdActionPerformed
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+    private void tblanpSensorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblanpSensorMouseClicked
+     
+          DefaultTableModel dtModel= (DefaultTableModel) tblanpSensor.getModel();
+           int row = tblanpSensor.getSelectedRow();
+        txtanpId.setText(tblanpSensor.getValueAt(row, 0).toString());
+        txtanpName.setText(tblanpSensor.getValueAt(row, 1).toString());
+        txtanpDes.setText(tblanpSensor.getValueAt(row, 3).toString());
+          frequencyText.setText(tblanpSensor.getValueAt(row, 4).toString());
 
-   String name, description , frequency , statu;
+
+    }//GEN-LAST:event_tblanpSensorMouseClicked
+
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel3MouseClicked
+
+    private void frequencyTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_frequencyTextKeyTyped
+       validation.validateNumber(frequencyText,evt);
+    }//GEN-LAST:event_frequencyTextKeyTyped
+
+    private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
+        SensorStation sensorStation = new SensorStation();
+        sensorStation.setVisible(true);
+    }//GEN-LAST:event_jLabel9MouseClicked
+
+    private void addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMouseClicked
+ String name, description , frequency , statu;
         if (txtanpName.getText().isEmpty()) {
-            //            JOptionPane.showMessageDialog(this, "Please provide the name...", "Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(this, "Please provide the name...", "Error", JOptionPane.ERROR_MESSAGE);
             System.out.println("Please provide the name...");
         } else {
             name = txtanpName.getText();
@@ -360,10 +369,10 @@ public class AddSensor extends javax.swing.JFrame {
             }
             
         }
-    }//GEN-LAST:event_jButton1MouseClicked
+    }//GEN-LAST:event_addMouseClicked
 
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-              String name, description, states;
+    private void updateBuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateBuMouseClicked
+      String name, description, states;
                double freq; 
               
               name = txtanpName.getText();
@@ -387,13 +396,10 @@ public class AddSensor extends javax.swing.JFrame {
                 } else {
                     JOptionPane.showMessageDialog(this, "Update unsuccessful...", "Error", JOptionPane.ERROR_MESSAGE);
                 }
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2MouseClicked
+    }//GEN-LAST:event_updateBuMouseClicked
 
-    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
-           
-        
-        Sensor sensor = sensorSet.getSensorFromID(Integer.parseInt(txtanpId.getText())).firstElement();
+    private void removesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removesMouseClicked
+   Sensor sensor = sensorSet.getSensorFromID(Integer.parseInt(txtanpId.getText())).firstElement();
                 System.out.println("delete product" + sensor);
                 
                   if (sensorSet.remove(sensor)) {
@@ -412,34 +418,7 @@ public class AddSensor extends javax.swing.JFrame {
                 } else {
                     JOptionPane.showMessageDialog(this, "Delete unsuccessful...", "Error", JOptionPane.ERROR_MESSAGE);
                 }
-
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3MouseClicked
-
-    private void tblanpSensorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblanpSensorMouseClicked
-     
-          DefaultTableModel dtModel= (DefaultTableModel) tblanpSensor.getModel();
-           int row = tblanpSensor.getSelectedRow();
-        txtanpId.setText(tblanpSensor.getValueAt(row, 0).toString());
-        txtanpName.setText(tblanpSensor.getValueAt(row, 1).toString());
-        txtanpDes.setText(tblanpSensor.getValueAt(row, 3).toString());
-          frequencyText.setText(tblanpSensor.getValueAt(row, 4).toString());
-
-
-    }//GEN-LAST:event_tblanpSensorMouseClicked
-
-    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel3MouseClicked
-
-    private void frequencyTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_frequencyTextKeyTyped
-       validation.validateNumber(frequencyText,evt);
-    }//GEN-LAST:event_frequencyTextKeyTyped
-
-    private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
-        SensorStation sensorStation = new SensorStation();
-        sensorStation.setVisible(true);
-    }//GEN-LAST:event_jLabel9MouseClicked
+    }//GEN-LAST:event_removesMouseClicked
 
        private void loadAddSensor(SensorMonitor sensorMoni) {
 
@@ -605,10 +584,8 @@ public class AddSensor extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton add;
     private javax.swing.JTextField frequencyText;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -624,10 +601,12 @@ public class AddSensor extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JButton removes;
     private javax.swing.JComboBox<String> statusText;
     private javax.swing.JTable tblanpSensor;
     private javax.swing.JTextField txtanpDes;
     private javax.swing.JTextField txtanpId;
     private javax.swing.JTextField txtanpName;
+    private javax.swing.JButton updateBu;
     // End of variables declaration//GEN-END:variables
 }

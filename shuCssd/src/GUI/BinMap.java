@@ -22,6 +22,7 @@ public class BinMap extends javax.swing.JFrame {
        private Double setLatitudes ;
     public BinMap() {
         initComponents();
+        jLabel2.setVisible(false);
     }
 
     /**
@@ -37,7 +38,7 @@ public class BinMap extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        add = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
 
@@ -59,18 +60,16 @@ public class BinMap extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
 
-        jButton1.setBackground(new java.awt.Color(0, 102, 153));
-        jButton1.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Add Sensor");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        add.setBackground(new java.awt.Color(0, 102, 153));
+        add.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
+        add.setForeground(new java.awt.Color(255, 255, 255));
+        add.setText("Add Sensor");
+        add.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        add.setContentAreaFilled(false);
+        add.setOpaque(true);
+        add.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
-            }
-        });
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                addMouseClicked(evt);
             }
         });
 
@@ -78,10 +77,6 @@ public class BinMap extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -91,6 +86,10 @@ public class BinMap extends javax.swing.JFrame {
                         .addGap(40, 40, 40)
                         .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(52, 52, 52))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(57, 57, 57)
+                .addComponent(add, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -99,9 +98,9 @@ public class BinMap extends javax.swing.JFrame {
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(355, Short.MAX_VALUE))
+                .addGap(27, 27, 27)
+                .addComponent(add, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(366, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1);
@@ -141,20 +140,16 @@ public class BinMap extends javax.swing.JFrame {
               jLabel2.setLocation(evt.getX(),evt.getY());
                 setLongitudes = Double.valueOf(evt.getY());
                 setLatitudes  =  Double.valueOf(evt.getX());
+                jLabel2.setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_jPanel2MouseClicked
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-                  AddSensor aAddSensor = new AddSensor( setLatitudes , setLongitudes);
+    private void addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMouseClicked
+                 AddSensor aAddSensor = new AddSensor( setLatitudes , setLongitudes);
                   aAddSensor.setVisible(true);
                   this.dispose();
 
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1MouseClicked
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_addMouseClicked
 
     /**
      * @param args the command line arguments
@@ -192,7 +187,7 @@ public class BinMap extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton add;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

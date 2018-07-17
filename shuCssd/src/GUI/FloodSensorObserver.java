@@ -82,6 +82,7 @@ public class FloodSensorObserver extends javax.swing.JFrame {
         add4 = new javax.swing.JButton();
         add1 = new javax.swing.JButton();
         add3 = new javax.swing.JButton();
+        password = new javax.swing.JPasswordField();
         delete = new javax.swing.JButton();
         statusText = new javax.swing.JComboBox<>();
         userID = new javax.swing.JTextField();
@@ -95,7 +96,6 @@ public class FloodSensorObserver extends javax.swing.JFrame {
         userIDLable = new javax.swing.JLabel();
         address = new javax.swing.JTextField();
         city = new javax.swing.JTextField();
-        password = new javax.swing.JTextField();
         mobile = new javax.swing.JTextField();
         email = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
@@ -201,9 +201,12 @@ public class FloodSensorObserver extends javax.swing.JFrame {
         });
         getContentPane().add(add3);
         add3.setBounds(1040, 220, 210, 33);
+        getContentPane().add(password);
+        password.setBounds(340, 362, 240, 30);
 
         delete.setBackground(new java.awt.Color(0, 102, 153));
         delete.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
+        delete.setForeground(new java.awt.Color(102, 102, 102));
         delete.setText("Delete User");
         delete.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         delete.setContentAreaFilled(false);
@@ -242,6 +245,11 @@ public class FloodSensorObserver extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTable1);
 
         getContentPane().add(jScrollPane2);
@@ -291,17 +299,6 @@ public class FloodSensorObserver extends javax.swing.JFrame {
         getContentPane().add(city);
         city.setBounds(340, 280, 240, 29);
 
-        password.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        password.setForeground(new java.awt.Color(102, 102, 102));
-        password.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        password.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                passwordActionPerformed(evt);
-            }
-        });
-        getContentPane().add(password);
-        password.setBounds(340, 360, 240, 29);
-
         mobile.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
         mobile.setForeground(new java.awt.Color(102, 102, 102));
         mobile.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -334,7 +331,7 @@ public class FloodSensorObserver extends javax.swing.JFrame {
         jLabel11.setText("www.Elegantro.com/floodsensorobserver.html");
         jLabel11.setToolTipText("");
         getContentPane().add(jLabel11);
-        jLabel11.setBounds(170, 10, 370, 40);
+        jLabel11.setBounds(170, 20, 370, 40);
 
         jLabel30.setFont(new java.awt.Font("Segoe UI Light", 1, 20)); // NOI18N
         jLabel30.setText("Password            :");
@@ -425,6 +422,7 @@ public class FloodSensorObserver extends javax.swing.JFrame {
 
         add.setBackground(new java.awt.Color(0, 102, 153));
         add.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
+        add.setForeground(new java.awt.Color(102, 102, 102));
         add.setText("Add User");
         add.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         add.setContentAreaFilled(false);
@@ -453,7 +451,13 @@ public class FloodSensorObserver extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void mobileKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_mobileKeyTyped
-
+   Validation.validateNumber(mobile, evt);
+         
+         char enter =evt.getKeyChar();
+            if((!Character.isDigit(enter)) || mobile.getText().length()>=10)
+               {
+                  evt.consume();
+               }    
     }//GEN-LAST:event_mobileKeyTyped
 
     private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
@@ -522,10 +526,6 @@ public class FloodSensorObserver extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_lastNameActionPerformed
 
-    private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_passwordActionPerformed
-
     private void deleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteMouseClicked
         int userNum;
         int confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this user?", "Confirm", JOptionPane.YES_NO_OPTION,
@@ -575,7 +575,9 @@ public class FloodSensorObserver extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void add2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_add2MouseClicked
-   User user = theUsers.getMemberFromNumber(Integer.parseInt(userID.getText())).firstElement();
+
+                  if(!userID.getText().isEmpty()){
+        User user = theUsers.getMemberFromNumber(Integer.parseInt(userID.getText())).firstElement();
 
         if(jComboBox1.getSelectedIndex()==0){
                 sensorSet1.registerObserver(user);
@@ -619,7 +621,11 @@ public class FloodSensorObserver extends javax.swing.JFrame {
 
                     System.out.println("Unsuccessful...");
                 }
-         }
+           }
+        }
+            else{
+               JOptionPane.showMessageDialog(this, "Select user number.", "Error", JOptionPane.ERROR_MESSAGE);
+          }
     }//GEN-LAST:event_add2MouseClicked
 
     private void add3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_add3MouseClicked
@@ -642,7 +648,8 @@ public class FloodSensorObserver extends javax.swing.JFrame {
     }//GEN-LAST:event_add3MouseClicked
 
     private void add4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_add4MouseClicked
-   if(jComboBox1.getSelectedIndex()==0){
+      if(!userID.getText().isEmpty()){
+        if(jComboBox1.getSelectedIndex()==0){
                     User user = theUsersObserver1.getMemberFromNumber(Integer.parseInt(userID.getText())).firstElement();
                     sensorSet1.unregisterObserver(user);
                     JOptionPane.showMessageDialog(this, "You have Unregister Observer successful", "Message", JOptionPane.INFORMATION_MESSAGE);
@@ -657,10 +664,15 @@ public class FloodSensorObserver extends javax.swing.JFrame {
                     sensorSetThree.unregisterObserver(user);
                     JOptionPane.showMessageDialog(this, "You have Unregister Observer successful", "Message", JOptionPane.INFORMATION_MESSAGE);
           }
+        }
+          else{
+               JOptionPane.showMessageDialog(this, "Select user number.", "Error", JOptionPane.ERROR_MESSAGE);
+          }
     }//GEN-LAST:event_add4MouseClicked
 
     private void add5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_add5MouseClicked
-     if(jComboBox1.getSelectedIndex()==0){
+            if(!userID.getText().isEmpty()){                 
+                    if(jComboBox1.getSelectedIndex()==0){
                                 User user = theUsersObserver1.getMemberFromNumber(Integer.parseInt(userID.getText())).firstElement();
                                 boolean status = theUsersObserver1.removeUser(user);
                                 if (status) {
@@ -716,6 +728,10 @@ public class FloodSensorObserver extends javax.swing.JFrame {
                                     JOptionPane.showMessageDialog(this, "Delete unsuccessful...", "Error", JOptionPane.ERROR_MESSAGE);
                                 }
                     }
+                                       }
+          else{
+               JOptionPane.showMessageDialog(this, "Select user number.", "Error", JOptionPane.ERROR_MESSAGE);
+          }
     }//GEN-LAST:event_add5MouseClicked
 
     private void add6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_add6MouseClicked
@@ -755,6 +771,13 @@ public class FloodSensorObserver extends javax.swing.JFrame {
          BinSensor binsensor = new BinSensor();
          binsensor.setVisible(true);
     }//GEN-LAST:event_jLabel3MouseClicked
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        DefaultTableModel dtm = (DefaultTableModel) jTable1.getModel();
+
+        int row = jTable1.getSelectedRow();
+        userID.setText(jTable1.getValueAt(row, 0).toString());
+    }//GEN-LAST:event_jTable1MouseClicked
     public void TableLoad( SetOfUsers searchList) {
         String[] colName = {"User ID", "First Name", "Address", "Email", "Mobile Number"};
         Object[][] object = new Object[searchList.size()][5];
@@ -1033,7 +1056,7 @@ public class FloodSensorObserver extends javax.swing.JFrame {
     private javax.swing.JTable jTable2;
     private javax.swing.JTextField lastName;
     private javax.swing.JTextField mobile;
-    private javax.swing.JTextField password;
+    private javax.swing.JPasswordField password;
     private javax.swing.JComboBox<String> statusText;
     private javax.swing.JTextField userID;
     private javax.swing.JLabel userIDLable;

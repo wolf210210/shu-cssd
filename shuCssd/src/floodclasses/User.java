@@ -60,6 +60,10 @@ public class User implements Serializable, Mothership {
         System.out.println(Integer.toString(memberNumber) + " Name " + name + ",username " + username + ",password " + password + ",userLevel " + userLevel);
     }
 
+    /**
+     *
+     * @param availabilitys
+     */
     @Override
     public void update(String availabilitys) {
          System.out.println("Hello "+getName()+", sensor is now "+getAvailabiliy()+"and notified");
@@ -290,10 +294,18 @@ public class User implements Serializable, Mothership {
         this.mobile = mobile;
     }
     
-     public String getAvailabiliy() {
+    /**
+     *
+     * @return
+     */
+    public String getAvailabiliy() {
         return availabiliy;
     }
 
+    /**
+     *
+     * @param availabiliy
+     */
     public void setAvailabiliy(String availabiliy) {
         this.availabiliy = availabiliy;
     } 

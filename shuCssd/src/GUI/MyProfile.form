@@ -168,26 +168,6 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JTextField" name="password">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI Light" size="18" style="0"/>
-        </Property>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="66" green="66" red="66" type="rgb"/>
-        </Property>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
-            <EtchetBorder/>
-          </Border>
-        </Property>
-      </Properties>
-      <Constraints>
-        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="290" y="540" width="240" height="-1"/>
-        </Constraint>
-      </Constraints>
-    </Component>
     <Component class="javax.swing.JLabel" name="jLabel11">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -196,7 +176,7 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="0" green="66" red="0" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="www.Elegantro.com/MyProfile.html"/>
+        <Property name="text" type="java.lang.String" value="www.Elegantro.com/myprofile.html"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
       <Constraints>
@@ -214,6 +194,13 @@
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="510" y="80" width="390" height="130"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JPasswordField" name="password">
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="290" y="540" width="240" height="30"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -245,7 +232,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI Light" size="18" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Mobile Number   :"/>
+        <Property name="text" type="java.lang.String" value="Mobile Number    :"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -258,7 +245,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI Light" size="18" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Password            :"/>
+        <Property name="text" type="java.lang.String" value="Password             :"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
       <Constraints>
@@ -298,7 +285,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI Light" size="18" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Address              :"/>
+        <Property name="text" type="java.lang.String" value="Address               :"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -311,7 +298,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI Light" size="18" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Last Name          : "/>
+        <Property name="text" type="java.lang.String" value="Last Name           : "/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
       <Constraints>
@@ -325,7 +312,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI Light" size="18" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="First Name          :"/>
+        <Property name="text" type="java.lang.String" value="First Name           :"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">

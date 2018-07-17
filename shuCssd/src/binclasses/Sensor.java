@@ -21,14 +21,23 @@ public class Sensor  implements Serializable{
     private int sensorNumber, stockNo;
     private String name, description;
     private String state;
-//    private int productID;
+
     private double frequency;
     
-    
+    /**
+     *
+     */
     public Sensor() {
     }
     
-      public Sensor(String name, String des,double frequency, String pState) {
+    /**Sensor
+     * constructor 
+     * @param name
+     * @param des
+     * @param frequency
+     * @param pState
+     */
+    public Sensor(String name, String des,double frequency, String pState) {
         super();
         this.name = name;
         this.frequency= frequency;
@@ -40,34 +49,45 @@ public class Sensor  implements Serializable{
 
     }
       
-       public void setName(String name) {
+    /**setName
+     *
+     * @param name
+     */
+    public void setName(String name) {
         this.name = name;
     }
        
-       public void setDescription(String des) {
+    /**setDescription
+     *
+     * @param des
+     */
+    public void setDescription(String des) {
         this.description = des;
 
     }
        
-         
+    /**getSensorNo
+     *
+     * @return
+     */
     public int getSensorNo() {
         return sensorNumber;
     }
     
-      public String getName() {
+    /**getName
+     *
+     * @return name
+     */
+    public String getName() {
 
         return name;
     }
-      
-//       public void setAvalability(String avl) {
-//        this.aval = avl;
-//    }
-       
-//         public void setPrice(double price) {
-//        this.uprice = price;
-//    }
-         
-            public void setfrequency(double frq) {
+
+    /**setfrequency
+     *
+     * @param frq
+     */
+    public void setfrequency(double frq) {
         this.frequency = frq;
     }
 
@@ -88,26 +108,38 @@ public class Sensor  implements Serializable{
     
     }
     
-    
+    /**
+     *
+     * @return
+     */
     public double getfrequency() {
         return frequency;
     }
     
+    /**
+     *
+     * @return
+     */
     public String getStatus() {
         return this.state;
     }
     
-//    public double getPrice() {
-//        return uprice;
-//    }
+    /**
+     *
+     * @param states
+     */
+    public void setStatus(String states){
+        this.state = states;
+    }
 
-       public String getdescription() {
+    /**
+     *
+     * @return
+     */
+    public String getdescription() {
         return description;
     }
-       
-//        public String getAvalability() {
-//        return aval;
-//    }
+ 
 
    
   

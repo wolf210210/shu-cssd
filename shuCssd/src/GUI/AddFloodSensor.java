@@ -82,7 +82,6 @@ public class AddFloodSensor extends javax.swing.JFrame {
 
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblanpSensor = new javax.swing.JTable();
         remove = new javax.swing.JButton();
@@ -94,8 +93,6 @@ public class AddFloodSensor extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -120,8 +117,6 @@ public class AddFloodSensor extends javax.swing.JFrame {
         jLabel7.setText("Description");
         getContentPane().add(jLabel7);
         jLabel7.setBounds(60, 410, 140, 30);
-        getContentPane().add(jTextField4);
-        jTextField4.setBounds(760, 310, 270, 30);
 
         tblanpSensor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -142,7 +137,7 @@ public class AddFloodSensor extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tblanpSensor);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(530, 360, 760, 240);
+        jScrollPane1.setBounds(530, 330, 760, 270);
 
         remove.setBackground(new java.awt.Color(0, 102, 153));
         remove.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
@@ -225,15 +220,6 @@ public class AddFloodSensor extends javax.swing.JFrame {
         jLabel15.setToolTipText("");
         getContentPane().add(jLabel15);
         jLabel15.setBounds(170, 20, 320, 40);
-
-        jLabel9.setFont(new java.awt.Font("Segoe UI Light", 1, 20)); // NOI18N
-        jLabel9.setText("Search");
-        getContentPane().add(jLabel9);
-        jLabel9.setBounds(640, 310, 120, 30);
-
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon.png"))); // NOI18N
-        getContentPane().add(jLabel10);
-        jLabel10.setBounds(1080, 300, 45, 50);
 
         jLabel4.setFont(new java.awt.Font("Segoe UI Light", 1, 20)); // NOI18N
         jLabel4.setText("Name");
@@ -587,7 +573,6 @@ public class AddFloodSensor extends javax.swing.JFrame {
     private javax.swing.JTextField frequencyText;
     private javax.swing.JTextField idText;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -601,9 +586,7 @@ public class AddFloodSensor extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField nameText;
     private javax.swing.JButton remove;
     private javax.swing.JComboBox<String> statusText;
